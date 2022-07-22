@@ -1,0 +1,1072 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="img/favicon.png">
+      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.3.9">
+    
+    
+      
+        <title>Options and Limitations - Envi OData Public API 1.0</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.1d29e8d0.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.cbb835fc.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#000000">
+        
+      
+      
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL(".",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="black" data-md-color-accent="">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#search" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="." title="Envi OData Public API 1.0" class="md-header__button md-logo" aria-label="Envi OData Public API 1.0" data-md-component="logo">
+      
+  <img src="assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Envi OData Public API 1.0
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Options and Limitations
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="index.html" class="md-tabs__link md-tabs__link--active">
+        Topics
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="Inventory.html" class="md-tabs__link">
+        Operations
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="." title="Envi OData Public API 1.0" class="md-nav__button md-logo" aria-label="Envi OData Public API 1.0" data-md-component="logo">
+      
+  <img src="assets/logo.png" alt="logo">
+
+    </a>
+    Envi OData Public API 1.0
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1">
+          Topics
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Topics" data-md-level="1">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          Topics
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Testing%20with%20Postman.html" class="md-nav__link">
+        Testing with Postman
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Retrieving_Data.html" class="md-nav__link">
+        Retrieving Data using cURL
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Options and Limitations
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="Options_and_Limitations.html" class="md-nav__link md-nav__link--active">
+        Options and Limitations
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#search" class="md-nav__link">
+    $search
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#top-and-skip" class="md-nav__link">
+    $top and $skip
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#filter" class="md-nav__link">
+    $filter
+  </a>
+  
+    <nav class="md-nav" aria-label="$filter">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#logical-operators" class="md-nav__link">
+    Logical Operators
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#orderby" class="md-nav__link">
+    $orderby
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#format" class="md-nav__link">
+    $format
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Custom_Options.html" class="md-nav__link">
+        Custom Options
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Metadata.html" class="md-nav__link">
+        Metadata
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Metadata_Controlling.html" class="md-nav__link">
+        Metadata Controlling
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Operations
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Operations" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Operations
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Inventory.html" class="md-nav__link">
+        Inventory
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Addresses.html" class="md-nav__link">
+        Addresses
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#search" class="md-nav__link">
+    $search
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#top-and-skip" class="md-nav__link">
+    $top and $skip
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#filter" class="md-nav__link">
+    $filter
+  </a>
+  
+    <nav class="md-nav" aria-label="$filter">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#logical-operators" class="md-nav__link">
+    Logical Operators
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#orderby" class="md-nav__link">
+    $orderby
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#format" class="md-nav__link">
+    $format
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+
+
+  <h1>Options and Limitations</h1>
+
+<p>Refine the results of your query by using query options.</p>
+<ul>
+<li><a href="#search">$search</a></li>
+<li><a href="#top-and-skip">$top and $skip</a></li>
+<li><a href="#filter">$filter</a></li>
+<li><a href="#orderby">$orderby</a> </li>
+<li><a href="#format">$format</a></li>
+</ul>
+<p>This section will help you go through query options supported by Envi OData API and common scenarios for using them. Envi OData API is based on OData protocol v4.0 but has its own custom implementation, so currently not all query options are supported. Envi API allows using query options for all resources that return lists of entities, except those which actions or functions are applied to OData.</p>
+<p>Also, Envi OData API defines a set of logical operators that evaluate to true or false. Logical operators are typically used in the $filter query option to filter the set of resources. For more details go to the <a href="#filter">$filter</a> article. The concept of logical operators is simple. They allow the program to make a decision based on multiple conditions. Each operand is considered a condition that can be evaluated to a true or false. These operands can combine multiple Boolean expressions or values and provide a single Boolean output.</p>
+<h2 id="search">$search</h2>
+<p>The <code>$search</code>  system query option allows searching through all available entity fields in a collection of resources that are addressed by the request URL. The expression specified by <code>$search</code>  consists of the search value only which is treated as the <code>like</code>  expression.</p>
+<ul>
+<li>The expression of the item evaluates to true for at least one of the fields included in the response.</li>
+<li>The expression of resources evaluates to false or to null for all searchable fields omitted in the response.</li>
+</ul>
+<p><span style="color: #F05D30">Request Example </span></p>
+<p><code>https://&lt;HOSTNAME&gt;/odata/Inventory?$search="inv"</code></p>
+<p>(for example, <code>&lt;HOSTNAME&gt; = api-demo.envi.net</code>)</p>
+<p>The following request example filters target records set based on the <code>inv</code>  search value. In case any of the searchable fields contains <code>inv</code> , the entity is included in the response.</p>
+<p>Since no <code>$top</code>  option is specified, only first 20 records are included in the response. Except for <code>$top</code>  and <code>$skip</code>  options, <code>@odata.nextLink</code> includes the <code>$search</code> option.</p>
+<div class="highlight"><span class="filename">Response example</span><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="w">    </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">    </span><span class="nt">&quot;@odata.context&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://api-demo.envi.net/odata/$metadata#Inventory&quot;</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="nt">&quot;@odata.count&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">174</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">    </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">    </span><span class="err">....</span><span class="w"></span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">    </span><span class="nt">&quot;organizationName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Invision Test Org&quot;</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">    </span><span class="err">....</span><span class="w"></span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">    </span><span class="p">},</span><span class="w"></span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">    </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">    </span><span class="err">....</span><span class="w"></span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">    </span><span class="nt">&quot;inventoryNo&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Inv #10&quot;</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">    </span><span class="err">....</span><span class="w"></span>
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="w">    </span><span class="p">},</span><span class="w"></span>
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="w">    </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="w">    </span><span class="err">....</span><span class="w"></span>
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="w">    </span><span class="nt">&quot;classificationName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Capital Inventory&quot;</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="w">    </span><span class="err">....</span><span class="w"></span>
+<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="w">    </span><span class="p">},</span><span class="w"></span>
+<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="w">    </span><span class="err">....</span><span class="w"></span>
+<a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a><span class="w">    </span><span class="p">{</span><span class="err">....</span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a><span class="w">    </span><span class="p">],</span><span class="w"></span>
+<a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a><span class="w">    </span><span class="nt">&quot;@odata.nextLink&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://api-demo.envi.net/odata/Inventory?$search=inv&amp;$top=20&amp;$skip=20&quot;</span><span class="w"></span>
+<a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a><span class="w">    </span><span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<h2 id="top-and-skip">$top and $skip</h2>
+<p>The <code>$top</code> system query option requests the number of items in the queried collection included in the result.</p>
+<p>The <code>$skip</code> query option requests the number of items in the queried collection that should be skipped and not included in the response. In case <code>$top</code> option is not provided, Envi API automatically adds <code>$top=20</code> to the initial query. Thus, a response contains 20 first records only, and the <code>@odata.next</code> link includes <code>$top</code> and <code>$skip</code> query options based on that value.</p>
+<p><span style="color: #F05D30">Request Example </span></p>
+<p><code>https://&lt;HOSTNAME&gt;/odata/Inventory</code></p>
+<p>(for example, <code>&lt;HOSTNAME&gt; = api-demo.envi.net</code>)</p>
+<p>Since neither <code>$top</code> nor <code>$skip</code> options are specified, the system uses default values, so a response contains first 20 records from the matched list, and <code>@odata.nextLink</code> is composed based on default values.</p>
+<div class="highlight"><span class="filename">Response example</span><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="w">    </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">    </span><span class="nt">&quot;@odata.context&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://api-demo.envi.net/odata/$metadata#Inventory&quot;</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="nt">&quot;@odata.count&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">17521</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">    </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">    </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">    </span><span class="nt">&quot;inventoryId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;732adaec-fd14-44e5-b3d6-603fe893bc15&quot;</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">    </span><span class="nt">&quot;organizationId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;05e36af1-0676-4216-aa3f-aa1ba787aaec&quot;</span><span class="w"></span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">    </span><span class="err">....</span><span class="w"></span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">    </span><span class="p">},</span><span class="w"></span>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">    </span><span class="p">{</span><span class="err">....</span><span class="p">},</span><span class="w"></span>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w">    </span><span class="err">....</span><span class="w"></span>
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="w">    </span><span class="p">{</span><span class="err">....</span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="w">    </span><span class="p">],</span><span class="w"></span>
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="w">    </span><span class="nt">&quot;@odata.nextLink&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://api-demo.envi.net/odata/Inventory?$top=20&amp;$skip=20&quot;</span><span class="w"></span>
+<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="w">    </span><span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<p><span style="color: #F05D30">Request Example </span></p>
+<p><code>https://&lt;HOSTNAME&gt;/odata/Inventory?$top=5</code></p>
+<p>(for example, <code>&lt;HOSTNAME&gt; = api-demo.envi.net</code>)</p>
+<p>Since the <code>$top</code> option is specified, system returns first 5 records from the matched list, and <code>@odata.nextLink</code> is composed based on this value.</p>
+<div class="highlight"><span class="filename">Response example</span><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="w">   </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">    </span><span class="nt">&quot;@odata.context&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://api-demo.envi.net/odata/$metadata#Inventory&quot;</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="nt">&quot;@odata.count&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">17521</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">    </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">    </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">    </span><span class="nt">&quot;inventoryId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;732adaec-fd14-44e5-b3d6-603fe893bc15&quot;</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">    </span><span class="nt">&quot;organizationId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;05e36af1-0676-4216-aa3f-aa1ba787aaec&quot;</span><span class="w"></span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">    </span><span class="err">....</span><span class="w"></span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">    </span><span class="p">},</span><span class="w"></span>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">    </span><span class="p">{</span><span class="err">....</span><span class="p">},</span><span class="w"></span>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="w">    </span><span class="err">....</span><span class="w"></span>
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="w">    </span><span class="p">{</span><span class="err">....</span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="w">    </span><span class="p">],</span><span class="w"></span>
+<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="w">    </span><span class="nt">&quot;@odata.nextLink&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://api-demo.envi.net/odata/Inventory?$top=5&amp;$skip=5&quot;</span><span class="w"></span>
+<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="w">    </span><span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<p><span style="color: #F05D30">Request Example </span></p>
+<p><code>https://&lt;HOSTNAME&gt;/odata/Inventory?$skip=10</code></p>
+<p>(for example, <code>&lt;HOSTNAME&gt; = api-demo.envi.net</code>)</p>
+<p>Since <code>$skip</code> option is specified, but <code>$top</code> is not, system skips first 10 records and uses default value for <code>$top</code> option, so next 20 records from the matched list (after 10 records that are skipped) are returned, and <code>@odata.nextLink</code> is composed based on the following value.</p>
+<div class="highlight"><span class="filename">Response example</span><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="w">   </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">    </span><span class="nt">&quot;@odata.context&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://api-demo.envi.net/odata/$metadata#Inventory&quot;</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">    </span><span class="nt">&quot;@odata.count&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">17521</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">    </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">    </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">    </span><span class="nt">&quot;inventoryId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;732adaec-fd14-44e5-b3d6-603fe893bc15&quot;</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">    </span><span class="nt">&quot;organizationId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;05e36af1-0676-4216-aa3f-aa1ba787aaec&quot;</span><span class="w"></span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">    </span><span class="err">....</span><span class="w"></span>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="w">    </span><span class="p">},</span><span class="w"></span>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="w">    </span><span class="p">{</span><span class="err">....</span><span class="p">},</span><span class="w"></span>
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="w">    </span><span class="err">....</span><span class="w"></span>
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="w">    </span><span class="p">{</span><span class="err">....</span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="w">    </span><span class="p">],</span><span class="w"></span>
+<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="w">    </span><span class="nt">&quot;@odata.nextLink&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://api-demo.envi.net/odata/Inventory?$top=20&amp;$skip=30&quot;</span><span class="w"></span>
+<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="w">    </span><span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<h2 id="filter">$filter</h2>
+<p>The <code>$filter</code> system query option allows clients to filter a collection of resources addressed by a request URL. The expression specified with <code>$filter</code> is evaluated for each resource in the collection, and only items, which expression is evaluated to true are included in the response. Resources which expression is evaluated to False or Null are skipped in the response. Property names should be specified in lower camel case.</p>
+<p>Now, Envi API allows filtering by the following functions:</p>
+<ul>
+<li><code>Contains</code>—treated as the like expression. The system searches the specified value in any part of the property.</li>
+</ul>
+<p>Also, Envi API supports the following logical operations:</p>
+<ul>
+<li><code>Equals</code>—treated as the Strict match expression. It means that specified property should exactly be matched with provided value.</li>
+</ul>
+<p><span style="color: #F05D30">Request Example </span></p>
+<p><code>https://&lt;HOSTNAME&gt;/odata/Inventory?$filter=notes eq 'Capital Item'</code></p>
+<p>(for example, <code>&lt;HOSTNAME&gt; = api-demo.envi.net</code>)</p>
+<p>This request example filters target records set based on value of notes property and in case it equals Capital Item, entity will be included in resulting set.</p>
+<p>Since no <code>$top</code> option is specified, only first 20 records will be included. Except of <code>$top</code> and <code>$skip</code> options, <code>@odata.nextLink</code> in the response will include <code>$filter</code> option.</p>
+<div class="highlight"><span class="filename">Response example</span><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="w">   </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">    </span><span class="nt">&quot;@odata.context&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://api-demo.envi.net/odata/$metadata#Inventory&quot;</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">    </span><span class="nt">&quot;@odata.count&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">52</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">    </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">    </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">    </span><span class="err">....</span><span class="w"></span>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w">    </span><span class="nt">&quot;notes&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Capital Item&quot;</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="w">    </span><span class="nt">&quot;organizationId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;05e36af1-0676-4216-aa3f-aa1ba787aaec&quot;</span><span class="w"></span>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="w">    </span><span class="err">....</span><span class="w"></span>
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="w">    </span><span class="p">},</span><span class="w"></span>
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="w">    </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="w">    </span><span class="err">....</span><span class="w"></span>
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="w">    </span><span class="nt">&quot;notes&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Capital Item&quot;</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="w">    </span><span class="nt">&quot;organizationId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;05e36af1-0676-4216-aa3f-aa1ba787aaec&quot;</span><span class="w"></span>
+<a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a><span class="w">    </span><span class="err">....</span><span class="w"></span>
+<a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a><span class="w">    </span><span class="p">},</span><span class="w"></span>
+<a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a><span class="w">    </span><span class="err">....</span><span class="w"></span>
+<a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a><span class="w">    </span><span class="p">{</span><span class="err">....</span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a><span class="w">    </span><span class="p">],</span><span class="w"></span>
+<a id="__codelineno-4-20" name="__codelineno-4-20" href="#__codelineno-4-20"></a><span class="w">    </span><span class="nt">&quot;@odata.nextLink&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://api-demo.envi.net/odata/Inventory?$filter=notes%20eq%20%27%21%20Capital%20Item%27&amp;$top=20&amp;$skip=20&quot;</span><span class="w"></span>
+<a id="__codelineno-4-21" name="__codelineno-4-21" href="#__codelineno-4-21"></a><span class="w">    </span><span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<p><span style="color: #F05D30">Request Example </span></p>
+<p><code>https://&lt;HOSTNAME&gt;/odata/Inventory?$filter=contains(notes, 'Capital')</code></p>
+<p>(for example, <code>&lt;HOSTNAME&gt; = api-demo.envi.net</code>)</p>
+<p>This request example filters target records set based on value of notes property and in case it contains Capital in any part of the text, entity will be included in resulting set.</p>
+<p>Since no <code>$top</code> option is specified, only first 20 records will be included. Except of <code>$top</code> and <code>$skip</code> options, <code>@odata.nextLink</code> in the response will include <code>$filter</code> option.</p>
+<div class="highlight"><span class="filename">Response example</span><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="w">   </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">    </span><span class="nt">&quot;@odata.context&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://api-demo.envi.net/odata/$metadata#Inventory&quot;</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">    </span><span class="nt">&quot;@odata.count&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">92</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">    </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">    </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">    </span><span class="err">....</span><span class="w"></span>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">    </span><span class="nt">&quot;notes&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Capital Item&quot;</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="w">    </span><span class="nt">&quot;organizationId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;05e36af1-0676-4216-aa3f-aa1ba787aaec&quot;</span><span class="w"></span>
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="w">    </span><span class="err">....</span><span class="w"></span>
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="w">    </span><span class="p">},</span><span class="w"></span>
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="w">    </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="w">    </span><span class="err">....</span><span class="w"></span>
+<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="w">    </span><span class="nt">&quot;notes&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Not Capital&quot;</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a><span class="w">    </span><span class="nt">&quot;organizationId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;05e36af1-0676-4216-aa3f-aa1ba787aaec&quot;</span><span class="w"></span>
+<a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a><span class="w">      </span><span class="err">....</span><span class="w"></span>
+<a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a><span class="w">    </span><span class="p">},</span><span class="w"></span>
+<a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a><span class="w">    </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a><span class="w">    </span><span class="err">....</span><span class="w"></span>
+<a id="__codelineno-5-19" name="__codelineno-5-19" href="#__codelineno-5-19"></a><span class="w">    </span><span class="nt">&quot;notes&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Can be treated as Capital&quot;</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-5-20" name="__codelineno-5-20" href="#__codelineno-5-20"></a><span class="w">    </span><span class="nt">&quot;organizationId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;05e36af1-0676-4216-aa3f-aa1ba787aaec&quot;</span><span class="w"></span>
+<a id="__codelineno-5-21" name="__codelineno-5-21" href="#__codelineno-5-21"></a><span class="w">    </span><span class="err">....</span><span class="w"></span>
+<a id="__codelineno-5-22" name="__codelineno-5-22" href="#__codelineno-5-22"></a><span class="w">    </span><span class="p">},</span><span class="w"></span>
+<a id="__codelineno-5-23" name="__codelineno-5-23" href="#__codelineno-5-23"></a><span class="w">    </span><span class="err">....</span><span class="w"></span>
+<a id="__codelineno-5-24" name="__codelineno-5-24" href="#__codelineno-5-24"></a><span class="w">    </span><span class="p">{</span><span class="err">....</span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-5-25" name="__codelineno-5-25" href="#__codelineno-5-25"></a><span class="w">    </span><span class="p">],</span><span class="w"></span>
+<a id="__codelineno-5-26" name="__codelineno-5-26" href="#__codelineno-5-26"></a><span class="w">    </span><span class="nt">&quot;@odata.nextLink&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://api-demo.envi.net/odata/Inventory?$filter=contains%28notes,%20%27Capital%27%29&amp;$top=20&amp;$skip=20&quot;</span><span class="w"></span>
+<a id="__codelineno-5-27" name="__codelineno-5-27" href="#__codelineno-5-27"></a><span class="w">    </span><span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<h3 id="logical-operators">Logical Operators</h3>
+<p>Also, the <code>$filter</code> query option supports the following logical operators:</p>
+<p>The logical <strong>and</strong> operator evaluates to true if both the left and right operands evaluate to true, otherwise it evaluates to false.
+<div class="highlight"><span class="filename">Example</span><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="err">h</span><span class="kc">tt</span><span class="err">ps</span><span class="p">:</span><span class="c1">//api-demo.envi.net/odata/Inventory?$filter=classificationName eq &#39;MEDICATION&#39; and inventoryNo eq &#39;DEXAMT&#39;</span><span class="w"></span>
+</code></pre></div>
+The logical <strong>or</strong> operator evaluates to true if one of the left or right operands evaluates to true, otherwise it evaluates to false.</p>
+<p><div class="highlight"><span class="filename">Example</span><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="err">h</span><span class="kc">tt</span><span class="err">ps</span><span class="p">:</span><span class="c1">//api-demo.envi.net/odata/Inventory?$filter=classificationName eq &#39;MEDICATION&#39; or contains(inventoryDescription, &#39;DEXAMT&#39;)</span><span class="w"></span>
+</code></pre></div>
+The <strong>in</strong> operator returns true if the left operand is a member of the right operand. The right operand must be either a comma-separated list of a values, enclosed in parentheses, or a single expression that resolves to a collection. Also, the <strong>in</strong> operator enables a shorthand way of writing multiple <strong>eq</strong> expressions joined by <strong>or</strong>.</p>
+<p><div class="highlight"><span class="filename">Example</span><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="err">h</span><span class="kc">tt</span><span class="err">ps</span><span class="p">:</span><span class="c1">//api-demo.envi.net/odata/Inventory?$filter=classificationName eq &#39;MEDICATION&#39; or classificationName eq = &#39;DEXAMT&#39; </span><span class="w"></span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>https://api-demo.envi.net/odata/Inventory?$filter=classificationName in (&#39;MEDICATION&#39;, &#39;DEXAMT&#39;)
+</code></pre></div>
+The <strong>in</strong> operator is supported in the following lists:</p>
+<ul>
+<li>Addresses</li>
+<li>Facilities</li>
+<li>Inventory</li>
+<li>Inventory Activity</li>
+<li>Inventory Locations</li>
+<li>Inventory Location Cost and Quantity</li>
+<li>Inventory Location extended</li>
+<li>Inventory Snapshot</li>
+<li>Inventory Snapshot Item Details</li>
+<li>Inventory Vendors</li>
+<li>Purchase Orders</li>
+<li>Purchase Orders Items</li>
+<li>Receipts</li>
+<li>Receipts Items</li>
+<li>PAR Areas</li>
+<li>PAR Area Items</li>
+<li>PO Confirmations</li>
+<li>PO Confirmations Items</li>
+<li>Requisition Items</li>
+<li>Requisition Items specified</li>
+<li>Requisitions</li>
+<li>Requisitions specified</li>
+<li>Vendors</li>
+</ul>
+<p>The <strong>gt</strong> operator returns true if the left operand is greater than the right operand, otherwise it returns false. This operator supports decimal, integer, and dates values.</p>
+<div class="highlight"><span class="filename">Example</span><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="err">h</span><span class="kc">tt</span><span class="err">ps</span><span class="p">:</span><span class="c1">//api-demo.envi.net/odata/PurchaseOrders?$filter=unitCost gt 1.2345 </span><span class="w"></span>
+</code></pre></div>
+<p>The <strong>gt</strong> operator is supported in the following lists:</p>
+<ul>
+<li>Addresses</li>
+<li>Facilities</li>
+<li>Inventory</li>
+<li>Inventory Location extended</li>
+<li>Inventory Locations</li>
+<li>Inventory Snapshot</li>
+<li>Inventory Snapshot Item Details</li>
+<li>Inventory Vendors</li>
+<li>Purchase Orders</li>
+<li>Purchase Orders Items</li>
+<li>Receipts</li>
+<li>Receipts Items</li>
+<li>PAR Areas</li>
+<li>PAR Area Items</li>
+<li>PO Confirmations</li>
+<li>PO Confirmations Items</li>
+<li>Requisition Items</li>
+<li>Requisition Items specified</li>
+<li>Requisitions</li>
+<li>Requisitions specified</li>
+<li>Vendors</li>
+</ul>
+<p>The <strong>ge</strong> operator returns true if the left operand is greater than or equal to the right operand, otherwise it returns false. This operator supports decimal, integer, and dates values.</p>
+<p><div class="highlight"><span class="filename">Example</span><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="err">h</span><span class="kc">tt</span><span class="err">ps</span><span class="p">:</span><span class="c1">//api-demo.envi.net/odata/PurchaseOrders?$filter=lastUpdated ge YYYY-MM-DD</span><span class="w"></span>
+</code></pre></div>
+The <strong>ge</strong> operator is supported in the following lists:</p>
+<ul>
+<li>Addresses</li>
+<li>Facilities</li>
+<li>Inventory</li>
+<li>Inventory Location extended</li>
+<li>Inventory Locations</li>
+<li>Inventory Snapshot</li>
+<li>Inventory Snapshot Item Details</li>
+<li>Inventory Vendors</li>
+<li>Purchase Orders</li>
+<li>Purchase Orders Items</li>
+<li>Receipts</li>
+<li>Receipts Items</li>
+<li>PAR Areas</li>
+<li>PAR Area Items</li>
+<li>PO Confirmations</li>
+<li>PO Confirmations Items</li>
+<li>Requisition Items</li>
+<li>Requisition Items specified</li>
+<li>Requisitions</li>
+<li>Requisitions specified</li>
+<li>Vendors</li>
+</ul>
+<p>The <strong>lt</strong> operator returns true if the left operand is less than the right operand, otherwise it returns false. This operator supports decimal, integer, and dates values.
+<div class="highlight"><span class="filename">Example</span><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="err">h</span><span class="kc">tt</span><span class="err">ps</span><span class="p">:</span><span class="c1">//api-demo.envi.net/odata/PurchaseOrders?$filter=unitCost lt 1.2345</span><span class="w"></span>
+</code></pre></div>
+The <strong>lt</strong> operator is supported in the following lists:</p>
+<ul>
+<li>Addresses</li>
+<li>Facilities</li>
+<li>Inventory</li>
+<li>Inventory Location extended</li>
+<li>Inventory Locations</li>
+<li>Inventory Snapshot</li>
+<li>Inventory Snapshot Item Details</li>
+<li>Inventory Vendors</li>
+<li>Purchase Orders</li>
+<li>Purchase Orders Items</li>
+<li>Receipts</li>
+<li>Receipts Items</li>
+<li>PAR Areas</li>
+<li>PAR Area Items</li>
+<li>PO Confirmations</li>
+<li>PO Confirmations Items</li>
+<li>Requisition Items</li>
+<li>Requisition Items specified</li>
+<li>Requisitions</li>
+<li>Requisitions specified</li>
+<li>Vendors</li>
+</ul>
+<p>The <strong>le</strong> operator returns true if the left operand is less than or equal to the right operand, otherwise it returns false. This operator supports decimal, integer, and dates values.</p>
+<p><div class="highlight"><span class="filename">Example</span><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="err">h</span><span class="kc">tt</span><span class="err">ps</span><span class="p">:</span><span class="c1">//api-demo.envi.net/odata/PurchaseOrders?$filter=lastUpdated le YYYY-MM-DD</span><span class="w"></span>
+</code></pre></div>
+The <strong>le</strong> operator is supported in the following lists:</p>
+<ul>
+<li>Addresses</li>
+<li>Facilities</li>
+<li>Inventory</li>
+<li>Inventory Location extended</li>
+<li>Inventory Locations</li>
+<li>Inventory Snapshot</li>
+<li>Inventory Snapshot Item Details</li>
+<li>Inventory Vendors</li>
+<li>Purchase Orders</li>
+<li>Purchase Orders Items</li>
+<li>Receipts</li>
+<li>Receipts Items</li>
+<li>PAR Areas</li>
+<li>PAR Area Items</li>
+<li>PO Confirmations</li>
+<li>PO Confirmations Items</li>
+<li>Requisition Items</li>
+<li>Requisition Items specified</li>
+<li>Requisitions</li>
+<li>Requisitions specified</li>
+<li>Vendors</li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>You can use only one type of logical operators at once.</p>
+</div>
+<p><div class="highlight"><span class="filename">Example</span><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="err">h</span><span class="kc">tt</span><span class="err">ps</span><span class="p">:</span><span class="c1">//api-demo.envi.net/odata/Inventory?$filter=classificationName eq &#39;MEDICATION&#39; and inventoryNo eq &#39;27417&#39; and contains(inventoryDescription, &#39;27417&#39;)</span><span class="w"></span>
+</code></pre></div>
+<strong>OR</strong></p>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>https://api-demo.envi.net/odata/Inventory?$filter=classificationName eq &#39;MEDICATION&#39; or inventoryNo eq &#39;27417&#39; or contains(inventoryDescription, &#39;27417&#39;)
+</code></pre></div>
+You cannot mix logical operators together as in the following example. In such cases, you’ll receive the 400 Bad Request response.</p>
+<div class="highlight"><span class="filename">Example</span><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="err">h</span><span class="kc">tt</span><span class="err">ps</span><span class="p">:</span><span class="c1">//api-demo.envi.net/odata/Inventory?$filter=classificationName eq &#39;MEDICATION&#39; and inventoryNo eq &#39;27417&#39; or contains(inventoryDescription, &#39;27417&#39;)</span><span class="w"></span>
+</code></pre></div>
+<p>Use logical operators only with different fields for searching, as in the following example. </p>
+<p>You’ll receive 400 Bad request response if you specify same fields.</p>
+<div class="highlight"><span class="filename">Example</span><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="err">h</span><span class="kc">tt</span><span class="err">ps</span><span class="p">:</span><span class="c1">//api-demo.envi.net/odata/Inventory?$filter=classificationName eq &#39;MEDICATION&#39; and inventoryNo eq &#39;27417&#39; and contains(inventoryDescription, &#39;27417&#39;)</span><span class="w"></span>
+</code></pre></div>
+<h2 id="orderby">$orderby</h2>
+<p>The <code>$orderby</code> system query option allows clients to request resources in either ascending using asc or descending orders using desc. If asc or desc values are not specified, then resources are displayed in ascending order.</p>
+<p>Property name should be specified in lower camel case.</p>
+<p>Now, Envi API supports sorting by only one field at a time.</p>
+<p><span style="color: #F05D30">Request Example </span></p>
+<p><code>https://&lt;HOSTNAME&gt;/odata/Inventory?$orderby inventoryNo</code></p>
+<p>(for example, <code>&lt;HOSTNAME&gt; = api-demo.envi.net</code>)</p>
+<p>This sample request sorts target records set by value of the inventoryNo property in ascending order.</p>
+<p>Since the <code>$top</code> option is not specified, only first 20 records are included. Except <code>$top</code> and <code>$skip</code> options, <code>@odata.nextLink</code> also includes <code>$orderby</code> in the response.</p>
+<p><div class="highlight"><span class="filename">Response example</span><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="w">   </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="w">    </span><span class="nt">&quot;@odata.context&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://api-demo.envi.net/odata/$metadata#Inventory&quot;</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a><span class="w">    </span><span class="nt">&quot;@odata.count&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">92</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a><span class="w">    </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a><span class="w">    </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a><span class="w">    </span><span class="err">....</span><span class="w"></span>
+<a id="__codelineno-18-7" name="__codelineno-18-7" href="#__codelineno-18-7"></a><span class="w">    </span><span class="nt">&quot;inventoryNo&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;#1011&quot;</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-18-8" name="__codelineno-18-8" href="#__codelineno-18-8"></a><span class="w">    </span><span class="nt">&quot;organizationId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;05e36af1-0676-4216-aa3f-aa1ba787aaec&quot;</span><span class="w"></span>
+<a id="__codelineno-18-9" name="__codelineno-18-9" href="#__codelineno-18-9"></a><span class="w">    </span><span class="err">....</span><span class="w"></span>
+<a id="__codelineno-18-10" name="__codelineno-18-10" href="#__codelineno-18-10"></a><span class="w">    </span><span class="p">},</span><span class="w"></span>
+<a id="__codelineno-18-11" name="__codelineno-18-11" href="#__codelineno-18-11"></a><span class="w">    </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-18-12" name="__codelineno-18-12" href="#__codelineno-18-12"></a><span class="w">    </span><span class="err">....</span><span class="w"></span>
+<a id="__codelineno-18-13" name="__codelineno-18-13" href="#__codelineno-18-13"></a><span class="w">    </span><span class="nt">&quot;inventoryNo&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;#1025&quot;</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-18-14" name="__codelineno-18-14" href="#__codelineno-18-14"></a><span class="w">    </span><span class="nt">&quot;organizationId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;05e36af1-0676-4216-aa3f-aa1ba787aaec&quot;</span><span class="w"></span>
+<a id="__codelineno-18-15" name="__codelineno-18-15" href="#__codelineno-18-15"></a><span class="w">    </span><span class="err">....</span><span class="w"></span>
+<a id="__codelineno-18-16" name="__codelineno-18-16" href="#__codelineno-18-16"></a><span class="w">    </span><span class="p">},</span><span class="w"></span>
+<a id="__codelineno-18-17" name="__codelineno-18-17" href="#__codelineno-18-17"></a><span class="w">    </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-18-18" name="__codelineno-18-18" href="#__codelineno-18-18"></a><span class="w">    </span><span class="err">....</span><span class="w"></span>
+<a id="__codelineno-18-19" name="__codelineno-18-19" href="#__codelineno-18-19"></a><span class="w">    </span><span class="nt">&quot;inventoryNo&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;#1523&quot;</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-18-20" name="__codelineno-18-20" href="#__codelineno-18-20"></a><span class="w">    </span><span class="nt">&quot;organizationId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;05e36af1-0676-4216-aa3f-aa1ba787aaec&quot;</span><span class="w"></span>
+<a id="__codelineno-18-21" name="__codelineno-18-21" href="#__codelineno-18-21"></a><span class="w">    </span><span class="err">....</span><span class="w"></span>
+<a id="__codelineno-18-22" name="__codelineno-18-22" href="#__codelineno-18-22"></a><span class="w">    </span><span class="p">},</span><span class="w"></span>
+<a id="__codelineno-18-23" name="__codelineno-18-23" href="#__codelineno-18-23"></a><span class="w">    </span><span class="err">....</span><span class="w"></span>
+<a id="__codelineno-18-24" name="__codelineno-18-24" href="#__codelineno-18-24"></a><span class="w">    </span><span class="p">{</span><span class="err">....</span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-18-25" name="__codelineno-18-25" href="#__codelineno-18-25"></a><span class="w">    </span><span class="p">],</span><span class="w"></span>
+<a id="__codelineno-18-26" name="__codelineno-18-26" href="#__codelineno-18-26"></a><span class="w">    </span><span class="nt">&quot;@odata.nextLink&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://api-demo.envi.net/odata/Inventory?$orderby=inventoryNo&amp;$top=20&amp;$skip=20&quot;</span><span class="w"></span>
+<a id="__codelineno-18-27" name="__codelineno-18-27" href="#__codelineno-18-27"></a><span class="w">    </span><span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<span style="color: #F05D30">Request Example </span></p>
+<p><code>https://&lt;HOSTNAME&gt;/odata/Inventory?$orderby inventoryNo desc</code></p>
+<p>(for example, <code>&lt;HOSTNAME&gt; = api-demo.envi.net</code>)</p>
+<p>This sample request sorts target records set by a value of the inventoryNo property in descending order.</p>
+<p>Since the <code>$top</code> option is not specified, only first 20 records are included. Except <code>$top</code> and <code>$skip</code> options, <code>@odata.nextLink</code> also includes <code>$orderby</code> in the response.</p>
+<div class="highlight"><span class="filename">Response example</span><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="w">   </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="w">    </span><span class="nt">&quot;@odata.context&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://api-demo.envi.net/odata/$metadata#Inventory&quot;</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a><span class="w">    </span><span class="nt">&quot;@odata.count&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">92</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a><span class="w">    </span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a><span class="w">    </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a><span class="w">    </span><span class="err">....</span><span class="w"></span>
+<a id="__codelineno-19-7" name="__codelineno-19-7" href="#__codelineno-19-7"></a><span class="w">    </span><span class="nt">&quot;inventoryNo&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;#13975&quot;</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-19-8" name="__codelineno-19-8" href="#__codelineno-19-8"></a><span class="w">    </span><span class="nt">&quot;organizationId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;05e36af1-0676-4216-aa3f-aa1ba787aaec&quot;</span><span class="w"></span>
+<a id="__codelineno-19-9" name="__codelineno-19-9" href="#__codelineno-19-9"></a><span class="w">    </span><span class="err">....</span><span class="w"></span>
+<a id="__codelineno-19-10" name="__codelineno-19-10" href="#__codelineno-19-10"></a><span class="w">    </span><span class="p">},</span><span class="w"></span>
+<a id="__codelineno-19-11" name="__codelineno-19-11" href="#__codelineno-19-11"></a><span class="w">    </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-19-12" name="__codelineno-19-12" href="#__codelineno-19-12"></a><span class="w">    </span><span class="err">....</span><span class="w"></span>
+<a id="__codelineno-19-13" name="__codelineno-19-13" href="#__codelineno-19-13"></a><span class="w">    </span><span class="nt">&quot;inventoryNo&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;#12579&quot;</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-19-14" name="__codelineno-19-14" href="#__codelineno-19-14"></a><span class="w">    </span><span class="nt">&quot;organizationId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;05e36af1-0676-4216-aa3f-aa1ba787aaec&quot;</span><span class="w"></span>
+<a id="__codelineno-19-15" name="__codelineno-19-15" href="#__codelineno-19-15"></a><span class="w">    </span><span class="err">....</span><span class="w"></span>
+<a id="__codelineno-19-16" name="__codelineno-19-16" href="#__codelineno-19-16"></a><span class="w">    </span><span class="p">},</span><span class="w"></span>
+<a id="__codelineno-19-17" name="__codelineno-19-17" href="#__codelineno-19-17"></a><span class="w">    </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-19-18" name="__codelineno-19-18" href="#__codelineno-19-18"></a><span class="w">    </span><span class="err">....</span><span class="w"></span>
+<a id="__codelineno-19-19" name="__codelineno-19-19" href="#__codelineno-19-19"></a><span class="w">    </span><span class="nt">&quot;inventoryNo&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;#10256&quot;</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-19-20" name="__codelineno-19-20" href="#__codelineno-19-20"></a><span class="w">    </span><span class="nt">&quot;organizationId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;05e36af1-0676-4216-aa3f-aa1ba787aaec&quot;</span><span class="w"></span>
+<a id="__codelineno-19-21" name="__codelineno-19-21" href="#__codelineno-19-21"></a><span class="w">    </span><span class="err">....</span><span class="w"></span>
+<a id="__codelineno-19-22" name="__codelineno-19-22" href="#__codelineno-19-22"></a><span class="w">    </span><span class="p">},</span><span class="w"></span>
+<a id="__codelineno-19-23" name="__codelineno-19-23" href="#__codelineno-19-23"></a><span class="w">    </span><span class="err">....</span><span class="w"></span>
+<a id="__codelineno-19-24" name="__codelineno-19-24" href="#__codelineno-19-24"></a><span class="w">    </span><span class="p">{</span><span class="err">....</span><span class="p">}</span><span class="w"></span>
+<a id="__codelineno-19-25" name="__codelineno-19-25" href="#__codelineno-19-25"></a><span class="w">    </span><span class="p">],</span><span class="w"></span>
+<a id="__codelineno-19-26" name="__codelineno-19-26" href="#__codelineno-19-26"></a><span class="w">    </span><span class="nt">&quot;@odata.nextLink&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://api-demo.envi.net/odata/Inventory?$orderby=inventoryNo%20desc&amp;$top=20&amp;$skip=20&quot;</span><span class="w"></span>
+<a id="__codelineno-19-27" name="__codelineno-19-27" href="#__codelineno-19-27"></a><span class="w">    </span><span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<h2 id="format">$format</h2>
+<p>The <code>$format</code> system query option allows requesting a response in a particular format. When you don’t have an access, you can request headers for standard content-type and odata.metada level specification. <code>$format</code> takes precedence over standard content-type negotiation.</p>
+<p>You can find examples of how to use <code>$format</code> in the <strong>Metadata</strong> section.</p>
+
+              
+            </article>
+            
+          </div>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      
+        
+        <a href="Retrieving_Data.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: Retrieving Data using cURL" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Retrieving Data using cURL
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="Custom_Options.html" class="md-footer__link md-footer__link--next" aria-label="Next: Custom Options" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Custom Options
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": ".", "features": ["navigation.tabs"], "search": "assets/javascripts/workers/search.b97dbffb.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="assets/javascripts/bundle.6c7ad80a.min.js"></script>
+      
+    
+  </body>
+</html>

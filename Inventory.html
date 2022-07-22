@@ -1,0 +1,1006 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="img/favicon.png">
+      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.3.9">
+    
+    
+      
+        <title>Inventory - Envi OData Public API 1.0</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.1d29e8d0.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.cbb835fc.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#000000">
+        
+      
+      
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL(".",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="black" data-md-color-accent="">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#inventory" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="." title="Envi OData Public API 1.0" class="md-header__button md-logo" aria-label="Envi OData Public API 1.0" data-md-component="logo">
+      
+  <img src="assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Envi OData Public API 1.0
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Inventory
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="index.html" class="md-tabs__link">
+        Topics
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="Inventory.html" class="md-tabs__link md-tabs__link--active">
+        Operations
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="." title="Envi OData Public API 1.0" class="md-nav__button md-logo" aria-label="Envi OData Public API 1.0" data-md-component="logo">
+      
+  <img src="assets/logo.png" alt="logo">
+
+    </a>
+    Envi OData Public API 1.0
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1">
+          Topics
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Topics" data-md-level="1">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          Topics
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
+        Introduction
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Testing%20with%20Postman.html" class="md-nav__link">
+        Testing with Postman
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Retrieving_Data.html" class="md-nav__link">
+        Retrieving Data using cURL
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Options_and_Limitations.html" class="md-nav__link">
+        Options and Limitations
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Custom_Options.html" class="md-nav__link">
+        Custom Options
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Metadata.html" class="md-nav__link">
+        Metadata
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Metadata_Controlling.html" class="md-nav__link">
+        Metadata Controlling
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Operations
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Operations" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Operations
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Inventory
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="Inventory.html" class="md-nav__link md-nav__link--active">
+        Inventory
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#get-list-of-inventory-items" class="md-nav__link">
+    Get list of inventory items
+  </a>
+  
+    <nav class="md-nav" aria-label="Get list of inventory items">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#path" class="md-nav__link">
+    Path
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#description" class="md-nav__link">
+    Description
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#request-parameters" class="md-nav__link">
+    Request Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#responses" class="md-nav__link">
+    Responses
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#properties" class="md-nav__link">
+    Properties
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-a-new-inventory" class="md-nav__link">
+    Create a new inventory
+  </a>
+  
+    <nav class="md-nav" aria-label="Create a new inventory">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#path_1" class="md-nav__link">
+    Path
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#description_1" class="md-nav__link">
+    Description
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#request-body" class="md-nav__link">
+    Request Body 
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#request-parameters_1" class="md-nav__link">
+    Request Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#responses_1" class="md-nav__link">
+    Responses
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Addresses.html" class="md-nav__link">
+        Addresses
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#get-list-of-inventory-items" class="md-nav__link">
+    Get list of inventory items
+  </a>
+  
+    <nav class="md-nav" aria-label="Get list of inventory items">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#path" class="md-nav__link">
+    Path
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#description" class="md-nav__link">
+    Description
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#request-parameters" class="md-nav__link">
+    Request Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#responses" class="md-nav__link">
+    Responses
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#properties" class="md-nav__link">
+    Properties
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-a-new-inventory" class="md-nav__link">
+    Create a new inventory
+  </a>
+  
+    <nav class="md-nav" aria-label="Create a new inventory">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#path_1" class="md-nav__link">
+    Path
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#description_1" class="md-nav__link">
+    Description
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#request-body" class="md-nav__link">
+    Request Body 
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#request-parameters_1" class="md-nav__link">
+    Request Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#responses_1" class="md-nav__link">
+    Responses
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+
+
+<h1 id="inventory">Inventory</h1>
+<h2 id="get-list-of-inventory-items">Get list of inventory items</h2>
+<h3 id="path"><span style="color: #F05D30">Path</span></h3>
+<p>GET /odata/Inventory</p>
+<h3 id="description"><span style="color: #F05D30">Description</span></h3>
+<p>Returns paged list of the existing inventory within logged organization. You can filter the results by the strict match using $filter parameter – entity eq ‘string’. Or filter the results by the partial match using $filter=contains parameter – contains(entity, ‘string’).</p>
+<h3 id="request-parameters"><span style="color: #F05D30">Request Parameters</span></h3>
+<style>
+td, th {
+   border: none!important;
+}
+</style>
+<table>
+<thead>
+<tr>
+<th align="right">Parameter</th>
+<th align="left">Explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="right"><strong>api-version</strong>: string default 1.0 <br> <em>in header</em></td>
+<td align="left">The requested API version.</td>
+</tr>
+<tr>
+<td align="right"><strong>$search</strong>: string <br> <em>in query</em></td>
+<td align="left">Picks the value in all possible fields.</td>
+</tr>
+<tr>
+<td align="right"><strong>$filter</strong>: string <br> <em>in query</em></td>
+<td align="left">Filters the results, based on a Boolean condition.</td>
+</tr>
+<tr>
+<td align="right"><strong>$orderby</strong>: string <br> <em>in query</em></td>
+<td align="left">Sorts the results.</td>
+</tr>
+<tr>
+<td align="right"><strong>$top</strong>: string  <br> <em>in query</em></td>
+<td align="left">Returns only the first n results.</td>
+</tr>
+<tr>
+<td align="right"><strong>$skip</strong>: string <br> <em>in query</em></td>
+<td align="left">Skips the first n results.</td>
+</tr>
+<tr>
+<td align="right"><strong>Authorization</strong>: string <br> Bearer access_token <br> <em>in header</em></td>
+<td align="left">Specify type of the token (bearer), and then insert the access_token, which was obtained during authentication.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="responses"><span style="color: #F05D30">Responses</span></h3>
+<style>
+td, th {
+   border: none!important;
+}
+</style>
+<table>
+<thead>
+<tr>
+<th align="right">Response</th>
+<th align="left">Explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="right"><strong>200 OK</strong></td>
+<td align="left">OK</td>
+</tr>
+<tr>
+<td align="right"><strong>400 Bad Request</strong></td>
+<td align="left">Incorrect input data or organization ID does not match with organization ID user is logged in.</td>
+</tr>
+<tr>
+<td align="right"><strong>401 Unauthorized</strong></td>
+<td align="left">Incorrect specified access_token or access_token got expired.</td>
+</tr>
+<tr>
+<td align="right"><strong>403 Forbidden</strong></td>
+<td align="left">User doesn’t have appropriate privileges.</td>
+</tr>
+<tr>
+<td align="right"><strong>500 Internal Server Error</strong></td>
+<td align="left">Server encountered with an unexpected condition that prevented it from fulfilling the request.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="properties"><span style="color: #F05D30">Properties</span></h3>
+<style>
+td, th {
+   border: none!important;
+}
+</style>
+<table>
+<thead>
+<tr>
+<th align="right">Property</th>
+<th align="left">Explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="right"><strong>inventoryId</strong>: string <em>(uuid)</em></td>
+<td align="left">Unique Identifier of the Inventory item.</td>
+</tr>
+<tr>
+<td align="right"><strong>organizationId</strong>: string <em>(uuid)</em></td>
+<td align="left">Unique Identifier of the Organization.</td>
+</tr>
+<tr>
+<td align="right"><strong>organizationName</strong>: string</td>
+<td align="left">Name of the Organization.</td>
+</tr>
+<tr>
+<td align="right"><strong>inventoryGroupId</strong>: string</td>
+<td align="left">Unique Identifier of the Group that contains related Inventory items.</td>
+</tr>
+<tr>
+<td align="right"><strong>inventoryNo</strong>: string</td>
+<td align="left">Identification code of the Inventory item.</td>
+</tr>
+<tr>
+<td align="right"><strong>inventoryGroupName</strong>: string</td>
+<td align="left">Name of the Group that contains related Inventory items</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><span class="filename">Response content-types: APPLICATION/JSON, APPLICATION/XML<br>Response example (200 OK)</span><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">      </span><span class="nt">&quot;items&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">        </span><span class="p">{</span><span class="w"></span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">          </span><span class="nt">&quot;inventoryId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;00000000-0000-0000-0000-000000000000&quot;</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">          </span><span class="nt">&quot;organizationId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;00000000-0000-0000-0000-000000000000&quot;</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">          </span><span class="nt">&quot;organizationName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">          </span><span class="nt">&quot;inventoryGroupId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;00000000-0000-0000-0000-000000000000&quot;</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">          </span><span class="nt">&quot;inventoryNo&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">          </span><span class="nt">&quot;inventoryGroupName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">          </span><span class="nt">&quot;inventoryDescription&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">          </span><span class="nt">&quot;inventoryDescription2&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">          </span><span class="nt">&quot;stockUOM&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">          </span><span class="nt">&quot;arBillingCode&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="w">          </span><span class="nt">&quot;hcpcsCode&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="w">          </span><span class="nt">&quot;notes&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="w">          </span><span class="nt">&quot;dateAdded&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string (date-time)&quot;</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="w">          </span><span class="nt">&quot;addedId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;00000000-0000-0000-0000-000000000000&quot;</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="w">          </span><span class="nt">&quot;addedByName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;string&quot;</span><span class="p">,</span><span class="w"></span>
+<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<h2 id="create-a-new-inventory">Create a new inventory</h2>
+<h3 id="path_1"><span style="color: #F05D30">Path</span></h3>
+<p>POST /odata/Inventory</p>
+<h3 id="description_1"><span style="color: #F05D30">Description</span></h3>
+<p>Creates a new inventory within logged organization.</p>
+<h3 id="request-body"><span style="color: #F05D30">Request Body </span></h3>
+<style>
+td, th {
+   border: none!important;
+}
+</style>
+<table>
+<thead>
+<tr>
+<th align="right">Body element</th>
+<th align="left">Explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="right"><strong>inventoryId</strong>: string (uuid)</td>
+<td align="left">Unique Identifier of the Inventory item</td>
+</tr>
+<tr>
+<td align="right"><strong>organizationId</strong>: string (uuid)</td>
+<td align="left">Unique Identifier of the Organization.</td>
+</tr>
+<tr>
+<td align="right"><strong>organizationName</strong>: string (uuid)</td>
+<td align="left">Name of the Organization.</td>
+</tr>
+<tr>
+<td align="right"><strong>inventoryGroupId</strong>: string (uuid)</td>
+<td align="left">Unique Identifier of the Group that contains related Inventory items.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="request-parameters_1"><span style="color: #F05D30">Request Parameters</span></h3>
+<style>
+td, th {
+   border: none!important;
+}
+</style>
+<table>
+<thead>
+<tr>
+<th align="right">Parameter</th>
+<th align="left">Explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="right"><strong>api-version</strong>: string default 1.0 <br> <em>in header</em></td>
+<td align="left">The requested API version.</td>
+</tr>
+<tr>
+<td align="right"><strong>Authorization</strong>: string <br> Bearer access_token <br> <em>in header</em></td>
+<td align="left">Specify type of the token (bearer), and then insert the access_token, which was obtained during authentication.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="responses_1"><span style="color: #F05D30">Responses</span></h3>
+<style>
+td, th {
+   border: none!important;
+}
+</style>
+<table>
+<thead>
+<tr>
+<th align="right">Pesponse</th>
+<th align="left">Explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="right"><strong>200 OK</strong></td>
+<td align="left">OK</td>
+</tr>
+<tr>
+<td align="right">type</td>
+<td align="left">string (uuid)</td>
+</tr>
+<tr>
+<td align="right"><strong>400 Bad Request</strong></td>
+<td align="left">Incorrect input data or organization ID does not match with organization ID user is logged in.</td>
+</tr>
+<tr>
+<td align="right"><strong>401 Unauthorized</strong></td>
+<td align="left">Incorrect specified access_token or access_token got expired.</td>
+</tr>
+<tr>
+<td align="right"><strong>403 Forbidden</strong></td>
+<td align="left">User doesn’t have appropriate privileges.</td>
+</tr>
+<tr>
+<td align="right"><strong>500 Internal Server Error</strong></td>
+<td align="left">Server encountered with an unexpected condition that prevented it from fulfilling the request.</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><span class="filename">Response content-types: APPLICATION/JSON, APPLICATION/XML<br>Response example (200 OK)</span><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="s2">&quot;00000000-0000-0000-0000-000000000000&quot;</span><span class="w">        </span>
+</code></pre></div>
+
+              
+            </article>
+            
+          </div>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      
+        
+        <a href="Metadata_Controlling.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: Metadata Controlling" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Metadata Controlling
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="Addresses.html" class="md-footer__link md-footer__link--next" aria-label="Next: Addresses" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Addresses
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": ".", "features": ["navigation.tabs"], "search": "assets/javascripts/workers/search.b97dbffb.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="assets/javascripts/bundle.6c7ad80a.min.js"></script>
+      
+    
+  </body>
+</html>
