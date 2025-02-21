@@ -17,6 +17,11 @@ Stay up-to-date with the latest API features, improvements, and articles.
 
 [Subscribe to our newsletter](https://news.envi.net/Signup/dev-news){ .md-button .md-button--primary }
 
+<span style="color: #E0592A">v. 6.3.5</span>
+
+The new ```poUdfLabels``` property has been added to the [Purchase Order Items](PurchaseOrderItems.md) and [Purchase Order](PurchaseOrders.md#get-the-list-of-purchase-order-items-for-the-specified-purchase-order) endpoints. 
+
+
 <span style="color: #E0592A">v. 6.2.8</span>
 
 [Matched Invoices](MatchedInvoices.md) and [Matched Invoice Items](MatchedInvoiceItems.md) endpoints support now **and**, **or**, **in**, **gt**, **ge**, **lt**, **le** [logical operators](Options_and_Limitations.md#logical-operators).
@@ -49,11 +54,11 @@ Starting now, every time you submit a Requisition Fill, the system will notify y
 
 <span style="color: #E0592A">v. 5.9.5</span>
 
-The two new properties are added to the [Vendor Facilities](VendorFacilities.md) endpoints: ```ocrMatchOptionId``` and ```ocrMatchOptionValue```.
+The two new properties have been added to the [Vendor Facilities](VendorFacilities.md) endpoints: ```ocrMatchOptionId``` and ```ocrMatchOptionValue```.
 
 <span style="color: #E0592A">v. 5.8.4</span>
 
-The two new properties are added to the [Facilities](Facilities.md) endpoints: ```customField1``` and ```customField1```.
+The two new properties have been added to the [Facilities](Facilities.md) endpoints: ```customField1``` and ```customField1```.
 
 A new  [Facility](Facilities.md#partially-update-the-specified-facility) endpoint has been included, which allows you to partially update the details of the Facility based on Facility ID.
 

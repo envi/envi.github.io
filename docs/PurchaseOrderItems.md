@@ -97,6 +97,7 @@ td, th {
 |**departmentId**: string *(uuid)* | Unique Identifier of the Department |
 |**departmentNo**: string | Number of the Department |
 |**departmentName**: string | Name of the Department |
+|**poUdfLabels**: string | Purchase Order User Defined Field labels  <br> The data is retrieved using the ```poUdfLabels``` property's value, not its name.|
 
 
 ``` json title="Response Content-types: APPLICATION/JSON, APPLICATION/XML<br>Response example (200 OK)"
@@ -161,7 +162,8 @@ td, th {
       "submittedUnitCost": "number (double)",
       "departmentId": "00000000-0000-0000-0000-000000000000",
       "departmentNo": "string",
-      "departmentName": "string"
+      "departmentName": "string",
+      "poUdfLabels": "string"
     }
   ],
   "nextPageLink": "string",
@@ -257,6 +259,7 @@ Returns the details of the Purchase Order Item specified by ID.
 |**departmentId**: string *(uuid)* | Unique Identifier of the Department |
 |**departmentNo**: string | Number of the Department |
 |**departmentName**: string | Name of the Department |
+|**poUdfLabels**: string | Purchase Order User Defined Field labels <br> The data is retrieved using the ```poUdfLabels``` property's value, not its name.|
 
 ``` json title="Response Content-types: APPLICATION/JSON, APPLICATION/XML<br>Response example (200 OK)"
 {
@@ -318,7 +321,8 @@ Returns the details of the Purchase Order Item specified by ID.
   "submittedUnitCost": "number (double)",
   "departmentId": "00000000-0000-0000-0000-000000000000",
   "departmentNo": "string",
-  "departmentName": "string"
+  "departmentName": "string",
+  "poUdfLabels": "string"
 }
 ```
 
