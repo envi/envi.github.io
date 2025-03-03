@@ -445,7 +445,7 @@ Returns the details of the Purchase Order specified by ID.
 
 !!! note
 
-    For more details on ```poUdfLabels``` property, refer to the [poUdfLabels Property Overview](#poudflabels-property-overview) section.
+    For more details on ```poUdfLabels``` property, refer to the [poUdfLabels property overview](#poudflabels-property-overview) section.
 
 ## Get the list of Purchase Order Items for the specified Purchase Order
 
@@ -615,5 +615,5 @@ Returns the paged list of the existing Purchase Order Items within the Purchase 
 
 !!! note
 
-    For more details on ```poUdfLabels``` property, refer to the [poUdfLabels Property Overview](#poudflabels-property-overview) section.
+    For more details on ```poUdfLabels``` property, refer to the [poUdfLabels property overview](#poudflabels-property-overview) section.
 

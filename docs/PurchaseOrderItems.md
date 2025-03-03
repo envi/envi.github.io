@@ -346,7 +346,7 @@ Returns the details of the Purchase Order Item specified by ID.
 ```
 !!! note
 
-    For more details on ```poUdfLabels``` property, refer to the [poUdfLabels Property Overview](#poudflabels-property-overview) section.
+    For more details on ```poUdfLabels``` property, refer to the [poUdfLabels property overview](#poudflabels-property-overview) section.
 
 
 

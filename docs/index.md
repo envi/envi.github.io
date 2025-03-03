@@ -19,7 +19,7 @@ Stay up-to-date with the latest API features, improvements, and articles.
 
 <span style="color: #E0592A">v. 6.3.6</span>
 
-The new ```poUdfLabels``` property has been added to the [Purchase Order Items](PurchaseOrderItems.md) and [Purchase Order](PurchaseOrders.md) endpoints.
+The new ```poUdfLabels``` property has been added to the [Purchase Order Items](PurchaseOrderItems.md) and [Purchase Orders](PurchaseOrders.md) endpoints.
 
 
 <span style="color: #E0592A">v. 6.2.8</span>
