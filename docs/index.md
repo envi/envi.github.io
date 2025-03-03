@@ -17,9 +17,9 @@ Stay up-to-date with the latest API features, improvements, and articles.
 
 [Subscribe to our newsletter](https://news.envi.net/Signup/dev-news){ .md-button .md-button--primary }
 
-<span style="color: #E0592A">v. 6.3.5</span>
+<span style="color: #E0592A">v. 6.3.6</span>
 
-The new ```poUdfLabels``` property has been added to the [Purchase Order Items](PurchaseOrderItems.md) and [Purchase Order](PurchaseOrders.md#get-the-list-of-purchase-order-items-for-the-specified-purchase-order) endpoints. 
+The new ```poUdfLabels``` property has been added to the [Purchase Order Items](PurchaseOrderItems.md) and [Purchase Order](PurchaseOrders.md) endpoints.
 
 
 <span style="color: #E0592A">v. 6.2.8</span>

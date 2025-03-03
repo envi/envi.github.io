@@ -97,7 +97,7 @@ td, th {
 |**departmentId**: string *(uuid)* | Unique Identifier of the Department |
 |**departmentNo**: string | Number of the Department |
 |**departmentName**: string | Name of the Department |
-|**poUdfLabels**: string | Purchase Order User Defined Field labels  <br> The data is retrieved using the ```poUdfLabels``` property's value, not its name.|
+|**poUdfLabels**: string | Purchase Order User Defined Field labels |
 
 
 ``` json title="Response Content-types: APPLICATION/JSON, APPLICATION/XML<br>Response example (200 OK)"
@@ -163,13 +163,32 @@ td, th {
       "departmentId": "00000000-0000-0000-0000-000000000000",
       "departmentNo": "string",
       "departmentName": "string",
-      "poUdfLabels": "string"
+      "poUdfLabels": "[{\"Name\":\"string1\",\"Value\":\"string2\"}]"
     }
   ],
   "nextPageLink": "string",
   "count": "integer (int64)"
 }
 ```
+
+#### <span style="color: #F05D30">poUdfLabels property overview</span>
+
+The ```poUdfLabels``` property defines User Defined Field (UDF) labels on Purchase Orders. This section explains the property details.
+
+The response for the ```poUdfLabels``` property is as follows: <br>
+```"poUdfLabels": "[{\"Name\":\"string1\",\"Value\":\"string2\"}]"``` <br>
+ Where: <br>
+
+ - ```"string1"``` is the value from the **Label** field under **Organization** > **Org Configuration** > **UDF Setup**. <br>
+ - ```"string2"``` is the value from the **UDF** field under **Purchasing** > **Purchase Orders** > **PO Details**. <br>
+    
+If the **UDF** field on the **PO Details** page is empty, the response is: <br>
+```"poUdfLabels": "[{\"Name\":\"string1\",\"Value\": null}]"``` <br>
+
+If the **Purchasing** module is **Inactive** or not added for an organization under **Organization** > **Org Configuration** > **UDF Setup**, the response is: <br>
+```"poUdfLabels": "[]"``` <br>
+
+Filters (```$equals```, ```$contains```, ```$skip```, ```$top```) and logical operators (```in```, ```or```, ```and```) apply only to **UDF** field values.
 
 ## Get the specified Purchase Order Item
 
@@ -259,7 +278,7 @@ Returns the details of the Purchase Order Item specified by ID.
 |**departmentId**: string *(uuid)* | Unique Identifier of the Department |
 |**departmentNo**: string | Number of the Department |
 |**departmentName**: string | Name of the Department |
-|**poUdfLabels**: string | Purchase Order User Defined Field labels <br> The data is retrieved using the ```poUdfLabels``` property's value, not its name.|
+|**poUdfLabels**: string | Purchase Order User Defined Field labels |
 
 ``` json title="Response Content-types: APPLICATION/JSON, APPLICATION/XML<br>Response example (200 OK)"
 {
@@ -322,9 +341,12 @@ Returns the details of the Purchase Order Item specified by ID.
   "departmentId": "00000000-0000-0000-0000-000000000000",
   "departmentNo": "string",
   "departmentName": "string",
-  "poUdfLabels": "string"
+  "poUdfLabels": "[{\"Name\":\"string1\",\"Value\":\"string2\"}]"
 }
 ```
+!!! note
+
+    For more details on ```poUdfLabels``` property, refer to the [poUdfLabels Property Overview](#poudflabels-property-overview) section.
 
 
 
