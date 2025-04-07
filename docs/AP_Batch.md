@@ -287,6 +287,9 @@ Returns the paged list of the existing invoices within the Batch specified by ID
 |**dateSubmitted**: string *(date-time)* | Date when the Batched Invoice was submitted |
 |**submittedBy**: string *(uuid)* | Unique Identifier of the user who submitted the Batched Invoice |
 |**submittedByUserName**: string | Name of the user who submitted the Batched Invoice |
+|**projectNoId**: string *(uuid)* | Unique Identifier of the Project Number |
+|**projectNo**: string | Project Number for the Purchase Order|
+|**projectNoDescription**: string | Description of the Project Number |
 
 ``` json title="Response Content-types: APPLICATION/JSON, APPLICATION/XML<br>Response example (200 OK)"
 {
@@ -347,6 +350,9 @@ Returns the paged list of the existing invoices within the Batch specified by ID
       "dateSubmitted": "string (date-time)",
       "submittedBy": "00000000-0000-0000-0000-000000000000",
       "submittedByUserName": "string",
+      "projectNoId": "00000000-0000-0000-0000-000000000000",
+      "projectNo": "string",
+      "projectNoDescription": "string"
     }
   ],
   "nextPageLink": "string",

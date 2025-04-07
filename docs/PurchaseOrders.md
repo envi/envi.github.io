@@ -123,6 +123,9 @@ td, th {
 |**shippingTypeId**: integer *(int32)* | Unique Identifier of the Shipping Type |
 |**shippingType**: string | Type of the Shipping |
 |**poUdfLabels**: string | Purchase Order User Defined Field labels |
+|**projectNoId**: string *(uuid)* | Unique Identifier of the Project Number |
+|**projectNo**: string | Project Number for the Purchase Order|
+|**projectNoDescription**: string | Description of the Project Number |
 
 ``` json title="Response Content-types: APPLICATION/JSON, APPLICATION/XML<br>Response example (200 OK)"
 {
@@ -211,7 +214,10 @@ td, th {
       "shipping": "number (double)",
       "shippingTypeId": "integer (int32)",
       "shippingType": "string",
-      "poUdfLabels": "[{\"Name\":\"string1\",\"Value\":\"string2\"}]"
+      "poUdfLabels": "[{\"Name\":\"string1\",\"Value\":\"string2\"}]",
+      "projectNoId": "00000000-0000-0000-0000-000000000000",
+      "projectNo": "string",
+      "projectNoDescription": "string"
     }
   ],
   "nextPageLink": "string",
@@ -353,6 +359,9 @@ Returns the details of the Purchase Order specified by ID.
 |**shippingTypeId**: integer *(int32)* | Unique Identifier of the Shipping Type |
 |**shippingType**: string | Type of the Shipping |
 |**poUdfLabels**: string | Purchase Order User Defined Field labels |
+|**projectNoId**: string *(uuid)* | Unique Identifier of the Project Number |
+|**projectNo**: string | Project Number for the Purchase Order|
+|**projectNoDescription**: string | Description of the Project Number |
 
 ``` json title="Response Content-types: APPLICATION/JSON, APPLICATION/XML<br>Response example (200 OK)"
 {
@@ -439,7 +448,10 @@ Returns the details of the Purchase Order specified by ID.
   "shipping": "number (double)",
   "shippingTypeId": "integer (int32)",
   "shippingType": "string",
-  "poUdfLabels": "[{\"Name\":\"string1\",\"Value\":\"string2\"}]"
+  "poUdfLabels": "[{\"Name\":\"string1\",\"Value\":\"string2\"}]",
+  "projectNoId": "00000000-0000-0000-0000-000000000000",
+  "projectNo": "string",
+  "projectNoDescription": "string"
 }
 ```
 

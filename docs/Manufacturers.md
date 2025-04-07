@@ -78,7 +78,6 @@ td, th {
 }
 ```
 
-
 ## Create a new Manufacturer
 
 ### <span style="color: #F05D30">Path</span>

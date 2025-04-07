@@ -17,14 +17,19 @@ Stay up-to-date with the latest API features, improvements, and articles.
 
 [Subscribe to our newsletter](https://news.envi.net/Signup/dev-news){ .md-button .md-button--primary }
 
+<span style="color: #E0592A">v. 6.3.8</span>
+
+The [Purchase Orders](PurchaseOrders.md), [Matched Invoices](MatchedInvoices.md), and [Batch](AP_Batch.md#get-the-specified-ap-batched-invoice) endpoints now include **Project Number** properties. 
+
+
+
 <span style="color: #E0592A">v. 6.3.6</span>
 
 The new ```poUdfLabels``` property has been added to the [Purchase Order Items](PurchaseOrderItems.md) and [Purchase Orders](PurchaseOrders.md) endpoints.
 
 
 <span style="color: #E0592A">v. 6.2.8</span>
-
-[Matched Invoices](MatchedInvoices.md) and [Matched Invoice Items](MatchedInvoiceItems.md) endpoints support now **and**, **or**, **in**, **gt**, **ge**, **lt**, **le** [logical operators](Options_and_Limitations.md#logical-operators).
+The [Matched Invoices](MatchedInvoices.md) and [Matched Invoice Items](MatchedInvoiceItems.md) endpoints support now **and**, **or**, **in**, **gt**, **ge**, **lt**, **le** [logical operators](Options_and_Limitations.md#logical-operators).
 
 <span style="color: #E0592A">v. 6.1.7</span>
 
