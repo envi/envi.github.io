@@ -172,8 +172,6 @@ Returns the details of the Department specified by ID within a logged organizati
 ``` json title="Response Content-types: APPLICATION/JSON, APPLICATION/XML <br> Response Example (200 OK)"
 {
     "@odata.context": "link",
-    "organizationId": "00000000-0000-0000-0000-000000000000",
-    "organizationNo": "string",
     "departmentId": "00000000-0000-0000-0000-000000000000",
     "departmentNo": "string",
     "departmentName": "string",

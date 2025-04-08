@@ -276,6 +276,7 @@ The **in** operator is supported in the following lists:
 
  - [Addresses](Addresses.md#get-the-list-of-addresses)
  - [Classifications](Classifications.md#get-the-list-of-classifications)
+ - [Departments](Departments.md#get-the-list-of-departments)
  - [Facilities](Facilities.md#get-the-list-of-facilities)
  - [Inventory](Inventory.md#get-the-list-of-inventory-items)
  - [Inventory Activity](InventoryActivity.md#get-the-list-of-inventory-activities)
@@ -320,6 +321,7 @@ The **gt** operator is supported in the following lists:
 
  - [Addresses](Addresses.md#get-the-list-of-addresses)
  - [Classifications](Classifications.md#get-the-list-of-classifications)
+ - [Departments](Departments.md#get-the-list-of-departments)
  - [Facilities](Facilities.md#get-the-list-of-facilities)
  - [Inventory](Inventory.md#get-the-list-of-inventory-items)
  - [Inventory Location Extended](InventoryLocationsExtended.md#get-the-list-of-extended-inventory-location)
@@ -360,6 +362,7 @@ The **ge** operator is supported in the following lists:
 
  - [Addresses](Addresses.md#get-the-list-of-addresses)
  - [Classifications](Classifications.md#get-the-list-of-classifications)
+ - [Departments](Departments.md#get-the-list-of-departments)
  - [Facilities](Facilities.md#get-the-list-of-facilities)
  - [Inventory](Inventory.md#get-the-list-of-inventory-items)
  - [Inventory Location Extended](InventoryLocationsExtended.md#get-the-list-of-extended-inventory-location)
@@ -399,6 +402,7 @@ The **lt** operator is supported in the following lists:
 
  - [Addresses](Addresses.md#get-the-list-of-addresses)
  - [Classifications](Classifications.md#get-the-list-of-classifications)
+ - [Departments](Departments.md#get-the-list-of-departments)
  - [Facilities](Facilities.md#get-the-list-of-facilities)
  - [Inventory](Inventory.md#get-the-list-of-inventory-items)
  - [Inventory Location Extended](InventoryLocationsExtended.md#get-the-list-of-extended-inventory-location)
@@ -439,6 +443,7 @@ The **le** operator is supported in the following lists:
 
  - [Addresses](Addresses.md#get-the-list-of-addresses)
  - [Classifications](Classifications.md#get-the-list-of-classifications)
+ - [Departments](Departments.md#get-the-list-of-departments)
  - [Facilities](Facilities.md#get-the-list-of-facilities)
  - [Inventory](Inventory.md#get-the-list-of-inventory-items)
  - [Inventory Location Extended](InventoryLocationsExtended.md#get-the-list-of-extended-inventory-location)
