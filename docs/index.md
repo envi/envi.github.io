@@ -11,7 +11,6 @@ This page contains description of Envi Developer Resources. It includes all publ
     **Schemes**: HTTP, HTTPS <br>
     **Version**: V1
 
-
 # What's new
 Stay up-to-date with the latest API features, improvements, and articles.
 
@@ -19,9 +18,11 @@ Stay up-to-date with the latest API features, improvements, and articles.
 
 <span style="color: #E0592A">v. 6.3.8</span>
 
+You can now retrieve the list of Departments and view the details of a specific Department via the new [Departments](Departments.md) endpoints.
+
+<span style="color: #E0592A">v. 6.3.8</span>
+
 The [Purchase Orders](PurchaseOrders.md), [Matched Invoices](MatchedInvoices.md), and [Batch](AP_Batch.md#get-the-specified-ap-batched-invoice) endpoints now include **Project Number** properties. 
-
-
 
 <span style="color: #E0592A">v. 6.3.6</span>
 
