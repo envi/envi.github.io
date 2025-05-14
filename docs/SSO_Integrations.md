@@ -11,4 +11,3 @@
 |![image](img/pdf3.png) [SSO with any provider.pdf](static/SSO_with_any_provider.pdf){:download="SSO with any provider"} |
 |![image](img/pdf3.png) [SSO with Okta](static/SSO_with_Okta.pdf){:download="SSO with Okta"} |
 |![image](img/link.png) [Link to SSO Test Form (For testing ADFS using WS-Trust Binding)](https://sso-demo.envi.net/)|
-

@@ -2,13 +2,13 @@
 
 ## Add new Procedures to existing Usages
 
-### <span style="color: #F05D30">Path</span>
+### Path</span>
 POST /odata/UsageProcedures/BulkAdd
 
-### <span style="color: #F05D30">Description</span>
-Adds new Procedures to existing Usages within a logged organization.
+### Description</span>
+Adds new Procedures to existing Usages within the logged-in organization.
 
-### <span style="color: #F05D30">Request body</span>
+### Request body</span>
 For adding Procedure(s) to Usage(s)
 
 <style>
@@ -29,13 +29,13 @@ td, th {
 }
 ```
 
-### <span style="color: #F05D30">Request parameters</span>
+### Request parameters</span>
 |  <div style="width:200px">Parameter</div>  |  <div style="width:380px">Explanation</div>  |                      
 |-----:|:-------|
 |**api-version**: string default: 1.0 <br> *in header*| The requested API version.|   
 |**Authorization**: string default: <br> Bearer access_token <br> *in header* |Specify the type of the token (bearer) and then insert the ```access_token```, which was obtained during authentication. |
 
-### <span style="color: #F05D30">Responses</span>
+### Responses</span>
 | <div style="width:200px">Response </div>|<div style="width:420px">Explanation</div>|                      
 |-----:|:-------|
 |**200 OK**|OK|      

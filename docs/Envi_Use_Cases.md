@@ -4,9 +4,9 @@ Besides general API endpoints, Envi OData API also contains several operations i
  - [Batch support](#batch-support)
  - [Inventory Master interface](#inventory-master-interface)
  - [HTTP Depletion interface](#http-depletion-interface)
- - [AP batch and export invoices](#ap-batch-and-export-invoices)
+ - [AP Batch and export invoices](#ap-batch-and-export-invoices)
 
-## <span style="color: #F05D30">Batch support</span> 
+## Batch support
 Envi OData API supports repeatability for individual requests within a batch request, as well as for individual requests within a change set or atomicity group within a batch request. Batch requests allow the grouping of multiple operations into a single HTTP request payload.
 
 The service returns a single HTTP response in response to all operations in requests. Individual requests within a batch may have a mix of the ```Repeatability-Request-ID``` and ```Repeatability-First-Sent``` values. In this case, each individual response within the batch response will have the appropriate Repeatability-Result according to the corresponding request.
@@ -163,7 +163,7 @@ Batch part 2 start
 Batch (all) end
 
 ```
-## <span style="color: #F05D30">Inventory Master interface</span> 
+## Inventory Master interface
 The Inventory Master interface is used for synchronization of Inventory related changes that occurred in Envi with other external systems since the specified point in time. The interface combines data on the following entities:
 
  - Inventory
@@ -380,7 +380,7 @@ public class ListRepresentation<T>
       }
 
 ```
-## <span style="color: #F05D30">HTTP Depletion interface</span> 
+## HTTP Depletion interface
 
 HTTP Depletion interface is used for processing multiple usages. The interface combines data on the following entities:
 
@@ -391,7 +391,7 @@ HTTP Depletion interface is used for processing multiple usages. The interface c
 
 The need for the Usage Procedure insertion depends on your Facility options. Use the POST method to perform these requests.
 
-### <span style="color: #F05D30">Create usages</span> 
+### Create usages
 
 The ```/odata/Usages/BulkAdd``` endpoint helps you to create multiple usages. For this, use the appropriate model.
 
@@ -550,7 +550,7 @@ Physician: <physicianNo>
 ```
 
 
-### <span style="color: #F05D30">Create usage items</span> 
+### Create usage items
 
 You can create multiple usage items per one request with the ```/odata/UsageItems/BulkAdd``` endpoint. For this, use the following model.
 
@@ -801,7 +801,7 @@ Physician: <physicianNo>
 
 ```
 
-### <span style="color: #F05D30">Create procedures</span> 
+### Create procedures
 You can create multiple Procedures per one request with /odata/UsageProcedures/BulkAdd endpoint. For this, use the following model.
 
 ``` cs title="Example"
@@ -864,7 +864,7 @@ You'll receive the following response.
 
 The **Usage Notes** field is populated with procedureNo, in case procedure with specified procedureNo doesn't exist or it exists within another Facility.
 
-### <span style="color: #F05D30">Submit usages</span> 
+### Submit usages
 
 After appropriate items are inserted, you can submit the Usage with the ```/odata/Usages/BulkSubmit``` endpoint. For this, use the following model.
 
@@ -922,23 +922,23 @@ There can be the following main reasons for invalid data:
         }
 
 ```
-## <span style="color: #F05D30">AP batch and export invoices</span> 
+## AP Batch and export invoices
 To queue the batch and export it, you can use the following flow:
 
- - Create AP batch
- - Retrieve AP batch list (by ID)
- - Retrieve invoices of AP batch
- - Add invoice to AP batch
- - Export AP batch
+ - Create AP Batch
+ - Retrieve AP Batch list (by ID)
+ - Retrieve invoices of AP Batch
+ - Add invoice to AP Batch
+ - Export AP Batch
  - Submit to Queued
 
-### <span style="color: #F05D30">Create AP batch</span> 
+### Create AP Batch
 
-The ```/odata/Batches``` endpoint helps you to create a new AP batch in the Pending status and use it for further exporting.
+The ```/odata/Batches``` endpoint helps you to create a new AP Batch in the Pending status and use it for further exporting.
 
 !!! note 
 
-    You can use the following model for the request. But for successful AP batch creating, you can enter only the required batchNo and, if needed, add a reference.
+    You can use the following model for the request. But for successful AP Batch creating, you can enter only the required batchNo and, if needed, add a reference.
 
 ``` json title="Model"
 {
@@ -1029,18 +1029,18 @@ As a result, response will contain AP Batch ID.
 
 ```
 
-### <span style="color: #F05D30">Retrieve AP batch list (by ID)</span> 
+### Retrieve AP Batch list (by ID)
 The ```odata/Batches``` endpoint helps you to see the list of AP Batches. To retrieve the specified AP Batch, add its ID and use the ```odata/Batches(batchID)```. Use the GET method for these endpoints.
 
 You can find the model and possible request parameters in the [Operations](AP_Batch.md#get-the-list-of-ap-batches) section.
 
-### <span style="color: #F05D30">Retrieve invoices of AP batch </span> 
+### Retrieve invoices of AP Batch 
 To retrieve the list of vouchered invoices that can be added to the AP Batch, use the ```odata/Batches(BatchId)/Invoices``` endpoint with the GET method. The model is the same as the AP Matched invoice.
 
-You can find the model and possible request parameters in the [Operations](AP_Batch.md#get-the-specified-ap-batched-invoice) section.
+You can find the model and possible request parameters in the [Operations](AP_Batch.md#get-invoices-from-the-specified-ap-batch) section.
 
-### <span style="color: #F05D30">Add invoice to AP batch </span> 
-The ```odata/Batches(Batchid)/Invoices``` endpoint with the POST method helps you to include vouchered invoices to the AP batch. For this, specify the required Matched Invoice ID.
+### Add invoice to AP Batch 
+The ```odata/Batches(Batchid)/Invoices``` endpoint with the POST method helps you to include vouchered invoices to the AP Batch. For this, specify the required Matched Invoice ID.
 
 ``` json title="Request Example"
 {
@@ -1065,8 +1065,8 @@ The ```odata/Batches(Batchid)/Invoices``` endpoint with the POST method helps yo
 
 ```
 
-### <span style="color: #F05D30">Export AP batch </span> 
-The ```odata/Batches(BatchId)/Export``` endpoint with the POST method helps you to export AP batch. For this, specify the required AP Batch ID.
+### Export AP Batch 
+The ```odata/Batches(BatchId)/Export``` endpoint with the POST method helps you to export AP Batch. For this, specify the required AP Batch ID.
 
 !!! note 
 
@@ -1097,8 +1097,8 @@ After sending the valid request, the response will contain a successful result.
 
 ```
 
-### <span style="color: #F05D30">Submit to Queued</span> 
-The ```odata/Batches(batchId)/SubmitToQueued``` endpoint with the POST method helps you to submit the AP batch to the Queued status. For this, specify the required AP Batch ID.
+### Submit to Queued
+The ```odata/Batches(batchId)/SubmitToQueued``` endpoint with the POST method helps you to submit the AP Batch to the Queued status. For this, specify the required AP Batch ID.
 
 ``` cs title="Code Example"
 /// <summary>

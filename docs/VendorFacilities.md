@@ -2,14 +2,20 @@
 
 ## Get the list of Vendor Facilities
 
-### <span style="color: #F05D30">Path</span>
+### Path
 GET /odata/VendorFacilities
 
-### <span style="color: #F05D30">Description</span>
-Returns the list of Vendor Facilities within a logged organization. You can filter the results by the strict match using the ```$filter``` parameter–entity eq ‘string’. Or filter the results by the partial match using ```$filter```=contains parameter–contains(entity, ‘string’).
+### Description
+Returns a paged list of Vendor Facilities within the logged-in organization. 
 
+!!! note
 
-### <span style="color: #F05D30">Request parameters</span>
+    You can filter the results as follows:
+
+    - For an exact match, use: ```$filter parameter–entity eq ‘string’```
+    - For a partial match, use: ```$filter=contains parameter–contains(entity, ‘string’)```
+
+### Request parameters
 <style>
 td, th {
    border: none!important;
@@ -26,7 +32,7 @@ td, th {
 |**Authorization**: string default: <br> Bearer access_token <br> *in header* | Specify the type of the token (bearer) and then insert the ```access_token```, which was obtained during authentication.|
 
 
-### <span style="color: #F05D30">Responses</span>
+### Responses
 | <div style="width:200px">Response </div>|<div style="width:420px">Explanation</div>|                      
 |-----:|:-------|
 |**200 OK**|OK|
@@ -37,7 +43,7 @@ td, th {
 |**500 Internal Server Error**|Server encountered an unexpected condition that prevented it from fulfilling the request.|
 
 
-### <span style="color: #F05D30">Properties</span>
+### Properties
 |<div style="width:200px">Property </div> |<div style="width:420px">Explanation</div>|                      
 |-----:|:-------|
 |**vendorFacilityId**: string *(uuid)* | Unique Identifier of the Vendor Facility |
@@ -89,7 +95,7 @@ td, th {
 |**apFreeFormedTolerance<br>Level2**: number *(double)*  | Second Tolerance Level for Free-Form of the Account Payable |
 |**apFreeFormedTolerance<br>Level2Type**: integer *(int32)* | Second Type of the Account Payable Free-Formed Tolerance Level |
 |**apFreeFormedTolerance<br>Level2TypeValue**: string | Second Value of the Account Payable Free-Formed Tolerance Level Type |
-|**defaultBlankPOExpected<br>Date**: boolean | Expected Date of Delivery Purchase Order Blank by default </span> |
+|**defaultBlankPOExpected<br>Date**: boolean | Expected Date of Delivery Purchase Order Blank by default  |
 |**defaultPONotes**: string | Default Notes fo Purchase Orders  |
 |**creditCardIDId**: string *(uuid)* | Unique Identifier of the Credit Card |
 |**creditCardID**: string | Identifier of the Credit Card |
@@ -115,95 +121,96 @@ td, th {
 
 ``` json title="Response Content-types: APPLICATION/JSON, APPLICATION/XML<br>Response example (200 OK)"
 {
-  "items": [
-    {
-      "vendorFacilityId": "00000000-0000-0000-0000-000000000000",
-      "facilityId": "00000000-0000-0000-0000-000000000000",
-      "vendorFacilityNo": "string",
-      "vendorFacilityName": "string",
-      "vendorId": "00000000-0000-0000-0000-000000000000",
-      "vendorNo": "string",
-      "vendorName": "string",
-      "locationId": "00000000-0000-0000-0000-000000000000",
-      "locationNo": "string",
-      "locationName": "string",
-      "shipToAccount": "string",
-      "billToAccount": "string",
-      "leadTime": "integer (int32)",
-      "shippingValue": "number (double)",
-      "shippingType": "string",
-      "discountValue": "number (double)",
-      "discountType": "string",
-      "taxValue": "number (double)",
-      "taxType": "string",
-      "vendorGLCode": "string",
-      "vendorAPNumber": "string",
-      "vendorFacilityPOAlert": "string",
-      "dateAdded": "string (date-time)",
-      "addedBy": "00000000-0000-0000-0000-000000000000",
-      "addedByName": "string",
-      "lastUpdated": "string (date-time)",
-      "lastUpdatedBy": "00000000-0000-0000-0000-000000000000",
-      "lastUpdatedByName": "string",
-      "activeStatus": "boolean",
-      "apToleranceLevel": "number (double)",
-      "apToleranceLevelType": "integer (int32)",
-      "apToleranceLevelTypeValue": "string",
-      "paymentMethodId": "00000000-0000-0000-0000-000000000000",
-      "paymentMethod": "string",
-      "paymentTermsId": "00000000-0000-0000-0000-000000000000",
-      "paymentTermsValue": "string",
-      "fobId": "00000000-0000-0000-0000-000000000000",
-      "fobValue": "string",
-      "shipMethod": "string",
-      "shipVia": "string",
-      "apToleranceLevel2": "number (double)",
-      "apToleranceLevel2Type": "integer (int32)",
-      "apToleranceLevel2TypeValue": "string",
-      "apFreeFormedToleranceLevel": "number (double)",
-      "apFreeFormedToleranceLevelType": "integer (int32)",
-      "apFreeFormedToleranceLevelTypeValue": "string",
-      "apFreeFormedToleranceLevel2": "number (double)",
-      "apFreeFormedToleranceLevel2Type": "integer (int32)",
-      "apFreeFormedToleranceLevel2TypeValue": "string",
-      "defaultBlankPOExpectedDate": "boolean",
-      "defaultPONotes": "string",
-      "creditCardIDId": "00000000-0000-0000-0000-000000000000",
-      "creditCardID": "string",
-      "creditCardDescription": "string",
-      "currencyTypeId": "integer (int32)",
-      "currencyTypeValue": "string",
-      "vendorXref": "string",
-      "autoAttachProcessOCR": "boolean",
-      "minimumOrderTypeId": "integer (int32)",
-      "minimumOrderTypeValue": "string",
-      "minimumOrder": "number (double)",
-      "matchOptionId": "integer (int32)",
-      "matchOptionValue": "string",
-      "ocrMatchOptionId": "integer (int32)",
-      "ocrMatchOptionValue": "string",
-      "splitTaxValue": "boolean",
-      "splitDiscountValue": "boolean",
-      "splitShippingValue": "boolean",
-      "takeDepartmentsIntoAccount": "boolean",
-      "taxableItemsOnly": "boolean"
-    }
-  ],
-  "nextPageLink": "string",
-  "count": "integer (int64)"
+    "@odata.context": "link",
+    "@odata.count": "number",
+    "value": [
+        {
+            "vendorFacilityId": "00000000-0000-0000-0000-000000000000",
+            "facilityId": "00000000-0000-0000-0000-000000000000",
+            "vendorFacilityNo": "string",
+            "vendorFacilityName": "string",
+            "vendorId": "00000000-0000-0000-0000-000000000000",
+            "vendorNo": "string",
+            "vendorName": "string",
+            "locationId": "00000000-0000-0000-0000-000000000000",
+            "locationNo": "string",
+            "locationName": "string",
+            "shipToAccount": "string",
+            "billToAccount": "string",
+            "leadTime": "integer (int32)",
+            "shippingValue": "number (double)",
+            "shippingType": "string",
+            "discountValue": "number (double)",
+            "discountType": "string",
+            "taxValue": "number (double)",
+            "taxType": "string",
+            "vendorGLCode": "string",
+            "vendorAPNumber": "string",
+            "vendorFacilityPOAlert": "string",
+            "dateAdded": "string (date-time)",
+            "addedBy": "00000000-0000-0000-0000-000000000000",
+            "addedByName": "string",
+            "lastUpdated": "string (date-time)",
+            "lastUpdatedBy": "00000000-0000-0000-0000-000000000000",
+            "lastUpdatedByName": "string",
+            "activeStatus": "boolean",
+            "apToleranceLevel": "number (double)",
+            "apToleranceLevelType": "integer (int32)",
+            "apToleranceLevelTypeValue": "string",
+            "paymentMethodId": "00000000-0000-0000-0000-000000000000",
+            "paymentMethod": "string",
+            "paymentTermsId": "00000000-0000-0000-0000-000000000000",
+            "paymentTermsValue": "string",
+            "fobId": "00000000-0000-0000-0000-000000000000",
+            "fobValue": "string",
+            "shipMethod": "string",
+            "shipVia": "string",
+            "apToleranceLevel2": "number (double)",
+            "apToleranceLevel2Type": "integer (int32)",
+            "apToleranceLevel2TypeValue": "string",
+            "apFreeFormedToleranceLevel": "number (double)",
+            "apFreeFormedToleranceLevelType": "integer (int32)",
+            "apFreeFormedToleranceLevelTypeValue": "string",
+            "apFreeFormedToleranceLevel2": "number (double)",
+            "apFreeFormedToleranceLevel2Type": "integer (int32)",
+            "apFreeFormedToleranceLevel2TypeValue": "string",
+            "defaultBlankPOExpectedDate": "boolean",
+            "defaultPONotes": "string",
+            "creditCardIDId": "00000000-0000-0000-0000-000000000000",
+            "creditCardID": "string",
+            "creditCardDescription": "string",
+            "currencyTypeId": "integer (int32)",
+            "currencyTypeValue": "string",
+            "vendorXref": "string",
+            "autoAttachProcessOCR": "boolean",
+            "minimumOrderTypeId": "integer (int32)",
+            "minimumOrderTypeValue": "string",
+            "minimumOrder": "number (double)",
+            "matchOptionId": "integer (int32)",
+            "matchOptionValue": "string",
+            "ocrMatchOptionId": "integer (int32)",
+            "ocrMatchOptionValue": "string",
+            "splitTaxValue": "boolean",
+            "splitDiscountValue": "boolean",
+            "splitShippingValue": "boolean",
+            "takeDepartmentsIntoAccount": "boolean",
+            "taxableItemsOnly": "boolean"
+        }
+    ],
+    "@odata.nextLink": "link"
 }
 ```
 
 
 ## Create a new Vendor Facility
 
-### <span style="color: #F05D30">Path</span>
+### Path
 POST /odata/Vendors({VendorId})/VendorFacilities 
 
-### <span style="color: #F05D30">Description</span>
-Creates a new Vendor Facility for a specified active Location (All Locations) within an active Vendor logged in an organization.
+### Description
+Creates a new Vendor Facility for the specified active Location (All Locations) within an active Vendor logged in an organization.
 
-### <span style="color: #F05D30">Request body</span>
+### Request body
 |  <div style="width:200px">Parameter</div>  |  <div style="width:420px">Explanation</div>  |                      
 |-----:|:-------|
 |**facilityId**: string *(uuid)* <br> <span style="color: #F05D30">**required**</span> | Unique Identifier of the Facility |
@@ -251,59 +258,59 @@ Creates a new Vendor Facility for a specified active Location (All Locations) wi
 
 ``` json title="Request Content-types: APPLICATION/JSON, APPLICATION/XML <br> Request Example"
 {
-  "facilityId": "00000000-0000-0000-0000-000000000000",
-  "locationId": "00000000-0000-0000-0000-000000000000",
-  "shipToAccount": "string",
-  "billToAccount": "string",
-  "leadTime": "integer (int32)",
-  "paymentMethodId": "00000000-0000-0000-0000-000000000000",
-  "paymentTermsId": "00000000-0000-0000-0000-000000000000",
-  "creditCardIDId": "00000000-0000-0000-0000-000000000000",
-  "fobId": "00000000-0000-0000-0000-000000000000",
-  "shipMethod": "string",
-  "shipVia": "string",
-  "vendorXref": "string",
-  "matchOptionId": "integer (int32)",
-  "ocrMatchOptionId": "integer (int32)",
-  "taxableItemsOnly": "boolean",
-  "takeDepartmentsIntoAccount": "boolean",
-  "minimumOrder": "number (double)",
-  "minimumOrderTypeId": "integer (int32)",
-  "discountValue": "number (double)",
-  "discountTypeId": "integer (int32)",
-  "splitDiscountValue": "boolean",
-  "taxValue": "number (double)",
-  "taxTypeId": "integer (int32)",
-  "splitTaxValue": "boolean",
-  "shippingValue": "number (double)",
-  "shippingTypeId": "integer (int32)",
-  "splitShippingValue": "boolean",
-  "vendorGLCode": "string",
-  "vendorAPNumber": "string",
-  "apToleranceLevel": "number (double)",
-  "apToleranceLevelType": "integer (int32)",
-  "apToleranceLevel2": "number (double)",
-  "apToleranceLevel2Type": "integer (int32)",
-  "apFreeFormedToleranceLevel": "number (double)",
-  "apFreeFormedToleranceLevelType": "integer (int32)",
-  "apFreeFormedToleranceLevel2": "number (double)",
-  "apFreeFormedToleranceLevel2Type": "integer (int32)",
-  "currencyTypeId": "integer (int32)",
-  "defaultBlankPOExpectedDate": "boolean",
-  "autoAttachProcessOCR": "boolean",
-  "vendorFacilityPOAlert": "string",
-  "defaultPONotes": "string"
+    "facilityId": "00000000-0000-0000-0000-000000000000",
+    "locationId": "00000000-0000-0000-0000-000000000000",
+    "shipToAccount": "string",
+    "billToAccount": "string",
+    "leadTime": "integer (int32)",
+    "paymentMethodId": "00000000-0000-0000-0000-000000000000",
+    "paymentTermsId": "00000000-0000-0000-0000-000000000000",
+    "creditCardIDId": "00000000-0000-0000-0000-000000000000",
+    "fobId": "00000000-0000-0000-0000-000000000000",
+    "shipMethod": "string",
+    "shipVia": "string",
+    "vendorXref": "string",
+    "matchOptionId": "integer (int32)",
+    "ocrMatchOptionId": "integer (int32)",
+    "taxableItemsOnly": "boolean",
+    "takeDepartmentsIntoAccount": "boolean",
+    "minimumOrder": "number (double)",
+    "minimumOrderTypeId": "integer (int32)",
+    "discountValue": "number (double)",
+    "discountTypeId": "integer (int32)",
+    "splitDiscountValue": "boolean",
+    "taxValue": "number (double)",
+    "taxTypeId": "integer (int32)",
+    "splitTaxValue": "boolean",
+    "shippingValue": "number (double)",
+    "shippingTypeId": "integer (int32)",
+    "splitShippingValue": "boolean",
+    "vendorGLCode": "string",
+    "vendorAPNumber": "string",
+    "apToleranceLevel": "number (double)",
+    "apToleranceLevelType": "integer (int32)",
+    "apToleranceLevel2": "number (double)",
+    "apToleranceLevel2Type": "integer (int32)",
+    "apFreeFormedToleranceLevel": "number (double)",
+    "apFreeFormedToleranceLevelType": "integer (int32)",
+    "apFreeFormedToleranceLevel2": "number (double)",
+    "apFreeFormedToleranceLevel2Type": "integer (int32)",
+    "currencyTypeId": "integer (int32)",
+    "defaultBlankPOExpectedDate": "boolean",
+    "autoAttachProcessOCR": "boolean",
+    "vendorFacilityPOAlert": "string",
+    "defaultPONotes": "string"
 }
     
 ```
-### <span style="color: #F05D30">Request parameters</span>
+### Request parameters
 |  <div style="width:200px">Parameter</div>  |  <div style="width:380px">Explanation</div>  |                      
 |-----:|:-------|
 |**vendorId**: string *(uuid)* <br> <span style="color: #F05D30">**required**</span> <br> *in path* | Enter the ID of the Vendor here. |
 |**api-version**: string default: 1.0 <br> *in header*|The requested API version.|      
 |**Authorization**: string default: <br> Bearer access_token <br> *in header* |Specify the type of the token (bearer) and then insert the ```access_token```, which was obtained during authentication.|
 
-### <span style="color: #F05D30">Responses</span>
+### Responses
 | <div style="width:200px">Response </div>|<div style="width:380px">Explanation</div>|                      
 |-----:|:-------|
 |**200 OK** | OK |    
@@ -319,22 +326,20 @@ Creates a new Vendor Facility for a specified active Location (All Locations) wi
 
 ## Get the specified Vendor Facility
 
-### <span style="color: #F05D30">Path</span>
+### Path
 GET /odata/VendorFacilities({vendorFacilityId})
 
-### <span style="color: #F05D30">Description</span>
-Returns the details of the Vendor Facility specified by ID within a logged organization
+### Description
+Returns the details of the Vendor Facility specified by ID within the logged-in organization
 
-### <span style="color: #F05D30">Request parameters</span>
+### Request parameters
 |  <div style="width:200px">Parameter</div>  |  <div style="width:380px">Explanation</div>  |                      
 |-----:|:-------|
 |**vendorFacilityId**: string *(uuid)* <br> <span style="color: #F05D30">**required**</span> <br> *in path* | Enter the ID of the Vendor Facility here. |
 |**api-version**: string default: 1.0 <br> *in header*| The requested API version. |   
 |**Authorization**: string default: <br> Bearer access_token <br> *in header* |Specify the type of the token (bearer) and then insert the ```access_token```, which was obtained during authentication. |
 
-
-
-### <span style="color: #F05D30">Responses</span>
+### Responses
 | <div style="width:200px">Response </div>|<div style="width:420px">Explanation</div>|                      
 |-----:|:-------|
 |**200 OK**|OK|      
@@ -345,7 +350,7 @@ Returns the details of the Vendor Facility specified by ID within a logged organ
 |**500 Internal Server Error**| Server encountered an unexpected condition that prevented it from fulfilling the request. |
 
 
-### <span style="color: #F05D30">Properties</span>
+### Properties
 |<div style="width:200px">Property </div> |<div style="width:420px">Explanation</div>|                      
 |-----:|:-------|
 |**vendorFacilityId**: string *(uuid)* | Unique Identifier of the Vendor Facility |
@@ -424,76 +429,77 @@ Returns the details of the Vendor Facility specified by ID within a logged organ
 
 ``` json title="Response Content-types: APPLICATION/JSON, APPLICATION/XML<br>Response example (200 OK)"
 {
-  "vendorFacilityId": "00000000-0000-0000-0000-000000000000",
-  "facilityId": "00000000-0000-0000-0000-000000000000",
-  "vendorFacilityNo": "string",
-  "vendorFacilityName": "string",
-  "vendorId": "00000000-0000-0000-0000-000000000000",
-  "vendorNo": "string",
-  "vendorName": "string",
-  "locationId": "00000000-0000-0000-0000-000000000000",
-  "locationNo": "string",
-  "locationName": "string",
-  "shipToAccount": "string",
-  "billToAccount": "string",
-  "leadTime": "integer (int32)",
-  "shippingValue": "number (double)",
-  "shippingType": "string",
-  "discountValue": "number (double)",
-  "discountType": "string",
-  "taxValue": "number (double)",
-  "taxType": "string",
-  "vendorGLCode": "string",
-  "vendorAPNumber": "string",
-  "vendorFacilityPOAlert": "string",
-  "dateAdded": "string (date-time)",
-  "addedBy": "00000000-0000-0000-0000-000000000000",
-  "addedByName": "string",
-  "lastUpdated": "string (date-time)",
-  "lastUpdatedBy": "00000000-0000-0000-0000-000000000000",
-  "lastUpdatedByName": "string",
-  "activeStatus": "boolean",
-  "apToleranceLevel": "number (double)",
-  "apToleranceLevelType": "integer (int32)",
-  "apToleranceLevelTypeValue": "string",
-  "paymentMethodId": "00000000-0000-0000-0000-000000000000",
-  "paymentMethod": "string",
-  "paymentTermsId": "00000000-0000-0000-0000-000000000000",
-  "paymentTermsValue": "string",
-  "fobId": "00000000-0000-0000-0000-000000000000",
-  "fobValue": "string",
-  "shipMethod": "string",
-  "shipVia": "string",
-  "apToleranceLevel2": "number (double)",
-  "apToleranceLevel2Type": "integer (int32)",
-  "apToleranceLevel2TypeValue": "string",
-  "apFreeFormedToleranceLevel": "number (double)",
-  "apFreeFormedToleranceLevelType": "integer (int32)",
-  "apFreeFormedToleranceLevelTypeValue": "string",
-  "apFreeFormedToleranceLevel2": "number (double)",
-  "apFreeFormedToleranceLevel2Type": "integer (int32)",
-  "apFreeFormedToleranceLevel2TypeValue": "string",
-  "defaultBlankPOExpectedDate": "boolean",
-  "defaultPONotes": "string",
-  "creditCardIDId": "00000000-0000-0000-0000-000000000000",
-  "creditCardID": "string",
-  "creditCardDescription": "string",
-  "currencyTypeId": "integer (int32)",
-  "currencyTypeValue": "string",
-  "vendorXref": "string",
-  "autoAttachProcessOCR": "boolean",
-  "minimumOrderTypeId": "integer (int32)",
-  "minimumOrderTypeValue": "string",
-  "minimumOrder": "number (double)",
-  "matchOptionId": "integer (int32)",
-  "matchOptionValue": "string",
-  "ocrMatchOptionId": "integer (int32)",
-  "ocrMatchOptionValue": "string",
-  "splitTaxValue": "boolean",
-  "splitDiscountValue": "boolean",
-  "splitShippingValue": "boolean",
-  "takeDepartmentsIntoAccount": "boolean",
-  "taxableItemsOnly": "boolean"
+    "@odata.context": "link",
+    "vendorFacilityId": "00000000-0000-0000-0000-000000000000",
+    "facilityId": "00000000-0000-0000-0000-000000000000",
+    "vendorFacilityNo": "string",
+    "vendorFacilityName": "string",
+    "vendorId": "00000000-0000-0000-0000-000000000000",
+    "vendorNo": "string",
+    "vendorName": "string",
+    "locationId": "00000000-0000-0000-0000-000000000000",
+    "locationNo": "string",
+    "locationName": "string",
+    "shipToAccount": "string",
+    "billToAccount": "string",
+    "leadTime": "integer (int32)",
+    "shippingValue": "number (double)",
+    "shippingType": "string",
+    "discountValue": "number (double)",
+    "discountType": "string",
+    "taxValue": "number (double)",
+    "taxType": "string",
+    "vendorGLCode": "string",
+    "vendorAPNumber": "string",
+    "vendorFacilityPOAlert": "string",
+    "dateAdded": "string (date-time)",
+    "addedBy": "00000000-0000-0000-0000-000000000000",
+    "addedByName": "string",
+    "lastUpdated": "string (date-time)",
+    "lastUpdatedBy": "00000000-0000-0000-0000-000000000000",
+    "lastUpdatedByName": "string",
+    "activeStatus": "boolean",
+    "apToleranceLevel": "number (double)",
+    "apToleranceLevelType": "integer (int32)",
+    "apToleranceLevelTypeValue": "string",
+    "paymentMethodId": "00000000-0000-0000-0000-000000000000",
+    "paymentMethod": "string",
+    "paymentTermsId": "00000000-0000-0000-0000-000000000000",
+    "paymentTermsValue": "string",
+    "fobId": "00000000-0000-0000-0000-000000000000",
+    "fobValue": "string",
+    "shipMethod": "string",
+    "shipVia": "string",
+    "apToleranceLevel2": "number (double)",
+    "apToleranceLevel2Type": "integer (int32)",
+    "apToleranceLevel2TypeValue": "string",
+    "apFreeFormedToleranceLevel": "number (double)",
+    "apFreeFormedToleranceLevelType": "integer (int32)",
+    "apFreeFormedToleranceLevelTypeValue": "string",
+    "apFreeFormedToleranceLevel2": "number (double)",
+    "apFreeFormedToleranceLevel2Type": "integer (int32)",
+    "apFreeFormedToleranceLevel2TypeValue": "string",
+    "defaultBlankPOExpectedDate": "boolean",
+    "defaultPONotes": "string",
+    "creditCardIDId": "00000000-0000-0000-0000-000000000000",
+    "creditCardID": "string",
+    "creditCardDescription": "string",
+    "currencyTypeId": "integer (int32)",
+    "currencyTypeValue": "string",
+    "vendorXref": "string",
+    "autoAttachProcessOCR": "boolean",
+    "minimumOrderTypeId": "integer (int32)",
+    "minimumOrderTypeValue": "string",
+    "minimumOrder": "number (double)",
+    "matchOptionId": "integer (int32)",
+    "matchOptionValue": "string",
+    "ocrMatchOptionId": "integer (int32)",
+    "ocrMatchOptionValue": "string",
+    "splitTaxValue": "boolean",
+    "splitDiscountValue": "boolean",
+    "splitShippingValue": "boolean",
+    "takeDepartmentsIntoAccount": "boolean",
+    "taxableItemsOnly": "boolean"
 }
 ```
 

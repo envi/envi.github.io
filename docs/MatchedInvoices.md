@@ -1,13 +1,20 @@
 
 ## Get the list of Matched Invoices
 
-### <span style="color: #F05D30">Path</span>
+### Path
 GET /odata/MatchedInvoices
 
-### <span style="color: #F05D30">Description</span>
-Returns the paged list of the existing Matched Invoices within a logged organization. You can filter the results by the strict match using the ```$filter``` parameter–entity eq ‘string’. Or filter the results by the partial match using ```$filter```=contains parameter–contains(entity, ‘string’).
+### Description
+Returns a paged list of existing Matched Invoices within the logged-in organization. 
 
-### <span style="color: #F05D30">Request parameters</span>
+!!! note
+
+    You can filter the results as follows:
+
+    - For an exact match, use: ```$filter parameter–entity eq ‘string’```
+    - For a partial match, use: ```$filter=contains parameter–contains(entity, ‘string’)```
+
+### Request parameters
 <style>
 td, th {
    border: none!important;
@@ -23,7 +30,7 @@ td, th {
 |**$skip**: string <br> *in query*| Skips the first n results.|
 |**Authorization**: string default: <br> Bearer access_token <br> *in header* |Specify the type of the token (bearer) and then insert the ```access_token```, which was obtained during authentication.|
 
-### <span style="color: #F05D30">Responses</span>
+### Responses
 | <div style="width:200px">Response </div>|<div style="width:380px">Explanation</div>|                      
 |-----:|:-------|
 |**200 OK**|OK|      
@@ -33,7 +40,7 @@ td, th {
 |**403 Forbidden**|User doesn’t have appropriate privileges.|
 |**500 Internal Server Error**|Server encountered an unexpected condition that prevented it from fulfilling the request.|
 
-### <span style="color: #F05D30">Properties</span>
+### Properties
 |<div style="width:200px">Property </div> |<div style="width:420px">Explanation</div>|                      
 |-----:|:-------|
 |**apMatchedInvoiceId**: string *(uuid)* | Unique Identifier of the Account Payable Matched Invoice |
@@ -97,89 +104,91 @@ td, th {
 
 ``` json title="Response Content-types: APPLICATION/JSON, APPLICATION/XML<br>Response example (200 OK)"
 {
-  "items": [
-    {
-      "apMatchedInvoiceId": "00000000-0000-0000-0000-000000000000",
-      "purchaseOrderId": "00000000-0000-0000-0000-000000000000",
-      "purchaseOrderNo": "string",
-      "sequenceNo": "integer (int32)",
-      "poType": "string",
-      "facilityId": "00000000-0000-0000-0000-000000000000",
-      "facilityNo": "string",
-      "facilityName": "string",
-      "locationId": "00000000-0000-0000-0000-000000000000",
-      "locationNo": "string",
-      "locationName": "string",
-      "vendorId": "00000000-0000-0000-0000-000000000000",
-      "vendorNo": "string",
-      "vendorName": "string",
-      "invoiceNo": "string",
-      "matchedInvoiceStatusId": "integer (int32)",
-      "matchedInvoiceStatus": "string",
-      "vendorRemitToId": "00000000-0000-0000-0000-000000000000",
-      "remitToNo": "string",
-      "remitToDescription": "string",
-      "remitToVendorNo": "string",
-      "creditCardIDId": "00000000-0000-0000-0000-000000000000",
-      "creditCardID": "string",
-      "creditCardIDDescription": "string",
-      "reference": "string",
-      "notes": "string",
-      "invoiceDate": "string (date-time)",
-      "invoiceDueDate": "string (date-time)",
-      "trackingCode": "string",
-      "invoiceValidationTotal": "number (double)",
-      "cerNoId": "00000000-0000-0000-0000-000000000000",
-      "cerNo": "string",
-      "cerNoDescription": "string",
-      "discountAmount": "number (double)",
-      "taxAmount": "number (double)",
-      "shippingAmount": "number (double)",
-      "taxExpenseGLCode": "string",
-      "taxAccrualGLCode": "string",
-      "discountGLCode": "string",
-      "taxExpenseAmount": "number (double)",
-      "apBatchId": "00000000-0000-0000-0000-000000000000",
-      "apBatchNo": "string",
-      "taxCode": "string",
-      "receivedInvoiceId": "00000000-0000-0000-0000-000000000000",
-      "offset": "number (double)",
-      "offsetGLCode": "string",
-      "createdBy": "00000000-0000-0000-0000-000000000000",
-      "createdByUserName": "string",
-      "dateCreated": "string (date-time)",
-      "lastUpdated": "string (date-time)",
-      "lastUpdatedBy": "00000000-0000-0000-0000-000000000000",
-      "lastUpdatedByUserName": "string",
-      "dateSubmitted": "string (date-time)",
-      "submittedBy": "00000000-0000-0000-0000-000000000000",
-      "submittedByUserName": "string",
-      "projectNoId": "00000000-0000-0000-0000-000000000000",
-      "projectNo": "string",
-      "projectNoDescription": "string"
-    }
-  ],
-  "nextPageLink": "string",
-  "count": "integer (int64)"
+    "@odata.context": "link",
+    "@odata.count": "number",
+    "value": [
+        {
+            "apMatchedInvoiceId": "00000000-0000-0000-0000-000000000000",
+            "purchaseOrderId": "00000000-0000-0000-0000-000000000000",
+            "purchaseOrderNo": "string",
+            "sequenceNo": "integer (int32)",
+            "poType": "string",
+            "facilityId": "00000000-0000-0000-0000-000000000000",
+            "facilityNo": "string",
+            "facilityName": "string",
+            "locationId": "00000000-0000-0000-0000-000000000000",
+            "locationNo": "string",
+            "locationName": "string",
+            "vendorId": "00000000-0000-0000-0000-000000000000",
+            "vendorNo": "string",
+            "vendorName": "string",
+            "invoiceNo": "string",
+            "matchedInvoiceStatusId": "integer (int32)",
+            "matchedInvoiceStatus": "string",
+            "vendorRemitToId": "00000000-0000-0000-0000-000000000000",
+            "remitToNo": "string",
+            "remitToDescription": "string",
+            "remitToVendorNo": "string",
+            "creditCardIDId": "00000000-0000-0000-0000-000000000000",
+            "creditCardID": "string",
+            "creditCardIDDescription": "string",
+            "reference": "string",
+            "notes": "string",
+            "invoiceDate": "string (date-time)",
+            "invoiceDueDate": "string (date-time)",
+            "trackingCode": "string",
+            "invoiceValidationTotal": "number (double)",
+            "cerNoId": "00000000-0000-0000-0000-000000000000",
+            "cerNo": "string",
+            "cerNoDescription": "string",
+            "discountAmount": "number (double)",
+            "taxAmount": "number (double)",
+            "shippingAmount": "number (double)",
+            "taxExpenseGLCode": "string",
+            "taxAccrualGLCode": "string",
+            "discountGLCode": "string",
+            "taxExpenseAmount": "number (double)",
+            "apBatchId": "00000000-0000-0000-0000-000000000000",
+            "apBatchNo": "string",
+            "taxCode": "string",
+            "receivedInvoiceId": "00000000-0000-0000-0000-000000000000",
+            "offset": "number (double)",
+            "offsetGLCode": "string",
+            "createdBy": "00000000-0000-0000-0000-000000000000",
+            "createdByUserName": "string",
+            "dateCreated": "string (date-time)",
+            "lastUpdated": "string (date-time)",
+            "lastUpdatedBy": "00000000-0000-0000-0000-000000000000",
+            "lastUpdatedByUserName": "string",
+            "dateSubmitted": "string (date-time)",
+            "submittedBy": "00000000-0000-0000-0000-000000000000",
+            "submittedByUserName": "string",
+            "projectNoId": "00000000-0000-0000-0000-000000000000",
+            "projectNo": "string",
+            "projectNoDescription": "string"
+        }
+    ],
+    "@odata.nextLink": "link"
 }
+
 ```
 
 ## Get the specified Matched Invoice
 
-### <span style="color: #F05D30">Path</span>
+### Path
 GET /odata/MatchedInvoices({matchedInvoiceId})
 
-### <span style="color: #F05D30">Description</span>
+### Description
 Returns the details of the Matched Invoice specified by ID.
 
-### <span style="color: #F05D30">Request parameters</span>
+### Request parameters
 |  <div style="width:200px">Parameter</div>  |  <div style="width:380px">Explanation</div>  |                      
 |-----:|:-------|
 |**matchedInvoiceId**: string *(uuid)* <br> <span style="color: #F05D30">**required**</span> <br> *in path* | Enter the ID of the Matched Invoice here. |
 |**api-version**: string default: 1.0 <br> *in header*| The requested API version.|   
 |**Authorization**: string default: <br> Bearer access_token <br> *in header* |Specify the type of the token (bearer) and then insert the ```access_token```, which was obtained during authentication.|
 
-### <span style="color: #F05D30">Responses</span>
+### Responses
 | <div style="width:200px">Response </div>|<div style="width:380px">Explanation</div>|                      
 |-----:|:-------|
 |**200 OK**|OK|      
@@ -189,7 +198,7 @@ Returns the details of the Matched Invoice specified by ID.
 |**404 Not Found** | Specified ID is absent in the system. |
 |**500 Internal Server Error**|Server encountered an unexpected condition that prevented it from fulfilling the request.|
 
-### <span style="color: #F05D30">Properties</span>
+### Properties
 |<div style="width:200px">Property </div> |<div style="width:420px">Explanation</div>|                      
 |-----:|:-------|
 |**apMatchedInvoiceId**: string *(uuid)* | Unique Identifier of the Account Payable Matched Invoice |
@@ -254,76 +263,85 @@ Returns the details of the Matched Invoice specified by ID.
 
 ``` json title="Response Content-types: APPLICATION/JSON, APPLICATION/XML<br>Response example (200 OK)"
 {
-  "apMatchedInvoiceId": "00000000-0000-0000-0000-000000000000",
-  "purchaseOrderId": "00000000-0000-0000-0000-000000000000",
-  "purchaseOrderNo": "string",
-  "sequenceNo": "integer (int32)",
-  "poType": "string",
-  "facilityId": "00000000-0000-0000-0000-000000000000",
-  "facilityNo": "string",
-  "facilityName": "string",
-  "locationId": "00000000-0000-0000-0000-000000000000",
-  "locationNo": "string",
-  "locationName": "string",
-  "vendorId": "00000000-0000-0000-0000-000000000000",
-  "vendorNo": "string",
-  "vendorName": "string",
-  "invoiceNo": "string",
-  "matchedInvoiceStatusId": "integer (int32)",
-  "matchedInvoiceStatus": "string",
-  "vendorRemitToId": "00000000-0000-0000-0000-000000000000",
-  "remitToNo": "string",
-  "remitToDescription": "string",
-  "remitToVendorNo": "string",
-  "creditCardIDId": "00000000-0000-0000-0000-000000000000",
-  "creditCardID": "string",
-  "creditCardIDDescription": "string",
-  "reference": "string",
-  "notes": "string",
-  "invoiceDate": "string (date-time)",
-  "invoiceDueDate": "string (date-time)",
-  "trackingCode": "string",
-  "invoiceValidationTotal": "number (double)",
-  "cerNoId": "00000000-0000-0000-0000-000000000000",
-  "cerNo": "string",
-  "cerNoDescription": "string",
-  "discountAmount": "number (double)",
-  "taxAmount": "number (double)",
-  "shippingAmount": "number (double)",
-  "taxExpenseGLCode": "string",
-  "taxAccrualGLCode": "string",
-  "discountGLCode": "string",
-  "taxExpenseAmount": "number (double)",
-  "apBatchId": "00000000-0000-0000-0000-000000000000",
-  "apBatchNo": "string",
-  "taxCode": "string",
-  "receivedInvoiceId": "00000000-0000-0000-0000-000000000000",
-  "offset": "number (double)",
-  "offsetGLCode": "string",
-  "createdBy": "00000000-0000-0000-0000-000000000000",
-  "createdByUserName": "string",
-  "dateCreated": "string (date-time)",
-  "lastUpdated": "string (date-time)",
-  "lastUpdatedBy": "00000000-0000-0000-0000-000000000000",
-  "lastUpdatedByUserName": "string",
-  "dateSubmitted": "string (date-time)",
-  "submittedBy": "00000000-0000-0000-0000-000000000000",
-  "submittedByUserName": "string",
-  "projectNoId": "00000000-0000-0000-0000-000000000000",
-  "projectNo": "string",
-  "projectNoDescription": "string"
+    "@odata.context": "link",
+    "apMatchedInvoiceId": "00000000-0000-0000-0000-000000000000",
+    "purchaseOrderId": "00000000-0000-0000-0000-000000000000",
+    "purchaseOrderNo": "string",
+    "sequenceNo": "integer (int32)",
+    "poType": "string",
+    "facilityId": "00000000-0000-0000-0000-000000000000",
+    "facilityNo": "string",
+    "facilityName": "string",
+    "locationId": "00000000-0000-0000-0000-000000000000",
+    "locationNo": "string",
+    "locationName": "string",
+    "vendorId": "00000000-0000-0000-0000-000000000000",
+    "vendorNo": "string",
+    "vendorName": "string",
+    "invoiceNo": "string",
+    "matchedInvoiceStatusId": "integer (int32)",
+    "matchedInvoiceStatus": "string",
+    "vendorRemitToId": "00000000-0000-0000-0000-000000000000",
+    "remitToNo": "string",
+    "remitToDescription": "string",
+    "remitToVendorNo": "string",
+    "creditCardIDId": "00000000-0000-0000-0000-000000000000",
+    "creditCardID": "string",
+    "creditCardIDDescription": "string",
+    "reference": "string",
+    "notes": "string",
+    "invoiceDate": "string (date-time)",
+    "invoiceDueDate": "string (date-time)",
+    "trackingCode": "string",
+    "invoiceValidationTotal": "number (double)",
+    "cerNoId": "00000000-0000-0000-0000-000000000000",
+    "cerNo": "string",
+    "cerNoDescription": "string",
+    "discountAmount": "number (double)",
+    "taxAmount": "number (double)",
+    "shippingAmount": "number (double)",
+    "taxExpenseGLCode": "string",
+    "taxAccrualGLCode": "string",
+    "discountGLCode": "string",
+    "taxExpenseAmount": "number (double)",
+    "apBatchId": "00000000-0000-0000-0000-000000000000",
+    "apBatchNo": "string",
+    "taxCode": "string",
+    "receivedInvoiceId": "00000000-0000-0000-0000-000000000000",
+    "offset": "number (double)",
+    "offsetGLCode": "string",
+    "createdBy": "00000000-0000-0000-0000-000000000000",
+    "createdByUserName": "string",
+    "dateCreated": "string (date-time)",
+    "lastUpdated": "string (date-time)",
+    "lastUpdatedBy": "00000000-0000-0000-0000-000000000000",
+    "lastUpdatedByUserName": "string",
+    "dateSubmitted": "string (date-time)",
+    "submittedBy": "00000000-0000-0000-0000-000000000000",
+    "submittedByUserName": "string",
+    "projectNoId": "00000000-0000-0000-0000-000000000000",
+    "projectNo": "string",
+    "projectNoDescription": "string"
 }
 ```
 
 ## Get the list of Matched Invoice Items for the specified Matched Invoice
 
-### <span style="color: #F05D30">Path</span>
+### Path
 GET /odata/MatchedInvoices({matchedInvoiceId})/matchedInvoiceItems
 
-### <span style="color: #F05D30">Description</span>
-Returns the paged list of the existing matched invoice items within a matched Invoice specified by ID. You can filter the results by the strict match using the ```$filter``` parameter–entity eq ‘string’. Or filter the results by the partial match using ```$filter```=contains parameter–contains(entity, ‘string’).
+### Description
+Returns a paged list of existing Matched Invoice Items within the Matched Invoice specified by ID. 
 
-### <span style="color: #F05D30">Request parameters</span>
+!!! note
+
+    You can filter the results as follows:
+
+    - For an exact match, use: ```$filter parameter–entity eq ‘string’```
+    - For a partial match, use: ```$filter=contains parameter–contains(entity, ‘string’)```
+
+
+### Request parameters
 |  <div style="width:200px">Parameter</div>  |  <div style="width:380px">Explanation</div>  |                      
 |-----:|:-------|
 |**matchedInvoiceId**: string *(uuid)* <br> <span style="color: #F05D30">**required**</span> <br> *in path* | Enter the ID of the Matched Invoice here. |
@@ -335,7 +353,7 @@ Returns the paged list of the existing matched invoice items within a matched In
 |**$skip**: string <br> *in query*| Skips the first n results.|
 |**Authorization**: string default: <br> Bearer access_token <br> *in header* |Specify the type of the token (bearer) and then insert the ```access_token```, which was obtained during authentication.|
 
-### <span style="color: #F05D30">Responses</span>
+### Responses
 | <div style="width:200px">Response </div>|<div style="width:380px">Explanation</div>|                      
 |-----:|:-------|
 |**200 OK**|OK|      
@@ -345,7 +363,7 @@ Returns the paged list of the existing matched invoice items within a matched In
 |**403 Forbidden**|User doesn’t have appropriate privileges.|
 |**500 Internal Server Error**|Server encountered an unexpected condition that prevented it from fulfilling the request.|
 
-### <span style="color: #F05D30">Properties</span>
+### Properties
 |<div style="width:200px">Property </div> |<div style="width:420px">Explanation</div>|                      
 |-----:|:-------|
 |**apMatchedInvoiceItemId**: string *(uuid)* | Unique Identifier of the Account Payable Matched Invoice Item |
@@ -384,45 +402,46 @@ Returns the paged list of the existing matched invoice items within a matched In
 
 ``` json title="Response Content-types: APPLICATION/JSON, APPLICATION/XML<br>Response example (200 OK)"
 {
-  "items": [
-    {
-      "apMatchedInvoiceItemId": "00000000-0000-0000-0000-000000000000",
-      "matchedInvoiceItemNo": "integer (int32)",
-      "matchedInvoiceId": "00000000-0000-0000-0000-000000000000",
-      "matchedInvoiceNo": "string",
-      "purchaseOrderId": "00000000-0000-0000-0000-000000000000",
-      "purchaseOrderNo": "string",
-      "poReceiptItemId": "00000000-0000-0000-0000-000000000000",
-      "returnItemId": "00000000-0000-0000-0000-000000000000",
-      "invoiceQuantity": "integer (int32)",
-      "invoiceUOM": "string",
-      "invoiceConversionFactor": "integer (int32)",
-      "invoicePrice": "number (double)",
-      "notes": "string",
-      "departmentGLCode": "string",
-      "glCode": "string",
-      "lineItemTypeId": "integer (int32)",
-      "lineItemType": "string",
-      "qtyApprovalTypeId": "integer (int32)",
-      "qtyApprovalType": "string",
-      "priceApprovalTypeId": "integer (int32)",
-      "priceApprovalType": "string",
-      "inventoryNo": "string",
-      "inventoryDescription": "string",
-      "vendorItemNo": "string",
-      "manufacturerName": "string",
-      "manufacturerItemNo": "string",
-      "dateCreated": "string (date-time)",
-      "createdBy": "00000000-0000-0000-0000-000000000000",
-      "createdByName": "string",
-      "lastUpdated": "string (date-time)",
-      "lastUpdatedBy": "00000000-0000-0000-0000-000000000000",
-      "lastUpdatedByName": "string",
-      "isTaxable": "boolean"
-    }
-  ],
-  "nextPageLink": "string",
-  "count": "integer (int64)"
+    "@odata.context": "link",
+    "@odata.count": "number",
+    "value": [
+        {
+            "apMatchedInvoiceItemId": "00000000-0000-0000-0000-000000000000",
+            "matchedInvoiceItemNo": "integer (int32)",
+            "matchedInvoiceId": "00000000-0000-0000-0000-000000000000",
+            "matchedInvoiceNo": "string",
+            "purchaseOrderId": "00000000-0000-0000-0000-000000000000",
+            "purchaseOrderNo": "string",
+            "poReceiptItemId": "00000000-0000-0000-0000-000000000000",
+            "returnItemId": "00000000-0000-0000-0000-000000000000",
+            "invoiceQuantity": "integer (int32)",
+            "invoiceUOM": "string",
+            "invoiceConversionFactor": "integer (int32)",
+            "invoicePrice": "number (double)",
+            "notes": "string",
+            "departmentGLCode": "string",
+            "glCode": "string",
+            "lineItemTypeId": "integer (int32)",
+            "lineItemType": "string",
+            "qtyApprovalTypeId": "integer (int32)",
+            "qtyApprovalType": "string",
+            "priceApprovalTypeId": "integer (int32)",
+            "priceApprovalType": "string",
+            "inventoryNo": "string",
+            "inventoryDescription": "string",
+            "vendorItemNo": "string",
+            "manufacturerName": "string",
+            "manufacturerItemNo": "string",
+            "dateCreated": "string (date-time)",
+            "createdBy": "00000000-0000-0000-0000-000000000000",
+            "createdByName": "string",
+            "lastUpdated": "string (date-time)",
+            "lastUpdatedBy": "00000000-0000-0000-0000-000000000000",
+            "lastUpdatedByName": "string",
+            "isTaxable": "boolean"
+        }
+    ],
+    "@odata.nextLink": "link"
 }
 ```
 

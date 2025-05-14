@@ -2,13 +2,13 @@
 
 ## Get the specified Future Pricing Item
 
-### <span style="color: #F05D30">Path</span>
+### Path
 GET /odata/FuturePricing({futurePricingId})
 
-### <span style="color: #F05D30">Description</span>
-Returns details of the Future Pricing specified by ID.
+### Description
+Returns the details of the Future Pricing specified by ID.
 
-### <span style="color: #F05D30">Request parameters</span>
+### Request parameters
 <style>
 td, th {
    border: none!important;
@@ -21,7 +21,7 @@ td, th {
 |**api-version**: string default: 1.0 <br> *in header* | The requested API version. |
 |**Authorization**: string default: <br> Bearer access_token <br> *in header* |Specify the type of the token (bearer) and then insert the ```access_token```, which was obtained during authentication.|
 
-### <span style="color: #F05D30">Responses</span>
+### Responses
 | <div style="width:200px">Response </div>|<div style="width:380px">Explanation</div>|                      
 |-----:|:-------|
 |**200 OK**|OK|      
@@ -30,7 +30,7 @@ td, th {
 |**403 Forbidden**|User doesn’t have appropriate privileges.|
 |**500 Internal Server Error**|Server encountered an unexpected condition that prevented it from fulfilling the request.|
 
-### <span style="color: #F05D30">Properties</span>
+### Properties
 |<div style="width:200px">Property </div> |<div style="width:420px">Explanation</div>|                      
 |-----:|:-------|
 |**futurePricingId**: string *(uuid)* | Unique Identifier of the Future Pricing record |
@@ -63,32 +63,33 @@ td, th {
 
 ``` json title="Response Content-types: APPLICATION/JSON, APPLICATION/XML <br> Response Example (200 OK)"
 {
-  "futurePricingId": "00000000-0000-0000-0000-000000000000",
-  "inventoryId": "00000000-0000-0000-0000-000000000000",
-  "inventoryNo": "string",
-  "vendorItemNo": "string",
-  "facilityId": "00000000-0000-0000-0000-000000000000",
-  "vendorId": "00000000-0000-0000-0000-000000000000",
-  "organizationId": "00000000-0000-0000-0000-000000000000",
-  "organizationNo": "string",
-  "organizationName": "string",
-  "vendorUOM": "string",
-  "vendorConversionFactor": "integer (int32)",
-  "contractNo": "string",
-  "contractExpDate": "string (date-time)",
-  "priceChangeDate": "string (date-time)",
-  "newPrice": "number (double)",
-  "priceChangeStatus": "integer (int32)",
-  "priceChangeStatusName": "string",
-  "dateAdded": "string (date-time)",
-  "addedBy": "00000000-0000-0000-0000-000000000000",
-  "lastUpdated": "string (date-time)",
-  "lastUpdatedBy": "00000000-0000-0000-0000-000000000000",
-  "vendorNo": "string",
-  "vendorName": "string",
-  "facilityNo": "string",
-  "facilityName": "string",
-  "addedByName": "string",
-  "lastUpdatedByName": "string"
+    "@odata.context": "link",
+    "futurePricingId": "00000000-0000-0000-0000-000000000000",
+    "inventoryId": "00000000-0000-0000-0000-000000000000",
+    "inventoryNo": "string",
+    "vendorItemNo": "string",
+    "facilityId": "00000000-0000-0000-0000-000000000000",
+    "vendorId": "00000000-0000-0000-0000-000000000000",
+    "organizationId": "00000000-0000-0000-0000-000000000000",
+    "organizationNo": "string",
+    "organizationName": "string",
+    "vendorUOM": "string",
+    "vendorConversionFactor": "integer (int32)",
+    "contractNo": "string",
+    "contractExpDate": "string (date-time)",
+    "priceChangeDate": "string (date-time)",
+    "newPrice": "number (double)",
+    "priceChangeStatus": "integer (int32)",
+    "priceChangeStatusName": "string",
+    "dateAdded": "string (date-time)",
+    "addedBy": "00000000-0000-0000-0000-000000000000",
+    "lastUpdated": "string (date-time)",
+    "lastUpdatedBy": "00000000-0000-0000-0000-000000000000",
+    "vendorNo": "string",
+    "vendorName": "string",
+    "facilityNo": "string",
+    "facilityName": "string",
+    "addedByName": "string",
+    "lastUpdatedByName": "string"
 }
 ```

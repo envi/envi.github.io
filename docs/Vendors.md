@@ -2,19 +2,26 @@
 
 ## Get the list of Vendors
 
-### <span style="color: #F05D30">Path</span>
+### Path</span>
 GET /odata/Vendors
 
-### <span style="color: #F05D30">Description</span>
-Returns the paged list of existing Vendors within a logged organization. You can filter the results by the strict match using the ```$filter``` parameter–entity eq ‘string’. Or filter the results by the partial match using ```$filter```=contains parameter–contains(entity, ‘string’).
+### Description</span>
+Returns a paged list of existing Vendors within the logged-in organization.
 
+!!! note
 
-### <span style="color: #F05D30">Request parameters</span>
+    You can filter the results as follows:
+
+    - For an exact match, use: ```$filter parameter–entity eq ‘string’```
+    - For a partial match, use: ```$filter=contains parameter–contains(entity, ‘string’)```
+
+### Request parameters</span>
 <style>
 td, th {
    border: none!important;
 }
 </style>
+
 |  <div style="width:200px">Parameter</div>  |  <div style="width:380px">Explanation</div>  |                      
 |-----:|:-------|
 |**api-version**: string default: 1.0 <br> *in header*| The requested API version.|   
@@ -25,7 +32,7 @@ td, th {
 |**$skip**: string <br> *in query*| Skips the first n results.|
 |**Authorization**: string default: <br> Bearer access_token <br> *in header* |Specify the type of the token (bearer) and then insert the ```access_token```, which was obtained during authentication.|
 
-### <span style="color: #F05D30">Responses</span>
+### Responses</span>
 <style>
 td, th {
    border: none!important;
@@ -42,7 +49,7 @@ td, th {
 |**500 Internal Server Error**|Server encountered an unexpected condition that prevented it from fulfilling the request.|
 
 
-### <span style="color: #F05D30">Properties</span>
+### Properties</span>
 |<div style="width:200px">Property </div> |<div style="width:420px">Explanation</div>|                      
 |-----:|:-------|
 |**vendorId**: string *(uuid)* | Unique Identifier of the Vendor |
@@ -66,48 +73,49 @@ td, th {
 
 ``` json title="Response Content-types: APPLICATION/JSON, APPLICATION/XML<br>Response example (200 OK)"
 {
-  "items": [
-    {
-      "vendorId": "00000000-0000-0000-0000-000000000000",
-      "vendorNo": "string",
-      "vendorName": "string",
-      "organizationId": "00000000-0000-0000-0000-000000000000",
-      "organizationNo": "string",
-      "organizationName": "string",
-      "vendorNotes": "string",
-      "dateAdded": "string (date-time)",
-      "addedBy": "00000000-0000-0000-0000-000000000000",
-      "addedByName": "string",
-      "lastUpdated": "string (date-time)",
-      "lastUpdatedBy": "00000000-0000-0000-0000-000000000000",
-      "lastUpdatedByName": "string",
-      "activeStatus": "boolean",
-      "url": "string",
-      "systemVendorName": "string",
-      "ediVendorNo": "string"
-    }
-  ],
-  "nextPageLink": "string",
-  "count": "integer (int64)"
+    "@odata.context": "link",
+    "@odata.count": "number",
+    "value": [
+        {
+            "vendorId": "00000000-0000-0000-0000-000000000000",
+            "vendorNo": "string",
+            "vendorName": "string",
+            "organizationId": "00000000-0000-0000-0000-000000000000",
+            "organizationNo": "string",
+            "organizationName": "string",
+            "vendorNotes": "string",
+            "dateAdded": "string (date-time)",
+            "addedBy": "00000000-0000-0000-0000-000000000000",
+            "addedByName": "string",
+            "lastUpdated": "string (date-time)",
+            "lastUpdatedBy": "00000000-0000-0000-0000-000000000000",
+            "lastUpdatedByName": "string",
+            "activeStatus": "boolean",
+            "url": "string",
+            "systemVendorName": "string",
+            "ediVendorNo": "string"
+        }
+    ],
+    "@odata.nextLink": "link"
 }
 ```
 
 ## Get the specified Vendor
 
-### <span style="color: #F05D30">Path</span>
+### Path</span>
 GET /odata/Vendors({vendorId})
 
-### <span style="color: #F05D30">Description</span>
+### Description</span>
 Returns the details of the Vendor specified by ID.
 
-### <span style="color: #F05D30">Request body</span>
+### Request body</span>
 |  <div style="width:200px">Parameter</div>  |  <div style="width:420px">Explanation</div>  |                      
 |-----:|:-------|
 |**vendorId**: string *(uuid)* <br> <span style="color: #F05D30">**required**</span> <br> *in path* | Enter the ID of the Vendor here. |
 |**api-version**: string default: 1.0 <br> *in header*| The requested API version.|   
 |**Authorization**: string default: <br> Bearer access_token <br> *in header* |Specify the type of the token (bearer) and then insert the ```access_token```, which was obtained during authentication. |
 
-### <span style="color: #F05D30">Responses</span>
+### Responses</span>
 | <div style="width:200px">Response </div>|<div style="width:420px">Explanation</div>|                      
 |-----:|:-------|
 |**200 OK**|OK|      
@@ -117,7 +125,7 @@ Returns the details of the Vendor specified by ID.
 |**404 Not Found**| Specified ID is absent in the system. |
 |**500 Internal Server Error**| Server encountered an unexpected condition that prevented it from fulfilling the request. |
 
-### <span style="color: #F05D30">Properties</span>
+### Properties</span>
 |<div style="width:200px">Property </div> |<div style="width:420px">Explanation</div>|                      
 |-----:|:-------|
 |**vendorId**: string *(uuid)* | Unique Identifier of the Vendor |
@@ -141,38 +149,39 @@ Returns the details of the Vendor specified by ID.
 
 ``` json title="Response Content-types: APPLICATION/JSON, APPLICATION/XML<br>Response example (200 OK)"
 {
-   "vendorId": "00000000-0000-0000-0000-000000000000",
-   "vendorNo": "string",
-   "vendorName": "string",
-   "organizationId": "00000000-0000-0000-0000-000000000000",
-   "organizationNo": "string",
-   "organizationName": "string",
-   "vendorNotes": "string",
-   "dateAdded": "string (date-time)",
-   "addedBy": "00000000-0000-0000-0000-000000000000",
-   "addedByName": "string",
-   "lastUpdated": "string (date-time)",
-   "lastUpdatedBy": "00000000-0000-0000-0000-000000000000",
-   "lastUpdatedByName": "string",
-   "activeStatus": "boolean",
-   "url": "string",
-   "systemVendorName": "string",
-   "ediVendorNo": "string"
+    "@odata.context": "link",
+    "vendorId": "00000000-0000-0000-0000-000000000000",
+    "vendorNo": "string",
+    "vendorName": "string",
+    "organizationId": "00000000-0000-0000-0000-000000000000",
+    "organizationNo": "string",
+    "organizationName": "string",
+    "vendorNotes": "string",
+    "dateAdded": "string (date-time)",
+    "addedBy": "00000000-0000-0000-0000-000000000000",
+    "addedByName": "string",
+    "lastUpdated": "string (date-time)",
+    "lastUpdatedBy": "00000000-0000-0000-0000-000000000000",
+    "lastUpdatedByName": "string",
+    "activeStatus": "boolean",
+    "url": "string",
+    "systemVendorName": "string",
+    "ediVendorNo": "string"
 }
 ```
 
 ## Get the list of Vendors
 
-### <span style="color: #F05D30">Path</span>
+### Path</span>
 POST /odata/Vendors/GetVendorsInfo(facilityId={facilityId})
 
-### <span style="color: #F05D30">Description</span>
+### Description</span>
 Returns the details of the predefined Vendor(s) within the Facility specified by ID.
 
-### <span style="color: #F05D30">Request body</span>
+### Request body</span>
 Enter the value of the vendor(s) from the existing template.
 
-### <span style="color: #F05D30">Request parameters</span>
+### Request parameters</span>
 |  <div style="width:200px">Parameter</div>  |  <div style="width:420px">Explanation</div>  |                      
 |-----:|:-------|
 |**facilityId**: string *(uuid)* <br> <span style="color: #F05D30">**required**</span> <br> *in path* | Enter the ID of the Facility. |
@@ -186,7 +195,7 @@ Enter the value of the vendor(s) from the existing template.
 }
 ```
 
-### <span style="color: #F05D30">Responses</span>
+### Responses</span>
 | <div style="width:200px">Response </div>|<div style="width:420px">Explanation</div>|                      
 |-----:|:-------|
 |**200 OK**|OK|      
@@ -195,7 +204,7 @@ Enter the value of the vendor(s) from the existing template.
 |**403 Forbidden**| User doesn’t have appropriate privileges.|
 |**500 Internal Server Error**| Server encountered an unexpected condition that prevented it from fulfilling the request. |
 
-### <span style="color: #F05D30">Properties</span>
+### Properties</span>
 |<div style="width:200px">Property </div> |<div style="width:420px">Explanation</div>|                      
 |-----:|:-------|
 |**vendorId**: string *(uuid)* | Unique Identifier of the Vendor |

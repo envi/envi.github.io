@@ -2,20 +2,26 @@
 
 ## Get the list of Vendor Fax Configurations 
 
-### <span style="color: #F05D30">Path</span>
+### Path</span>
 GET /odata/VendorFaxConfigurations
 
-### <span style="color: #F05D30">Description</span>
-Returns the list with active/inactive Fax Configurations of active Vendors related to active Facilities within a logged organization. You can filter the results by the strict match using the ```$filter``` parameter–entity eq ‘string’. Or filter the results by the partial match using ```$filter```=contains parameter–contains(entity, ‘string’).
+### Description</span>
+Returns a paged list with active/inactive Fax Configurations of active Vendors related to active Facilities within the logged-in organization. 
+
+!!! note
+
+    You can filter the results as follows:
+
+    - For an exact match, use: ```$filter parameter–entity eq ‘string’```
+    - For a partial match, use: ```$filter=contains parameter–contains(entity, ‘string’)```
 
 
-### <span style="color: #F05D30">Request parameters</span>
+### Request parameters</span>
 <style>
 td, th {
    border: none!important;
 }
 </style>
-
 
 |  <div style="width:200px">Parameter</div>  |  <div style="width:380px">Explanation</div>  |                      
 |-----:|:-------|
@@ -30,7 +36,7 @@ td, th {
 |**Authorization**: string default: <br> Bearer access_token <br> *in header* | Specify the type of the token (bearer) and then insert the ```access_token```, which was obtained during authentication.|
 
 
-### <span style="color: #F05D30">Responses</span>
+### Responses</span>
 | <div style="width:200px">Response </div>|<div style="width:420px">Explanation</div>|                      
 |-----:|:-------|
 |**200 OK**|OK|
@@ -41,7 +47,7 @@ td, th {
 |**500 Internal Server Error**|Server encountered an unexpected condition that prevented it from fulfilling the request.|
 
 
-### <span style="color: #F05D30">Properties</span>
+### Properties</span>
 |<div style="width:200px">Property </div> |<div style="width:420px">Explanation</div>|                      
 |-----:|:-------|
 |**vendorFaxId**: string *(uuid)* | Unique Identifier of the Vendor Fax |
@@ -66,44 +72,45 @@ td, th {
 
 ``` json title="Response Content-types: APPLICATION/JSON, APPLICATION/XML<br>Response example (200 OK)"
 {
-  "items": [
-    {
-      "vendorFaxId": "00000000-0000-0000-0000-000000000000",
-      "vendorId": "00000000-0000-0000-0000-000000000000",
-      "vendorNo": "string",
-      "vendorName": "string",
-      "facilityId": "00000000-0000-0000-0000-000000000000",
-      "facilityNo": "string",
-      "facilityName": "string",
-      "faxDescription": "string",
-      "csid": "string",
-      "faxNumber": "string",
-      "useCoverPage": "boolean",
-      "coverPageBody": "string",
-      "activeStatus": "boolean",
-      "dateAdded": "string (date-time)",
-      "addedBy": "00000000-0000-0000-0000-000000000000",
-      "addedByName": "string",
-      "lastUpdated": "string (date-time)",
-      "lastUpdatedBy": "00000000-0000-0000-0000-000000000000",
-      "lastUpdatedByName": "string"
-      }
-  ],
-  "nextPageLink": "string",
-  "count": "integer (int64)"
+    "@odata.context": "link",
+    "@odata.count": "number",
+    "value": [
+        {
+            "vendorFaxId": "00000000-0000-0000-0000-000000000000",
+            "vendorId": "00000000-0000-0000-0000-000000000000",
+            "vendorNo": "string",
+            "vendorName": "string",
+            "facilityId": "00000000-0000-0000-0000-000000000000",
+            "facilityNo": "string",
+            "facilityName": "string",
+            "faxDescription": "string",
+            "csid": "string",
+            "faxNumber": "string",
+            "useCoverPage": "boolean",
+            "coverPageBody": "string",
+            "activeStatus": "boolean",
+            "dateAdded": "string (date-time)",
+            "addedBy": "00000000-0000-0000-0000-000000000000",
+            "addedByName": "string",
+            "lastUpdated": "string (date-time)",
+            "lastUpdatedBy": "00000000-0000-0000-0000-000000000000",
+            "lastUpdatedByName": "string"
+        }
+    ],
+    "@odata.nextLink": "link"
 }
 ```
 
 
 ## Get the specified Vendor Fax Configuration
 
-### <span style="color: #F05D30">Path</span>
+### Path</span>
 GET /odata/VendorFaxConfigurations({vendorFaxConfigurationId})
 
-### <span style="color: #F05D30">Description</span>
-Returns the details of active/inactive, specified by ID Vendor Fax Configuration with active Vendors related to active Facilities within a logged organization.
+### Description</span>
+Returns the details of active/inactive, specified by ID Vendor Fax Configuration with active Vendors related to active Facilities within the logged-in organization.
 
-### <span style="color: #F05D30">Request parameters</span>
+### Request parameters</span>
 |  <div style="width:200px">Parameter</div>  |  <div style="width:380px">Explanation</div>  |                      
 |-----:|:-------|
 |**includeInactiveVendors** <br> boolean default: false <br> *in query* | Include inactive Vendors. |
@@ -113,7 +120,7 @@ Returns the details of active/inactive, specified by ID Vendor Fax Configuration
 |**Authorization**: string default: <br> Bearer access_token <br> *in header* |Specify the type of the token (bearer) and then insert the ```access_token```, which was obtained during authentication. |
 
 
-### <span style="color: #F05D30">Responses</span>
+### Responses</span>
 | <div style="width:200px">Response </div>|<div style="width:420px">Explanation</div>|                      
 |-----:|:-------|
 |**200 OK**|OK|      
@@ -124,7 +131,7 @@ Returns the details of active/inactive, specified by ID Vendor Fax Configuration
 |**500 Internal Server Error**| Server encountered an unexpected condition that prevented it from fulfilling the request. |
 
 
-### <span style="color: #F05D30">Properties</span>
+### Properties</span>
 |<div style="width:200px">Property </div> |<div style="width:420px">Explanation</div>|                      
 |-----:|:-------|
 |**vendorFaxId**: string *(uuid)* | Unique Identifier of the Vendor Fax |
@@ -150,24 +157,25 @@ Returns the details of active/inactive, specified by ID Vendor Fax Configuration
 
 ``` json title="Response Content-types: APPLICATION/JSON, APPLICATION/XML<br>Response example (200 OK)"
 {
-  "vendorFaxId": "00000000-0000-0000-0000-000000000000",
-  "vendorId": "00000000-0000-0000-0000-000000000000",
-  "vendorNo": "string",
-  "vendorName": "string",
-  "facilityId": "00000000-0000-0000-0000-000000000000",
-  "facilityNo": "string",
-  "facilityName": "string",
-  "faxDescription": "string",
-  "csid": "string",
-  "faxNumber": "string",
-  "useCoverPage": "boolean",
-  "coverPageBody": "string",
-  "activeStatus": "boolean",
-  "dateAdded": "string (date-time)",
-  "addedBy": "00000000-0000-0000-0000-000000000000",
-  "addedByName": "string",
-  "lastUpdated": "string (date-time)",
-  "lastUpdatedBy": "00000000-0000-0000-0000-000000000000",
-  "lastUpdatedByName": "string"
+    "@odata.context": "link",
+    "vendorFaxId": "00000000-0000-0000-0000-000000000000",
+    "vendorId": "00000000-0000-0000-0000-000000000000",
+    "vendorNo": "string",
+    "vendorName": "string",
+    "facilityId": "00000000-0000-0000-0000-000000000000",
+    "facilityNo": "string",
+    "facilityName": "string",
+    "faxDescription": "string",
+    "csid": "string",
+    "faxNumber": "string",
+    "useCoverPage": "boolean",
+    "coverPageBody": "string",
+    "activeStatus": "boolean",
+    "dateAdded": "string (date-time)",
+    "addedBy": "00000000-0000-0000-0000-000000000000",
+    "addedByName": "string",
+    "lastUpdated": "string (date-time)",
+    "lastUpdatedBy": "00000000-0000-0000-0000-000000000000",
+    "lastUpdatedByName": "string"
 }
 ```

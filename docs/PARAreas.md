@@ -2,13 +2,20 @@
 
 ## Get the list of PAR Areas
 
-### <span style="color: #F05D30">Path</span>
+### Path
 GET /odata/PARAreas
 
-### <span style="color: #F05D30">Description</span>
-Returns the list of PAR Areas within a logged organization. You can filter the results by the strict match using the ```$filter``` parameter–entity eq ‘string’. Or filter the results by the partial match using ```$filter```=contains parameter–contains(entity, ‘string’).
+### Description
+Returns a paged list of PAR Areas within the logged-in organization.
 
-### <span style="color: #F05D30">Request parameters</span>
+!!! note
+
+    You can filter the results as follows:
+
+    - For an exact match, use: ```$filter parameter–entity eq ‘string’```
+    - For a partial match, use: ```$filter=contains parameter–contains(entity, ‘string’)```
+
+### Request parameters
 <style>
 td, th {
    border: none!important;
@@ -25,7 +32,7 @@ td, th {
 |**$skip**: string <br> *in query*| Skips the first n results.|
 |**Authorization**: string default: <br> Bearer access_token <br> *in header* |Specify the type of the token (bearer) and then insert the ```access_token```, which was obtained during authentication.|
 
-### <span style="color: #F05D30">Responses</span>
+### Responses
 | <div style="width:200px">Response </div>|<div style="width:380px">Explanation</div>|                      
 |-----:|:-------|
 |**200 OK**|OK|      
@@ -35,7 +42,7 @@ td, th {
 |**403 Forbidden**|User doesn’t have appropriate privileges. |
 |**500 Internal Server Error**|Server encountered an unexpected condition that prevented it from fulfilling the request.|
 
-### <span style="color: #F05D30">Properties</span>
+### Properties
 |<div style="width:200px">Property </div> |<div style="width:420px">Explanation</div>|                      
 |-----:|:-------|
 |**parAreaId**: string *(uuid)* | Unique Identifier of the PAR Area |
@@ -60,51 +67,51 @@ td, th {
 
 ``` json title="Response Content-types: APPLICATION/JSON, APPLICATION/XML<br>Response example (200 OK)"
 {
-  "items": [
-    {
-      "parAreaId": "00000000-0000-0000-0000-000000000000",
-      "parAreaNo": "string",
-      "parAreaName": "string",
-      "facilityId": "00000000-0000-0000-0000-000000000000",
-      "facilityNo": "string",
-      "facilityName": "string",
-      "departmentId": "00000000-0000-0000-0000-000000000000",
-      "departmentNo": "string",
-      "departmentName": "string",
-      "glCode": "string",
-      "reference": "string",
-      "activeStatus": "boolean",
-      "dateCreated": "string (date-time)",
-      "createdBy": "00000000-0000-0000-0000-000000000000",
-      "createdByName": "string",
-      "lastUpdated": "string (date-time)",
-      "lastUpdatedBy": "00000000-0000-0000-0000-000000000000",
-      "lastUpdatedByName": "string"
-    }
-  ],
-  "nextPageLink": "string",
-  "count": "integer (int64)"
+    "@odata.context": "link",
+    "@odata.count": "number",
+    "value": [
+        {
+            "parAreaId": "00000000-0000-0000-0000-000000000000",
+            "parAreaNo": "string",
+            "parAreaName": "string",
+            "facilityId": "00000000-0000-0000-0000-000000000000",
+            "facilityNo": "string",
+            "facilityName": "string",
+            "departmentId": "00000000-0000-0000-0000-000000000000",
+            "departmentNo": "string",
+            "departmentName": "string",
+            "glCode": "string",
+            "reference": "string",
+            "activeStatus": "boolean",
+            "dateCreated": "string (date-time)",
+            "createdBy": "00000000-0000-0000-0000-000000000000",
+            "createdByName": "string",
+            "lastUpdated": "string (date-time)",
+            "lastUpdatedBy": "00000000-0000-0000-0000-000000000000",
+            "lastUpdatedByName": "string"
+        }
+    ],
+    "@odata.nextLink": "link"
 }
+
 ```
 
 ## Get the specified PAR Area
 
-### <span style="color: #F05D30">Path</span>
+### Path
 GET /odata/PARAreas({parAreaId})
 
-### <span style="color: #F05D30">Description</span>
-Returns the details of the PAR Area specified by ID within a logged organization.
+### Description
+Returns the details of the PAR Area specified by ID within the logged-in organization.
 
-### <span style="color: #F05D30">Request parameters</span>
+### Request parameters
 |  <div style="width:200px">Parameter</div>  |  <div style="width:380px">Explanation</div>  |                      
 |-----:|:-------|
 |**parAreaId**: string *(uuid)* <br> <span style="color: #F05D30">**required**</span> <br> *in path* | Enter the ID of the PAR Area here. |
 |**api-version**: string default: 1.0 <br> *in header*| The requested API version.|   
 |**Authorization**: string default: <br> Bearer access_token <br> *in header* |Specify the type of the token (bearer) and then insert the ```access_token```, which was obtained during authentication. |
 
-
-
-### <span style="color: #F05D30">Responses</span>
+### Responses
 | <div style="width:200px">Response </div>|<div style="width:380px">Explanation</div>|                      
 |-----:|:-------|
 |**200 OK**|OK|      
@@ -114,7 +121,7 @@ Returns the details of the PAR Area specified by ID within a logged organization
 |**404 Not Found** | Specified ID is absent in the system. |
 |**500 Internal Server Error**|Server encountered an unexpected condition that prevented it from fulfilling the request.|
 
-### <span style="color: #F05D30">Properties</span>
+### Properties
 |<div style="width:200px">Property </div> |<div style="width:420px">Explanation</div>|                      
 |-----:|:-------|
 |**parAreaId**: string *(uuid)* | Unique Identifier of the PAR Area |
@@ -139,36 +146,44 @@ Returns the details of the PAR Area specified by ID within a logged organization
 
 ``` json title="Response Content-types: APPLICATION/JSON, APPLICATION/XML<br>Response example (200 OK)"
 {
-  "parAreaId": "00000000-0000-0000-0000-000000000000",
-  "parAreaNo": "string",
-  "parAreaName": "string",
-  "facilityId": "00000000-0000-0000-0000-000000000000",
-  "facilityNo": "string",
-  "facilityName": "string",
-  "departmentId": "00000000-0000-0000-0000-000000000000",
-  "departmentNo": "string",
-  "departmentName": "string",
-  "glCode": "string",
-  "reference": "string",
-  "activeStatus": "boolean",
-  "dateCreated": "string (date-time)",
-  "createdBy": "00000000-0000-0000-0000-000000000000",
-  "createdByName": "string",
-  "lastUpdated": "string (date-time)",
-  "lastUpdatedBy": "00000000-0000-0000-0000-000000000000",
-  "lastUpdatedByName": "string"
+    "@odata.context": "link",
+    "parAreaId": "00000000-0000-0000-0000-000000000000",
+    "parAreaNo": "string",
+    "parAreaName": "string",
+    "facilityId": "00000000-0000-0000-0000-000000000000",
+    "facilityNo": "string",
+    "facilityName": "string",
+    "departmentId": "00000000-0000-0000-0000-000000000000",
+    "departmentNo": "string",
+    "departmentName": "string",
+    "glCode": "string",
+    "reference": "string",
+    "activeStatus": "boolean",
+    "dateCreated": "string (date-time)",
+    "createdBy": "00000000-0000-0000-0000-000000000000",
+    "createdByName": "string",
+    "lastUpdated": "string (date-time)",
+    "lastUpdatedBy": "00000000-0000-0000-0000-000000000000",
+    "lastUpdatedByName": "string"
 }
 ```
 
 ## Get the list of PAR Area Items for the specified PAR Area
 
-### <span style="color: #F05D30">Path</span>
+### Path
 GET /odata/PARAreas({parAreaId})/parAreaLineItems
 
-### <span style="color: #F05D30">Description</span>
-Returns the list of the existing PAR Area Items within PAR Area specified by ID. You can filter the results by the strict match using the ```$filter``` parameter–entity eq ‘string’. Or filter the results by the partial match using ```$filter```=contains parameter–contains(entity, ‘string’).
+### Description
+Returns a paged list of existing PAR Area Items within PAR Area specified by ID. 
 
-### <span style="color: #F05D30">Request parameters</span>
+!!! note
+
+    You can filter the results as follows:
+
+    - For an exact match, use: ```$filter parameter–entity eq ‘string’```
+    - For a partial match, use: ```$filter=contains parameter–contains(entity, ‘string’)```
+
+### Request parameters
 |  <div style="width:200px">Parameter</div>  |  <div style="width:380px">Explanation</div>  |                      
 |-----:|:-------|
 |**parAreaId**: string *(uuid)* <br> <span style="color: #F05D30">**required**</span> <br> *in path* | Enter the ID of the Par Area here. |
@@ -180,7 +195,7 @@ Returns the list of the existing PAR Area Items within PAR Area specified by ID.
 |**$skip**: string <br> *in query*| Skips the first n results.|
 |**Authorization**: string default: <br> Bearer access_token <br> *in header* |Specify the type of the token (bearer) and then insert the ```access_token```, which was obtained during authentication.|
 
-### <span style="color: #F05D30">Responses</span>
+### Responses
 | <div style="width:200px">Response </div>|<div style="width:380px">Explanation</div>|                      
 |-----:|:-------|
 |**200 OK**|OK|      
@@ -190,7 +205,7 @@ Returns the list of the existing PAR Area Items within PAR Area specified by ID.
 |**403 Forbidden**|User doesn’t have appropriate privileges. |
 |**500 Internal Server Error**|Server encountered an unexpected condition that prevented it from fulfilling the request.|
 
-### <span style="color: #F05D30">Properties</span>
+### Properties
 |<div style="width:200px">Property </div> |<div style="width:420px">Explanation</div>|                      
 |-----:|:-------|
 |**parAreaItemId**: string *(uuid)* | Unique Identifier of the PAR Area Item |
@@ -222,36 +237,37 @@ Returns the list of the existing PAR Area Items within PAR Area specified by ID.
 
 ``` json title="Response Content-types: APPLICATION/JSON, APPLICATION/XML<br>Response example (200 OK)"
 {
-  "items": [
-    {
-      "parAreaId": "00000000-0000-0000-0000-000000000000",
-      "parAreaNo": "string",
-      "parAreaName": "string",
-      "inventoryLocationId": "00000000-0000-0000-0000-000000000000",
-      "locationNo": "string",
-      "locationName": "string",
-      "lineItemNo": "integer (int32)",
-      "inventoryNo": "string",
-      "inventoryDescription": "string",
-      "notes": "string",
-      "minQuantity": "integer (int32)",
-      "maxQuantity": "integer (int32)",
-      "uom": "string",
-      "conversionFactor": "integer (int32)",
-      "binShelf": "string",
-      "lastCountDate": "string (date-time)",
-      "gtin": "string",
-      "manufacturerItemNo": "string",
-      "activeStatus": "boolean",
-      "dateCreated": "string (date-time)",
-      "createdBy": "00000000-0000-0000-0000-000000000000",
-      "createdByName": "string",
-      "lastUpdated": "string (date-time)",
-      "lastUpdatedBy": "00000000-0000-0000-0000-000000000000",
-      "lastUpdatedByName": "string"
-    }
-  ],
-  "nextPageLink": "string",
-  "count": "integer (int64)"
+    "@odata.context": "link",
+    "@odata.count": "number",
+    "value": [
+        {
+            "parAreaId": "00000000-0000-0000-0000-000000000000",
+            "parAreaNo": "string",
+            "parAreaName": "string",
+            "inventoryLocationId": "00000000-0000-0000-0000-000000000000",
+            "locationNo": "string",
+            "locationName": "string",
+            "lineItemNo": "integer (int32)",
+            "inventoryNo": "string",
+            "inventoryDescription": "string",
+            "notes": "string",
+            "minQuantity": "integer (int32)",
+            "maxQuantity": "integer (int32)",
+            "uom": "string",
+            "conversionFactor": "integer (int32)",
+            "binShelf": "string",
+            "lastCountDate": "string (date-time)",
+            "gtin": "string",
+            "manufacturerItemNo": "string",
+            "activeStatus": "boolean",
+            "dateCreated": "string (date-time)",
+            "createdBy": "00000000-0000-0000-0000-000000000000",
+            "createdByName": "string",
+            "lastUpdated": "string (date-time)",
+            "lastUpdatedBy": "00000000-0000-0000-0000-000000000000",
+            "lastUpdatedByName": "string"
+        }
+    ],
+    "@odata.nextLink": "link"
 }
 ```

@@ -2,13 +2,21 @@
 
 ## Get the list of Addresses
 
-### <span style="color: #F05D30">Path</span>
+### Path
 GET /odata/Addresses
 
-### <span style="color: #F05D30">Description</span>
-Returns the paged list of the existing Addresses within a logged organization. You can filter the results by the strict match using the ```$filter``` parameter–entity eq ‘string’. Or filter the results by the partial match using ```$filter```=contains parameter–contains(entity, ‘string’).
+### Description
+Returns a paged list of existing Addresses within the logged-in organization.
 
-### <span style="color: #F05D30">Request parameters</span>
+
+!!! note
+
+    You can filter the results as follows:
+
+    - For an exact match, use: ```$filter parameter–entity eq ‘string’```
+    - For a partial match, use: ```$filter=contains parameter–contains(entity, ‘string’)```
+
+### Request parameters
 <style>
 td, th {
    border: none!important;
@@ -26,7 +34,7 @@ td, th {
 |**Authorization**: string default: <br> Bearer access_token <br> *in header* |Specify the type of the token (bearer) and then insert the ```access_token```, which was obtained during authentication.|
 
 
-### <span style="color: #F05D30">Responses</span>
+### Responses
 | <div style="width:200px">Response </div>|<div style="width:380px">Explanation</div>|                      
 |-----:|:-------|
 |**200 OK**|OK|      
@@ -36,8 +44,8 @@ td, th {
 |**403 Forbidden**|User doesn’t have appropriate privileges.|
 |**500 Internal Server Error**|Server encountered an unexpected condition that prevented it from fulfilling the request.|
 
-### <span style="color: #F05D30">Properties</span>
-|<div style="width:200px">Property </div> |<div style="width:420px">Explanation</div>|                      
+### Properties
+|<div style="width:200px">Property </div> |<div style="width:480px">Explanation</div>|                      
 |-----:|:-------|
 |**addressId**: string *(uuid)*|Unique Identifier of the Address|
 |**organizationId**: string *(uuid)*|Unique Identifier of the Organization|
@@ -74,62 +82,64 @@ td, th {
 
 ``` json title="Response Content-types: APPLICATION/JSON, APPLICATION/XML <br> Response Example (200 OK)"
 {
-  "items": [
-    {
-      "addressId": "00000000-0000-0000-0000-000000000000",
-      "organizationId": "00000000-0000-0000-0000-000000000000",
-      "organizationNo": "string",
-      "organizationName": "string",
-      "addressNo": "string",
-      "addressName": "string",
-      "addressTypeId": "integer (int32)",
-      "addressType": "string",
-      "facilityId": "00000000-0000-0000-0000-000000000000",
-      "facilityNo": "string",
-      "facilityName": "string",
-      "addressDescription": "string",
-      "address1": "string",
-      "address2": "string",
-      "city": "string",
-      "state": "string",
-      "zip": "string",
-      "country": "string",
-      "contactName": "string",
-      "contactEmail": "string",
-      "phone": "string",
-      "phoneExt": "string",
-      "fax": "string",
-      "isDefaultAddress": "boolean",
-      "activeStatus": "boolean",
-      "dateCreated": "string (date-time)",
-      "createdBy": "00000000-0000-0000-0000-000000000000",
-      "createdByName": "string",
-      "lastUpdated": "string (date-time)",
-      "lastUpdatedBy": "00000000-0000-0000-0000-000000000000",
-      "lastUpdatedByName": "string"
-    }
-  ],
-  "nextPageLink": "string",
-  "count": "integer (int64)"
+    "@odata.context": "link",
+    "@odata.count": "number",
+    "value": [
+        {
+            "addressId": "00000000-0000-0000-0000-000000000000",
+            "organizationId": "00000000-0000-0000-0000-000000000000",
+            "organizationNo": "string",
+            "organizationName": "string",
+            "addressNo": "string",
+            "addressName": "string",
+            "addressTypeId": "integer (int32)",
+            "addressType": "string",
+            "facilityId": "00000000-0000-0000-0000-000000000000",
+            "facilityNo": "string",
+            "facilityName": "string",
+            "addressDescription": "string",
+            "address1": "string",
+            "address2": "string",
+            "city": "string",
+            "state": "string",
+            "zip": "string",
+            "country": "string",
+            "contactName": "string",
+            "contactEmail": "string",
+            "phone": "string",
+            "phoneExt": "string",
+            "fax": "string",
+            "isDefaultAddress": "boolean",
+            "activeStatus": "boolean",
+            "dateCreated": "string (date-time)",
+            "createdBy": "00000000-0000-0000-0000-000000000000",
+            "createdByName": "string",
+            "lastUpdated": "string (date-time)",
+            "lastUpdatedBy": "00000000-0000-0000-0000-000000000000",
+            "lastUpdatedByName": "string"
+
+        }
+    ],
+    "@odata.nextLink": "link"
 }
 ```
 
 ## Get the specified Address
 
-### <span style="color: #F05D30">Path</span>
+### Path
 GET /odata/Addresses({addressId})
 
-### <span style="color: #F05D30">Description</span>
-Returns details of the Address specified by ID.
+### Description
+Returns the details of the Address specified by ID.
 
-### <span style="color: #F05D30">Request parameters</span>
+### Request parameters
 | <div style="width:200px"> Parameter </div> |<div style="width:380px">Explanation</div> |                      
 |-----:|:-------|
-|**addressId**: string *(uuid)* <br> <span style="color: #F05D30">**required**</span> <br> *in path*| Enter the ID of the address here.|
+|**addressId**: string *(uuid)* <br> <span style="color: #F05D30">**required**</span> <br> *in path*| Enter the ID of the Address here.|
 |**api-version**: string default: 1.0 <br> *in header*|The requested API version.|      
 |**Authorization**: string dafault: <br> Bearer access_token <br> *in header* |Specify the type of the token (bearer) and then insert the ```access_token```, which was obtained during authentication.|
 
-### <span style="color: #F05D30">Responses</span>
+### Responses
 | <div style="width:200px">Response </div>|<div style="width:380px">Explanation</div>|                      
 |-----:|:-------|
 |**200 OK**|OK|      
@@ -140,8 +150,8 @@ Returns details of the Address specified by ID.
 |**500 Internal Server Error**|Server encountered an unexpected condition that prevented it from fulfilling the request.|
 
 
-### <span style="color: #F05D30">Properties</span>
-|<div style="width:200px">Property </div> |<div style="width:420px">Explanation</div>|                      
+### Properties
+|<div style="width:200px">Property </div> |<div style="width:480px">Explanation</div>|                      
 |-----:|:-------|
 |**addressId**: string *(uuid)*|Unique Identifier of the Address|
 |**organizationId**: string *(uuid)*|Unique Identifier of the Organization|
@@ -178,37 +188,38 @@ Returns details of the Address specified by ID.
 
 ``` json title="Response content-types: APPLICATION/JSON, APPLICATION/XML<br>Response example (200 OK)"
 {
-  "addressId": "00000000-0000-0000-0000-000000000000",
-  "organizationId": "00000000-0000-0000-0000-000000000000",
-  "organizationNo": "string",
-  "organizationName": "string",
-  "addressNo": "string",
-  "addressName": "string",
-  "addressTypeId": "integer (int32)",
-  "addressType": "string",
-  "facilityId": "00000000-0000-0000-0000-000000000000",
-  "facilityNo": "string",
-  "facilityName": "string",
-  "addressDescription": "string",
-  "address1": "string",
-  "address2": "string",
-  "city": "string",
-  "state": "string",
-  "zip": "string",
-  "country": "string",
-  "contactName": "string",
-  "contactEmail": "string",
-  "phone": "string",
-  "phoneExt": "string",
-  "fax": "string",
-  "isDefaultAddress": "boolean",
-  "activeStatus": "boolean",
-  "dateCreated": "string (date-time)",
-  "createdBy": "00000000-0000-0000-0000-000000000000",
-  "createdByName": "string",
-  "lastUpdated": "string (date-time)",
-  "lastUpdatedBy": "00000000-0000-0000-0000-000000000000",
-  "lastUpdatedByName": "string"
+    "@odata.context": "link",
+    "addressId": "00000000-0000-0000-0000-000000000000",
+    "organizationId": "00000000-0000-0000-0000-000000000000",
+    "organizationNo": "string",
+    "organizationName": "string",
+    "addressNo": "string",
+    "addressName": "string",
+    "addressTypeId": "integer (int32)",
+    "addressType": "string",
+    "facilityId": "00000000-0000-0000-0000-000000000000",
+    "facilityNo": "string",
+    "facilityName": "string",
+    "addressDescription": "string",
+    "address1": "string",
+    "address2": "string",
+    "city": "string",
+    "state": "string",
+    "zip": "string",
+    "country": "string",
+    "contactName": "string",
+    "contactEmail": "string",
+    "phone": "string",
+    "phoneExt": "string",
+    "fax": "string",
+    "isDefaultAddress": "boolean",
+    "activeStatus": "boolean",
+    "dateCreated": "string (date-time)",
+    "createdBy": "00000000-0000-0000-0000-000000000000",
+    "createdByName": "string",
+    "lastUpdated": "string (date-time)",
+    "lastUpdatedBy": "00000000-0000-0000-0000-000000000000",
+    "lastUpdatedByName": "string"
 }
 ```
 

@@ -2,13 +2,21 @@
 
 ## Get the list of Matched Invoice Items
 
-### <span style="color: #F05D30">Path</span>
+### Path
 GET /odata/MatchedInvoiceItems
 
-### <span style="color: #F05D30">Description</span>
-Returns the paged list of the existing Matched Invoice Items within a logged organization. You can filter the results by the strict match using the ```$filter``` parameter–entity eq ‘string’. Or filter the results by the partial match using ```$filter```=contains parameter–contains(entity, ‘string’).
+### Description
+Returns a paged list of existing Matched Invoice Items within the logged-in organization. 
 
-### <span style="color: #F05D30">Request parameters</span>
+!!! note
+
+    You can filter the results as follows:
+
+    - For an exact match, use: ```$filter parameter–entity eq ‘string’```
+    - For a partial match, use: ```$filter=contains parameter–contains(entity, ‘string’)```
+
+
+### Request parameters
 <style>
 td, th {
    border: none!important;
@@ -25,7 +33,7 @@ td, th {
 |**$skip**: string <br> *in query*| Skips the first n results.|
 |**Authorization**: string default: <br> Bearer access_token <br> *in header* | Specify the type of the token (bearer) and then insert the ```access_token```, which was obtained during authentication.|
 
-### <span style="color: #F05D30">Responses</span>
+### Responses
 | <div style="width:200px">Response </div>|<div style="width:380px">Explanation</div>|                      
 |-----:|:-------|
 |**200 OK**|OK|      
@@ -35,7 +43,7 @@ td, th {
 |**403 Forbidden**|User doesn’t have appropriate privileges.|
 |**500 Internal Server Error**|Server encountered an unexpected condition that prevented it from fulfilling the request.|
 
-### <span style="color: #F05D30">Properties</span>
+### Properties
 | <div style="width:200px">Property </div>|<div style="width:420px">Explanation</div>|                      
 |-----:|:-------|
 |**apMatchedInvoiceItemId**: <br> string *(uuid)* | Unique Identifier of the Account Payable Matched Invoice Item |
@@ -74,64 +82,65 @@ td, th {
 
 ``` json title="Response Content-types: APPLICATION/JSON, APPLICATION/XML<br>Response Example (200 OK)"
 {
-  "items": [
-    {
-      "apMatchedInvoiceItemId": "00000000-0000-0000-0000-000000000000",
-      "matchedInvoiceItemNo": "integer (int32)",
-      "matchedInvoiceId": "00000000-0000-0000-0000-000000000000",
-      "matchedInvoiceNo": "string",
-      "purchaseOrderId": "00000000-0000-0000-0000-000000000000",
-      "purchaseOrderNo": "string",
-      "poReceiptItemId": "00000000-0000-0000-0000-000000000000",
-      "returnItemId": "00000000-0000-0000-0000-000000000000",
-      "invoiceQuantity": "integer (int32)",
-      "invoiceUOM": "string",
-      "invoiceConversionFactor": "integer (int32)",
-      "invoicePrice": "number (double)",
-      "notes": "string",
-      "departmentGLCode": "string",
-      "glCode": "string",
-      "lineItemTypeId": "integer (int32)",
-      "lineItemType": "string",
-      "qtyApprovalTypeId": "integer (int32)",
-      "qtyApprovalType": "string",
-      "priceApprovalTypeId": "integer (int32)",
-      "priceApprovalType": "string",
-      "inventoryNo": "string",
-      "inventoryDescription": "string",
-      "vendorItemNo": "string",
-      "manufacturerName": "string",
-      "manufacturerItemNo": "string",
-      "dateCreated": "string (date-time)",
-      "createdBy": "00000000-0000-0000-0000-000000000000",
-      "createdByName": "string",
-      "lastUpdated": "string (date-time)",
-      "lastUpdatedBy": "00000000-0000-0000-0000-000000000000",
-      "lastUpdatedByName": "string",
-      "isTaxable": "boolean"
-    }
-  ],
-  "nextPageLink": "string",
-  "count": "integer (int64)"
+    "@odata.context": "link",
+    "@odata.count": "number",
+    "value": [
+        {
+            "apMatchedInvoiceItemId": "00000000-0000-0000-0000-000000000000",
+            "matchedInvoiceItemNo": "integer (int32)",
+            "matchedInvoiceId": "00000000-0000-0000-0000-000000000000",
+            "matchedInvoiceNo": "string",
+            "purchaseOrderId": "00000000-0000-0000-0000-000000000000",
+            "purchaseOrderNo": "string",
+            "poReceiptItemId": "00000000-0000-0000-0000-000000000000",
+            "returnItemId": "00000000-0000-0000-0000-000000000000",
+            "invoiceQuantity": "integer (int32)",
+            "invoiceUOM": "string",
+            "invoiceConversionFactor": "integer (int32)",
+            "invoicePrice": "number (double)",
+            "notes": "string",
+            "departmentGLCode": "string",
+            "glCode": "string",
+            "lineItemTypeId": "integer (int32)",
+            "lineItemType": "string",
+            "qtyApprovalTypeId": "integer (int32)",
+            "qtyApprovalType": "string",
+            "priceApprovalTypeId": "integer (int32)",
+            "priceApprovalType": "string",
+            "inventoryNo": "string",
+            "inventoryDescription": "string",
+            "vendorItemNo": "string",
+            "manufacturerName": "string",
+            "manufacturerItemNo": "string",
+            "dateCreated": "string (date-time)",
+            "createdBy": "00000000-0000-0000-0000-000000000000",
+            "createdByName": "string",
+            "lastUpdated": "string (date-time)",
+            "lastUpdatedBy": "00000000-0000-0000-0000-000000000000",
+            "lastUpdatedByName": "string",
+            "isTaxable": "boolean"
+        }
+    ],
+    "@odata.nextLink": "link"
 }
 ```
 
 ## Get the specified Matched Invoice Item
 
-### <span style="color: #F05D30">Path</span>
+### Path
 GET /odata/MatchedInvoiceItems({matchedInvoiceItemId})
 
-### <span style="color: #F05D30">Description</span>
+### Description
 Returns the details of the Matched Invoice Item specified by ID.
 
-### <span style="color: #F05D30">Request parameters</span>
+### Request parameters
 |  <div style="width:200px">Parameter</div>  |  <div style="width:380px">Explanation</div>  |                      
 |-----:|:-------|
 |**matchedInvoiceItemId**: string *(uuid)* <br> <span style="color: #F05D30">**required**</span> <br> *in path* | Enter the ID of the Matched Invoice Item here. |
 |**api-version**: string default: 1.0 <br> *in header*| The requested API version.|   
 |**Authorization**: string default: <br> Bearer access_token <br> *in header* |Specify the type of the token (bearer) and then insert the ```access_token```, which was obtained during authentication.|
 
-### <span style="color: #F05D30">Responses</span>
+### Responses
 | <div style="width:200px">Response </div>|<div style="width:380px">Explanation</div>|                      
 |-----:|:-------|
 |**200 OK**|OK|      
@@ -141,7 +150,7 @@ Returns the details of the Matched Invoice Item specified by ID.
 |**404 Not Found** | Specified ID is absent in the system. |
 |**500 Internal Server Error**|Server encountered an unexpected condition that prevented it from fulfilling the request.|
 
-### <span style="color: #F05D30">Properties</span>
+### Properties
 | <div style="width:200px">Property </div>|<div style="width:420px">Explanation</div>|                      
 |-----:|:-------|
 |**apMatchedInvoiceItemId**: <br> string *(uuid)* | Unique Identifier of the Account Payable Matched Invoice Item |
@@ -180,38 +189,39 @@ Returns the details of the Matched Invoice Item specified by ID.
 
 ``` json title="Response Content-types: APPLICATION/JSON, APPLICATION/XML<br>Response example (200 OK)"
 {
-  "apMatchedInvoiceItemId": "00000000-0000-0000-0000-000000000000",
-  "matchedInvoiceItemNo": "integer (int32)",
-  "matchedInvoiceId": "00000000-0000-0000-0000-000000000000",
-  "matchedInvoiceNo": "string",
-  "purchaseOrderId": "00000000-0000-0000-0000-000000000000",
-  "purchaseOrderNo": "string",
-  "poReceiptItemId": "00000000-0000-0000-0000-000000000000",
-  "returnItemId": "00000000-0000-0000-0000-000000000000",
-  "invoiceQuantity": "integer (int32)",
-  "invoiceUOM": "string",
-  "invoiceConversionFactor": "integer (int32)",
-  "invoicePrice": "number (double)",
-  "notes": "string",
-  "departmentGLCode": "string",
-  "glCode": "string",
-  "lineItemTypeId": "integer (int32)",
-  "lineItemType": "string",
-  "qtyApprovalTypeId": "integer (int32)",
-  "qtyApprovalType": "string",
-  "priceApprovalTypeId": "integer (int32)",
-  "priceApprovalType": "string",
-  "inventoryNo": "string",
-  "inventoryDescription": "string",
-  "vendorItemNo": "string",
-  "manufacturerName": "string",
-  "manufacturerItemNo": "string",
-  "dateCreated": "string (date-time)",
-  "createdBy": "00000000-0000-0000-0000-000000000000",
-  "createdByName": "string",
-  "lastUpdated": "string (date-time)",
-  "lastUpdatedBy": "00000000-0000-0000-0000-000000000000",
-  "lastUpdatedByName": "string",
-  "isTaxable": "boolean"
+    "@odata.context": "link",
+    "apMatchedInvoiceItemId": "00000000-0000-0000-0000-000000000000",
+    "matchedInvoiceItemNo": "integer (int32)",
+    "matchedInvoiceId": "00000000-0000-0000-0000-000000000000",
+    "matchedInvoiceNo": "string",
+    "purchaseOrderId": "00000000-0000-0000-0000-000000000000",
+    "purchaseOrderNo": "string",
+    "poReceiptItemId": "00000000-0000-0000-0000-000000000000",
+    "returnItemId": "00000000-0000-0000-0000-000000000000",
+    "invoiceQuantity": "integer (int32)",
+    "invoiceUOM": "string",
+    "invoiceConversionFactor": "integer (int32)",
+    "invoicePrice": "number (double)",
+    "notes": "string",
+    "departmentGLCode": "string",
+    "glCode": "string",
+    "lineItemTypeId": "integer (int32)",
+    "lineItemType": "string",
+    "qtyApprovalTypeId": "integer (int32)",
+    "qtyApprovalType": "string",
+    "priceApprovalTypeId": "integer (int32)",
+    "priceApprovalType": "string",
+    "inventoryNo": "string",
+    "inventoryDescription": "string",
+    "vendorItemNo": "string",
+    "manufacturerName": "string",
+    "manufacturerItemNo": "string",
+    "dateCreated": "string (date-time)",
+    "createdBy": "00000000-0000-0000-0000-000000000000",
+    "createdByName": "string",
+    "lastUpdated": "string (date-time)",
+    "lastUpdatedBy": "00000000-0000-0000-0000-000000000000",
+    "lastUpdatedByName": "string",
+    "isTaxable": "boolean"
 }
 ```

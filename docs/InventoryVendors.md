@@ -2,17 +2,17 @@
 
 ## Get the cost history for the specified Inventory Vendor
 
-### <span style="color: #F05D30">Path</span>
+### Path
 GET /odata/InventoryVendors({inventoryVendorId})/costHistory
 
-### <span style="color: #F05D30">Description</span>
-Returns the paged list of the existing cost history records within the Inventory Vendor specified by ID.
+### Description
+Returns a paged list of existing cost history records within the Inventory Vendor specified by ID.
 
 !!! note 
 
     This endpoint does not support logical operators (**and**, **or**, **in**, **gt**, **ge**, **lt**, **le**) for data filtering.
 
-### <span style="color: #F05D30">Request parameters</span>
+### Request parameters
 <style>
 td, th {
    border: none!important;
@@ -30,7 +30,7 @@ td, th {
 |**$skip**: string <br> *in query*| Skips the first n results.|
 |**Authorization**: string default: <br> Bearer access_token <br> *in header* |Specify the type of the token (bearer) and then insert the ```access_token```, which was obtained during authentication.|
 
-### <span style="color: #F05D30">Responses</span>
+### Responses
 | <div style="width:200px">Response </div>|<div style="width:380px">Explanation</div>|                      
 |-----:|:-------|
 |**200 OK**|OK|      
@@ -40,7 +40,7 @@ td, th {
 |**403 Forbidden**|User doesn’t have appropriate privileges.|
 |**500 Internal Server Error**|Server encountered an unexpected condition that prevented it from fulfilling the request.|
 
-### <span style="color: #F05D30">Properties</span>
+### Properties
 |<div style="width:200px">Property </div> |<div style="width:420px">Explanation</div>|                      
 |-----:|:-------|
 |**inventoryVendorCostHistoryId**: <br> string *(uuid)* | Unique Identifier of the Inventory Vendor Cost History |
@@ -57,40 +57,41 @@ td, th {
 
 ``` json title="Response Content-types: APPLICATION/JSON, APPLICATION/XML<br>Response example (200 OK)"
 {
-  "items": [
-    {
-      "inventoryVendorCostHistoryId": "00000000-0000-0000-0000-000000000000",
-      "inventoryVendorId": "00000000-0000-0000-0000-000000000000",
-      "vendorName": "string",
-      "vendorNo": "string",
-      "inventoryVendorCostId": "00000000-0000-0000-0000-000000000000",
-      "vendorCost": "number (double)",
-      "vendorUOM": "string",
-      "vendorConversionFactor": "integer (int32)",
-      "costUpdated": "string (date-time)",
-      "costUpdatedBy": "00000000-0000-0000-0000-000000000000",
-      "costUpdatedByName": "string"
-    }
-  ],
-  "nextPageLink": "string",
-  "count": "integer (int64)"
+    "@odata.context": "link",
+    "@odata.count": "number",
+    "value": [
+        {
+            "inventoryVendorCostHistoryId": "00000000-0000-0000-0000-000000000000",
+            "inventoryVendorId": "00000000-0000-0000-0000-000000000000",
+            "vendorName": "string",
+            "vendorNo": "string",
+            "inventoryVendorCostId": "00000000-0000-0000-0000-000000000000",
+            "vendorCost": "number (double)",
+            "vendorUOM": "string",
+            "vendorConversionFactor": "integer (int32)",
+            "costUpdated": "string (date-time)",
+            "costUpdatedBy": "00000000-0000-0000-0000-000000000000",
+            "costUpdatedByName": "string"
+        }
+    ],
+    "@odata.nextLink": "link"
 }
 ```
 
 ## Get the list of purchasing units for the specified Inventory Vendor
 
-### <span style="color: #F05D30">Path</span>
+### Path
 GET /odata/InventoryVendors({inventoryVendorId})/purchasingUnits
 
-### <span style="color: #F05D30">Description</span>
-Returns the paged list of the existing purchasing units within the Inventory Vendor specified by ID.
+### Description
+Returns a paged list of existing purchasing units within the Inventory Vendor specified by ID.
 
 !!! note 
 
     This endpoint does not support logical operators (**in**, **gt**, **ge**, **lt**, **le**) for data filtering.
 
 
-### <span style="color: #F05D30">Request parameters</span>
+### Request parameters
 |  <div style="width:200px">Parameter</div>  |  <div style="width:380px">Explanation</div>  |                      
 |-----:|:-------|
 |**inventoryVendorId**: string *(uuid)* <br> <span style="color: #F05D30">**required**</span> <br> *in path* | Enter the ID of the Inventory Vendor here.|
@@ -102,7 +103,7 @@ Returns the paged list of the existing purchasing units within the Inventory Ven
 |**$skip**: string <br> *in query*| Skips the first n results.|
 |**Authorization**: string default: <br> Bearer access_token <br> *in header* |Specify the type of the token (bearer) and then insert the ```access_token```, which was obtained during authentication.|
 
-### <span style="color: #F05D30">Responses</span>
+### Responses
 | <div style="width:200px">Response </div>|<div style="width:380px">Explanation</div>|                      
 |-----:|:-------|
 |**200 OK**|OK|      
@@ -112,7 +113,7 @@ Returns the paged list of the existing purchasing units within the Inventory Ven
 |**403 Forbidden**|User doesn’t have appropriate privileges.|
 |**500 Internal Server Error**|Server encountered an unexpected condition that prevented it from fulfilling the request.|
 
-### <span style="color: #F05D30">Properties</span>
+### Properties
 |<div style="width:200px">Property </div> |<div style="width:420px">Explanation</div>|                      
 |-----:|:-------|
 |**inventoryVendorPurchasing<br>UnitId**: <br> string *(uuid)* | Unique Identifier of the Inventory Vendor Purchasing Unit |
@@ -136,42 +137,50 @@ Returns the paged list of the existing purchasing units within the Inventory Ven
 
 ``` json title="Response Content-types: APPLICATION/JSON, APPLICATION/XML<br>Response example (200 OK)"
 {
-  "items": [
-    {
-      "inventoryVendorPurchasingUnitId": "00000000-0000-0000-0000-000000000000",
-      "inventoryVendorId": "00000000-0000-0000-0000-000000000000",
-      "vendorName": "string",
-      "vendorNo": "string",
-      "vendorUOM": "string",
-      "vendorConversionFactor": "integer (int32)",
-      "vendorCost": "number (double)",
-      "activeStatus": "boolean",
-      "lastVendorCost": "number (double)",
-      "costLastUpdated": "string (date-time)",
-      "costLastUpdatedBy": "00000000-0000-0000-0000-000000000000",
-      "costLastUpdatedByName": "string",
-      "dateAdded": "string (date-time)",
-      "addedBy": "00000000-0000-0000-0000-000000000000",
-      "addedByName": "string",
-      "lastUpdated": "string (date-time)",
-      "lastUpdatedBy": "00000000-0000-0000-0000-000000000000",
-      "lastUpdatedByName": "string"
-    }
-  ],
-  "nextPageLink": "string",
-  "count": "integer (int64)"
+    "@odata.context": "link",
+    "@odata.count": "number",
+    "value": [
+        {
+            "inventoryVendorPurchasingUnitId": "00000000-0000-0000-0000-000000000000",
+            "inventoryVendorId": "00000000-0000-0000-0000-000000000000",
+            "vendorName": "string",
+            "vendorNo": "string",
+            "vendorUOM": "string",
+            "vendorConversionFactor": "integer (int32)",
+            "vendorCost": "number (double)",
+            "activeStatus": "boolean",
+            "lastVendorCost": "number (double)",
+            "costLastUpdated": "string (date-time)",
+            "costLastUpdatedBy": "00000000-0000-0000-0000-000000000000",
+            "costLastUpdatedByName": "string",
+            "dateAdded": "string (date-time)",
+            "addedBy": "00000000-0000-0000-0000-000000000000",
+            "addedByName": "string",
+            "lastUpdated": "string (date-time)",
+            "lastUpdatedBy": "00000000-0000-0000-0000-000000000000",
+            "lastUpdatedByName": "string"
+        }
+    ],
+    "@odata.nextLink": "link"
 }
 ```
 
 ## Get the list of all Inventory Vendors
 
-### <span style="color: #F05D30">Path</span>
+### Path
 GET /odata/InventoryVendors
 
-### <span style="color: #F05D30">Description</span>
-Returns the paged list of the all existing Inventory Vendors. You can filter the results by the strict match using the ```$filter``` parameter–entity eq ‘string’. Or filter the results by the partial match using ```$filter```=contains parameter–contains(entity, ‘string’).
+### Description
+Returns a paged list of the all existing Inventory Vendors. 
 
-### <span style="color: #F05D30">Request parameters</span>
+!!! note
+
+    You can filter the results as follows:
+
+    - For an exact match, use: ```$filter parameter–entity eq ‘string’```
+    - For a partial match, use: ```$filter=contains parameter–contains(entity, ‘string’)```
+
+### Request parameters
 |  <div style="width:200px">Parameter</div>  |  <div style="width:380px">Explanation</div>  |                      
 |-----:|:-------|
 |**api-version**: string default: 1.0 <br> *in header*| The requested API version.|   
@@ -182,7 +191,7 @@ Returns the paged list of the all existing Inventory Vendors. You can filter the
 |**$skip**: string <br> *in query*| Skips the first n results.|
 |**Authorization**: string default: <br> Bearer access_token <br> *in header* |Specify the type of the token (bearer) and then insert the ```access_token```, which was obtained during authentication.|
 
-### <span style="color: #F05D30">Responses</span>
+### Responses
 | <div style="width:200px">Response </div>|<div style="width:380px">Explanation</div>|                      
 |-----:|:-------|
 |**200 OK**|OK|      
@@ -192,7 +201,7 @@ Returns the paged list of the all existing Inventory Vendors. You can filter the
 |**403 Forbidden**|User doesn’t have appropriate privileges.|
 |**500 Internal Server Error**|Server encountered an unexpected condition that prevented it from fulfilling the request.|
 
-### <span style="color: #F05D30">Properties</span>
+### Properties
 |<div style="width:200px">Property </div> |<div style="width:420px">Explanation</div>|                      
 |-----:|:-------|
 |**inventoryVendorId**: string *(uuid)* | Unique Identifier of the Inventory Item Vendor |
@@ -233,66 +242,67 @@ Returns the paged list of the all existing Inventory Vendors. You can filter the
 
 ``` json title="Response Content-types: APPLICATION/JSON, APPLICATION/XML<br>Response example (200 OK)"
 {
-  "items": [
-    {
-      "inventoryVendorId": "00000000-0000-0000-0000-000000000000",
-      "inventoryId": "00000000-0000-0000-0000-000000000000",
-      "inventoryNo": "string",
-      "vendorId": "00000000-0000-0000-0000-000000000000",
-      "vendorNo": "string",
-      "vendorName": "string",
-      "facilityId": "00000000-0000-0000-0000-000000000000",
-      "facilityNo": "string",
-      "facilityName": "string",
-      "vendorItemNo": "string",
-      "vendorUOM": "string",
-      "vendorConversionFactor": "integer (int32)",
-      "vendorCost": "number (double)",
-      "vendorPriority": "integer (int32)",
-      "contractNo": "string",
-      "contractExpDate": "string (date-time)",
-      "manufacturerItemNo": "string",
-      "manufacturerId": "00000000-0000-0000-0000-000000000000",
-      "manufacturerNo": "string",
-      "manufacturerName": "string",
-      "gtin": "string",
-      "costLastUpdated": "string (date-time)",
-      "costLastUpdatedBy": "00000000-0000-0000-0000-000000000000",
-      "dateAdded": "string (date-time)",
-      "addedBy": "00000000-0000-0000-0000-000000000000",
-      "lastUpdated": "string (date-time)",
-      "lastUpdatedBy": "00000000-0000-0000-0000-000000000000",
-      "activeStatus": "boolean",
-      "ndcNumber": "string",
-      "lockCost": "boolean",
-      "costLastUpdatedByUserName": "string",
-      "addedByUserName": "string",
-      "lastUpdatedByUserName": "string",
-      "pimKey": "string",
-      "altItemNo": "string"
-    }
-  ],
-  "nextPageLink": "string",
-  "count": "integer (int64)"
+    "@odata.context": "link",
+    "@odata.count": "number",
+    "value": [
+        {
+            "inventoryVendorId": "00000000-0000-0000-0000-000000000000",
+            "inventoryId": "00000000-0000-0000-0000-000000000000",
+            "inventoryNo": "string",
+            "vendorId": "00000000-0000-0000-0000-000000000000",
+            "vendorNo": "string",
+            "vendorName": "string",
+            "facilityId": "00000000-0000-0000-0000-000000000000",
+            "facilityNo": "string",
+            "facilityName": "string",
+            "vendorItemNo": "string",
+            "vendorUOM": "string",
+            "vendorConversionFactor": "integer (int32)",
+            "vendorCost": "number (double)",
+            "vendorPriority": "integer (int32)",
+            "contractNo": "string",
+            "contractExpDate": "string (date-time)",
+            "manufacturerItemNo": "string",
+            "manufacturerId": "00000000-0000-0000-0000-000000000000",
+            "manufacturerNo": "string",
+            "manufacturerName": "string",
+            "gtin": "string",
+            "costLastUpdated": "string (date-time)",
+            "costLastUpdatedBy": "00000000-0000-0000-0000-000000000000",
+            "dateAdded": "string (date-time)",
+            "addedBy": "00000000-0000-0000-0000-000000000000",
+            "lastUpdated": "string (date-time)",
+            "lastUpdatedBy": "00000000-0000-0000-0000-000000000000",
+            "activeStatus": "boolean",
+            "ndcNumber": "string",
+            "lockCost": "boolean",
+            "costLastUpdatedByUserName": "string",
+            "addedByUserName": "string",
+            "lastUpdatedByUserName": "string",
+            "pimKey": "string",
+            "altItemNo": "string"
+        }
+    ],
+    "@odata.nextLink": "link"
 }  
 ```
 
 ## Get the specified Inventory Vendor
 
-### <span style="color: #F05D30">Path</span>
+### Path
 GET /odata/InventoryVendors({inventoryVendorId})
 
-### <span style="color: #F05D30">Description</span>
+### Description
 Returns the details of the Inventory Vendor specified by ID.
 
-### <span style="color: #F05D30">Request parameters</span>
+### Request parameters
 |  <div style="width:200px">Parameter</div>  |  <div style="width:380px">Explanation</div>  |                      
 |-----:|:-------|
 |**inventoryVendorId**: string *(uuid)* <br> <span style="color: #F05D30">**required**</span> <br> *in path* | Enter the ID of the Inventory Vendor here.|
 |**api-version**: string default: 1.0 <br> *in header*| The requested API version.|   
 |**Authorization**: string default: <br> Bearer access_token <br> *in header* |Specify the type of the token (bearer) and then insert the ```access_token```, which was obtained during authentication.|
 
-### <span style="color: #F05D30">Responses</span>
+### Responses
 | <div style="width:200px">Response </div>|<div style="width:380px">Explanation</div>|                      
 |-----:|:-------|
 |**200 OK**|OK|      
@@ -301,7 +311,7 @@ Returns the details of the Inventory Vendor specified by ID.
 |**403 Forbidden**|User doesn’t have appropriate privileges.|
 |**500 Internal Server Error**|Server encountered an unexpected condition that prevented it from fulfilling the request.|
 
-### <span style="color: #F05D30">Properties</span>
+### Properties
 |<div style="width:200px">Property </div> |<div style="width:420px">Explanation</div>|                      
 |-----:|:-------|
 |**inventoryVendorId**: string *(uuid)* | Unique Identifier of the Inventory Item Vendor |
@@ -342,54 +352,54 @@ Returns the details of the Inventory Vendor specified by ID.
 
 ``` json title="Response Content-types: APPLICATION/JSON, APPLICATION/XML<br>Response example (200 OK)"
 {
-  "inventoryVendorId": "00000000-0000-0000-0000-000000000000",
-  "inventoryId": "00000000-0000-0000-0000-000000000000",
-  "inventoryNo": "string",
-  "vendorId": "00000000-0000-0000-0000-000000000000",
-  "vendorNo": "string",
-  "vendorName": "string",
-  "facilityId": "00000000-0000-0000-0000-000000000000",
-  "facilityNo": "string",
-  "facilityName": "string",
-  "vendorItemNo": "string",
-  "vendorUOM": "string",
-  "vendorConversionFactor": "integer (int32)",
-  "vendorCost": "number (double)",
-  "vendorPriority": "integer (int32)",
-  "contractNo": "string",
-  "contractExpDate": "string (date-time)",
-  "manufacturerItemNo": "string",
-  "manufacturerId": "00000000-0000-0000-0000-000000000000",
-  "manufacturerNo": "string",
-  "manufacturerName": "string",
-  "gtin": "string",
-  "costLastUpdated": "string (date-time)",
-  "costLastUpdatedBy": "00000000-0000-0000-0000-000000000000",
-  "dateAdded": "string (date-time)",
-  "addedBy": "00000000-0000-0000-0000-000000000000",
-  "lastUpdated": "string (date-time)",
-  "lastUpdatedBy": "00000000-0000-0000-0000-000000000000",
-  "activeStatus": "boolean",
-  "ndcNumber": "string",
-  "lockCost": "boolean",
-  "costLastUpdatedByUserName": "string",
-  "addedByUserName": "string",
-  "lastUpdatedByUserName": "string",
-  "pimKey": "string",
-  "altItemNo": "string"
+    "@odata.context": "link",
+    "inventoryVendorId": "00000000-0000-0000-0000-000000000000",
+    "inventoryId": "00000000-0000-0000-0000-000000000000",
+    "inventoryNo": "string",
+    "vendorId": "00000000-0000-0000-0000-000000000000",
+    "vendorNo": "string",
+    "vendorName": "string",
+    "facilityId": "00000000-0000-0000-0000-000000000000",
+    "facilityNo": "string",
+    "facilityName": "string",
+    "vendorItemNo": "string",
+    "vendorUOM": "string",
+    "vendorConversionFactor": "integer (int32)",
+    "vendorCost": "number (double)",
+    "vendorPriority": "integer (int32)",
+    "contractNo": "string",
+    "contractExpDate": "string (date-time)",
+    "manufacturerItemNo": "string",
+    "manufacturerId": "00000000-0000-0000-0000-000000000000",
+    "manufacturerNo": "string",
+    "manufacturerName": "string",
+    "gtin": "string",
+    "costLastUpdated": "string (date-time)",
+    "costLastUpdatedBy": "00000000-0000-0000-0000-000000000000",
+    "dateAdded": "string (date-time)",
+    "addedBy": "00000000-0000-0000-0000-000000000000",
+    "lastUpdated": "string (date-time)",
+    "lastUpdatedBy": "00000000-0000-0000-0000-000000000000",
+    "activeStatus": "boolean",
+    "ndcNumber": "string",
+    "lockCost": "boolean",
+    "costLastUpdatedByUserName": "string",
+    "addedByUserName": "string",
+    "lastUpdatedByUserName": "string",
+    "pimKey": "string",
+    "altItemNo": "string"
 }   
 ```
 
-
 ## Partially update the specified Inventory Vendor
 
-### <span style="color: #F05D30">Path</span>
+### Path
 PATCH /odata/InventoryVendors({inventoryVendorId})
 
-### <span style="color: #F05D30">Description</span>
-Partially updates the details of the Inventory Vendor specified by Inventory Vendor ID.
+### Description
+Partially updates the details of the Inventory Vendor specified by ID.
 
-### <span style="color: #F05D30">Request body</span>
+### Request body
 | <div style="width:200px">Parameter</div>|<div style="width:380px">Explanation</div>|                      
 |-----:|:-------|
 |**inventoryVendorId**: string *(uuid)* | Unique Identifier of the Inventory Item Vendor |
@@ -430,52 +440,52 @@ Partially updates the details of the Inventory Vendor specified by Inventory Ven
 
 ``` json title="Request Content-types: APPLICATION/JSON, APPLICATION/XML<br>Request Example"
 {
-  "inventoryVendorId": "00000000-0000-0000-0000-000000000000",
-  "inventoryId": "00000000-0000-0000-0000-000000000000",
-  "inventoryNo": "string",
-  "vendorId": "00000000-0000-0000-0000-000000000000",
-  "vendorNo": "string",
-  "vendorName": "string",
-  "facilityId": "00000000-0000-0000-0000-000000000000",
-  "facilityNo": "string",
-  "facilityName": "string",
-  "vendorItemNo": "string",
-  "vendorUOM": "string",
-  "vendorConversionFactor": "integer (int32)",
-  "vendorCost": "number (double)",
-  "vendorPriority": "integer (int32)",
-  "contractNo": "string",
-  "contractExpDate": "string (date-time)",
-  "manufacturerItemNo": "string",
-  "manufacturerId": "00000000-0000-0000-0000-000000000000",
-  "manufacturerNo": "string",
-  "manufacturerName": "string",
-  "gtin": "string",
-  "costLastUpdated": "string (date-time)",
-  "costLastUpdatedBy": "00000000-0000-0000-0000-000000000000",
-  "dateAdded": "string (date-time)",
-  "addedBy": "00000000-0000-0000-0000-000000000000",
-  "lastUpdated": "string (date-time)",
-  "lastUpdatedBy": "00000000-0000-0000-0000-000000000000",
-  "activeStatus": "boolean",
-  "ndcNumber": "string",
-  "lockCost": "boolean",
-  "costLastUpdatedByUserName": "string",
-  "addedByUserName": "string",
-  "lastUpdatedByUserName": "string",
-  "pimKey": "string",
-  "altItemNo": "string"
+    "inventoryVendorId": "00000000-0000-0000-0000-000000000000",
+    "inventoryId": "00000000-0000-0000-0000-000000000000",
+    "inventoryNo": "string",
+    "vendorId": "00000000-0000-0000-0000-000000000000",
+    "vendorNo": "string",
+    "vendorName": "string",
+    "facilityId": "00000000-0000-0000-0000-000000000000",
+    "facilityNo": "string",
+    "facilityName": "string",
+    "vendorItemNo": "string",
+    "vendorUOM": "string",
+    "vendorConversionFactor": "integer (int32)",
+    "vendorCost": "number (double)",
+    "vendorPriority": "integer (int32)",
+    "contractNo": "string",
+    "contractExpDate": "string (date-time)",
+    "manufacturerItemNo": "string",
+    "manufacturerId": "00000000-0000-0000-0000-000000000000",
+    "manufacturerNo": "string",
+    "manufacturerName": "string",
+    "gtin": "string",
+    "costLastUpdated": "string (date-time)",
+    "costLastUpdatedBy": "00000000-0000-0000-0000-000000000000",
+    "dateAdded": "string (date-time)",
+    "addedBy": "00000000-0000-0000-0000-000000000000",
+    "lastUpdated": "string (date-time)",
+    "lastUpdatedBy": "00000000-0000-0000-0000-000000000000",
+    "activeStatus": "boolean",
+    "ndcNumber": "string",
+    "lockCost": "boolean",
+    "costLastUpdatedByUserName": "string",
+    "addedByUserName": "string",
+    "lastUpdatedByUserName": "string",
+    "pimKey": "string",
+    "altItemNo": "string"
 }
 ```
 
-### <span style="color: #F05D30">Request parameters</span>
+### Request parameters
 |  <div style="width:200px">Parameter</div>  |  <div style="width:380px">Explanation</div>  |                      
 |-----:|:-------|
 |**inventoryVendorId**: string *(uuid)* <br> <span style="color: #F05D30">**required**</span> <br> *in path* | Enter the ID of the Inventory Vendor here. |
 |**api-version**: string default: 1.0 <br> *in header*| The requested API version.|   
 |**Authorization**: string default: <br> Bearer access_token <br> *in header* |Specify the type of the token (bearer) and then insert the ```access_token```, which was obtained during authentication.|
 
-### <span style="color: #F05D30">Responses</span>
+### Responses
 | <div style="width:200px">Response </div>|<div style="width:380px">Explanation</div>|                      
 |-----:|:-------|
 |**200 OK**|OK|    
@@ -484,7 +494,7 @@ Partially updates the details of the Inventory Vendor specified by Inventory Ven
 |**403 Forbidden**| User doesn’t have appropriate privileges.|
 |**500 Internal Server Error**| Server encountered an unexpected condition that prevented it from fulfilling the request.|
 
-### <span style="color: #F05D30">Custom errors</span>
+### Custom errors
 | <div style="width:200px">Response </div>|<div style="width:420px">Explanation</div>|                      
 |-----:|:-------|
 |**403 Forbidden** | User without the Update Locked Cost privilege sends the request with a valid ```vendorCost``` for Inventory Vendor that has Lock Cost.|
@@ -568,15 +578,16 @@ ContractExpDate must be greater than 2009-01-25.
 
 ## Get the list of Inventory Vendors changed from the specified date
 
-### <span style="color: #F05D30">Path</span>
+### Path
 GET /odata/InventoryVendors/GetAllFromDate(from={from},facilityId={facilityId},syncFlag={syncFlag})
 
-### <span style="color: #F05D30">Description</span>
-Returns the paged list of the existing Inventory Vendors changed from the specified date within a Facility specified by ID.
+### Description
+Returns a paged list of existing Inventory Vendors changed from the specified date within a Facility specified by ID.
 
-The empty GUID ```00000000-0000-0000-0000-000000000000``` is taken into account for inventory vendor with the Master facility retrieving. After sending the GET request ```{{url}}/odata/InventoryVendors/GetAllFromDate(from={{from}},facilityId=00000000-0000-0000-0000-000000000000,syncFlag={{syncFlag}})```, the response contains the list of all active inventory vendors for the Master facility.
+!!! note
+    The empty GUID ```00000000-0000-0000-0000-000000000000``` is taken into account for an Inventory Vendor with the Master facility retrieving. After sending the GET request ```{{url}}/odata/InventoryVendors/GetAllFromDate(from={{from}},facilityId=00000000-0000-0000-0000-000000000000,syncFlag={{syncFlag}})```, the response contains the list of all active Inventory Vendors for the Master facility.
 
-### <span style="color: #F05D30">Request parameters</span>
+### Request parameters
 |  <div style="width:200px">Parameter</div>  |  <div style="width:380px">Explanation</div>  |                      
 |-----:|:-------|
 |**from**: string *(date-time)* <br> <span style="color: #F05D30">**required**</span> <br> *in path* | Enter the Start Date here. |
@@ -585,7 +596,7 @@ The empty GUID ```00000000-0000-0000-0000-000000000000``` is taken into account 
 |**api-version**: string default: 1.0 <br> *in header*| The requested API version.|   
 |**Authorization**: string default: <br> Bearer access_token <br> *in header* |Specify the type of the token (bearer) and then insert the ```access_token```, which was obtained during authentication.|
 
-### <span style="color: #F05D30">Responses</span>
+### Responses
 | <div style="width:200px">Response </div>|<div style="width:380px">Explanation</div>|                      
 |-----:|:-------|
 |**200 OK**|OK|   
@@ -595,7 +606,7 @@ The empty GUID ```00000000-0000-0000-0000-000000000000``` is taken into account 
 |**500 Internal Server Error**| Server encountered an unexpected condition that prevented it from fulfilling the request.|
 
 
-### <span style="color: #F05D30">Properties</span>
+### Properties
 |<div style="width:200px">Property </div> |<div style="width:420px">Explanation</div>|                      
 |-----:|:-------|
 |**inventoryVendorId**: string *(uuid)* | Unique Identifier of the Inventory Item Vendor |

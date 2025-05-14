@@ -2,13 +2,13 @@
 
 ## Get the list of Manufacturers
 
-### <span style="color: #F05D30">Path</span>
+### Path
 GET /odata/Manufacturers
 
-### <span style="color: #F05D30">Description</span>
-Returns the paged list of Manufacturers. Contains the link to the next page and information about overall entities count in the database. Supports Query options.
+### Description
+Returns a paged list of Manufacturers. Contains the link to the next page and information about overall entities count in the database. Supports Query options.
 
-### <span style="color: #F05D30">Request parameters</span>
+### Request parameters
 <style>
 td, th {
    border: none!important;
@@ -24,7 +24,7 @@ td, th {
 |**$skip**: string <br> *in query*| Skips the first n results.|
 |**Authorization**: string default: <br> Bearer access_token <br> *in header* | Specify the type of the token (bearer) and then insert the ```access_token```, which was obtained during authentication.|
 
-### <span style="color: #F05D30">Responses</span>
+### Responses
 | <div style="width:200px">Response </div>|<div style="width:380px">Explanation</div>|                      
 |-----:|:-------|
 |**200 OK**|OK|      
@@ -34,7 +34,7 @@ td, th {
 |**403 Forbidden**|User doesn’t have appropriate privileges.|
 |**500 Internal Server Error**|Server encountered an unexpected condition that prevented it from fulfilling the request.|
 
-### <span style="color: #F05D30">Properties</span>
+### Properties
 | <div style="width:200px">Property </div>|<div style="width:420px">Explanation</div>|                      
 |-----:|:-------|
 |**organizationId**: string *(uuid)* | Unique Identifier of the Organization |
@@ -55,38 +55,39 @@ td, th {
 
 ``` json title="Response Content-types: APPLICATION/JSON, APPLICATION/XML<br>Response Example (200 OK)"
 {
-  "items": [
-    {
-      "organizationId": "00000000-0000-0000-0000-000000000000",
-      "organizationNo": "string",
-      "organizationName": "string",
-      "manufacturerId": "00000000-0000-0000-0000-000000000000",
-      "manufacturerNo": "string",
-      "manufacturerName": "string",
-      "activeStatus": "boolean",
-      "dateCreated": "string (date-time)",
-      "createdBy": "00000000-0000-0000-0000-000000000000",
-      "createdByName": "string",
-      "lastUpdated": "string (date-time)",
-      "lastUpdatedBy": "00000000-0000-0000-0000-000000000000",
-      "lastUpdatedByName": "string",
-      "externalMfgNo": "string"
-    }
-  ],
-  "nextPageLink": "string",
-  "count": "integer (int64)"
+    "@odata.context": "link",
+    "@odata.count": "number",
+    "value": [
+        {
+            "organizationId": "00000000-0000-0000-0000-000000000000",
+            "organizationNo": "string",
+            "organizationName": "string",
+            "manufacturerId": "00000000-0000-0000-0000-000000000000",
+            "manufacturerNo": "string",
+            "manufacturerName": "string",
+            "activeStatus": "boolean",
+            "dateCreated": "string (date-time)",
+            "createdBy": "00000000-0000-0000-0000-000000000000",
+            "createdByName": "string",
+            "lastUpdated": "string (date-time)",
+            "lastUpdatedBy": "00000000-0000-0000-0000-000000000000",
+            "lastUpdatedByName": "string",
+            "externalMfgNo": "string"
+        }
+    ],
+    "@odata.nextLink": "link"
 }
 ```
 
 ## Create a new Manufacturer
 
-### <span style="color: #F05D30">Path</span>
+### Path
 POST /odata/Manufacturers
 
-### <span style="color: #F05D30">Description</span>
-Creates a new Manufacturer within a logged organization.
+### Description
+Creates a new Manufacturer within the logged-in organization.
 
-### <span style="color: #F05D30">Request body</span>
+### Request body
 If **Auto ID** is configured for a manufacturer, then ```manufacturerNo``` is optional.
 
 | <div style="width:200px">Parameter</div>|<div style="width:420px">Explanation</div>|                      
@@ -104,8 +105,8 @@ If **Auto ID** is not configured for a manufacturer, then ```manufacturerNo``` a
 
 ``` json title="Request Content-types: APPLICATION/JSON, APPLICATION/XML<br>Request Example"
 {
-  "manufacturerNo": "string",
-  "manufacturerName": "string",
+    "manufacturerNo": "string",
+    "manufacturerName": "string",
 }
 ```
 !!! note 
@@ -120,13 +121,13 @@ If **Auto ID** is not configured for a manufacturer, then ```manufacturerNo``` a
 |**externalMfgNo**: string | External Manufacturer Number |
 
 
-### <span style="color: #F05D30">Request parameters</span>
+### Request parameters
 |  <div style="width:200px">Parameter</div>  |  <div style="width:380px">Explanation</div>  |                      
 |-----:|:-------|
 |**api-version**: string default: 1.0 <br> *in header*| The requested API version.|   
 |**Authorization**: string default: <br> Bearer access_token <br> *in header* |Specify the type of the token (bearer) and then insert the ```access_token```, which was obtained during authentication.|
 
-### <span style="color: #F05D30">Responses</span>
+### Responses
 | <div style="width:200px">Response </div>|<div style="width:380px">Explanation</div>|                      
 |-----:|:-------|
 |**200 OK**|OK|   
@@ -143,20 +144,20 @@ If **Auto ID** is not configured for a manufacturer, then ```manufacturerNo``` a
 
 ## Get the specified Manufacturer
 
-### <span style="color: #F05D30">Path</span>
+### Path
 GET /odata/Manufacturers({manufacturerId})
 
-### <span style="color: #F05D30">Description</span>
+### Description
 Returns the details of the Manufacturer specified by ID.
 
-### <span style="color: #F05D30">Request parameters</span>
+### Request parameters
 |  <div style="width:200px">Parameter</div>  |  <div style="width:380px">Explanation</div>  |                      
 |-----:|:-------|
 |**manufacturerId**: string *(uuid)* <br> <span style="color: #F05D30">**required**</span> <br> *in path* | Enter the ID of the Manufacturer here.|
 |**api-version**: string default: 1.0 <br> *in header*| The requested API version.|   
 |**Authorization**: string default: <br> Bearer access_token <br> *in header* |Specify the type of the token (bearer) and then insert the ```access_token```, which was obtained during authentication.|
 
-### <span style="color: #F05D30">Responses</span>
+### Responses
 | <div style="width:200px">Response </div>|<div style="width:380px">Explanation</div>|                      
 |-----:|:-------|
 |**200 OK**|OK|      
@@ -166,7 +167,7 @@ Returns the details of the Manufacturer specified by ID.
 |**404 Not Found** | Specified ID is absent in the system. |
 |**500 Internal Server Error**|Server encountered an unexpected condition that prevented it from fulfilling the request.|
 
-### <span style="color: #F05D30">Properties</span>
+### Properties
 | <div style="width:200px">Property </div>|<div style="width:420px">Explanation</div>|                      
 |-----:|:-------|
 |**organizationId**: string *(uuid)* | Unique Identifier of the Organization |
@@ -186,19 +187,20 @@ Returns the details of the Manufacturer specified by ID.
 
 ``` json title="Response Content-types: APPLICATION/JSON, APPLICATION/XML<br>Response Example (200 OK)"
 {
-  "organizationId": "00000000-0000-0000-0000-000000000000",
-  "organizationNo": "string",
-  "organizationName": "string",
-  "manufacturerId": "00000000-0000-0000-0000-000000000000",
-  "manufacturerNo": "string",
-  "manufacturerName": "string",
-  "activeStatus": "boolean",
-  "dateCreated": "string (date-time)",
-  "createdBy": "00000000-0000-0000-0000-000000000000",
-  "createdByName": "string",
-  "lastUpdated": "string (date-time)",
-  "lastUpdatedBy": "00000000-0000-0000-0000-000000000000",
-  "lastUpdatedByName": "string",
-  "externalMfgNo": "string"
+    "@odata.context": "link",
+    "organizationId": "00000000-0000-0000-0000-000000000000",
+    "organizationNo": "string",
+    "organizationName": "string",
+    "manufacturerId": "00000000-0000-0000-0000-000000000000",
+    "manufacturerNo": "string",
+    "manufacturerName": "string",
+    "activeStatus": "boolean",
+    "dateCreated": "string (date-time)",
+    "createdBy": "00000000-0000-0000-0000-000000000000",
+    "createdByName": "string",
+    "lastUpdated": "string (date-time)",
+    "lastUpdatedBy": "00000000-0000-0000-0000-000000000000",
+    "lastUpdatedByName": "string",
+    "externalMfgNo": "string"
 }
 ```

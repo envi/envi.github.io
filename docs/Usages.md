@@ -2,13 +2,13 @@
 
 ## Create new Usages
 
-### <span style="color: #F05D30">Path</span>
+### Path</span>
 POST /odata/Usages/BulkAdd
 
-### <span style="color: #F05D30">Description</span>
-Creates new Usages within a logged organization.
+### Description</span>
+Creates new Usages within the logged-in organization.
 
-### <span style="color: #F05D30">Request body</span>
+### Request body</span>
 For usage(s) creation
 
 <style>
@@ -65,13 +65,13 @@ td, th {
 }
 ```
 
-### <span style="color: #F05D30">Request parameters</span>
+### Request parameters</span>
 |  <div style="width:200px">Parameter</div>  |  <div style="width:380px">Explanation</div>  |                      
 |-----:|:-------|
 |**api-version**: string default: 1.0 <br> *in header*| The requested API version.|   
 |**Authorization**: string default: <br> Bearer access_token <br> *in header* |Specify the type of the token (bearer) and then insert the ```access_token```, which was obtained during authentication. |
 
-### <span style="color: #F05D30">Responses</span>
+### Responses</span>
 | <div style="width:200px">Response </div>|<div style="width:420px">Explanation</div>|                      
 |-----:|:-------|
 |**200 OK**|OK|      
@@ -87,13 +87,13 @@ td, th {
 
 ## Submit Usages
 
-### <span style="color: #F05D30">Path</span>
+### Path</span>
 POST /odata/Usages/BulkSubmit
 
-### <span style="color: #F05D30">Description</span>
-Submits usages within a logged organization.
+### Description</span>
+Submits Usages within the logged-in organization.
 
-### <span style="color: #F05D30">Request body</span>
+### Request body</span>
 For Usage(s) submition
 
 |  <div style="width:200px">Parameter</div>  |  <div style="width:420px">Explanation</div>  |                      
@@ -122,7 +122,7 @@ For Usage(s) submition
  ]
 }
 ```
-### <span style="color: #F05D30">Request parameters</span>
+### Request parameters</span>
 
 |  <div style="width:200px">Parameter</div>  |  <div style="width:380px">Explanation</div>  |                      
 |-----:|:-------|
@@ -131,7 +131,7 @@ For Usage(s) submition
 
 
 
-### <span style="color: #F05D30">Responses</span>
+### Responses</span>
 | <div style="width:200px">Response </div>|<div style="width:420px">Explanation</div>|                      
 |-----:|:-------|
 |**200 OK**|OK|      
@@ -143,7 +143,7 @@ For Usage(s) submition
 ``` json title="Response Content-types: APPLICATION/JSON, APPLICATION/XML<br>Response example (200 OK)"
 "Usage has been submitted successfully."
 ```
-### <span style="color: #F05D30">Custom errors</span>
+### Custom errors</span>
 | <div style="width:200px">Response </div>|<div style="width:420px">Explanation</div>|                      
 |-----:|:-------|
 |**200 OK** | There is at least one Line Item with the Quantity 0 (zero) on the Line Items tab.|

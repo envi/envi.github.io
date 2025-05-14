@@ -2,10 +2,10 @@
 
 ## POST /oauth2/token
 
-### <span style="color: #F05D30">Description</span>
+### Description
 The OData API provides authentication using OAuth 2.0 JWT. Before using Envi API, you should authenticate to obtain the JWT token. It is a simple and secure authentication mechanism that allows applications to acquire an access token for OData via a quick call to the Envi site.
 
-### <span style="color: #F05D30">Request parameters</span>
+### Request parameters
 To obtain a JWT token for authentication, send a POST request to ```/oauth2/token``` endpoint with the following parameters:
 
 <style>
@@ -37,7 +37,7 @@ Now, you need to use the ```access_token``` part of obtained JWT in the Authoriz
 To authorize, in the **Parameters** section of the needed endpoint, paste the token to the **Authorization** field.
 
 
-### <span style="color: #F05D30">Refreshing the token</span>
+### Refreshing the token
 After the ```access_token``` got expired, you have two options to refresh it:
 
  - Send a separate request with the specified user name and password. In this case, hardcode your credentials in the application you are using.
@@ -57,7 +57,7 @@ After the ```access_token``` got expired, you have two options to refresh it:
 
 If the provided information is correct, you will receive a new pair of ```access_token/refresh_token```.
 
-### <span style="color: #F05D30">Properties</span>
+### Properties
 If the provided authentication information is correct, you will receive the following in the **Response Body**:
 
 <style>
@@ -75,7 +75,7 @@ td, th {
 
 
 
-### <span style="color: #F05D30">Responses</span>
+### Responses
 
 <style>
 td, th {
@@ -119,7 +119,7 @@ td, th {
 }
 ```
 
-### <span style="color: #F05D30">Authentication with cURL</span>
+### Authentication with cURL
 Each HTTP request of Envi OData API is authenticated. To authenticate with cURL do the following:
 
 1. Specify the POST request method to use when communicating with the HTTP server. The -X signifies the method used for the request.

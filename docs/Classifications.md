@@ -2,18 +2,27 @@
 
 ## Get the list of Classifications 
 
-### <span style="color: #F05D30">Path</span>
+### Path
 GET /odata/Classifications
 
-### <span style="color: #F05D30">Description</span>
-Returns the list of Classifications within a logged organization.  You can filter the results by the strict match using the ```$filter``` parameter–entity eq ‘string’. Or filter the results by the partial match using ```$filter```=contains parameter–contains(entity, ‘string’).
+### Description
+Returns a paged list of existing Classifications within the logged-in organization.
 
-### <span style="color: #F05D30">Request parameters</span>
+!!! note
+
+    You can filter the results as follows:
+
+    - For an exact match, use: ```$filter parameter–entity eq ‘string’```
+    - For a partial match, use: ```$filter=contains parameter–contains(entity, ‘string’)```
+
+
+### Request parameters
 <style>
 td, th {
    border: none!important;
 }
 </style>
+
 |  <div style="width:200px">Parameter</div>  |  <div style="width:380px">Explanation</div>  |                      
 |-----:|:-------|
 |**api-version**: string default: 1.0 <br> *in header*| The requested API version.| 
@@ -25,7 +34,7 @@ td, th {
 |**Authorization**: string default: <br> Bearer access_token <br> *in header* | Specify the type of the token (bearer) and then insert the ```access_token```, which was obtained during authentication.|
 
 
-### <span style="color: #F05D30">Responses</span>
+### Responses
 | <div style="width:200px">Response </div>|<div style="width:420px">Explanation</div>|                      
 |-----:|:-------|
 |**200 OK**|OK|
@@ -35,7 +44,7 @@ td, th {
 |**500 Internal Server Error**|Server encountered an unexpected condition that prevented it from fulfilling the request.|
 
 
-### <span style="color: #F05D30">Properties</span>
+### Properties
 |<div style="width:200px">Property </div> |<div style="width:420px">Explanation</div>|                      
 |-----:|:-------|
 |**classificationId**: string *(uuid)* | Unique Identifier of the Сlassification |
@@ -55,38 +64,39 @@ td, th {
 
 ``` json title="Response Content-types: APPLICATION/JSON, APPLICATION/XML<br>Response example (200 OK)"
 {
-  "items": [
-    {
-      "classificationId": "00000000-0000-0000-0000-000000000000",
-      "classificationName": "string",
-      "classificationTypeId": "integer (int32)",
-      "classificationTypeValue": "string",
-      "organizationId": "00000000-0000-0000-0000-000000000000",
-      "organizationNo": "string",
-      "organizationName": "string",
-      "activeStatus": "boolean",
-      "dateCreated": "string (date-time)",
-      "createdBy": "00000000-0000-0000-0000-000000000000",
-      "createdByName": "string",
-      "lastUpdated": "string (date-time)",
-      "lastUpdatedBy": "00000000-0000-0000-0000-000000000000",
-      "lastUpdatedByName": "string"
-      }
-  ],
-  "nextPageLink": "string",
-  "count": "integer (int64)"
+    "@odata.context": "link",
+    "@odata.count": "number",
+    "value": [
+        {
+            "classificationId": "00000000-0000-0000-0000-000000000000",
+            "classificationName": "string",
+            "classificationTypeId": "integer (int32)",
+            "classificationTypeValue": "string",
+            "organizationId": "00000000-0000-0000-0000-000000000000",
+            "organizationNo": "string",
+            "organizationName": "string",
+            "activeStatus": "boolean",
+            "dateCreated": "string (date-time)",
+            "createdBy": "00000000-0000-0000-0000-000000000000",
+            "createdByName": "string",
+            "lastUpdated": "string (date-time)",
+            "lastUpdatedBy": "00000000-0000-0000-0000-000000000000",
+            "lastUpdatedByName": "string"
+        }
+    ],
+    "@odata.nextLink": "link"
 }
 ```
 
 ## Create a new Classification
 
-### <span style="color: #F05D30">Path</span>
+### Path
 POST /odata/Classifications
 
-### <span style="color: #F05D30">Description</span>
-Creates a new Classification within a logged organization.
+### Description
+Creates a new Classification within the logged-in organization.
 
-### <span style="color: #F05D30">Request body</span>
+### Request body
 | <div style="width:200px">Parameter</div>|<div style="width:420px">Explanation</div>|                      
 |-----:|:-------|
 |**classificationName**: string <br> <span style="color: #F05D30">**required**</span> | Name of the Сlassification |
@@ -95,18 +105,18 @@ Creates a new Classification within a logged organization.
 
 ``` json title="Request Content-types: APPLICATION/JSON, APPLICATION/XML<br>Request Example"
 {
-  "classificationName": "string",
-  "classificationTypeId": "integer (int32)",
+    "classificationName": "string",
+    "classificationTypeId": "integer (int32)",
 }
 ```
 
-### <span style="color: #F05D30">Request parameters</span>
+### Request parameters
 |  <div style="width:200px">Parameter</div>  |  <div style="width:380px">Explanation</div>  |                      
 |-----:|:-------|
 |**api-version**: string default: 1.0 <br> *in header*| The requested API version.|   
 |**Authorization**: string default: <br> Bearer access_token <br> *in header* |Specify the type of the token (bearer) and then insert the ```access_token```, which was obtained during authentication.|
 
-### <span style="color: #F05D30">Responses</span>
+### Responses
 | <div style="width:200px">Response </div>|<div style="width:380px">Explanation</div>|                      
 |-----:|:-------|
 |**200 OK**|OK|   
@@ -117,27 +127,25 @@ Creates a new Classification within a logged organization.
 
 ``` json title="Response Content-types: APPLICATION/JSON, APPLICATION/XML<br>Response Example (200 OK)"
 "00000000-0000-0000-0000-000000000000"
-
 ```
 
 
 ## Get the specified Classification
 
-### <span style="color: #F05D30">Path</span>
+### Path
 GET /odata/Classifications({ClassificationId})
 
-### <span style="color: #F05D30">Description</span>
-Returns the details of the Classification specified by ID within a logged organization.
+### Description
+Returns the details of the Classification specified by ID within the logged-in organization.
 
-### <span style="color: #F05D30">Request parameters</span>
+### Request parameters
 |  <div style="width:200px">Parameter</div>  |  <div style="width:380px">Explanation</div>  |                      
 |-----:|:-------|
 |**classificationId**: string *(uuid)* <br> <span style="color: #F05D30">**required**</span> <br> *in path* | Enter the ID of the Classification here. |
 |**api-version**: string default: 1.0 <br> *in header*| The requested API version. |   
 |**Authorization**: string default: <br> Bearer access_token <br> *in header* |Specify the type of the token (bearer) and then insert the ```access_token```, which was obtained during authentication. |
 
-
-### <span style="color: #F05D30">Responses</span>
+### Responses
 | <div style="width:200px">Response </div>|<div style="width:420px">Explanation</div>|                      
 |-----:|:-------|
 |**200 OK**|OK|      
@@ -147,8 +155,7 @@ Returns the details of the Classification specified by ID within a logged organi
 |**404 Not Found** | Specified ID is absent in the system. |
 |**500 Internal Server Error**| Server encountered an unexpected condition that prevented it from fulfilling the request. |
 
-
-### <span style="color: #F05D30">Properties</span>
+### Properties
 |<div style="width:200px">Property </div> |<div style="width:420px">Explanation</div>|                      
 |-----:|:-------|
 |**classificationId**: string *(uuid)* | Unique Identifier of the Сlassification |
@@ -169,19 +176,20 @@ Returns the details of the Classification specified by ID within a logged organi
 
 ``` json title="Response Content-types: APPLICATION/JSON, APPLICATION/XML<br>Response example (200 OK)"
 {
-  "classificationId": "00000000-0000-0000-0000-000000000000",
-  "classificationName": "string",
-  "classificationTypeId": "integer (int32)",
-  "classificationTypeValue": "string",
-  "organizationId": "00000000-0000-0000-0000-000000000000",
-  "organizationNo": "string",
-  "organizationName": "string",
-  "activeStatus": "boolean",
-  "dateCreated": "string (date-time)",
-  "createdBy": "00000000-0000-0000-0000-000000000000",
-  "createdByName": "string",
-  "lastUpdated": "string (date-time)",
-  "lastUpdatedBy": "00000000-0000-0000-0000-000000000000",
-  "lastUpdatedByName": "string"
+    "@odata.context": "link",
+    "classificationId": "00000000-0000-0000-0000-000000000000",
+    "classificationName": "string",
+    "classificationTypeId": "integer (int32)",
+    "classificationTypeValue": "string",
+    "organizationId": "00000000-0000-0000-0000-000000000000",
+    "organizationNo": "string",
+    "organizationName": "string",
+    "activeStatus": "boolean",
+    "dateCreated": "string (date-time)",
+    "createdBy": "00000000-0000-0000-0000-000000000000",
+    "createdByName": "string",
+    "lastUpdated": "string (date-time)",
+    "lastUpdatedBy": "00000000-0000-0000-0000-000000000000",
+    "lastUpdatedByName": "string"
 }
 ```

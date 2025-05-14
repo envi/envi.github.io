@@ -2,21 +2,26 @@
 
 ## Get the list of Requisition Fills
 
-### <span style="color: #F05D30">Path</span>
+### Path
 GET /odata/RequisitionFills
 
-### <span style="color: #F05D30">Description</span>
-Returns the list of Requisition Fills within a logged organization.  You can filter the results by the strict match using the ```$filter``` parameter–entity eq ‘string’. Or filter the results by the partial match using ```$filter```=contains parameter–contains(entity, ‘string’).
+### Description
+Returns a paged list of Requisition Fills within the logged-in organization.
+
+!!! note
+
+    You can filter the results as follows:
+
+    - For an exact match, use: ```$filter parameter–entity eq ‘string’```
+    - For a partial match, use: ```$filter=contains parameter–contains(entity, ‘string’)```
 
 
-### <span style="color: #F05D30">Request parameters</span>
+### Request parameters
 <style>
 td, th {
    border: none!important;
 }
 </style>
-
-
 |  <div style="width:200px">Parameter</div>  |  <div style="width:380px">Explanation</div>  |                      
 |-----:|:-------|
 |**api-version**: string default: 1.0 <br> *in header*| The requested API version.| 
@@ -28,7 +33,7 @@ td, th {
 |**Authorization**: string default: <br> Bearer access_token <br> *in header* |Specify the type of the token (bearer) and then insert the ```access_token```, which was obtained during authentication.|
 
 
-### <span style="color: #F05D30">Responses</span>
+### Responses
 | <div style="width:200px">Response </div>|<div style="width:420px">Explanation</div>|                      
 |-----:|:-------|
 |**200 OK**|OK|
@@ -39,7 +44,7 @@ td, th {
 |**500 Internal Server Error**|Server encountered an unexpected condition that prevented it from fulfilling the request.|
 
 
-### <span style="color: #F05D30">Properties</span>
+### Properties
 |<div style="width:200px">Property </div> |<div style="width:420px">Explanation</div>|                      
 |-----:|:-------|
 |**requisitionFillId**: string *(uuid)* | Unique Identifier of the Requisition Fill |
@@ -60,40 +65,41 @@ td, th {
 
 ``` json title="Response Content-types: APPLICATION/JSON, APPLICATION/XML<br>Response example (200 OK)"
 {
-  "items": [
-    {
-      "requisitionFillId": "00000000-0000-0000-0000-000000000000",
-       "requisitionFillNo": "string",
-       "requisitionId": "00000000-0000-0000-0000-000000000000",
-       "requisitionFillNo": "string",
-       "fillDate": "string (date-time)",
-       "fillStatus": "string",
-       "lastUpdated": "string (date-time)",
-       "lastUpdatedBy": "00000000-0000-0000-0000-000000000000",
-       "lastUpdatedByName": "string",
-       "dateCreated": "string (date-time)",
-       "createdBy": "00000000-0000-0000-0000-000000000000",
-       "createdByUserName": "string",
-       "dateSubmitted": "string (date-time)",
-       "submittedBy": "00000000-0000-0000-0000-000000000000",
-       "submittedByName": "string"
-      }
-  ],
-  "nextPageLink": "string",
-  "count": "integer (int64)"
+    "@odata.context": "link",
+    "@odata.count": "number",
+    "value": [
+        {
+            "requisitionFillId": "00000000-0000-0000-0000-000000000000",
+            "requisitionFillNo": "string",
+            "requisitionId": "00000000-0000-0000-0000-000000000000",
+            "requisitionFillNo": "string",
+            "fillDate": "string (date-time)",
+            "fillStatus": "string",
+            "lastUpdated": "string (date-time)",
+            "lastUpdatedBy": "00000000-0000-0000-0000-000000000000",
+            "lastUpdatedByName": "string",
+            "dateCreated": "string (date-time)",
+            "createdBy": "00000000-0000-0000-0000-000000000000",
+            "createdByUserName": "string",
+            "dateSubmitted": "string (date-time)",
+            "submittedBy": "00000000-0000-0000-0000-000000000000",
+            "submittedByName": "string"
+        }
+    ],
+    "@odata.nextLink": "link"
 }
 ```
 
 
 ## Get the specified Requisition Fill
 
-### <span style="color: #F05D30">Path</span>
+### Path
 GET /odata/RequisitionFills({requisitionFillId})
 
-### <span style="color: #F05D30">Description</span>
-Returns the details of the Requisition Fill specified by ID within a logged organization.
+### Description
+Returns the details of the Requisition Fill specified by ID within the logged-in organization.
 
-### <span style="color: #F05D30">Request parameters</span>
+### Request parameters
 |  <div style="width:200px">Parameter</div>  |  <div style="width:380px">Explanation</div>  |                      
 |-----:|:-------|
 |**requisitionFillId**: string *(uuid)* <br> <span style="color: #F05D30">**required**</span> <br> *in path* | Enter the ID of the Requisition Fill here. |
@@ -101,7 +107,7 @@ Returns the details of the Requisition Fill specified by ID within a logged orga
 |**Authorization**: string default: <br> Bearer access_token <br> *in header* |Specify the type of the token (bearer) and then insert the ```access_token```, which was obtained during authentication. |
 
 
-### <span style="color: #F05D30">Responses</span>
+### Responses
 | <div style="width:200px">Response </div>|<div style="width:420px">Explanation</div>|                      
 |-----:|:-------|
 |**200 OK**|OK|      
@@ -112,7 +118,7 @@ Returns the details of the Requisition Fill specified by ID within a logged orga
 |**500 Internal Server Error**| Server encountered an unexpected condition that prevented it from fulfilling the request. |
 
 
-### <span style="color: #F05D30">Properties</span>
+### Properties
 |<div style="width:200px">Property </div> |<div style="width:420px">Explanation</div>|                      
 |-----:|:-------|
 |**requisitionFillId**: string *(uuid)* | Unique Identifier of the Requisition Fill |
@@ -134,20 +140,21 @@ Returns the details of the Requisition Fill specified by ID within a logged orga
 
 ``` json title="Response Content-types: APPLICATION/JSON, APPLICATION/XML<br>Response example (200 OK)"
 {
-  "requisitionFillId": "00000000-0000-0000-0000-000000000000",
-  "requisitionFillNo": "string",
-  "requisitionId": "00000000-0000-0000-0000-000000000000",
-  "requisitionFillNo": "string",
-  "fillDate": "string (date-time)",
-  "fillStatus": "string",
-  "lastUpdated": "string (date-time)",
-  "lastUpdatedBy": "00000000-0000-0000-0000-000000000000",
-  "lastUpdatedByName": "string",
-  "dateCreated": "string (date-time)",
-  "createdBy": "00000000-0000-0000-0000-000000000000",
-  "createdByUserName": "string",
-  "dateSubmitted": "string (date-time)",
-  "submittedBy": "00000000-0000-0000-0000-000000000000",
-  "submittedByName": "string"
+    "@odata.context": "link",
+    "requisitionFillId": "00000000-0000-0000-0000-000000000000",
+    "requisitionFillNo": "string",
+    "requisitionId": "00000000-0000-0000-0000-000000000000",
+    "requisitionFillNo": "string",
+    "fillDate": "string (date-time)",
+    "fillStatus": "string",
+    "lastUpdated": "string (date-time)",
+    "lastUpdatedBy": "00000000-0000-0000-0000-000000000000",
+    "lastUpdatedByName": "string",
+    "dateCreated": "string (date-time)",
+    "createdBy": "00000000-0000-0000-0000-000000000000",
+    "createdByUserName": "string",
+    "dateSubmitted": "string (date-time)",
+    "submittedBy": "00000000-0000-0000-0000-000000000000",
+    "submittedByName": "string"
 }
 ```

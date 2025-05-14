@@ -2,13 +2,20 @@
 
 ## Get the list of Requisition Items
 
-### <span style="color: #F05D30">Path</span>
+### Path
 GET /odata/RequisitionItems
 
-### <span style="color: #F05D30">Description</span>
-Returns the paged list of existing Requisition Items.  You can filter the results by the strict match using the ```$filter``` parameter–entity eq ‘string’. Or filter the results by the partial match using ```$filter```=contains parameter–contains(entity, ‘string’).
+### Description
+Returns a paged list of existing Requisition Items.
 
-### <span style="color: #F05D30">Request parameters</span>
+!!! note
+
+    You can filter the results as follows:
+
+    - For an exact match, use: ```$filter parameter–entity eq ‘string’```
+    - For a partial match, use: ```$filter=contains parameter–contains(entity, ‘string’)```
+
+### Request parameters
 <style>
 td, th {
    border: none!important;
@@ -26,7 +33,7 @@ td, th {
 |**$skip**: string <br> *in query*| Skips the first n results.|
 |**Authorization**: string default: <br> Bearer access_token <br> *in header* |Specify the type of the token (bearer) and then insert the ```access_token```, which was obtained during authentication.|
 
-### <span style="color: #F05D30">Responses</span>
+### Responses
 | <div style="width:200px">Response </div>|<div style="width:420px">Explanation</div>|                      
 |-----:|:-------|
 |**200 OK**|OK|   
@@ -37,7 +44,7 @@ td, th {
 |**500 Internal Server Error**|Server encountered an unexpected condition that prevented it from fulfilling the request.|
 
 
-### <span style="color: #F05D30">Properties</span>
+### Properties
 |<div style="width:200px">Property </div> |<div style="width:420px">Explanation</div>|                      
 |-----:|:-------|
 |**requisitionItemId**: string *(uuid)* | Unique Identifier of the Requisition Item |
@@ -80,68 +87,69 @@ td, th {
 
 ``` json title="Response Content-types: APPLICATION/JSON, APPLICATION/XML<br>Response example (200 OK)"
 {
-    "items": [
-    {
-      "requisitionItemId": "00000000-0000-0000-0000-000000000000",
-      "requisitionId": "00000000-0000-0000-0000-000000000000",
-      "requisitionNo": "string",
-      "lineItemNo": "integer (int32)",
-      "inventoryNo": "string",
-      "inventoryDescription": "string",
-      "vendorItemNo": "string",
-      "lineItemTypeId": "integer (int32)",
-      "lineItemType": "string",
-      "quantity": "integer (int32)",
-      "uom": "string",
-      "conversionFactor": "integer (int32)",
-      "price": "number (double)",
-      "inventoryLocationId": "00000000-0000-0000-0000-000000000000",
-      "notes": "string",
-      "manufacturerId": "00000000-0000-0000-0000-000000000000",
-      "manufacturerItemNo": "string",
-      "suggestedVendorId": "00000000-0000-0000-0000-000000000000",
-      "stockUOM": "string",
-      "vendorId": "00000000-0000-0000-0000-000000000000",
-      "poConversionStatusId": "integer (int32)",
-      "poConversionStatus": "string",
-      "purchaseOrderItemId": "00000000-0000-0000-0000-000000000000",
-      "inventoryVendorId": "00000000-0000-0000-0000-000000000000",
-      "activeStatus": "boolean",
-      "dateCreated": "string (date-time)",
-      "createdBy": "00000000-0000-0000-0000-000000000000",
-      "createdByUserName": "string",
-      "lastUpdated": "string (date-time)",
-      "lastUpdatedBy": "00000000-0000-0000-0000-000000000000",
-      "lastUpdatedByUserName": "string",
-      "locationId": "00000000-0000-0000-0000-000000000000",
-      "isTaxable": "boolean",
-      "contractNo": "string",
-      "contractExpDate": "string (date-time)",
-      "isPrinted": "boolean",
-      "supplierPartAuxiliaryId": "string"
-    }
-  ],
-  "nextPageLink": "string",
-  "count": "integer (int64)"
-}   
+    "@odata.context": "link",
+    "@odata.count": "number",
+    "value": [
+        {
+            "requisitionItemId": "00000000-0000-0000-0000-000000000000",
+            "requisitionId": "00000000-0000-0000-0000-000000000000",
+            "requisitionNo": "string",
+            "lineItemNo": "integer (int32)",
+            "inventoryNo": "string",
+            "inventoryDescription": "string",
+            "vendorItemNo": "string",
+            "lineItemTypeId": "integer (int32)",
+            "lineItemType": "string",
+            "quantity": "integer (int32)",
+            "uom": "string",
+            "conversionFactor": "integer (int32)",
+            "price": "number (double)",
+            "inventoryLocationId": "00000000-0000-0000-0000-000000000000",
+            "notes": "string",
+            "manufacturerId": "00000000-0000-0000-0000-000000000000",
+            "manufacturerItemNo": "string",
+            "suggestedVendorId": "00000000-0000-0000-0000-000000000000",
+            "stockUOM": "string",
+            "vendorId": "00000000-0000-0000-0000-000000000000",
+            "poConversionStatusId": "integer (int32)",
+            "poConversionStatus": "string",
+            "purchaseOrderItemId": "00000000-0000-0000-0000-000000000000",
+            "inventoryVendorId": "00000000-0000-0000-0000-000000000000",
+            "activeStatus": "boolean",
+            "dateCreated": "string (date-time)",
+            "createdBy": "00000000-0000-0000-0000-000000000000",
+            "createdByUserName": "string",
+            "lastUpdated": "string (date-time)",
+            "lastUpdatedBy": "00000000-0000-0000-0000-000000000000",
+            "lastUpdatedByUserName": "string",
+            "locationId": "00000000-0000-0000-0000-000000000000",
+            "isTaxable": "boolean",
+            "contractNo": "string",
+            "contractExpDate": "string (date-time)",
+            "isPrinted": "boolean",
+            "supplierPartAuxiliaryId": "string"
+        }
+    ],
+    "@odata.nextLink": "link"
+}  
 ```
 
 ## Get the specified Requisition Item
 
-### <span style="color: #F05D30">Path</span>
+### Path
 GET /odata/RequisitionItems({requisitionItemId})
 
-### <span style="color: #F05D30">Description</span>
+### Description
 Returns the details of the Requisition Item specified by ID.
 
-### <span style="color: #F05D30">Request parameters</span>
+### Request parameters
 |  <div style="width:200px">Parameter</div>  |  <div style="width:380px">Explanation</div>  |                      
 |-----:|:-------|
 |**requisitionItemId**: string *(uuid)* <br> <span style="color: #F05D30">**required**</span> <br> *in path* | Enter the ID of the Requisition Item here. |
 |**api-version**: string default: 1.0 <br> *in header*| The requested API version.|   
 |**Authorization**: string default: <br> Bearer access_token <br> *in header* |Specify the type of the token (bearer) and then insert the ```access_token```, which was obtained during authentication. |
 
-### <span style="color: #F05D30">Responses</span>
+### Responses
 | <div style="width:200px">Response </div>|<div style="width:420px">Explanation</div>|                      
 |-----:|:-------|
 |**200 OK**|OK|      
@@ -151,7 +159,7 @@ Returns the details of the Requisition Item specified by ID.
 |**404 Not Found** | Specified ID is absent in the system.|
 |**500 Internal Server Error**|Server encountered an unexpected condition that prevented it from fulfilling the request.|
 
-### <span style="color: #F05D30">Properties</span>
+### Properties
 |<div style="width:200px">Property </div> |<div style="width:420px">Explanation</div>|                      
 |-----:|:-------|
 |**requisitionItemId**: string *(uuid)* | Unique Identifier of the Requisition Item |
@@ -195,55 +203,56 @@ Returns the details of the Requisition Item specified by ID.
 
 ``` json title="Response Content-types: APPLICATION/JSON, APPLICATION/XML<br>Response example (200 OK)"
 {
-  "requisitionItemId": "00000000-0000-0000-0000-000000000000",
-  "requisitionId": "00000000-0000-0000-0000-000000000000",
-  "requisitionNo": "string",
-  "lineItemNo": "integer (int32)",
-  "inventoryNo": "string",
-  "inventoryDescription": "string",
-  "vendorItemNo": "string",
-  "lineItemTypeId": "integer (int32)",
-  "lineItemType": "string",
-  "quantity": "integer (int32)",
-  "uom": "string",
-  "conversionFactor": "integer (int32)",
-  "price": "number (double)",
-  "inventoryLocationId": "00000000-0000-0000-0000-000000000000",
-  "notes": "string",
-  "manufacturerId": "00000000-0000-0000-0000-000000000000",
-  "manufacturerItemNo": "string",
-  "suggestedVendorId": "00000000-0000-0000-0000-000000000000",
-  "stockUOM": "string",
-  "vendorId": "00000000-0000-0000-0000-000000000000",
-  "poConversionStatusId": "integer (int32)",
-  "poConversionStatus": "string",
-  "purchaseOrderItemId": "00000000-0000-0000-0000-000000000000",
-  "inventoryVendorId": "00000000-0000-0000-0000-000000000000",
-  "activeStatus": "boolean",
-  "dateCreated": "string (date-time)",
-  "createdBy": "00000000-0000-0000-0000-000000000000",
-  "createdByUserName": "string",
-  "lastUpdated": "string (date-time)",
-  "lastUpdatedBy": "00000000-0000-0000-0000-000000000000",
-  "lastUpdatedByUserName": "string",
-  "locationId": "00000000-0000-0000-0000-000000000000",
-  "isTaxable": "boolean",
-  "contractNo": "string",
-  "contractExpDate": "string (date-time)",
-  "isPrinted": "boolean",
-  "supplierPartAuxiliaryId": "string"
+    "@odata.context": "link",
+    "requisitionItemId": "00000000-0000-0000-0000-000000000000",
+    "requisitionId": "00000000-0000-0000-0000-000000000000",
+    "requisitionNo": "string",
+    "lineItemNo": "integer (int32)",
+    "inventoryNo": "string",
+    "inventoryDescription": "string",
+    "vendorItemNo": "string",
+    "lineItemTypeId": "integer (int32)",
+    "lineItemType": "string",
+    "quantity": "integer (int32)",
+    "uom": "string",
+    "conversionFactor": "integer (int32)",
+    "price": "number (double)",
+    "inventoryLocationId": "00000000-0000-0000-0000-000000000000",
+    "notes": "string",
+    "manufacturerId": "00000000-0000-0000-0000-000000000000",
+    "manufacturerItemNo": "string",
+    "suggestedVendorId": "00000000-0000-0000-0000-000000000000",
+    "stockUOM": "string",
+    "vendorId": "00000000-0000-0000-0000-000000000000",
+    "poConversionStatusId": "integer (int32)",
+    "poConversionStatus": "string",
+    "purchaseOrderItemId": "00000000-0000-0000-0000-000000000000",
+    "inventoryVendorId": "00000000-0000-0000-0000-000000000000",
+    "activeStatus": "boolean",
+    "dateCreated": "string (date-time)",
+    "createdBy": "00000000-0000-0000-0000-000000000000",
+    "createdByUserName": "string",
+    "lastUpdated": "string (date-time)",
+    "lastUpdatedBy": "00000000-0000-0000-0000-000000000000",
+    "lastUpdatedByUserName": "string",
+    "locationId": "00000000-0000-0000-0000-000000000000",
+    "isTaxable": "boolean",
+    "contractNo": "string",
+    "contractExpDate": "string (date-time)",
+    "isPrinted": "boolean",
+    "supplierPartAuxiliaryId": "string"
 }
 ```
 
 ## Add the specified Requisition Line Item
 
-### <span style="color: #F05D30">Path</span>
+### Path
 POST /odata/Requisitions({requisitionID})/RequisitionItems
 
-### <span style="color: #F05D30">Description</span>
-Adds a new Requisition Line Item within a logged organization and the specified Requisition (applicable only for the **Standart** Requisition type).
+### Description
+Adds a new Requisition Line Item within the logged-in organization and the specified Requisition (applicable only for the **Standard** Requisition type).
 
-### <span style="color: #F05D30">Request body</span>
+### Request body
 For adding item(s) to requisition(s)
 
 |  <div style="width:200px">Parameter</div>  |  <div style="width:420px">Explanation</div>  |                      
@@ -265,31 +274,31 @@ For adding item(s) to requisition(s)
 
 ``` json title="Request Content-types: APPLICATION/JSON, APPLICATION/XML <br> Request Example"
 {
-  "inventoryNo": "string",
-  "inventoryDescription": "string",
-  "vendorItemNo": "string",
-  "quantity": "integer (int32)",
-  "uom": "string",
-  "conversionFactor": "integer (int32)",
-  "price": "string",
-  "notes": "string",
-  "manufacturerNo": "string",
-  "manufacturerItemNo": "string",
-  "vendorNo": "string",
-  "locationNo": "string",
-  "facilityNo": "string",
-  "isTaxable": "boolean",
+    "inventoryNo": "string",
+    "inventoryDescription": "string",
+    "vendorItemNo": "string",
+    "quantity": "integer (int32)",
+    "uom": "string",
+    "conversionFactor": "integer (int32)",
+    "price": "string",
+    "notes": "string",
+    "manufacturerNo": "string",
+    "manufacturerItemNo": "string",
+    "vendorNo": "string",
+    "locationNo": "string",
+    "facilityNo": "string",
+    "isTaxable": "boolean",
 }
 ```
 
-### <span style="color: #F05D30">Request parameters</span>
+### Request parameters
 |  <div style="width:200px">Parameter</div>  |  <div style="width:380px">Explanation</div>  |                      
 |-----:|:-------|
 |**requisitionId**: string *(uuid)* <br> <span style="color: #F05D30">**required**</span> <br> *in path* | Enter the ID of the Requisition here. |
 |**api-version**: string default: 1.0 <br> *in header*| The requested API version.|   
 |**Authorization**: string default: <br> Bearer access_token <br> *in header* |Specify the type of the token (bearer) and then insert the ```access_token```, which was obtained during authentication. |
 
-### <span style="color: #F05D30">Responses</span>
+### Responses
 | <div style="width:200px">Response </div>|<div style="width:420px">Explanation</div>|                      
 |-----:|:-------|
 |**200 OK**|OK|      
@@ -306,13 +315,13 @@ For adding item(s) to requisition(s)
 
 ## Partially update the specified Requisition Item
 
-### <span style="color: #F05D30">Path</span>
+### Path
 PATCH /odata/RequisitionItems({requisitionItemId})
 
-### <span style="color: #F05D30">Description</span>
-Partially updates the details of the Requisition Line Item specified by Requisition Item ID (applicable only for the **Standart** Requisition type).
+### Description
+Partially updates the details of the Requisition Line Item specified by ID (applicable only for the **Standard** Requisition type).
 
-### <span style="color: #F05D30">Properties</span>
+### Properties
 For Inventory Item (Item with Location and Vendor):
 
 |<div style="width:200px">Property </div> |<div style="width:420px">Explanation</div>|                      
@@ -326,12 +335,12 @@ For Inventory Item (Item with Location and Vendor):
 
 ``` json title="Request Content-types: APPLICATION/JSON, APPLICATION/XML<br>Request example (200 OK)"
 {
-  "activeStatus": "boolean",
-  "notes": "string",
-  "quantity": "integer (int8)",
-  "uom": "string",
-  "conversionFactor": "integer (int8)",
-  "price": "number (double)"
+    "activeStatus": "boolean",
+    "notes": "string",
+    "quantity": "integer (int8)",
+    "uom": "string",
+    "conversionFactor": "integer (int8)",
+    "price": "number (double)"
 }  
 ```
 <br>
@@ -350,13 +359,13 @@ For Non-Stock Item (Item with Vendor):
 
 ``` json title="Request Content-types: APPLICATION/JSON, APPLICATION/XML<br>Request Example (200 OK)"
 {
-  "locationId": "00000000-0000-0000-0000-000000000000",
-  "activeStatus": "boolean",
-  "notes": "string",
-  "quantity": "integer (int8)",
-  "uom": "string",
-  "conversionFactor": "integer (int8)",
-  "price": "number (double)"
+    "locationId": "00000000-0000-0000-0000-000000000000",
+    "activeStatus": "boolean",
+    "notes": "string",
+    "quantity": "integer (int8)",
+    "uom": "string",
+    "conversionFactor": "integer (int8)",
+    "price": "number (double)"
 } 
 ```
 
@@ -384,24 +393,24 @@ For Free-Form Item:
 
 ``` json title="Request Content-types: APPLICATION/JSON, APPLICATION/XML<br>Request Example (200 OK)"
 {
-  "inventoryNo": "string",
-  "inventoryDescription": "string",
-  "locationId": "00000000-0000-0000-0000-000000000000",
-  "vendorId": "00000000-0000-0000-0000-000000000000",
-  "vendorItemNo": "string",
-  "manufacturerId": "00000000-0000-0000-0000-000000000000",
-  "manufacturerItemNo": "string",
-  "activeStatus": "boolean",
-  "notes": "string",
-  "quantity": "integer (int8)",
-  "uom": "string",
-  "conversionFactor": "integer (int8)",
-  "price": "number (double)",
-  "isTaxable": "boolean"
+    "inventoryNo": "string",
+    "inventoryDescription": "string",
+    "locationId": "00000000-0000-0000-0000-000000000000",
+    "vendorId": "00000000-0000-0000-0000-000000000000",
+    "vendorItemNo": "string",
+    "manufacturerId": "00000000-0000-0000-0000-000000000000",
+    "manufacturerItemNo": "string",
+    "activeStatus": "boolean",
+    "notes": "string",
+    "quantity": "integer (int8)",
+    "uom": "string",
+    "conversionFactor": "integer (int8)",
+    "price": "number (double)",
+    "isTaxable": "boolean"
 }
 ```  
 
-### <span style="color: #F05D30">Request parameters</span>
+### Request parameters
 |  <div style="width:200px">Parameter</div>  |  <div style="width:380px">Explanation</div>  |                      
 |-----:|:-------|
 |**requisitionItemId**: string *(uuid)* <br> <span style="color: #F05D30">**required**</span> <br> *in path* | Enter the ID of the Requisition Item here. |
@@ -409,7 +418,7 @@ For Free-Form Item:
 |**Authorization**: string default: <br> Bearer access_token <br> *in header* |Specify the type of the token (bearer) and then insert the ```access_token```, which was obtained during authentication. |
 
 
-### <span style="color: #F05D30">Responses</span>
+### Responses
 | <div style="width:200px">Response </div>|<div style="width:420px">Explanation</div>|                      
 |-----:|:-------|
 |**200 OK**|OK|      

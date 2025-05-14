@@ -11,7 +11,7 @@ https://<HOSTNAME>/<resource>?$format=application/json;odata.metadata=none
 
 The example shows that the ```$format``` option should also include the expected content type of the response (in this case ```application/json```).
 
-## <span style="color: #F05D30">none</span> 
+## none
 
 If you do not need metadata information, use ```odata.metadata=none```. It means that the service omits metadata information other than ```odata.nextLink``` and ```odata.count```. The following example shows the request/response for the case based on the Inventory module:
 
@@ -60,7 +60,7 @@ https://<HOSTNAME>/odata/Inventory(4311192f-c46f-4655-8d51-fc2f49aabf78)?$format
        "systemType": "Standard"
     }
 ```
-## <span style="color: #F05D30">minimal</span> 
+## minimal 
 
 If you want to save on network bandwidth size but still need some metadata for correct response processing, the format query option should contain odata.metadata=minimal. It means that the service removes metadata information from the payload wherever possible. This is a default value for the odata.metadata parameter and will be assumed if no other values are specified. The response contains the following common annotation:
 
@@ -117,7 +117,7 @@ https://<HOSTNAME>/odata/Inventory(4311192f-c46f-4655-8d51-fc2f49aabf78)
 ```
 
 
-## <span style="color: #F05D30">full</span>
+## full
 
 If you need full metadata information, you should use odata.metadata=full. It directs the service to inline the metadata information that normally would be computed from metadata expressions in the payload. The response contains a lot of additional annotation, including information about fields type and related navigation links:
 

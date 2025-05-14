@@ -2,13 +2,20 @@
 
 ## Get the list of Inventory Items
 
-### <span style="color: #F05D30">Path</span>
+### Path
 GET /odata/Inventory
 
-### <span style="color: #F05D30">Description</span>
-Returns the paged list of the existing Inventory within a logged organization. You can filter the results by the strict match using the ```$filter``` parameter–entity eq ‘string’. Or filter the results by the partial match using ```$filter```=contains parameter–contains(entity, ‘string’).
+### Description
+Returns a paged list of existing Inventories within the logged-in organization.
 
-### <span style="color: #F05D30">Request parameters</span>
+!!! note
+
+    You can filter the results as follows:
+
+    - For an exact match, use: ```$filter parameter–entity eq ‘string’```
+    - For a partial match, use: ```$filter=contains parameter–contains(entity, ‘string’)```
+
+### Request parameters
 <style>
 td, th {
    border: none!important;
@@ -25,7 +32,7 @@ td, th {
 |**$skip**: string <br> *in query*| Skips the first n results.|
 |**Authorization**: string default: <br> Bearer access_token <br> *in header* | Specify the type of the token (bearer) and then insert the ```access_token```, which was obtained during authentication.|
 
-### <span style="color: #F05D30">Responses</span>
+### Responses
 | <div style="width:200px">Response </div>|<div style="width:380px">Explanation</div>|                      
 |-----:|:-------|
 |**200 OK**|OK|      
@@ -36,7 +43,7 @@ td, th {
 |**500 Internal Server Error**|Server encountered an unexpected condition that prevented it from fulfilling the request.|
 
 
-### <span style="color: #F05D30">Properties</span>
+### Properties
 | <div style="width:200px">Property </div>|<div style="width:380px">Explanation</div>|                      
 |-----:|:-------|
 |**inventoryId**: string *(uuid)*| Unique Identifier of the Inventory Item |
@@ -74,56 +81,56 @@ td, th {
 
 ``` json title="Response Content-types: APPLICATION/JSON, APPLICATION/XML<br>Response Example (200 OK)"
 {
-  "items": [
-    {
-      "inventoryId": "00000000-0000-0000-0000-000000000000",
-      "organizationId": "00000000-0000-0000-0000-000000000000",
-      "organizationName": "string",
-      "inventoryGroupId": "00000000-0000-0000-0000-000000000000",
-      "inventoryNo": "string",
-      "inventoryGroupName": "string",
-      "inventoryDescription": "string",
-      "inventoryDescription2": "string",
-      "stockUOM": "string",
-      "arBillingCode": "string",
-      "hcpcsCode": "string",
-      "notes": "string",
-      "dateAdded": "string (date-time)",
-      "addedId": "00000000-0000-0000-0000-000000000000",
-      "addedByName": "string",
-      "lastUpdated": "string (date-time)",
-      "lastUpdatedBy": "00000000-0000-0000-0000-000000000000",
-      "lastUpdatedByName": "string",
-      "activeStatus": "boolean",
-      "unspscCode": "string",
-      "isLatex": "boolean",
-      "classificationId": "00000000-0000-0000-0000-000000000000",
-      "classificationName": "string",
-      "classification2Id": "00000000-0000-0000-0000-000000000000",
-      "classification2Name": "string",
-      "defaultExpenseLedgerNo": "string",
-      "defaultAssetLedgerNo": "string",
-      "periopCategoryId": "00000000-0000-0000-0000-000000000000",
-      "periopItemCategory": "string",
-      "systemTypeId": "integer (int32)",
-      "systemType": "string",
-      "defaultIsBillable": "boolean"
-    }
-  ],
-  "nextPageLink": "string",
-  "count": "integer (int64)"
+    "@odata.context": "link",
+    "@odata.count": "number",
+    "value": [
+        {
+            "inventoryId": "00000000-0000-0000-0000-000000000000",
+            "organizationId": "00000000-0000-0000-0000-000000000000",
+            "organizationName": "string",
+            "inventoryGroupId": "00000000-0000-0000-0000-000000000000",
+            "inventoryNo": "string",
+            "inventoryGroupName": "string",
+            "inventoryDescription": "string",
+            "inventoryDescription2": "string",
+            "stockUOM": "string",
+            "arBillingCode": "string",
+            "hcpcsCode": "string",
+            "notes": "string",
+            "dateAdded": "string (date-time)",
+            "addedId": "00000000-0000-0000-0000-000000000000",
+            "addedByName": "string",
+            "lastUpdated": "string (date-time)",
+            "lastUpdatedBy": "00000000-0000-0000-0000-000000000000",
+            "lastUpdatedByName": "string",
+            "activeStatus": "boolean",
+            "unspscCode": "string",
+            "isLatex": "boolean",
+            "classificationId": "00000000-0000-0000-0000-000000000000",
+            "classificationName": "string",
+            "classification2Id": "00000000-0000-0000-0000-000000000000",
+            "classification2Name": "string",
+            "defaultExpenseLedgerNo": "string",
+            "defaultAssetLedgerNo": "string",
+            "periopCategoryId": "00000000-0000-0000-0000-000000000000",
+            "periopItemCategory": "string",
+            "systemTypeId": "integer (int32)",
+            "systemType": "string",
+            "defaultIsBillable": "boolean"
+        }
+    ],
+    "@odata.nextLink": "link"
 }
-
 ```
 ## Create a new Inventory
 
-### <span style="color: #F05D30">Path</span>
+### Path
 POST /odata/Inventory
 
-### <span style="color: #F05D30">Description</span>
-Creates a new Inventory within a logged organization.
+### Description
+Creates a new Inventory within the logged-in organization.
 
-### <span style="color: #F05D30">Request body</span>
+### Request body
 | <div style="width:200px">Parameter</div>|<div style="width:380px">Explanation</div>|                      
 |-----:|:-------|
 |**inventoryGroupId**: string *(uuid)* | Unique Identifier of the Group that contains related Inventory Items |
@@ -148,34 +155,34 @@ Creates a new Inventory within a logged organization.
 
 ``` json title="Request Content-types: APPLICATION/JSON, APPLICATION/XML<br>Request Example"
 {
-  "inventoryGroupId": "00000000-0000-0000-0000-000000000000",
-  "inventoryNo": "string",
-  "inventoryDescription": "string",
-  "inventoryDescription2": "string",
-  "stockUOM": "string",
-  "arBillingCode": "string",
-  "hcpcsCode": "string",
-  "notes": "string",
-  "activeStatus": "boolean",
-  "unspscCode": "string",
-  "isLatex": "boolean",
-  "classificationId": "00000000-0000-0000-0000-000000000000",
-  "classification2Id": "00000000-0000-0000-0000-000000000000",
-  "defaultExpenseLedgerNo": "string",
-  "defaultAssetLedgerNo": "string",
-  "periopCategoryId": "00000000-0000-0000-0000-000000000000",
-  "systemTypeId": "integer (int32)",
-  "defaultIsBillable": "boolean"
+    "inventoryGroupId": "00000000-0000-0000-0000-000000000000",
+    "inventoryNo": "string",
+    "inventoryDescription": "string",
+    "inventoryDescription2": "string",
+    "stockUOM": "string",
+    "arBillingCode": "string",
+    "hcpcsCode": "string",
+    "notes": "string",
+    "activeStatus": "boolean",
+    "unspscCode": "string",
+    "isLatex": "boolean",
+    "classificationId": "00000000-0000-0000-0000-000000000000",
+    "classification2Id": "00000000-0000-0000-0000-000000000000",
+    "defaultExpenseLedgerNo": "string",
+    "defaultAssetLedgerNo": "string",
+    "periopCategoryId": "00000000-0000-0000-0000-000000000000",
+    "systemTypeId": "integer (int32)",
+    "defaultIsBillable": "boolean"
 }
 ```
 
-### <span style="color: #F05D30">Request parameters</span>
+### Request parameters
 |  <div style="width:200px">Parameter</div>  |  <div style="width:380px">Explanation</div>  |                      
 |-----:|:-------|
 |**api-version**: string default: 1.0 <br> *in header*| The requested API version.|   
 |**Authorization**: string default: <br> Bearer access_token <br> *in header* |Specify the type of the token (bearer) and then insert the ```access_token```, which was obtained during authentication.|
 
-### <span style="color: #F05D30">Responses</span>
+### Responses
 | <div style="width:200px">Response </div>|<div style="width:380px">Explanation</div>|                      
 |-----:|:-------|
 |**200 OK**|OK|   
@@ -193,21 +200,20 @@ Creates a new Inventory within a logged organization.
 
 ## Get the specified Inventory
 
-### <span style="color: #F05D30">Path</span>
+### Path
 GET /odata/Inventory({inventoryId})
 
-### <span style="color: #F05D30">Description</span>
+### Description
 Returns the details of the Inventory specified by ID.
 
-### <span style="color: #F05D30">Request parameters</span>
+### Request parameters
 | <div style="width:200px">Parameter</div>|<div style="width:380px">Explanation</div>|                       
 |-----:|:-------|
 |**inventoryId**: string *(uuid)* <br> <span style="color: #F05D30">**required**</span> <br> *in path* | Enter the ID of the Inventory here. |
 |**api-version**: string default: 1.0 <br> *in header*| The requested API version.|      
 |**Authorization**: string default: <br> Bearer access_token <br> *in header* | Specify the type of the token (bearer) and then insert the ```access_token```, which was obtained during authentication.|
 
-
-### <span style="color: #F05D30">Responses</span>
+### Responses
 | <div style="width:200px">Response </div>|<div style="width:380px">Explanation</div>|                      
 |-----:|:-------|
 |**200 OK**|OK|      
@@ -217,7 +223,7 @@ Returns the details of the Inventory specified by ID.
 |**404 Not Found** | Specified ID is absent in the system. |
 |**500 Internal Server Error**|Server encountered an unexpected condition that prevented it from fulfilling the request.|
 
-### <span style="color: #F05D30">Properties</span>
+### Properties
 | <div style="width:200px">Property</div>|<div style="width:380px">Explanation</div>|                      
 |-----:|:-------|
 |**inventoryId**: string *(uuid)*| Unique Identifier of the Inventory Item|
@@ -255,49 +261,50 @@ Returns the details of the Inventory specified by ID.
 
 ``` json title="Response Content-types: APPLICATION/JSON, APPLICATION/XML<br>Response Example (200 OK)"
 {
-  "inventoryId": "00000000-0000-0000-0000-000000000000",
-  "organizationId": "00000000-0000-0000-0000-000000000000",
-  "organizationName": "string",
-  "inventoryGroupId": "00000000-0000-0000-0000-000000000000",
-  "inventoryNo": "string",
-  "inventoryGroupName": "string",
-  "inventoryDescription": "string",
-  "inventoryDescription2": "string",
-  "stockUOM": "string",
-  "arBillingCode": "string",
-  "hcpcsCode": "string",
-  "notes": "string",
-  "dateAdded": "string (date-time)",
-  "addedId": "00000000-0000-0000-0000-000000000000",
-  "addedByName": "string",
-  "lastUpdated": "string (date-time)",
-  "lastUpdatedBy": "00000000-0000-0000-0000-000000000000",
-  "lastUpdatedByName": "string",
-  "activeStatus": "boolean",
-  "unspscCode": "string",
-  "isLatex": "boolean",
-  "classificationId": "00000000-0000-0000-0000-000000000000",
-  "classificationName": "string",
-  "classification2Id": "00000000-0000-0000-0000-000000000000",
-  "classification2Name": "string",
-  "defaultExpenseLedgerNo": "string",
-  "defaultAssetLedgerNo": "string",
-  "periopCategoryId": "00000000-0000-0000-0000-000000000000",
-  "periopItemCategory": "string",
-  "systemTypeId": "integer (int32)",
-  "systemType": "string",
-  "defaultIsBillable": "boolean"
+    "@odata.context": "link",
+    "inventoryId": "00000000-0000-0000-0000-000000000000",
+    "organizationId": "00000000-0000-0000-0000-000000000000",
+    "organizationName": "string",
+    "inventoryGroupId": "00000000-0000-0000-0000-000000000000",
+    "inventoryNo": "string",
+    "inventoryGroupName": "string",
+    "inventoryDescription": "string",
+    "inventoryDescription2": "string",
+    "stockUOM": "string",
+    "arBillingCode": "string",
+    "hcpcsCode": "string",
+    "notes": "string",
+    "dateAdded": "string (date-time)",
+    "addedId": "00000000-0000-0000-0000-000000000000",
+    "addedByName": "string",
+    "lastUpdated": "string (date-time)",
+    "lastUpdatedBy": "00000000-0000-0000-0000-000000000000",
+    "lastUpdatedByName": "string",
+    "activeStatus": "boolean",
+    "unspscCode": "string",
+    "isLatex": "boolean",
+    "classificationId": "00000000-0000-0000-0000-000000000000",
+    "classificationName": "string",
+    "classification2Id": "00000000-0000-0000-0000-000000000000",
+    "classification2Name": "string",
+    "defaultExpenseLedgerNo": "string",
+    "defaultAssetLedgerNo": "string",
+    "periopCategoryId": "00000000-0000-0000-0000-000000000000",
+    "periopItemCategory": "string",
+    "systemTypeId": "integer (int32)",
+    "systemType": "string",
+    "defaultIsBillable": "boolean"
 }           
 ```
 ## Fully update the specified Inventory
 
-### <span style="color: #F05D30">Path</span>
+### Path
 PUT /odata/Inventory({inventoryId})
 
-### <span style="color: #F05D30">Description</span>
+### Description
 Fully updates the details of the Inventory specified by ID.
 
-### <span style="color: #F05D30">Request body</span>
+### Request body
 | <div style="width:200px">Parameter</div>|<div style="width:380px">Explanation</div>|                      
 |-----:|:-------|
 |**inventoryId**: string *(uuid)*| Unique Identifier of the Inventory Item |
@@ -335,48 +342,48 @@ Fully updates the details of the Inventory specified by ID.
 
 ``` json title="Request Content-types: APPLICATION/JSON, APPLICATION/XML<br>Request Example"
 {
-  "inventoryId": "00000000-0000-0000-0000-000000000000",
-  "organizationId": "00000000-0000-0000-0000-000000000000",
-  "organizationName": "string",
-  "inventoryGroupId": "00000000-0000-0000-0000-000000000000",
-  "inventoryNo": "string",
-  "inventoryGroupName": "string",
-  "inventoryDescription": "string",
-  "inventoryDescription2": "string",
-  "stockUOM": "string",
-  "arBillingCode": "string",
-  "hcpcsCode": "string",
-  "notes": "string",
-  "dateAdded": "string (date-time)",
-  "addedId": "00000000-0000-0000-0000-000000000000",
-  "addedByName": "string",
-  "lastUpdated": "string (date-time)",
-  "lastUpdatedBy": "00000000-0000-0000-0000-000000000000",
-  "lastUpdatedByName": "string",
-  "activeStatus": "boolean",
-  "unspscCode": "string",
-  "isLatex": "boolean",
-  "classificationId": "00000000-0000-0000-0000-000000000000",
-  "classificationName": "string",
-  "classification2Id": "00000000-0000-0000-0000-000000000000",
-  "classification2Name": "string",
-  "defaultExpenseLedgerNo": "string",
-  "defaultAssetLedgerNo": "string",
-  "periopCategoryId": "00000000-0000-0000-0000-000000000000",
-  "periopItemCategory": "string",
-  "systemTypeId": "integer (int32)",
-  "systemType": "string",
-  "defaultIsBillable": "boolean"
+    "inventoryId": "00000000-0000-0000-0000-000000000000",
+    "organizationId": "00000000-0000-0000-0000-000000000000",
+    "organizationName": "string",
+    "inventoryGroupId": "00000000-0000-0000-0000-000000000000",
+    "inventoryNo": "string",
+    "inventoryGroupName": "string",
+    "inventoryDescription": "string",
+    "inventoryDescription2": "string",
+    "stockUOM": "string",
+    "arBillingCode": "string",
+    "hcpcsCode": "string",
+    "notes": "string",
+    "dateAdded": "string (date-time)",
+    "addedId": "00000000-0000-0000-0000-000000000000",
+    "addedByName": "string",
+    "lastUpdated": "string (date-time)",
+    "lastUpdatedBy": "00000000-0000-0000-0000-000000000000",
+    "lastUpdatedByName": "string",
+    "activeStatus": "boolean",
+    "unspscCode": "string",
+    "isLatex": "boolean",
+    "classificationId": "00000000-0000-0000-0000-000000000000",
+    "classificationName": "string",
+    "classification2Id": "00000000-0000-0000-0000-000000000000",
+    "classification2Name": "string",
+    "defaultExpenseLedgerNo": "string",
+    "defaultAssetLedgerNo": "string",
+    "periopCategoryId": "00000000-0000-0000-0000-000000000000",
+    "periopItemCategory": "string",
+    "systemTypeId": "integer (int32)",
+    "systemType": "string",
+    "defaultIsBillable": "boolean"
 }           
 ```
-### <span style="color: #F05D30">Request parameters</span>
+### Request parameters
 | <div style="width:200px">Parameter</div>|<div style="width:380px">Explanation</div>|                       
 |-----:|:-------|
 |**inventoryId**: string *(uuid)* <br> <span style="color: #F05D30">**required**</span> <br> *in path* | Enter the ID of the Inventory here. |
 |**api-version**: string default: 1.0 <br> *in header*| The requested API version.|      
 |**Authorization**: string default: <br> Bearer access_token <br> *in header* | Specify the type of the token (bearer) and then insert the ```access_token```, which was obtained during authentication.|
 
-### <span style="color: #F05D30">Responses</span>
+### Responses
 | <div style="width:200px">Response </div>|<div style="width:380px">Explanation</div>|                      
 |-----:|:-------|
 |**200 OK**|OK|      
@@ -387,13 +394,13 @@ Fully updates the details of the Inventory specified by ID.
 
 ## Partially update the specified Inventory
 
-### <span style="color: #F05D30">Path</span>
+### Path
 PATCH /odata/Inventory({inventoryId})
 
-### <span style="color: #F05D30">Description</span>
+### Description
 Partially updates the details of the Inventory specified by ID.
 
-### <span style="color: #F05D30">Request body</span>
+### Request body
 | <div style="width:200px">Parameter</div>|<div style="width:380px">Explanation</div>|                      
 |-----:|:-------|
 |**inventoryId**: string *(uuid)* | Unique Identifier of the Inventory Item|
@@ -431,41 +438,41 @@ Partially updates the details of the Inventory specified by ID.
 
 ``` json title="Request Content-types: APPLICATION/JSON, APPLICATION/XML<br>Request Example"
 {
-  "inventoryId": "00000000-0000-0000-0000-000000000000",
-  "organizationId": "00000000-0000-0000-0000-000000000000",
-  "organizationName": "string",
-  "inventoryGroupId": "00000000-0000-0000-0000-000000000000",
-  "inventoryNo": "string",
-  "inventoryGroupName": "string",
-  "inventoryDescription": "string",
-  "inventoryDescription2": "string",
-  "stockUOM": "string",
-  "arBillingCode": "string",
-  "hcpcsCode": "string",
-  "notes": "string",
-  "dateAdded": "string (date-time)",
-  "addedId": "00000000-0000-0000-0000-000000000000",
-  "addedByName": "string",
-  "lastUpdated": "string (date-time)",
-  "lastUpdatedBy": "00000000-0000-0000-0000-000000000000",
-  "lastUpdatedByName": "string",
-  "activeStatus": "boolean",
-  "unspscCode": "string",
-  "isLatex": "boolean",
-  "classificationId": "00000000-0000-0000-0000-000000000000",
-  "classificationName": "string",
-  "classification2Id": "00000000-0000-0000-0000-000000000000",
-  "classification2Name": "string",
-  "defaultExpenseLedgerNo": "string",
-  "defaultAssetLedgerNo": "string",
-  "periopCategoryId": "00000000-0000-0000-0000-000000000000",
-  "periopItemCategory": "string",
-  "systemTypeId": "integer (int32)",
-  "systemType": "string",
-  "defaultIsBillable": "boolean"
+    "inventoryId": "00000000-0000-0000-0000-000000000000",
+    "organizationId": "00000000-0000-0000-0000-000000000000",
+    "organizationName": "string",
+    "inventoryGroupId": "00000000-0000-0000-0000-000000000000",
+    "inventoryNo": "string",
+    "inventoryGroupName": "string",
+    "inventoryDescription": "string",
+    "inventoryDescription2": "string",
+    "stockUOM": "string",
+    "arBillingCode": "string",
+    "hcpcsCode": "string",
+    "notes": "string",
+    "dateAdded": "string (date-time)",
+    "addedId": "00000000-0000-0000-0000-000000000000",
+    "addedByName": "string",
+    "lastUpdated": "string (date-time)",
+    "lastUpdatedBy": "00000000-0000-0000-0000-000000000000",
+    "lastUpdatedByName": "string",
+    "activeStatus": "boolean",
+    "unspscCode": "string",
+    "isLatex": "boolean",
+    "classificationId": "00000000-0000-0000-0000-000000000000",
+    "classificationName": "string",
+    "classification2Id": "00000000-0000-0000-0000-000000000000",
+    "classification2Name": "string",
+    "defaultExpenseLedgerNo": "string",
+    "defaultAssetLedgerNo": "string",
+    "periopCategoryId": "00000000-0000-0000-0000-000000000000",
+    "periopItemCategory": "string",
+    "systemTypeId": "integer (int32)",
+    "systemType": "string",
+    "defaultIsBillable": "boolean"
 }
 ```
-### <span style="color: #F05D30">Request parameters</span>
+### Request parameters
 | <div style="width:200px">Parameter</div>|<div style="width:380px">Explanation</div>|                       
 |-----:|:-------|
 |**inventoryId**: string *(uuid)* <br> <span style="color: #F05D30">**required**</span> <br> *in path* | Enter the ID of the Inventory here. |
@@ -473,7 +480,7 @@ Partially updates the details of the Inventory specified by ID.
 |**Authorization**: string default: <br> Bearer access_token <br> *in header* | Specify the type of the token (bearer) and then insert the ```access_token```, which was obtained during authentication.|
 
 
-### <span style="color: #F05D30">Responses</span>
+### Responses
 | <div style="width:200px">Response </div>|<div style="width:380px">Explanation</div>|                      
 |-----:|:-------|
 |**200 OK**|OK|      
@@ -482,20 +489,28 @@ Partially updates the details of the Inventory specified by ID.
 |**403 Forbidden**|User doesn’t have appropriate privileges.|
 |**500 Internal Server Error**|Server encountered an unexpected condition that prevented it from fulfilling the request.|
 
+
 ## Get Future Pricing Items for the specified Inventory
 
-### <span style="color: #F05D30">Path</span>
+### Path
 GET /odata/Inventory({inventoryId})/futurePricing
 
-### <span style="color: #F05D30">Description</span>
-Returns the paged list of the existing Future Pricing Items within the Inventory specified by ID. You can filter the results by the strict match using the ```$filter``` parameter–entity eq ‘string’. Or filter the results by the partial match using ```$filter```=contains parameter–contains(entity, ‘string’).
+### Description
+Returns a paged list of existing Future Pricing Items within the Inventory specified by ID.
+
+!!! note
+
+    You can filter the results as follows:
+
+    - For an exact match, use: ```$filter parameter–entity eq ‘string’```
+    - For a partial match, use: ```$filter=contains parameter–contains(entity, ‘string’)```
 
 !!! note 
 
     This endpoint does not support logical operators (**in**, **gt**, **ge**, **lt**, **le**) for data filtering.
 
 
-### <span style="color: #F05D30">Request parameters</span>
+### Request parameters
 | <div style="width:200px">Parameter</div>|<div style="width:380px">Explanation</div>|                       
 |-----:|:-------|
 |**inventoryId**: string *(uuid)* <br> <span style="color: #F05D30">**required**</span> <br> *in path* | Enter the ID of the Inventory here. |
@@ -507,7 +522,7 @@ Returns the paged list of the existing Future Pricing Items within the Inventory
 |**$skip**: string <br> *in query*| Skips the first n results.|
 |**Authorization**: string default: <br> Bearer access_token <br> *in header* | Specify the type of the token (bearer) and then insert the ```access_token```, which was obtained during authentication.|
 
-### <span style="color: #F05D30">Responses</span>
+### Responses
 | <div style="width:200px">Response </div>|<div style="width:380px">Explanation</div>|                      
 |-----:|:-------|
 |**200 OK**|OK|      
@@ -517,7 +532,7 @@ Returns the paged list of the existing Future Pricing Items within the Inventory
 |**403 Forbidden**|User doesn’t have appropriate privileges.|
 |**500 Internal Server Error**|Server encountered an unexpected condition that prevented it from fulfilling the request.|
 
-### <span style="color: #F05D30">Properties</span>
+### Properties
 | <div style="width:200px">Property</div>|<div style="width:420px">Explanation</div>|                      
 |-----:|:-------|
 |**futurePricingId**: string *(uuid)* | Unique Identifier of the Future Pricing record |
@@ -550,56 +565,64 @@ Returns the paged list of the existing Future Pricing Items within the Inventory
 
 ``` json title="Response Content-types: APPLICATION/JSON, APPLICATION/XML<br>Response Example (200 OK)"
 {
-  "items": [
-    {
-      "futurePricingId": "00000000-0000-0000-0000-000000000000",
-      "inventoryId": "00000000-0000-0000-0000-000000000000",
-      "inventoryNo": "string",
-      "vendorItemNo": "string",
-      "facilityId": "00000000-0000-0000-0000-000000000000",
-      "vendorId": "00000000-0000-0000-0000-000000000000",
-      "organizationId": "00000000-0000-0000-0000-000000000000",
-      "organizationNo": "string",
-      "organizationName": "string",
-      "vendorUOM": "string",
-      "vendorConversionFactor": "integer (int32)",
-      "contractNo": "string",
-      "contractExpDate": "string (date-time)",
-      "priceChangeDate": "string (date-time)",
-      "newPrice": "number (double)",
-      "priceChangeStatus": "integer (int32)",
-      "priceChangeStatusName": "string",
-      "dateAdded": "string (date-time)",
-      "addedBy": "00000000-0000-0000-0000-000000000000",
-      "lastUpdated": "string (date-time)",
-      "lastUpdatedBy": "00000000-0000-0000-0000-000000000000",
-      "vendorNo": "string",
-      "vendorName": "string",
-      "facilityNo": "string",
-      "facilityName": "string",
-      "addedByName": "string",
-      "lastUpdatedByName": "string"
-    }
-  ],
-  "nextPageLink": "string",
-  "count": "integer (int64)"
-}  
+    "@odata.context": "link",
+    "@odata.count": "number",
+    "value": [
+        {
+            "futurePricingId": "00000000-0000-0000-0000-000000000000",
+            "inventoryId": "00000000-0000-0000-0000-000000000000",
+            "inventoryNo": "string",
+            "vendorItemNo": "string",
+            "facilityId": "00000000-0000-0000-0000-000000000000",
+            "vendorId": "00000000-0000-0000-0000-000000000000",
+            "organizationId": "00000000-0000-0000-0000-000000000000",
+            "organizationNo": "string",
+            "organizationName": "string",
+            "vendorUOM": "string",
+            "vendorConversionFactor": "integer (int32)",
+            "contractNo": "string",
+            "contractExpDate": "string (date-time)",
+            "priceChangeDate": "string (date-time)",
+            "newPrice": "number (double)",
+            "priceChangeStatus": "integer (int32)",
+            "priceChangeStatusName": "string",
+            "dateAdded": "string (date-time)",
+            "addedBy": "00000000-0000-0000-0000-000000000000",
+            "lastUpdated": "string (date-time)",
+            "lastUpdatedBy": "00000000-0000-0000-0000-000000000000",
+            "vendorNo": "string",
+            "vendorName": "string",
+            "facilityNo": "string",
+            "facilityName": "string",
+            "addedByName": "string",
+            "lastUpdatedByName": "string"
+        }
+    ],
+    "@odata.nextLink": "link"
+} 
 ```
 
 ## Get the list of Inventory UOMs for the specified Inventory
 
-### <span style="color: #F05D30">Path</span>
+### Path
 GET /odata/Inventory({inventoryId})/inventoryUOMs
 
-### <span style="color: #F05D30">Description</span>
-Returns the paged list of the existing Inventory UOMs within the Inventory specified by ID. You can filter the results by the strict match using the ```$filter``` parameter–entity eq ‘string’. Or filter the results by the partial match using ```$filter```=contains parameter–contains(entity, ‘string’).
+### Description
+Returns a paged list of existing Inventory UOMs within the Inventory specified by ID. 
+
+!!! note
+
+    You can filter the results as follows:
+
+    - For an exact match, use: ```$filter parameter–entity eq ‘string’```
+    - For a partial match, use: ```$filter=contains parameter–contains(entity, ‘string’)```
 
 !!! note 
 
     This endpoint does not support logical operators (**in**, **gt**, **ge**, **lt**, **le**) for data filtering.
 
 
-### <span style="color: #F05D30">Request parameters</span>
+### Request parameters
 | <div style="width:200px">Parameter</div>|<div style="width:380px">Explanation</div>|                       
 |-----:|:-------|
 |**inventoryId**: string *(uuid)* <br> <span style="color: #F05D30">**required**</span> <br> *in path* | Enter the ID of the Inventory here. |
@@ -611,8 +634,7 @@ Returns the paged list of the existing Inventory UOMs within the Inventory speci
 |**$skip**: string <br> *in query*| Skips the first n results.|
 |**Authorization**: string default: <br> Bearer access_token <br> *in header* | Specify the type of the token (bearer) and then insert the ```access_token```, which was obtained during authentication.|
 
-
-### <span style="color: #F05D30">Responses</span>
+### Responses
 | <div style="width:200px">Response </div>|<div style="width:380px">Explanation</div>|                      
 |-----:|:-------|
 |**200 OK**|OK|      
@@ -622,7 +644,7 @@ Returns the paged list of the existing Inventory UOMs within the Inventory speci
 |**403 Forbidden**|User doesn’t have appropriate privileges.|
 |**500 Internal Server Error**|Server encountered an unexpected condition that prevented it from fulfilling the request.|
 
-### <span style="color: #F05D30">Properties</span>
+### Properties
 | <div style="width:200px">Property</div>|<div style="width:380px">Explanation</div>|                      
 |-----:|:-------|
 |**inventoryUOMId**: string *(uuid)* | Unique Identifier of the Inventory Item Unit of Measure |
@@ -637,33 +659,41 @@ Returns the paged list of the existing Inventory UOMs within the Inventory speci
 
 ``` json title="Response Content-types: APPLICATION/JSON, APPLICATION/XML<br>Response Example (200 OK)"
 {
-  "items": [
-    {
-      "inventoryUOMId": "00000000-0000-0000-0000-000000000000",
-      "inventoryId": "00000000-0000-0000-0000-000000000000",
-      "inventoryNo": "string",
-      "uom": "string",
-      "conversionFactor": "integer (int32)",
-      "dateAdded": "string (date-time)",
-      "addedId": "00000000-0000-0000-0000-000000000000",
-      "lastUpdated": "string (date-time)",
-      "lastUpdatedId": "00000000-0000-0000-0000-000000000000"
-    }
-  ],
-  "nextPageLink": "string",
-  "count": "integer (int64)"
-}   
+    "@odata.context": "link",
+    "@odata.count": "number",
+    "value": [
+        {
+            "inventoryUOMId": "00000000-0000-0000-0000-000000000000",
+            "inventoryId": "00000000-0000-0000-0000-000000000000",
+            "inventoryNo": "string",
+            "uom": "string",
+            "conversionFactor": "integer (int32)",
+            "dateAdded": "string (date-time)",
+            "addedId": "00000000-0000-0000-0000-000000000000",
+            "lastUpdated": "string (date-time)",
+            "lastUpdatedId": "00000000-0000-0000-0000-000000000000"
+        }
+    ],
+    "@odata.nextLink": "link"
+}  
 ```
 
 ## Get the list of Inventory Locations for the specified Inventory
 
-### <span style="color: #F05D30">Path</span>
+### Path
 GET /odata/Inventory({inventoryId})/inventoryLocations
 
-### <span style="color: #F05D30">Description</span>
-Returns the paged list of the existing Inventory Locations within the Inventory specified by ID. You can filter the results by the strict match using the ```$filter``` parameter–entity eq ‘string’. Or filter the results by the partial match using ```$filter```=contains parameter–contains(entity, ‘string’).
+### Description
+Returns a paged list of existing Inventory Locations within the Inventory specified by ID. 
 
-### <span style="color: #F05D30">Request parameters</span>
+!!! note
+
+    You can filter the results as follows:
+
+    - For an exact match, use: ```$filter parameter–entity eq ‘string’```
+    - For a partial match, use: ```$filter=contains parameter–contains(entity, ‘string’)```
+
+### Request parameters
 | <div style="width:200px">Parameter</div>|<div style="width:380px">Explanation</div>|                       
 |-----:|:-------|
 |**inventoryId**: string *(uuid)* <br> <span style="color: #F05D30">**required**</span> <br> *in path* | Enter the ID of the Inventory here. |
@@ -676,7 +706,7 @@ Returns the paged list of the existing Inventory Locations within the Inventory 
 |**Authorization**: string default: <br> Bearer access_token <br> *in header* | Specify the type of the token (bearer) and then insert the ```access_token```, which was obtained during authentication.|
 
 
-### <span style="color: #F05D30">Responses</span>
+### Responses
 | <div style="width:200px">Response </div>|<div style="width:380px">Explanation</div>|                      
 |-----:|:-------|
 |**200 OK**|OK|      
@@ -686,7 +716,7 @@ Returns the paged list of the existing Inventory Locations within the Inventory 
 |**403 Forbidden**|User doesn’t have appropriate privileges.|
 |**500 Internal Server Error**|Server encountered an unexpected condition that prevented it from fulfilling the request.|
 
-### <span style="color: #F05D30">Properties</span>
+### Properties
 | <div style="width:200px">Property</div>|<div style="width:380px">Explanation</div>|                      
 |-----:|:-------|
 |**inventoryLocationId**: string *(uuid)* | Unique Identifier of the Inventory Item Location |
@@ -745,81 +775,89 @@ Returns the paged list of the existing Inventory Locations within the Inventory 
 
 ``` json title="Response Content-types: APPLICATION/JSON, APPLICATION/XML<br>Response Example (200 OK)"
 {
-  "items": [
-    {
-      "inventoryLocationId": "00000000-0000-0000-0000-000000000000",
-      "inventoryId": "00000000-0000-0000-0000-000000000000",
-      "inventoryNo": "string",
-      "facilityId": "00000000-0000-0000-0000-000000000000",
-      "facilityName": "string",
-      "facilityNo": "string",
-      "locationId": "00000000-0000-0000-0000-000000000000",
-      "locationName": "string",
-      "locationNo": "string",
-      "locationUOM": "string",
-      "locationConversionFactor": "integer (int32)",
-      "inventoryStockUOM": "string",
-      "defaultIssueUOM": "string",
-      "defaultIssueConversionFactor": "integer (int32)",
-      "defaultCountUOM": "string",
-      "defaultCountConversionFactor": "integer (int32)",
-      "cost": "number (double)",
-      "isBillable": "boolean",
-      "isTaxable": "boolean",
-      "itemType": "integer (int8)",
-      "itemTypeText": "string",
-      "priceMarkup": "number (double)",
-      "priceMarkupType": "integer (int8)",
-      "priceMarkupTypeText": "string",
-      "disablePurchasing": "boolean",
-      "minQuantity": "integer (int32)",
-      "onRequisition": "integer (int32)",
-      "maxQuantity": "integer (int32)",
-      "safetyStock": "integer (int32)",
-      "binShelf": "string",
-      "assetLedgerNo": "string",
-      "expenseLedgerNo": "string",
-      "syncFlag": "boolean",
-      "costLastUpdated": "string (date-time)",
-      "costLastUpdatedBy": "00000000-0000-0000-0000-000000000000",
-      "dateAdded": "string (date-time)",
-      "addedBy": "00000000-0000-0000-0000-000000000000",
-      "lastUpdated": "string (date-time)",
-      "lastUpdatedBy": "00000000-0000-0000-0000-000000000000",
-      "activeStatus": "boolean",
-      "locationSynchronizationDate": "string (date-time)",
-      "costSynchronizationDate": "string (date-time)",
-      "defaultPurchaseUOM": "string",
-      "valuationMethod": "integer (int32)",
-      "valuationMethodText": "string",
-      "pendingOrders": "integer (int32)",
-      "submittedOrders": "integer (int32)",
-      "quantityOnHand": "integer (int32)",
-      "lastUpdatedByName": "string",
-      "addedByName": "string",
-      "costLastUpdatedByName": "string",
-      "crossReferenceNo": "string",
-      "inventoryActiveStatus": "boolean"
-    }
-  ],
-  "nextPageLink": "string",
-  "count": "integer (int64)"
+    "@odata.context": "link",
+    "@odata.count": "number",
+    "value": [
+        {
+            "inventoryLocationId": "00000000-0000-0000-0000-000000000000",
+            "inventoryId": "00000000-0000-0000-0000-000000000000",
+            "inventoryNo": "string",
+            "facilityId": "00000000-0000-0000-0000-000000000000",
+            "facilityName": "string",
+            "facilityNo": "string",
+            "locationId": "00000000-0000-0000-0000-000000000000",
+            "locationName": "string",
+            "locationNo": "string",
+            "locationUOM": "string",
+            "locationConversionFactor": "integer (int32)",
+            "inventoryStockUOM": "string",
+            "defaultIssueUOM": "string",
+            "defaultIssueConversionFactor": "integer (int32)",
+            "defaultCountUOM": "string",
+            "defaultCountConversionFactor": "integer (int32)",
+            "cost": "number (double)",
+            "isBillable": "boolean",
+            "isTaxable": "boolean",
+            "itemType": "integer (int8)",
+            "itemTypeText": "string",
+            "priceMarkup": "number (double)",
+            "priceMarkupType": "integer (int8)",
+            "priceMarkupTypeText": "string",
+            "disablePurchasing": "boolean",
+            "minQuantity": "integer (int32)",
+            "onRequisition": "integer (int32)",
+            "maxQuantity": "integer (int32)",
+            "safetyStock": "integer (int32)",
+            "binShelf": "string",
+            "assetLedgerNo": "string",
+            "expenseLedgerNo": "string",
+            "syncFlag": "boolean",
+            "costLastUpdated": "string (date-time)",
+            "costLastUpdatedBy": "00000000-0000-0000-0000-000000000000",
+            "dateAdded": "string (date-time)",
+            "addedBy": "00000000-0000-0000-0000-000000000000",
+            "lastUpdated": "string (date-time)",
+            "lastUpdatedBy": "00000000-0000-0000-0000-000000000000",
+            "activeStatus": "boolean",
+            "locationSynchronizationDate": "string (date-time)",
+            "costSynchronizationDate": "string (date-time)",
+            "defaultPurchaseUOM": "string",
+            "valuationMethod": "integer (int32)",
+            "valuationMethodText": "string",
+            "pendingOrders": "integer (int32)",
+            "submittedOrders": "integer (int32)",
+            "quantityOnHand": "integer (int32)",
+            "lastUpdatedByName": "string",
+            "addedByName": "string",
+            "costLastUpdatedByName": "string",
+            "crossReferenceNo": "string",
+            "inventoryActiveStatus": "boolean"
+        }
+    ],
+    "@odata.nextLink": "link"
 }
 ```
 
 ## Get the list of tracking settings for the specified Inventory
 
-### <span style="color: #F05D30">Path</span>
+### Path
 GET /odata/Inventory({inventoryId})/inventoryTrackings
 
-### <span style="color: #F05D30">Description</span>
-Returns the paged list of the existing Inventory tracking settings within the Inventory specified by ID. You can filter the results by the strict match using the ```$filter``` parameter–entity eq ‘string’. Or filter the results by the partial match using ```$filter```=contains parameter–contains(entity, ‘string’).
+### Description
+Returns a paged list of existing Inventory tracking settings within the Inventory specified by ID. 
+
+!!! note
+
+    You can filter the results as follows:
+
+    - For an exact match, use: ```$filter parameter–entity eq ‘string’```
+    - For a partial match, use: ```$filter=contains parameter–contains(entity, ‘string’)```
 
 !!! note 
 
     This endpoint does not support logical operators (**and**, **or**, **in**, **gt**, **ge**, **lt**, **le**) for data filtering.
     
-### <span style="color: #F05D30">Request parameters</span>
+### Request parameters
 | <div style="width:200px">Parameter</div>|<div style="width:380px">Explanation</div>|                       
 |-----:|:-------|
 |**inventoryId**: string *(uuid)* <br> <span style="color: #F05D30">**required**</span> <br> *in path* | Enter the ID of the Inventory here. |
@@ -831,7 +869,7 @@ Returns the paged list of the existing Inventory tracking settings within the In
 |**$skip**: string <br> *in query*| Skips the first n results.|
 |**Authorization**: string default: <br> Bearer access_token <br> *in header* | Specify the type of the token (bearer) and then insert the ```access_token```, which was obtained during authentication.|
 
-### <span style="color: #F05D30">Responses</span>
+### Responses</span>
 | <div style="width:200px">Response </div>|<div style="width:380px">Explanation</div>|                      
 |-----:|:-------|
 |**200 OK**|OK|      
@@ -841,7 +879,7 @@ Returns the paged list of the existing Inventory tracking settings within the In
 |**403 Forbidden**|User doesn’t have appropriate privileges.|
 |**500 Internal Server Error**|Server encountered an unexpected condition that prevented it from fulfilling the request.|
 
-### <span style="color: #F05D30">Properties</span>
+### Properties</span>
 | <div style="width:200px">Property</div>|<div style="width:420px">Explanation</div>|                      
 |-----:|:-------| 
 |**inventoryTrackingId**: string *(uuid)* | Unique Identifier of the Inventory Item Tracking |
@@ -864,44 +902,52 @@ Returns the paged list of the existing Inventory tracking settings within the In
 
 ``` json title="Response Content-types: APPLICATION/JSON, APPLICATION/XML<br>Response Example (200 OK)"
 {
-  "items": [
-    {
-      "inventoryTrackingId": "00000000-0000-0000-0000-000000000000",
-      "inventoryId": "00000000-0000-0000-0000-000000000000",
-      "inventoryNo": "string",
-      "facilityId": "00000000-0000-0000-0000-000000000000",
-      "facilityNo": "string",
-      "facilityName": "string",
-      "trackLot": "boolean",
-      "trackExpiration": "boolean",
-      "trackSerialNo": "boolean",
-      "isOptional": "boolean",
-      "dateAdded": "string (date-time)",
-      "addedBy": "00000000-0000-0000-0000-000000000000",
-      "addedByName": "string",
-      "lastUpdated": "string (date-time)",
-      "lastUpdatedBy": "00000000-0000-0000-0000-000000000000",
-      "lastUpdatedByName": "string"
-    }
-  ],
-  "nextPageLink": "string",
-  "count": "integer (int64)"
+    "@odata.context": "link",
+    "@odata.count": "number",
+    "value": [
+        {
+            "inventoryTrackingId": "00000000-0000-0000-0000-000000000000",
+            "inventoryId": "00000000-0000-0000-0000-000000000000",
+            "inventoryNo": "string",
+            "facilityId": "00000000-0000-0000-0000-000000000000",
+            "facilityNo": "string",
+            "facilityName": "string",
+            "trackLot": "boolean",
+            "trackExpiration": "boolean",
+            "trackSerialNo": "boolean",
+            "isOptional": "boolean",
+            "dateAdded": "string (date-time)",
+            "addedBy": "00000000-0000-0000-0000-000000000000",
+            "addedByName": "string",
+            "lastUpdated": "string (date-time)",
+            "lastUpdatedBy": "00000000-0000-0000-0000-000000000000",
+            "lastUpdatedByName": "string"
+        }
+    ],
+    "@odata.nextLink": "link"
 }
 ```
 
 ## Get the PO history for the specified Inventory
 
-### <span style="color: #F05D30">Path</span>
+### Path
 GET /odata/Inventory({inventoryId})/poHistoryItems
 
-### <span style="color: #F05D30">Description</span>
-Returns the paged list of the existing Purchase Order history within the Inventory specified by ID. You can filter the results by the strict match using the ```$filter``` parameter–entity eq ‘string’. Or filter the results by the partial match using ```$filter```=contains parameter–contains(entity, ‘string’).
+### Description
+Returns a paged list of existing Purchase Order history within the Inventory specified by ID. 
+
+!!! note
+
+    You can filter the results as follows:
+
+    - For an exact match, use: ```$filter parameter–entity eq ‘string’```
+    - For a partial match, use: ```$filter=contains parameter–contains(entity, ‘string’)```
 
 !!! note 
 
     This endpoint does not support logical operators (**and**, **or**, **in**, **gt**, **ge**, **lt**, **le**) for data filtering.
 
-### <span style="color: #F05D30">Request parameters</span>
+### Request parameters
 | <div style="width:200px">Parameter</div>|<div style="width:380px">Explanation</div>|                       
 |-----:|:-------|
 |**inventoryId**: string *(uuid)* <br> <span style="color: #F05D30">**required**</span> <br> *in path* | Enter the ID of the Inventory here. |
@@ -914,7 +960,7 @@ Returns the paged list of the existing Purchase Order history within the Invento
 |**$skip**: string <br> *in query*| Skips the first n results.|
 |**Authorization**: string default: <br> Bearer access_token <br> *in header* | Specify the type of the token (bearer) and then insert the ```access_token```, which was obtained during authentication.|
 
-### <span style="color: #F05D30">Responses</span>
+### Responses
 | <div style="width:200px">Response </div>|<div style="width:380px">Explanation</div>|                      
 |-----:|:-------|
 |**200 OK**|OK|      
@@ -924,7 +970,7 @@ Returns the paged list of the existing Purchase Order history within the Invento
 |**403 Forbidden**|User doesn’t have appropriate privileges.|
 |**500 Internal Server Error**|Server encountered an unexpected condition that prevented it from fulfilling the request.|
 
-### <span style="color: #F05D30">Properties</span>
+### Properties
 | <div style="width:200px">Property</div>|<div style="width:420px">Explanation</div>|                      
 |-----:|:-------| 
 |**id**: string | Unique Identifier of the Inventory Item |
@@ -938,33 +984,40 @@ Returns the paged list of the existing Purchase Order history within the Invento
 
 ``` json title="Response Content-types: APPLICATION/JSON, APPLICATION/XML<br>Response Example (200 OK)"
 {
-  "items": [
-    {
-      "id": "string",
-      "monthName": "string",
-      "monthNumber": "integer (int32)",
-      "quantityOrdered": "integer (int64)",
-      "numberOfPOs": "integer (int32)",
-      "totalCost": "number (double)",
-      "facilityName": "string",
-      "year": "integer (int32)"
-    }
-  ],
-  "nextPageLink": "string",
-  "count": "integer (int64)"
-}   
+    "@odata.context": "link",
+    "@odata.count": "number",
+    "value": [
+        {
+            "id": "string",
+            "monthName": "string",
+            "monthNumber": "integer (int32)",
+            "quantityOrdered": "integer (int64)",
+            "numberOfPOs": "integer (int32)",
+            "totalCost": "number (double)",
+            "facilityName": "string",
+            "year": "integer (int32)"
+        }
+    ],
+    "@odata.nextLink": "link"
+}  
 ```
 
 ## Get the list of Inventory Vendors for the specified Inventory
 
-### <span style="color: #F05D30">Path</span>
+### Path</span>
 GET /odata/Inventory({inventoryId})/inventoryVendors
 
-### <span style="color: #F05D30">Description</span>
-Returns the paged list of the existing Inventory Vendors within the Inventory specified by ID. You can filter the results by the strict match using the ```$filter``` parameter–entity eq ‘string’. Or filter the results by the partial match using ```$filter```=contains parameter–contains(entity, ‘string’).
+### Description
+Returns a paged list of existing Inventory Vendors within the Inventory specified by ID. 
 
+!!! note
 
-### <span style="color: #F05D30">Request parameters</span>
+    You can filter the results as follows:
+
+    - For an exact match, use: ```$filter parameter–entity eq ‘string’```
+    - For a partial match, use: ```$filter=contains parameter–contains(entity, ‘string’)```
+
+### Request parameters
 | <div style="width:200px">Parameter</div>|<div style="width:380px">Explanation</div>|                       
 |-----:|:-------|
 |**inventoryId**: string *(uuid)* <br> <span style="color: #F05D30">**required**</span> <br> *in path* | Enter the ID of the Inventory here. |
@@ -977,7 +1030,7 @@ Returns the paged list of the existing Inventory Vendors within the Inventory sp
 |**Authorization**: string default: <br> Bearer access_token <br> *in header* | Specify the type of the token (bearer) and then insert the ```access_token```, which was obtained during authentication.|
 
 
-### <span style="color: #F05D30">Responses</span>
+### Responses
 | <div style="width:200px">Response </div>|<div style="width:380px">Explanation</div>|                      
 |-----:|:-------|
 |**200 OK**|OK|      
@@ -987,7 +1040,7 @@ Returns the paged list of the existing Inventory Vendors within the Inventory sp
 |**403 Forbidden**|User doesn’t have appropriate privileges.|
 |**500 Internal Server Error**|Server encountered an unexpected condition that prevented it from fulfilling the request.|
 
-### <span style="color: #F05D30">Properties</span>
+### Properties
 | <div style="width:200px">Property</div>|<div style="width:420px">Explanation</div>|                      
 |-----:|:-------| 
 |**inventoryVendorId**: string *(uuid)* | Unique Identifier of the Inventory Item Vendor |
@@ -1028,62 +1081,64 @@ Returns the paged list of the existing Inventory Vendors within the Inventory sp
 
 ``` json title="Response Content-types: APPLICATION/JSON, APPLICATION/XML<br>Response Example (200 OK)"
 {
-  "items": [
-    {
-      "inventoryVendorId": "00000000-0000-0000-0000-000000000000",
-      "inventoryId": "00000000-0000-0000-0000-000000000000",
-      "inventoryNo": "string",
-      "vendorId": "00000000-0000-0000-0000-000000000000",
-      "vendorNo": "string",
-      "vendorName": "string",
-      "facilityId": "00000000-0000-0000-0000-000000000000",
-      "facilityNo": "string",
-      "facilityName": "string",
-      "vendorItemNo": "string",
-      "vendorUOM": "string",
-      "vendorConversionFactor": "integer (int32)",
-      "vendorCost": "number (double)",
-      "vendorPriority": "integer (int32)",
-      "contractNo": "string",
-      "contractExpDate": "string (date-time)",
-      "manufacturerItemNo": "string",
-      "manufacturerId": "00000000-0000-0000-0000-000000000000",
-      "manufacturerNo": "string",
-      "manufacturerName": "string",
-      "gtin": "string",
-      "costLastUpdated": "string (date-time)",
-      "costLastUpdatedBy": "00000000-0000-0000-0000-000000000000",
-      "dateAdded": "string (date-time)",
-      "addedBy": "00000000-0000-0000-0000-000000000000",
-      "lastUpdated": "string (date-time)",
-      "lastUpdatedBy": "00000000-0000-0000-0000-000000000000",
-      "activeStatus": "boolean",
-      "ndcNumber": "string",
-      "lockCost": "boolean",
-      "costLastUpdatedByUserName": "string",
-      "addedByUserName": "string",
-      "lastUpdatedByUserName": "string",
-      "pimKey": "string",
-      "altItemNo": "string"
-    }
-  ],
-  "nextPageLink": "string",
-  "count": "integer (int64)"
-} 
+    "@odata.context": "link",
+    "@odata.count": "number",
+    "value": [
+        {
+            "inventoryVendorId": "00000000-0000-0000-0000-000000000000",
+            "inventoryId": "00000000-0000-0000-0000-000000000000",
+            "inventoryNo": "string",
+            "vendorId": "00000000-0000-0000-0000-000000000000",
+            "vendorNo": "string",
+            "vendorName": "string",
+            "facilityId": "00000000-0000-0000-0000-000000000000",
+            "facilityNo": "string",
+            "facilityName": "string",
+            "vendorItemNo": "string",
+            "vendorUOM": "string",
+            "vendorConversionFactor": "integer (int32)",
+            "vendorCost": "number (double)",
+            "vendorPriority": "integer (int32)",
+            "contractNo": "string",
+            "contractExpDate": "string (date-time)",
+            "manufacturerItemNo": "string",
+            "manufacturerId": "00000000-0000-0000-0000-000000000000",
+            "manufacturerNo": "string",
+            "manufacturerName": "string",
+            "gtin": "string",
+            "costLastUpdated": "string (date-time)",
+            "costLastUpdatedBy": "00000000-0000-0000-0000-000000000000",
+            "dateAdded": "string (date-time)",
+            "addedBy": "00000000-0000-0000-0000-000000000000",
+            "lastUpdated": "string (date-time)",
+            "lastUpdatedBy": "00000000-0000-0000-0000-000000000000",
+            "activeStatus": "boolean",
+            "ndcNumber": "string",
+            "lockCost": "boolean",
+            "costLastUpdatedByUserName": "string",
+            "addedByUserName": "string",
+            "lastUpdatedByUserName": "string",
+            "pimKey": "string",
+            "altItemNo": "string"
+        }
+    ],
+    "@odata.nextLink": "link"
+}
+ 
 ```
 ## Get the list of tracking data
 
-### <span style="color: #F05D30">Path</span>
+### Path
 GET /odata/Inventory({inventoryId})/inventoryTrackingValues
 
-### <span style="color: #F05D30">Description</span>
-Returns the details of the Inventory tracking values within the Inventory, Facility, and tracking type specified by ID.
+### Description
+Returns the details of Inventory tracking values within the Inventory, Facility, and tracking type specified by ID.
 
 !!! note 
 
     This endpoint does not support logical operators (**and**, **or**, **in**, **gt**, **ge**, **lt**, **le**) for data filtering.
 
-### <span style="color: #F05D30">Request parameters</span>
+### Request parameters
 | <div style="width:200px">Parameter</div>|<div style="width:380px">Explanation</div>|                       
 |-----:|:-------|
 |**inventoryId**: string *(uuid)* <br> <span style="color: #F05D30">**required**</span> <br> *in path* | Enter the ID of the Inventory here. |
@@ -1097,7 +1152,7 @@ Returns the details of the Inventory tracking values within the Inventory, Facil
 |**$skip**: string <br> *in query*| Skips the first n results.|
 |**Authorization**: string default: <br> Bearer access_token <br> *in header* | Specify the type of the token (bearer) and then insert the ```access_token```, which was obtained during authentication.|
 
-### <span style="color: #F05D30">Responses</span>
+### Responses
 | <div style="width:200px">Response </div>|<div style="width:380px">Explanation</div>|                      
 |-----:|:-------|
 |**200 OK**|OK|      
@@ -1108,7 +1163,7 @@ Returns the details of the Inventory tracking values within the Inventory, Facil
 |**500 Internal Server Error**|Server encountered an unexpected condition that prevented it from fulfilling the request.|
 
 
-### <span style="color: #F05D30">Properties</span>
+### Properties
 | <div style="width:200px">Property</div>|<div style="width:380px">Explanation</div>|                      
 |-----:|:-------| 
 |**inventoryTrackingItemId**: string <br> *(uuid)* | Unique Identifier of the Inventory Item Tracking |
@@ -1134,45 +1189,54 @@ Returns the details of the Inventory tracking values within the Inventory, Facil
 
 ``` json title="Response Content-types: APPLICATION/JSON, APPLICATION/XML<br>Response Example (200 OK)"
 {
-  "items": [
-    {
-      "inventoryTrackingItemId": "00000000-0000-0000-0000-000000000000",
-      "inventoryId": "00000000-0000-0000-0000-000000000000",
-      "inventoryNo": "string",
-      "stockUOM": "string",
-      "facilityId": "00000000-0000-0000-0000-000000000000",
-      "facilityNo": "string",
-      "facilityName": "string",
-      "inventoryLocationId": "00000000-0000-0000-0000-000000000000",
-      "locationNo": "string",
-      "locationName": "string",
-      "lot": "string",
-      "expirationDate": "string (date-time)",
-      "serialNo": "string",
-      "quantity": "integer (int32)",
-      "dateAdded": "string (date-time)",
-      "addedBy": "00000000-0000-0000-0000-000000000000",
-      "addedByName": "string",
-      "lastUpdated": "string (date-time)",
-      "lastUpdatedBy": "00000000-0000-0000-0000-000000000000",
-      "lastUpdatedByName": "string"
-    }
-  ],
-  "nextPageLink": "string",
-  "count": "integer (int64)"
-}    
+    "@odata.context": "link",
+    "@odata.count": "number",
+    "value": [
+        {
+            "inventoryTrackingItemId": "00000000-0000-0000-0000-000000000000",
+            "inventoryId": "00000000-0000-0000-0000-000000000000",
+            "inventoryNo": "string",
+            "stockUOM": "string",
+            "facilityId": "00000000-0000-0000-0000-000000000000",
+            "facilityNo": "string",
+            "facilityName": "string",
+            "inventoryLocationId": "00000000-0000-0000-0000-000000000000",
+            "locationNo": "string",
+            "locationName": "string",
+            "lot": "string",
+            "expirationDate": "string (date-time)",
+            "serialNo": "string",
+            "quantity": "integer (int32)",
+            "dateAdded": "string (date-time)",
+            "addedBy": "00000000-0000-0000-0000-000000000000",
+            "addedByName": "string",
+            "lastUpdated": "string (date-time)",
+            "lastUpdatedBy": "00000000-0000-0000-0000-000000000000",
+            "lastUpdatedByName": "string"
+        }
+    ],
+    "@odata.nextLink": "link"
+}
+   
 ```
 
 
 ## Get the list of Inventory Locations cost and quantity for the specified Inventory
 
-### <span style="color: #F05D30">Path</span>
+### Path
 GET /odata/Inventory({inventoryId})/inventoryLocationsCostAndQuantity
 
-### <span style="color: #F05D30">Description</span>
-Returns the paged list of the existing Inventory Locations cost and quantity within the Inventory specified by ID. You can filter the results by the strict match using the ```$filter``` parameter–entity eq ‘string’. Or filter the results by the partial match using ```$filter```=contains parameter–contains(entity, ‘string’).
+### Description
+Returns a paged list of existing Inventory Locations cost and quantity within the Inventory specified by ID.
 
-### <span style="color: #F05D30">Request parameters</span>
+!!! note
+
+    You can filter the results as follows:
+
+    - For an exact match, use: ```$filter parameter–entity eq ‘string’```
+    - For a partial match, use: ```$filter=contains parameter–contains(entity, ‘string’)```
+
+### Request parameters
 | <div style="width:200px">Parameter</div>|<div style="width:380px">Explanation</div>|                       
 |-----:|:-------|
 |**inventoryId**: string *(uuid)* <br> <span style="color: #F05D30">**required**</span> <br> *in path* | Enter the ID of the Inventory here.|
@@ -1187,7 +1251,7 @@ Returns the paged list of the existing Inventory Locations cost and quantity wit
 |**$skip**: string <br> *in query*| Skips the first n results.|
 |**Authorization**: string default: <br> Bearer access_token <br> *in header* | Specify the type of the token (bearer) and then insert the ```access_token```, which was obtained during authentication.|
 
-### <span style="color: #F05D30">Responses</span>
+### Responses
 | <div style="width:200px">Response </div>|<div style="width:380px">Explanation</div>|                      
 |-----:|:-------|
 |**200 OK**|OK|      
@@ -1197,7 +1261,7 @@ Returns the paged list of the existing Inventory Locations cost and quantity wit
 |**403 Forbidden**|User doesn’t have appropriate privileges.|
 |**500 Internal Server Error**|Server encountered an unexpected condition that prevented it from fulfilling the request.|
 
-### <span style="color: #F05D30">Properties</span>
+### Properties
 | <div style="width:200px">Property</div>|<div style="width:380px">Explanation</div>|                      
 |-----:|:-------| 
 |**inventoryLocationId**: string *(uuid)* | Unique Identifier of the Inventory Location |
@@ -1216,38 +1280,39 @@ Returns the paged list of the existing Inventory Locations cost and quantity wit
 
 ``` json title="Response Content-types: APPLICATION/JSON, APPLICATION/XML<br>Response Example (200 OK)"
 {
-  "items": [
-    {
-      "inventoryLocationId": "00000000-0000-0000-0000-000000000000",
-      "inventoryId": "00000000-0000-0000-0000-000000000000",
-      "inventoryNo": "string",
-      "locationNo": "string",
-      "cost": "number (double)",
-      "quantityOnHand": "integer (int32)",
-      "activeStatus": "boolean",
-      "dateAdded": "string (date-time)",
-      "addedBy": "00000000-0000-0000-0000-000000000000",
-      "lastUpdated": "string (date-time)",
-      "lastUpdatedBy": "00000000-0000-0000-0000-000000000000",
-      "costLastUpdated": "string (date-time)",
-      "costLastUpdatedBy": "00000000-0000-0000-0000-000000000000"
-    }
-  ],
-  "nextPageLink": "string",
-  "count": "integer (int64)"
+    "@odata.context": "link",
+    "@odata.count": "number",
+    "value": [
+        {
+            "inventoryLocationId": "00000000-0000-0000-0000-000000000000",
+            "inventoryId": "00000000-0000-0000-0000-000000000000",
+            "inventoryNo": "string",
+            "locationNo": "string",
+            "cost": "number (double)",
+            "quantityOnHand": "integer (int32)",
+            "activeStatus": "boolean",
+            "dateAdded": "string (date-time)",
+            "addedBy": "00000000-0000-0000-0000-000000000000",
+            "lastUpdated": "string (date-time)",
+            "lastUpdatedBy": "00000000-0000-0000-0000-000000000000",
+            "costLastUpdated": "string (date-time)",
+            "costLastUpdatedBy": "00000000-0000-0000-0000-000000000000"
+        }
+    ],
+    "@odata.nextLink": "link"
 }
 
 ```
 
 ## Get the list of Inventory Items changed from the specified date
 
-### <span style="color: #F05D30">Path</span>
+### Path
 GET /odata/Inventory/GetAllFromDate(from={from},facilityId={facilityId},syncFlag={syncFlag})
 
-### <span style="color: #F05D30">Description</span>
-Returns the paged list of the Inventory Items changed from the specified date within the Facility specified by ID.
+### Description
+Returns a paged list of Inventory Items changed from the specified date within the Facility specified by ID.
 
-### <span style="color: #F05D30">Request parameters</span>
+### Request parameters
 | <div style="width:200px">Parameter</div>|<div style="width:380px">Explanation</div>|                       
 |-----:|:-------|
 |**from**: string *(date-time)* <br> <span style="color: #F05D30">**required**</span> <br> *in path* | Enter the Start Date here. |
@@ -1256,7 +1321,7 @@ Returns the paged list of the Inventory Items changed from the specified date wi
 |**api-version**: string default: 1.0 <br> *in header*| The requested API version.|      
 |**Authorization**: string default: <br> Bearer access_token <br> *in header* | Specify the type of the token (bearer) and then insert the ```access_token```, which was obtained during authentication.|
 
-### <span style="color: #F05D30">Responses</span>
+### Responses
 | <div style="width:200px">Response </div>|<div style="width:380px">Explanation</div>|                      
 |-----:|:-------|
 |**200 OK**|OK|      
@@ -1265,7 +1330,7 @@ Returns the paged list of the Inventory Items changed from the specified date wi
 |**403 Forbidden**|User doesn’t have appropriate privileges.|
 |**500 Internal Server Error**|Server encountered an unexpected condition that prevented it from fulfilling the request.|
 
-### <span style="color: #F05D30">Properties</span>
+### Properties
 | <div style="width:200px">Property</div>|<div style="width:380px">Explanation</div>|                      
 |-----:|:-------| 
 |**itemType**: string | Type of the Item |
@@ -1349,13 +1414,13 @@ Returns the paged list of the Inventory Items changed from the specified date wi
 
 ## Save the specified Inventory Vendor
 
-### <span style="color: #F05D30">Path</span>
+### Path
 POST /odata/Inventory({inventoryId})/InventoryVendor
 
-### <span style="color: #F05D30">Description</span>
-Creates a new Inventory Vendor within a logged organization and specified Inventory.
+### Description
+Creates a new Inventory Vendor within the logged-in organization and the specified Inventory.
 
-### <span style="color: #F05D30">Request body</span>
+### Request body</span>
 | <div style="width:200px">Parameter</div>|<div style="width:420px">Explanation</div>|                      
 |-----:|:-------|
 |**vendorId**: string <br> <span style="color: #F05D30">**required**</span> | Unique Identifier of the Vendor |
@@ -1375,32 +1440,32 @@ Creates a new Inventory Vendor within a logged organization and specified Invent
 
 ``` json title="Request Content-types: APPLICATION/JSON, APPLICATION/XML<br>Request Example"
 {
-  "vendorId": "00000000-0000-0000-0000-000000000000",
-  "facilityIdd": "00000000-0000-0000-0000-000000000000",
-  "vendorItemNo": "string",
-  "vendorUOM": "string",
-  "vendorConversionFactor": "integer (int32)",
-  "VendorCost": "number (double)",
-  "contractNo": "string",
-  "contractExpDate": "string (date-time)",
-  "manufacturerItemNo": "string",
-  "manufacturerNo": "string",
-  "gtin": "string",
-  "ndcNumber": "string",
-  "lockCost": "boolean",
-  "pimKey": "integer (int10)",
-  "altItemNo": "string",
+    "vendorId": "00000000-0000-0000-0000-000000000000",
+    "facilityIdd": "00000000-0000-0000-0000-000000000000",
+    "vendorItemNo": "string",
+    "vendorUOM": "string",
+    "vendorConversionFactor": "integer (int32)",
+    "VendorCost": "number (double)",
+    "contractNo": "string",
+    "contractExpDate": "string (date-time)",
+    "manufacturerItemNo": "string",
+    "manufacturerNo": "string",
+    "gtin": "string",
+    "ndcNumber": "string",
+    "lockCost": "boolean",
+    "pimKey": "integer (int10)",
+    "altItemNo": "string",
 }
 ```
 
-### <span style="color: #F05D30">Request parameters</span>
+### Request parameters
 | <div style="width:200px">Parameter</div>|<div style="width:380px">Explanation</div>|                       
 |-----:|:-------|
 |**inventoryId**: string *(uuid)* <br> <span style="color: #F05D30">**required**</span> <br> *in path* | Enter the ID of the Inventory here. |
 |**api-version**: string default: 1.0 <br> *in header*| The requested API version.|      
 |**Authorization**: string default: <br> Bearer access_token <br> *in header* | Specify the type of the token (bearer) and then insert the ```access_token```, which was obtained during authentication.|
 
-### <span style="color: #F05D30">Responses</span>
+### Responses
 | <div style="width:200px">Response </div>|<div style="width:380px">Explanation</div>|                      
 |-----:|:-------|
 |**200 OK**|OK|      
@@ -1415,13 +1480,13 @@ Creates a new Inventory Vendor within a logged organization and specified Invent
 
 ## Manage the Purchasing option for Inventory Locations
 
-### <span style="color: #F05D30">Path</span>
+### Path
 POST /odata/Inventory({inventoryId})/ManagePurchasing
 
-### <span style="color: #F05D30">Description</span>
-Manages the Purchasing option for the Inventory Location specified by Inventory ID.
+### Description
+Manages the Purchasing option for the Inventory Location specified by ID.
 
-### <span style="color: #F05D30">Request body</span>
+### Request body
 | <div style="width:200px">Parameter</div>|<div style="width:420px">Explanation</div>|                      
 |-----:|:-------|
 |**disablePurchasing**: boolean | Disable Purchasing for the Inventory Item or not? |
@@ -1434,16 +1499,15 @@ Manages the Purchasing option for the Inventory Location specified by Inventory 
      "facility": "00000000-0000-0000-0000-000000000000"
   }
 }
-
 ```
-### <span style="color: #F05D30">Request parameters</span>
+### Request parameters
 | <div style="width:200px">Parameter</div>|<div style="width:380px">Explanation</div>|                       
 |-----:|:-------|
 |**inventoryId**: string *(uuid)* <br> <span style="color: #F05D30">**required**</span> <br> *in path* | Enter the ID of the Inventory here. |
 |**api-version**: string default: 1.0 <br> *in header*| The requested API version.|      
 |**Authorization**: string default: <br> Bearer access_token <br> *in header* | Specify the type of the token (bearer) and then insert the ```access_token```, which was obtained during authentication.|
 
-### <span style="color: #F05D30">Responses</span>
+### Responses
 | <div style="width:200px">Response </div>|<div style="width:380px">Explanation</div>|                      
 |-----:|:-------|
 |**200 OK**|OK|      
@@ -1455,13 +1519,13 @@ Manages the Purchasing option for the Inventory Location specified by Inventory 
 
 ## Save the specified Inventory Location
 
-### <span style="color: #F05D30">Path</span>
+### Path
 POST /odata/Inventory({inventoryId})/InventoryLocation
 
-### <span style="color: #F05D30">Description</span>
-Creates a new Inventory Location within a logged organization and specified Inventory.
+### Description
+Creates a new Inventory Location within the logged-in organization and specified Inventory.
 
-### <span style="color: #F05D30">Request body</span>
+### Request body
 | <div style="width:200px">Parameter</div>|<div style="width:380px">Explanation</div>|                      
 |-----:|:-------|
 |**locationId**: string *(uuid)* <br> <span style="color: #F05D30">**required**</span> | Unique Identifier of the Location |
@@ -1489,39 +1553,39 @@ Creates a new Inventory Location within a logged organization and specified Inve
 
 ``` json title="Request Content-types: APPLICATION/JSON, APPLICATION/XML<br>Request Example"
 {
-  "locationId": "00000000-0000-0000-0000-000000000000",
-  "defaultIssueUOM": "string",
-  "defaultIssueConversionFactor":"integer (int32)",
-  "defaultCountUOM": "string",
-  "defaultCountConversionFactor": "integer (int32)",
-  "itemType":"integer (int8)",
-  "priceMarkup": "number (double)",
-  "priceMarkupType": "integer (int8)",
-  "cost": "number (double)",
-  "assetLedgerNo": "string",
-  "expenseLedgerNo": "string",
-  "binShelf": "string",
-  "crossReferenceNo": "string",
-  "minQuantity": "integer (int32)",
-  "maxQuantity": "integer (int32)",
-  "safetyStock": "integer (int32)",
-  "locationUOM": "string",
-  "locationConversionFactor": "integer (int32)",
-  "isBillable": "boolean",
-  "isTaxable": "boolean",
-  "syncFlag": "boolean",
-  "disablePurchasinge": "boolean"
+    "locationId": "00000000-0000-0000-0000-000000000000",
+    "defaultIssueUOM": "string",
+    "defaultIssueConversionFactor":"integer (int32)",
+    "defaultCountUOM": "string",
+    "defaultCountConversionFactor": "integer (int32)",
+    "itemType":"integer (int8)",
+    "priceMarkup": "number (double)",
+    "priceMarkupType": "integer (int8)",
+    "cost": "number (double)",
+    "assetLedgerNo": "string",
+    "expenseLedgerNo": "string",
+    "binShelf": "string",
+    "crossReferenceNo": "string",
+    "minQuantity": "integer (int32)",
+    "maxQuantity": "integer (int32)",
+    "safetyStock": "integer (int32)",
+    "locationUOM": "string",
+    "locationConversionFactor": "integer (int32)",
+    "isBillable": "boolean",
+    "isTaxable": "boolean",
+    "syncFlag": "boolean",
+    "disablePurchasinge": "boolean"
 }
 ```
 
-### <span style="color: #F05D30">Request parameters</span>
+### Request parameters
 | <div style="width:200px">Parameter</div>|<div style="width:380px">Explanation</div>|                       
 |-----:|:-------|
 |**inventoryId**: string *(uuid)* <br> <span style="color: #F05D30">**required**</span> <br> *in path* | Enter the ID of the Inventory here. |
 |**api-version**: string default: 1.0 <br> *in header*| The requested API version.|      
 |**Authorization**: string default: <br> Bearer access_token <br> *in header* | Specify the type of the token (bearer) and then insert the ```access_token```, which was obtained during authentication.|
 
-### <span style="color: #F05D30">Responses</span>
+### Responses
 | <div style="width:200px">Response </div>|<div style="width:380px">Explanation</div>|                      
 |-----:|:-------|
 |**200 OK**|OK|      

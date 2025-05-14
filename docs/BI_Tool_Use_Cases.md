@@ -7,7 +7,7 @@ Security is a priority for Envi; therefore, we support tools that adhere to the 
 
 Create a custom query to visualize the data you want in **Power BI** and **MS Excel**. The custom query retrieves the JWT token and then uses it in subsequent requests to the server.
 
-## <span style="color: #F05D30">Power BI</span> 
+## Power BI 
 
 To work easily with the Envi data in **Power BI**, you can use the following methods:
 
@@ -15,7 +15,7 @@ To work easily with the Envi data in **Power BI**, you can use the following met
  - [Integration with ODBC driver](#integration-with-odbc-driver-with-power-bi)
 
 
-### <span style="color: #F05D30">Building custom query with Power BI</span> 
+### Building custom query with Power BI 
 
 To create the query and use it for data retrieving in **Power BI**, do the following:
 
@@ -73,7 +73,7 @@ Custom Query is ready for the data retrieving. To refresh data, call the context
 
     During the first query execution, you’ll see the warning message about data privacy and storage of sensitive information. It is recommended to set privacy credentials to **Organizational**.
 
-### <span style="color: #F05D30">Integration with ODBC driver with Power BI</span> 
+### Integration with ODBC driver with Power BI 
 
 You can connect **Power BI** with the [ODBC driver](Integrators.md#odbc-powerpack-configuration) and retrieve the needed data. For this, do the following:
 
@@ -92,13 +92,13 @@ The **Load** dialog box with uploading progress appears. ![image](img/ODBC_Drive
 
 The integration with **Power BI** is finished. You can use retrieved data easily for your further needs.
 
-## <span style="color: #F05D30">MS Excel</span> 
+## MS Excel 
 To work with Envi data easily in **MS Excel**, you can use the following methods:
 
  - [Building custom query](#building-custom-query-with-ms-excel)
  - [Integration with ODBC driver](#integration-with-odbc-driver-with-ms-excel)
 
-### <span style="color: #F05D30">Building custom query with MS Excel</span> 
+### Building custom query with MS Excel 
 To create the query and use it for data retrieving in **Excel**, do the following:
 
 1. Go to the **Data** tab, then select **Get Data** > **From Other Sources** > **Blank Query**. ![image](img/MS_Exel_1.png) 
@@ -169,7 +169,7 @@ To resolve this issue, do the following:
 
 Your choice will be saved for the given external data source (for example, api-demo.envi.net).
 
-### <span style="color: #F05D30">Integration with ODBC driver with MS Excel</span> 
+### Integration with ODBC driver with MS Excel 
 
 You can connect **MS Excel** with the [ODBC driver](Integrators.md#odbc-powerpack-configuration) and retrieve the needed data. For this, do the following:
 
@@ -218,12 +218,12 @@ You can connect **MS Excel** with the [ODBC driver](Integrators.md#odbc-powerpac
 The integration with **Microsoft Excel** is complete. You can use the retrieved data easily for your further needs.
 
 
-## <span style="color: #F05D30">Tableau</span> 
+## Tableau 
 
  - [Integration with ODBC](#integration-with-odbc-with-tableau)
  - [Integration with Microsoft SQL Server](#integration-with-microsoft-sql-server-with-tableau)
 
-### <span style="color: #F05D30">Integration with ODBC with Tableau</span> 
+### Integration with ODBC with Tableau 
 
 You can connect **Tableau** with the **ODBC driver** and retrieve the needed data. For this, do the following:
 
@@ -236,7 +236,7 @@ You can connect **Tableau** with the **ODBC driver** and retrieve the needed dat
  7. Navigate to a sheet and continue working with the data according to your needs.![image](img/MS_Exel_26.png) 
  8. To refresh the data, select **Data** > **value (DATA.value)** > **Refresh**. ![image](img/MS_Exel_27.png) 
 
-### <span style="color: #F05D30">Integration with Microsoft SQL Server with Tableau</span> 
+### Integration with Microsoft SQL Server with Tableau 
 Except for the direct **ODBC driver** connection, you can also connect **Tableau** using **Linked Server** ([Integrators](Integrators.md#cdata-odbc-driver-for-odata), step 20), which is already connected to the **ODBC driver**. For this, do the following:
 
  1. In the **Tableau** app, create a **New** book. <br> ![image](img/MS_Exel_19.png) 
@@ -249,7 +249,7 @@ Except for the direct **ODBC driver** connection, you can also connect **Tableau
 
 Integration with **Tableau** is finished. You can use retrieved data easily for your further needs.
 
-## <span style="color: #F05D30">Klipfolio</span> 
+## Klipfolio 
 
 The **Klipfolio Dashboard** allows you to combine all of your marketing data in one place to create powerful and compelling data dashboards.
 
@@ -260,7 +260,7 @@ Creating the dashboard with the needed data using the Klipfolio service consists
  - [Connecting to the needed data source](#new-data-source-with-klipfolio)
  - [Visualizing your data with Klips elements](#new-dashboard-with-klipfolio)
 
-### <span style="color: #F05D30">New data source with Klipfolio </span> 
+### New data source with Klipfolio  
 
 To create a new data source and connect it to the dashboard, do the following:
 
@@ -324,7 +324,7 @@ To create a new data source and connect it to the dashboard, do the following:
 
 After all entered data is saved, you will see your newly created data source. ![image](img/Klipfolio_7.png)  
 
-### <span style="color: #F05D30">New dashboard with Klipfolio</span> 
+### New dashboard with Klipfolio 
 To create a new dashboard with the needed data:
 
 1. In the **Dashboards** section of the **Klipfolio** menu, select **+** to create a new dashboard.

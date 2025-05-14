@@ -2,13 +2,20 @@
 
 ## Get the list of Inventory Locations
 
-### <span style="color: #F05D30">Path</span>
+### Path
 GET /odata/InventoryLocations
 
-### <span style="color: #F05D30">Description</span>
-Returns the paged list of the existing Inventory Locations within a logged organization. You can filter the results by the strict match using the ```$filter``` parameter–entity eq ‘string’. Or filter the results by the partial match using ```$filter```=contains parameter–contains(entity, ‘string’).
+### Description
+Returns a paged list of existing Inventory Locations within the logged-in organization. 
 
-### <span style="color: #F05D30">Request parameters</span>
+!!! note
+
+    You can filter the results as follows:
+
+    - For an exact match, use: ```$filter parameter–entity eq ‘string’```
+    - For a partial match, use: ```$filter=contains parameter–contains(entity, ‘string’)```
+
+### Request parameters
 <style>
 td, th {
    border: none!important;
@@ -25,7 +32,7 @@ td, th {
 |**$skip**: string <br> *in query*| Skips the first n results.|
 |**Authorization**: string default: <br> Bearer access_token <br> *in header* |Specify the type of the token (bearer) and then insert the ```access_token```, which was obtained during authentication.|
 
-### <span style="color: #F05D30">Responses</span>
+### Responses
 | <div style="width:200px">Response </div>|<div style="width:380px">Explanation</div>|                      
 |-----:|:-------|
 |**200 OK**|OK|      
@@ -35,7 +42,7 @@ td, th {
 |**403 Forbidden**|User doesn’t have appropriate privileges.|
 |**500 Internal Server Error**|Server encountered an unexpected condition that prevented it from fulfilling the request.|
 
-### <span style="color: #F05D30">Properties</span>
+### Properties
 |<div style="width:200px">Property </div> |<div style="width:380px">Explanation</div>|                      
 |-----:|:-------|
 |**inventoryLocationId**: string *(uuid)* | Unique Identifier of the Inventory Item Location |
@@ -94,86 +101,85 @@ td, th {
 
 ``` json title="Response Content-types: APPLICATION/JSON, APPLICATION/XML<br>Response example (200 OK)"
 {
-  "items": [
-    {
-      "inventoryLocationId": "00000000-0000-0000-0000-000000000000",
-      "inventoryId": "00000000-0000-0000-0000-000000000000",
-      "inventoryNo": "string",
-      "facilityId": "00000000-0000-0000-0000-000000000000",
-      "facilityName": "string",
-      "facilityNo": "string",
-      "locationId": "00000000-0000-0000-0000-000000000000",
-      "locationName": "string",
-      "locationNo": "string",
-      "locationUOM": "string",
-      "locationConversionFactor": "integer (int32)",
-      "inventoryStockUOM": "string",
-      "defaultIssueUOM": "string",
-      "defaultIssueConversionFactor": "integer (int32)",
-      "defaultCountUOM": "string",
-      "defaultCountConversionFactor": "integer (int32)",
-      "cost": "number (double)",
-      "isBillable": "boolean",
-      "isTaxable": "boolean",
-      "itemType": "integer (int8)",
-      "itemTypeText": "string",
-      "priceMarkup": "number (double)",
-      "priceMarkupType": "integer (int8)",
-      "priceMarkupTypeText": "string",
-      "disablePurchasing": "boolean",
-      "minQuantity": "integer (int32)",
-      "onRequisition": "integer (int32)",
-      "maxQuantity": "integer (int32)",
-      "safetyStock": "integer (int32)",
-      "binShelf": "string",
-      "assetLedgerNo": "string",
-      "expenseLedgerNo": "string",
-      "syncFlag": "boolean",
-      "costLastUpdated": "string (date-time)",
-      "costLastUpdatedBy": "00000000-0000-0000-0000-000000000000",
-      "dateAdded": "string (date-time)",
-      "addedBy": "00000000-0000-0000-0000-000000000000",
-      "lastUpdated": "string (date-time)",
-      "lastUpdatedBy": "00000000-0000-0000-0000-000000000000",
-      "activeStatus": "boolean",
-      "locationSynchronizationDate": "string (date-time)",
-      "costSynchronizationDate": "string (date-time)",
-      "defaultPurchaseUOM": "string",
-      "valuationMethod": "integer (int32)",
-      "valuationMethodText": "string",
-      "pendingOrders": "integer (int32)",
-      "submittedOrders": "integer (int32)",
-      "quantityOnHand": "integer (int32)",
-      "lastUpdatedByName": "string",
-      "addedByName": "string",
-      "costLastUpdatedByName": "string",
-      "crossReferenceNo": "string",
-      "inventoryActiveStatus": "boolean"
-    }
-  ],
-  "nextPageLink": "string",
-  "count": "integer (int64)"
-}
-    
+    "@odata.context": "link",
+    "@odata.count": "number",
+    "value": [
+        {
+            "inventoryLocationId": "00000000-0000-0000-0000-000000000000",
+            "inventoryId": "00000000-0000-0000-0000-000000000000",
+            "inventoryNo": "string",
+            "facilityId": "00000000-0000-0000-0000-000000000000",
+            "facilityName": "string",
+            "facilityNo": "string",
+            "locationId": "00000000-0000-0000-0000-000000000000",
+            "locationName": "string",
+            "locationNo": "string",
+            "locationUOM": "string",
+            "locationConversionFactor": "integer (int32)",
+            "inventoryStockUOM": "string",
+            "defaultIssueUOM": "string",
+            "defaultIssueConversionFactor": "integer (int32)",
+            "defaultCountUOM": "string",
+            "defaultCountConversionFactor": "integer (int32)",
+            "cost": "number (double)",
+            "isBillable": "boolean",
+            "isTaxable": "boolean",
+            "itemType": "integer (int8)",
+            "itemTypeText": "string",
+            "priceMarkup": "number (double)",
+            "priceMarkupType": "integer (int8)",
+            "priceMarkupTypeText": "string",
+            "disablePurchasing": "boolean",
+            "minQuantity": "integer (int32)",
+            "onRequisition": "integer (int32)",
+            "maxQuantity": "integer (int32)",
+            "safetyStock": "integer (int32)",
+            "binShelf": "string",
+            "assetLedgerNo": "string",
+            "expenseLedgerNo": "string",
+            "syncFlag": "boolean",
+            "costLastUpdated": "string (date-time)",
+            "costLastUpdatedBy": "00000000-0000-0000-0000-000000000000",
+            "dateAdded": "string (date-time)",
+            "addedBy": "00000000-0000-0000-0000-000000000000",
+            "lastUpdated": "string (date-time)",
+            "lastUpdatedBy": "00000000-0000-0000-0000-000000000000",
+            "activeStatus": "boolean",
+            "locationSynchronizationDate": "string (date-time)",
+            "costSynchronizationDate": "string (date-time)",
+            "defaultPurchaseUOM": "string",
+            "valuationMethod": "integer (int32)",
+            "valuationMethodText": "string",
+            "pendingOrders": "integer (int32)",
+            "submittedOrders": "integer (int32)",
+            "quantityOnHand": "integer (int32)",
+            "lastUpdatedByName": "string",
+            "addedByName": "string",
+            "costLastUpdatedByName": "string",
+            "crossReferenceNo": "string",
+            "inventoryActiveStatus": "boolean"
+        }
+    ],
+    "@odata.nextLink": "link"
+}   
 ```
-
 
 ## Get the specified Inventory Location
 
-### <span style="color: #F05D30">Path</span>
+### Path
 GET /odata/InventoryLocations({inventoryLocationId})
 
-### <span style="color: #F05D30">Description</span>
+### Description
 Returns the details of the Inventory Location specified by ID.
 
-### <span style="color: #F05D30">Request parameters</span>
+### Request parameters
 |  <div style="width:200px">Parameter</div>  |  <div style="width:380px">Explanation</div>  |                      
 |-----:|:-------|
 |**inventoryLocationId**: string *(uuid)* <span style="color: #F05D30">**required**</span> <br> *in path* | Enter the ID of the Inventory Location here. |
 |**api-version**: string default: 1.0 <br> *in header*| The requested API version.|   
 |**Authorization**: string default: <br> Bearer access_token <br> *in header* |Specify the type of the token (bearer) and then insert the ```access_token```, which was obtained during authentication.|
 
-### <span style="color: #F05D30">Responses</span>
+### Responses
 | <div style="width:200px">Response </div>|<div style="width:380px">Explanation</div>|                      
 |-----:|:-------|
 |**200 OK**|OK|      
@@ -182,7 +188,7 @@ Returns the details of the Inventory Location specified by ID.
 |**403 Forbidden**|User doesn’t have appropriate privileges.|
 |**500 Internal Server Error**|Server encountered an unexpected condition that prevented it from fulfilling the request.|
 
-### <span style="color: #F05D30">Properties</span>
+### Properties
 |<div style="width:200px">Property </div> |<div style="width:380px">Explanation</div>|                      
 |-----:|:-------|
 |**inventoryLocationId**: string *(uuid)* | Unique Identifier of the Inventory Item Location |
@@ -242,71 +248,72 @@ Returns the details of the Inventory Location specified by ID.
 
 ``` json title="Response Content-types: APPLICATION/JSON, APPLICATION/XML<br>Response example (200 OK)"
 {
-  "inventoryLocationId": "00000000-0000-0000-0000-000000000000",
-  "inventoryId": "00000000-0000-0000-0000-000000000000",
-  "inventoryNo": "string",
-  "facilityId": "00000000-0000-0000-0000-000000000000",
-  "facilityName": "string",
-  "facilityNo": "string",
-  "locationId": "00000000-0000-0000-0000-000000000000",
-  "locationName": "string",
-  "locationNo": "string",
-  "locationUOM": "string",
-  "locationConversionFactor": "integer (int32)",
-  "inventoryStockUOM": "string",
-  "defaultIssueUOM": "string",
-  "defaultIssueConversionFactor": "integer (int32)",
-  "defaultCountUOM": "string",
-  "defaultCountConversionFactor": "integer (int32)",
-  "cost": "number (double)",
-  "isBillable": "boolean",
-  "isTaxable": "boolean",
-  "itemType": "integer (int8)",
-  "itemTypeText": "string",
-  "priceMarkup": "number (double)",
-  "priceMarkupType": "integer (int8)",
-  "priceMarkupTypeText": "string",
-  "disablePurchasing": "boolean",
-  "minQuantity": "integer (int32)",
-  "onRequisition": "integer (int32)",
-  "maxQuantity": "integer (int32)",
-  "safetyStock": "integer (int32)",
-  "binShelf": "string",
-  "assetLedgerNo": "string",
-  "expenseLedgerNo": "string",
-  "syncFlag": "boolean",
-  "costLastUpdated": "string (date-time)",
-  "costLastUpdatedBy": "00000000-0000-0000-0000-000000000000",
-  "dateAdded": "string (date-time)",
-  "addedBy": "00000000-0000-0000-0000-000000000000",
-  "lastUpdated": "string (date-time)",
-  "lastUpdatedBy": "00000000-0000-0000-0000-000000000000",
-  "activeStatus": "boolean",
-  "locationSynchronizationDate": "string (date-time)",
-  "costSynchronizationDate": "string (date-time)",
-  "defaultPurchaseUOM": "string",
-  "valuationMethod": "integer (int32)",
-  "valuationMethodText": "string",
-  "pendingOrders": "integer (int32)",
-  "submittedOrders": "integer (int32)",
-  "quantityOnHand": "integer (int32)",
-  "lastUpdatedByName": "string",
-  "addedByName": "string",
-  "costLastUpdatedByName": "string",
-  "crossReferenceNo": "string",
-  "inventoryActiveStatus": "boolean"
+    "@odata.context": "link",
+    "inventoryLocationId": "00000000-0000-0000-0000-000000000000",
+    "inventoryId": "00000000-0000-0000-0000-000000000000",
+    "inventoryNo": "string",
+    "facilityId": "00000000-0000-0000-0000-000000000000",
+    "facilityName": "string",
+    "facilityNo": "string",
+    "locationId": "00000000-0000-0000-0000-000000000000",
+    "locationName": "string",
+    "locationNo": "string",
+    "locationUOM": "string",
+    "locationConversionFactor": "integer (int32)",
+    "inventoryStockUOM": "string",
+    "defaultIssueUOM": "string",
+    "defaultIssueConversionFactor": "integer (int32)",
+    "defaultCountUOM": "string",
+    "defaultCountConversionFactor": "integer (int32)",
+    "cost": "number (double)",
+    "isBillable": "boolean",
+    "isTaxable": "boolean",
+    "itemType": "integer (int8)",
+    "itemTypeText": "string",
+    "priceMarkup": "number (double)",
+    "priceMarkupType": "integer (int8)",
+    "priceMarkupTypeText": "string",
+    "disablePurchasing": "boolean",
+    "minQuantity": "integer (int32)",
+    "onRequisition": "integer (int32)",
+    "maxQuantity": "integer (int32)",
+    "safetyStock": "integer (int32)",
+    "binShelf": "string",
+    "assetLedgerNo": "string",
+    "expenseLedgerNo": "string",
+    "syncFlag": "boolean",
+    "costLastUpdated": "string (date-time)",
+    "costLastUpdatedBy": "00000000-0000-0000-0000-000000000000",
+    "dateAdded": "string (date-time)",
+    "addedBy": "00000000-0000-0000-0000-000000000000",
+    "lastUpdated": "string (date-time)",
+    "lastUpdatedBy": "00000000-0000-0000-0000-000000000000",
+    "activeStatus": "boolean",
+    "locationSynchronizationDate": "string (date-time)",
+    "costSynchronizationDate": "string (date-time)",
+    "defaultPurchaseUOM": "string",
+    "valuationMethod": "integer (int32)",
+    "valuationMethodText": "string",
+    "pendingOrders": "integer (int32)",
+    "submittedOrders": "integer (int32)",
+    "quantityOnHand": "integer (int32)",
+    "lastUpdatedByName": "string",
+    "addedByName": "string",
+    "costLastUpdatedByName": "string",
+    "crossReferenceNo": "string",
+    "inventoryActiveStatus": "boolean"
 }  
 ```
 
 ## Partially update the specified Inventory Location
 
-### <span style="color: #F05D30">Path</span>
+### Path
 PATCH /odata/InventoryLocations({inventoryLocationId})
 
-### <span style="color: #F05D30">Description</span>
-Partially updates the details of the Inventory Location specified by the Inventory Location ID.
+### Description
+Partially updates the details of the Inventory Location specified by the ID.
 
-### <span style="color: #F05D30">Request body</span>
+### Request body
 | <div style="width:200px">Parameter</div>|<div style="width:380px">Explanation</div>|                      
 |-----:|:-------|
 |**locationUOM**: string | Unit of Measure of the Location |
@@ -334,39 +341,39 @@ Partially updates the details of the Inventory Location specified by the Invento
 
 ``` json title="Request Content-types: APPLICATION/JSON, APPLICATION/XML<br>Request Example"
 {
-  "locationUOM": "string",
-  "locationConversionFactor": "integer (int32)",
-  "defaultIssueUOM": "string",
-  "defaultIssueConversionFactor": "integer (int32)",
-  "defaultCountUOM": "string",
-  "defaultCountConversionFactor": "integer (int32)",
-  "cost": "number (double)",
-  "isBillable": "boolean",
-  "isTaxable": "boolean",
-  "itemType": "integer (int8)",
-  "priceMarkup": "number (double)",
-  "priceMarkupType": "integer (int8)",
-  "disablePurchasing": "boolean",
-  "minQuantity": "integer (int32)",
-  "maxQuantity": "integer (int32)",
-  "safetyStock": "integer (int32)",
-  "binShelf": "string",
-  "assetLedgerNo": "string",
-  "expenseLedgerNo": "string",
-  "syncFlag": "boolean",
-  "activeStatus": "boolean",
-  "crossReferenceNo": "string"
+    "locationUOM": "string",
+    "locationConversionFactor": "integer (int32)",
+    "defaultIssueUOM": "string",
+    "defaultIssueConversionFactor": "integer (int32)",
+    "defaultCountUOM": "string",
+    "defaultCountConversionFactor": "integer (int32)",
+    "cost": "number (double)",
+    "isBillable": "boolean",
+    "isTaxable": "boolean",
+    "itemType": "integer (int8)",
+    "priceMarkup": "number (double)",
+    "priceMarkupType": "integer (int8)",
+    "disablePurchasing": "boolean",
+    "minQuantity": "integer (int32)",
+    "maxQuantity": "integer (int32)",
+    "safetyStock": "integer (int32)",
+    "binShelf": "string",
+    "assetLedgerNo": "string",
+    "expenseLedgerNo": "string",
+    "syncFlag": "boolean",
+    "activeStatus": "boolean",
+    "crossReferenceNo": "string"
 }
 ```
 
-### <span style="color: #F05D30">Request parameters</span>
+### Request parameters
 |  <div style="width:200px">Parameter</div>  |  <div style="width:380px">Explanation</div>  |                      
 |-----:|:-------|
 |**inventoryLocationId**: string *(uuid)* <br> <span style="color: #F05D30">**required**</span> <br> *in path* | Enter the ID of the Inventory Location here. |
 |**api-version**: string default: 1.0 <br> *in header*| The requested API version.|   
 |**Authorization**: string default: <br> Bearer access_token <br> *in header* |Specify the type of the token (bearer) and then insert the ```access_token```, which was obtained during authentication.|
 
-### <span style="color: #F05D30">Responses</span>
+### Responses
 | <div style="width:200px">Response </div>|<div style="width:380px">Explanation</div>|                      
 |-----:|:-------|
 |**200 OK**|OK|      
@@ -378,44 +385,44 @@ Partially updates the details of the Inventory Location specified by the Invento
 
 ``` json title="Response Content-types: APPLICATION/JSON, APPLICATION/XML<br>Response example (200 OK)"
 {
-  "locationUOM": "string",
-  "locationConversionFactor": "integer (int32)",
-  "defaultIssueUOM": "string",
-  "defaultIssueConversionFactor": "integer (int32)",
-  "defaultCountUOM": "string",
-  "defaultCountConversionFactor": "integer (int32)",
-  "cost": "number (double)",
-  "isBillable": "boolean",
-  "isTaxable": "boolean",
-  "itemType": "integer (int8)",
-  "priceMarkup": "number (double)",
-  "priceMarkupType": "integer (int8)",
-  "disablePurchasing": "boolean",
-  "minQuantity": "integer (int32)",
-  "maxQuantity": "integer (int32)",
-  "safetyStock": "integer (int32)",
-  "binShelf": "string",
-  "assetLedgerNo": "string",
-  "expenseLedgerNo": "string",
-  "syncFlag": "boolean",
-  "activeStatus": "boolean",
-  "crossReferenceNo": "string"
+    "locationUOM": "string",
+    "locationConversionFactor": "integer (int32)",
+    "defaultIssueUOM": "string",
+    "defaultIssueConversionFactor": "integer (int32)",
+    "defaultCountUOM": "string",
+    "defaultCountConversionFactor": "integer (int32)",
+    "cost": "number (double)",
+    "isBillable": "boolean",
+    "isTaxable": "boolean",
+    "itemType": "integer (int8)",
+    "priceMarkup": "number (double)",
+    "priceMarkupType": "integer (int8)",
+    "disablePurchasing": "boolean",
+    "minQuantity": "integer (int32)",
+    "maxQuantity": "integer (int32)",
+    "safetyStock": "integer (int32)",
+    "binShelf": "string",
+    "assetLedgerNo": "string",
+    "expenseLedgerNo": "string",
+    "syncFlag": "boolean",
+    "activeStatus": "boolean",
+    "crossReferenceNo": "string"
 }
 ```
 
 ## Get the list of cost layers for the specified Inventory Location
 
-### <span style="color: #F05D30">Path</span>
+### Path
 GET /odata/InventoryLocations({inventoryLocationId})/costLayers
 
-### <span style="color: #F05D30">Description</span>
-Returns the paged list of the existing cost layers within the Inventory Location specified by ID.
+### Description
+Returns a paged list of existing cost layers within the Inventory Location specified by ID.
 
 !!! note 
 
     This endpoint does not support logical operators (**and**, **or**, **in**, **gt**, **ge**, **lt**, **le**) for data filtering.
 
-### <span style="color: #F05D30">Request parameters</span>
+### Request parameters
 | <div style="width:200px">Parameter</div>|<div style="width:380px">Explanation</div>|                       
 |-----:|:-------|
 |**inventoryLocationId**: string *(uuid)* <br> <span style="color: #F05D30">**required**</span> <br> *in path* | Enter the ID of the Inventory Location here. |
@@ -427,7 +434,7 @@ Returns the paged list of the existing cost layers within the Inventory Location
 |**$skip**: string <br> *in query*| Skips the first n results.|
 |**Authorization**: string default: <br> Bearer access_token <br> *in header* | Specify the type of the token (bearer) and then insert the ```access_token```, which was obtained during authentication.|
 
-### <span style="color: #F05D30">Responses</span>
+### Responses
 
 | <div style="width:200px">Response </div>|<div style="width:380px">Explanation</div>|                      
 |-----:|:-------|
@@ -438,7 +445,7 @@ Returns the paged list of the existing cost layers within the Inventory Location
 |**403 Forbidden**|User doesn’t have appropriate privileges.|
 |**500 Internal Server Error**|Server encountered an unexpected condition that prevented it from fulfilling the request.|
 
-### <span style="color: #F05D30">Properties</span>
+### Properties
 |<div style="width:200px">Property </div> |<div style="width:420px">Explanation</div>|                      
 |-----:|:-------|
 |**costLayerId**: string *(uuid)* | Unique Identifier of the Cost Layer |
@@ -456,35 +463,36 @@ Returns the paged list of the existing cost layers within the Inventory Location
 
 ``` json title="Response Content-types: APPLICATION/JSON, APPLICATION/XML<br>Response example (200 OK)"
 {
-  "items": [
-    {
-      "costLayerId": "string",
-      "inventoryLocationId": "string",
-      "locationName": "string",
-      "locationNo": "string",
-      "quantity": "integer (int32)",
-      "cost": "number (double)",
-      "dateCreated": "string (date-time)",
-      "createdByUserName": "string",
-      "lastUpdatedByUserName": "string",
-      "lastUpdatedBy": "00000000-0000-0000-0000-000000000000",
-      "createdBy": "00000000-0000-0000-0000-000000000000",
-      "lastUpdated": "string (date-time)"
-    }
-  ],
-  "nextPageLink": "string",
-  "count": "integer (int64)"
+    "@odata.context": "link",
+    "@odata.count": "number",
+    "value": [
+        {
+            "costLayerId": "string",
+            "inventoryLocationId": "string",
+            "locationName": "string",
+            "locationNo": "string",
+            "quantity": "integer (int32)",
+            "cost": "number (double)",
+            "dateCreated": "string (date-time)",
+            "createdByUserName": "string",
+            "lastUpdatedByUserName": "string",
+            "lastUpdatedBy": "00000000-0000-0000-0000-000000000000",
+            "createdBy": "00000000-0000-0000-0000-000000000000",
+            "lastUpdated": "string (date-time)"
+        }
+    ],
+    "@odata.nextLink": "link"
 }
 ```
 ## Get the list of Inventory Locations changed from the specified date
 
-### <span style="color: #F05D30">Path</span>
+### Path
 GET /odata/InventoryLocations/GetAllFromDate(from={from},facilityId={facilityId},syncFlag={syncFlag})
 
-### <span style="color: #F05D30">Description</span>
-Returns the paged list of the Inventory Locations changed from the specified date within the Facility specified by ID.
+### Description
+Returns a paged list of Inventory Locations changed from the specified date within the Facility specified by ID.
 
-### <span style="color: #F05D30">Request parameters</span>
+### Request parameters
 | <div style="width:200px">Parameter</div>|<div style="width:380px">Explanation</div>|                       
 |-----:|:-------|
 |**from**: string *(date-time)* <br> <span style="color: #F05D30">**required**</span> <br> *in path* | Enter the Start Date here. |
@@ -493,7 +501,7 @@ Returns the paged list of the Inventory Locations changed from the specified dat
 |**api-version**: string default: 1.0 <br> *in header*| The requested API version.|      
 |**Authorization**: string default: <br> Bearer access_token <br> *in header* | Specify the type of the token (bearer) and then insert the ```access_token```, which was obtained during authentication.|
 
-### <span style="color: #F05D30">Responses</span>
+### Responses
 | <div style="width:200px">Response </div>|<div style="width:380px">Explanation</div>|                      
 |-----:|:-------|
 |**200 OK**|OK|      
@@ -503,7 +511,7 @@ Returns the paged list of the Inventory Locations changed from the specified dat
 |**500 Internal Server Error**|Server encountered an unexpected condition that prevented it from fulfilling the request.|
 
 
-### <span style="color: #F05D30">Properties</span>
+### Properties
 |<div style="width:200px">Property </div> |<div style="width:380px">Explanation</div>|                      
 |-----:|:-------|
 |**inventoryLocationId**: string *(uuid)* | Unique Identifier of the Inventory Item Location |

@@ -2,13 +2,20 @@
 
 ## Get the list of PO Receipt Items
 
-### <span style="color: #F05D30">Path</span>
+### Path
 GET /odata/ReceiptItems
 
-### <span style="color: #F05D30">Description</span>
-Returns the list of PO Receipt Items within a logged organization. You can filter the results by the strict match using the ```$filter``` parameter–entity eq ‘string’. Or filter the results by the partial match using ```$filter```=contains parameter–contains(entity, ‘string’).
+### Description
+Returns a paged list of PO Receipt Items within the logged-in organization. 
 
-### <span style="color: #F05D30">Request parameters</span>
+!!! note
+
+    You can filter the results as follows:
+
+    - For an exact match, use: ```$filter parameter–entity eq ‘string’```
+    - For a partial match, use: ```$filter=contains parameter–contains(entity, ‘string’)```
+
+### Request parameters
 <style>
 td, th {
    border: none!important;
@@ -25,7 +32,7 @@ td, th {
 |**$skip**: string <br> *in query*| Skips the first n results.|
 |**Authorization**: string default: <br> Bearer access_token <br> *in header* |Specify the type of the token (bearer) and then insert the ```access_token```, which was obtained during authentication.|
 
-### <span style="color: #F05D30">Responses</span>
+### Responses
 | <div style="width:200px">Response </div>|<div style="width:380px">Explanation</div>|                      
 |-----:|:-------|
 |**200 OK**|OK|      
@@ -35,7 +42,7 @@ td, th {
 |**403 Forbidden**|User doesn’t have appropriate privileges.|
 |**500 Internal Server Error**|Server encountered an unexpected condition that prevented it from fulfilling the request.|
 
-### <span style="color: #F05D30">Properties</span>
+### Properties
 |<div style="width:200px">Property </div> |<div style="width:380px">Explanation</div>|                      
 |-----:|:-------|
 |**receiptId**: string *(uuid)* | Unique Identifier of the Receipt |
@@ -75,68 +82,68 @@ td, th {
 |**lastUpdatedByUserName**: string | Name of the user who updated the Receipt Item |
 
 ``` json title="Response Content-types: APPLICATION/JSON, APPLICATION/XML<br>Response example (200 OK)"
-
 {
-  "items": [
-    {
-      "receiptId": "00000000-0000-0000-0000-000000000000",
-      "purchaseOrderId": "00000000-0000-0000-0000-000000000000",
-      "purchaseOrderItemId": "00000000-0000-0000-0000-000000000000",
-      "purchaseOrderNo": "string",
-      "sequenceNo": "integer (int32)",
-      "receiptItemId": "00000000-0000-0000-0000-000000000000",
-      "lineItemNo": "integer (int32)",
-      "inventoryNo": "string",
-      "inventoryDescription": "string",
-      "vendorItemNo": "string",
-      "manufacturerId": "00000000-0000-0000-0000-000000000000",
-      "manufacturerNo": "string",
-      "manufacturerName": "string",
-      "manufacturerItemNo": "string",
-      "lotNo": "string",
-      "serialNo": "string",
-      "expirationDate": "string (date-time)",
-      "purchaseOrderItemNotes": "string",
-      "departmentGLCode": "string",
-      "glCode": "string",
-      "classification": "string",
-      "classification2": "string",
-      "cost": "number (double)",
-      "orderedQuantity": "integer (int32)",
-      "orderedUOM": "string",
-      "orderedConversionFactor": "integer (int32)",
-      "receivedQuantity": "integer (int32)",
-      "receivedUOM": "string",
-      "receivedConversionFactor": "integer (int32)",
-      "dateAdded": "string (date-time)",
-      "addedBy": "00000000-0000-0000-0000-000000000000",
-      "addedByUserName": "string",
-      "lastUpdated": "string (date-time)",
-      "lastUpdatedBy": "00000000-0000-0000-0000-000000000000",
-      "lastUpdatedByUserName": "string"
-    }
-  ],
-  "nextPageLink": "string",
-  "count": "integer (int64)"
+    "@odata.context": "link",
+    "@odata.count": "number",
+    "value": [
+        {
+            "receiptId": "00000000-0000-0000-0000-000000000000",
+            "purchaseOrderId": "00000000-0000-0000-0000-000000000000",
+            "purchaseOrderItemId": "00000000-0000-0000-0000-000000000000",
+            "purchaseOrderNo": "string",
+            "sequenceNo": "integer (int32)",
+            "receiptItemId": "00000000-0000-0000-0000-000000000000",
+            "lineItemNo": "integer (int32)",
+            "inventoryNo": "string",
+            "inventoryDescription": "string",
+            "vendorItemNo": "string",
+            "manufacturerId": "00000000-0000-0000-0000-000000000000",
+            "manufacturerNo": "string",
+            "manufacturerName": "string",
+            "manufacturerItemNo": "string",
+            "lotNo": "string",
+            "serialNo": "string",
+            "expirationDate": "string (date-time)",
+            "purchaseOrderItemNotes": "string",
+            "departmentGLCode": "string",
+            "glCode": "string",
+            "classification": "string",
+            "classification2": "string",
+            "cost": "number (double)",
+            "orderedQuantity": "integer (int32)",
+            "orderedUOM": "string",
+            "orderedConversionFactor": "integer (int32)",
+            "receivedQuantity": "integer (int32)",
+            "receivedUOM": "string",
+            "receivedConversionFactor": "integer (int32)",
+            "dateAdded": "string (date-time)",
+            "addedBy": "00000000-0000-0000-0000-000000000000",
+            "addedByUserName": "string",
+            "lastUpdated": "string (date-time)",
+            "lastUpdatedBy": "00000000-0000-0000-0000-000000000000",
+            "lastUpdatedByUserName": "string"
+        }
+    ],
+    "@odata.nextLink": "link"
 }
 ```
 
 ## Get the specified Receipt Item
 
-### <span style="color: #F05D30">Path</span>
+### Path
 GET /odata/ReceiptItems({receiptItemId})
 
-### <span style="color: #F05D30">Description</span>
+### Description
 Returns the details of the Receipt Item specified by ID.
 
-### <span style="color: #F05D30">Request parameters</span>
+### Request parameters
 |  <div style="width:200px">Parameter</div>  |  <div style="width:380px">Explanation</div>  |                      
 |-----:|:-------|
 |**receiptItemId**: string *(uuid)* <br> <span style="color: #F05D30">**required**</span> <br> *in path* | Enter the ID of the Receipt Item here. |
 |**api-version**: string default: 1.0 <br> *in header*| The requested API version.|   
 |**Authorization**: string default: <br> Bearer access_token <br> *in header* |Specify the type of the token (bearer) and then insert the ```access_token```, which was obtained during authentication. |
 
-### <span style="color: #F05D30">Responses</span>
+### Responses
 | <div style="width:200px">Response </div>|<div style="width:380px">Explanation</div>|                      
 |-----:|:-------|
 |**200 OK**|OK|      
@@ -146,7 +153,7 @@ Returns the details of the Receipt Item specified by ID.
 |**404 Not Found** | Specified ID is absent in the system. |
 |**500 Internal Server Error**|Server encountered an unexpected condition that prevented it from fulfilling the request.|
 
-### <span style="color: #F05D30">Properties</span>
+### Properties
 |<div style="width:200px">Property </div> |<div style="width:380px">Explanation</div>|                      
 |-----:|:-------|
 |**receiptId**: string *(uuid)* | Unique Identifier of the Receipt |
@@ -187,40 +194,41 @@ Returns the details of the Receipt Item specified by ID.
 
 ``` json title="Response Content-types: APPLICATION/JSON, APPLICATION/XML<br>Response example (200 OK)"
 {
-  "receiptId": "00000000-0000-0000-0000-000000000000",
-  "purchaseOrderId": "00000000-0000-0000-0000-000000000000",
-  "purchaseOrderItemId": "00000000-0000-0000-0000-000000000000",
-  "purchaseOrderNo": "string",
-  "sequenceNo": "integer (int32)",
-  "receiptItemId": "00000000-0000-0000-0000-000000000000",
-  "lineItemNo": "integer (int32)",
-  "inventoryNo": "string",
-  "inventoryDescription": "string",
-  "vendorItemNo": "string",
-  "manufacturerId": "00000000-0000-0000-0000-000000000000",
-  "manufacturerNo": "string",
-  "manufacturerName": "string",
-  "manufacturerItemNo": "string",
-  "lotNo": "string",
-  "serialNo": "string",
-  "expirationDate": "string (date-time)",
-  "purchaseOrderItemNotes": "string",
-  "departmentGLCode": "string",
-  "glCode": "string",
-  "classification": "string",
-  "classification2": "string",
-  "cost": "number (double)",
-  "orderedQuantity": "integer (int32)",
-  "orderedUOM": "string",
-  "orderedConversionFactor": "integer (int32)",
-  "receivedQuantity": "integer (int32)",
-  "receivedUOM": "string",
-  "receivedConversionFactor": "integer (int32)",
-  "dateAdded": "string (date-time)",
-  "addedBy": "00000000-0000-0000-0000-000000000000",
-  "addedByUserName": "string",
-  "lastUpdated": "string (date-time)",
-  "lastUpdatedBy": "00000000-0000-0000-0000-000000000000",
-  "lastUpdatedByUserName": "string"
+    "@odata.context": "link",
+    "receiptId": "00000000-0000-0000-0000-000000000000",
+    "purchaseOrderId": "00000000-0000-0000-0000-000000000000",
+    "purchaseOrderItemId": "00000000-0000-0000-0000-000000000000",
+    "purchaseOrderNo": "string",
+    "sequenceNo": "integer (int32)",
+    "receiptItemId": "00000000-0000-0000-0000-000000000000",
+    "lineItemNo": "integer (int32)",
+    "inventoryNo": "string",
+    "inventoryDescription": "string",
+    "vendorItemNo": "string",
+    "manufacturerId": "00000000-0000-0000-0000-000000000000",
+    "manufacturerNo": "string",
+    "manufacturerName": "string",
+    "manufacturerItemNo": "string",
+    "lotNo": "string",
+    "serialNo": "string",
+    "expirationDate": "string (date-time)",
+    "purchaseOrderItemNotes": "string",
+    "departmentGLCode": "string",
+    "glCode": "string",
+    "classification": "string",
+    "classification2": "string",
+    "cost": "number (double)",
+    "orderedQuantity": "integer (int32)",
+    "orderedUOM": "string",
+    "orderedConversionFactor": "integer (int32)",
+    "receivedQuantity": "integer (int32)",
+    "receivedUOM": "string",
+    "receivedConversionFactor": "integer (int32)",
+    "dateAdded": "string (date-time)",
+    "addedBy": "00000000-0000-0000-0000-000000000000",
+    "addedByUserName": "string",
+    "lastUpdated": "string (date-time)",
+    "lastUpdatedBy": "00000000-0000-0000-0000-000000000000",
+    "lastUpdatedByUserName": "string"
 }
 ```

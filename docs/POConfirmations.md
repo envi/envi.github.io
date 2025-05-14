@@ -2,13 +2,22 @@
 
 ## Get the list of PO Confirmations
 
-### <span style="color: #F05D30">Path</span>
+### Path
 GET /odata/POConfirmations
 
-### <span style="color: #F05D30">Description</span>
-Returns the list of PO Confirmations within a logged organization. You can filter the results by the strict match using the ```$filter``` parameter–entity eq ‘string’. Or filter the results by the partial match using ```$filter```=contains parameter–contains(entity, ‘string’).
+### Description
+Returns a paged list of PO Confirmations within the logged-in organization. 
 
-### <span style="color: #F05D30">Request parameters</span>
+
+!!! note
+
+    You can filter the results as follows:
+
+    - For an exact match, use: ```$filter parameter–entity eq ‘string’```
+    - For a partial match, use: ```$filter=contains parameter–contains(entity, ‘string’)```
+
+
+### Request parameters
 <style>
 td, th {
    border: none!important;
@@ -25,7 +34,7 @@ td, th {
 |**$skip**: string <br> *in query*| Skips the first n results.|
 |**Authorization**: string default: <br> Bearer access_token <br> *in header* |Specify the type of the token (bearer) and then insert the ```access_token```, which was obtained during authentication.|
 
-### <span style="color: #F05D30">Responses</span>
+### Responses
 | <div style="width:200px">Response </div>|<div style="width:380px">Explanation</div>|                      
 |-----:|:-------|
 |**200 OK**|OK|      
@@ -35,7 +44,7 @@ td, th {
 |**403 Forbidden**|User doesn’t have appropriate privileges.|
 |**500 Internal Server Error**|Server encountered an unexpected condition that prevented it from fulfilling the request.|
 
-### <span style="color: #F05D30">Properties</span>
+### Properties
 |<div style="width:200px">Property </div> |<div style="width:420px">Explanation</div>|                      
 |-----:|:-------|
 |**poConfirmationId**: string *(uuid)* | Unique Identifier of the Purchase Order Confirmation |
@@ -57,47 +66,48 @@ td, th {
 
 ``` json title="Response Content-types: APPLICATION/JSON, APPLICATION/XML<br>Response example (200 OK)"
 {
-  "items": [
-    {
-      "poConfirmationId": "00000000-0000-0000-0000-000000000000",
-      "organizationId": "00000000-0000-0000-0000-000000000000",
-      "organizationName": "string",
-      "purchaseOrderId": "00000000-0000-0000-0000-000000000000",
-      "purchaseOrderNo": "string",
-      "sequenceNo": "integer (int32)",
-      "referenceNo": "string",
-      "poConfirmationDate": "string (date-time)",
-      "isUnresolved": "boolean",
-      "dateCreated": "string (date-time)",
-      "lastUpdated": "string (date-time)",
-      "lastUpdatedBy": "00000000-0000-0000-0000-000000000000",
-      "lastUpdatedByName": "string",
-      "orderDate": "string (date-time)",
-      "vendorComment": "string",
-      "notes": "string"
-    }
-  ],
-  "nextPageLink": "string",
-  "count": "integer (int64)"
-}       
+    "@odata.context": "link",
+    "@odata.count": "number",
+    "value": [
+        {
+            "poConfirmationId": "00000000-0000-0000-0000-000000000000",
+            "organizationId": "00000000-0000-0000-0000-000000000000",
+            "organizationName": "string",
+            "purchaseOrderId": "00000000-0000-0000-0000-000000000000",
+            "purchaseOrderNo": "string",
+            "sequenceNo": "integer (int32)",
+            "referenceNo": "string",
+            "poConfirmationDate": "string (date-time)",
+            "isUnresolved": "boolean",
+            "dateCreated": "string (date-time)",
+            "lastUpdated": "string (date-time)",
+            "lastUpdatedBy": "00000000-0000-0000-0000-000000000000",
+            "lastUpdatedByName": "string",
+            "orderDate": "string (date-time)",
+            "vendorComment": "string",
+            "notes": "string"
+        }
+    ],
+    "@odata.nextLink": "link"
+}    
 ```
 
 ## Get the specified PO Confirmation 
 
-### <span style="color: #F05D30">Path</span>
+### Path
 GET /odata/POConfirmations({poConfirmationId})
 
-### <span style="color: #F05D30">Description</span>
+### Description
 Returns the details of the PO Confirmation specified by ID.
 
-### <span style="color: #F05D30">Request parameters</span>
+### Request parameters
 |  <div style="width:200px">Parameter</div>  |  <div style="width:380px">Explanation</div>  |                      
 |-----:|:-------|
 |**poConfirmationId**: string *(uuid)* <br> <span style="color: #F05D30">**required**</span> <br> *in path* | Enter the ID of the PO Confirmation here. |
 |**api-version**: string default: 1.0 <br> *in header*| The requested API version.|   
 |**Authorization**: string default: <br> Bearer access_token <br> *in header* |Specify the type of the token (bearer) and then insert the ```access_token```, which was obtained during authentication. |
 
-### <span style="color: #F05D30">Responses</span>
+### Responses
 | <div style="width:200px">Response </div>|<div style="width:380px">Explanation</div>|                      
 |-----:|:-------|
 |**200 OK**|OK|      
@@ -107,7 +117,7 @@ Returns the details of the PO Confirmation specified by ID.
 |**404 Not Found** | Specified ID is absent in the system. |
 |**500 Internal Server Error**|Server encountered an unexpected condition that prevented it from fulfilling the request.|
 
-### <span style="color: #F05D30">Properties</span>
+### Properties
 |<div style="width:200px">Property </div> |<div style="width:420px">Explanation</div>|                      
 |-----:|:-------|
 |**poConfirmationId**: string *(uuid)* | Unique Identifier of the Purchase Order Confirmation |
@@ -129,34 +139,42 @@ Returns the details of the PO Confirmation specified by ID.
 
 ``` json title="Response Content-types: APPLICATION/JSON, APPLICATION/XML<br>Response example (200 OK)"
 {
-  "poConfirmationId": "00000000-0000-0000-0000-000000000000",
-  "organizationId": "00000000-0000-0000-0000-000000000000",
-  "organizationName": "string",
-  "purchaseOrderId": "00000000-0000-0000-0000-000000000000",
-  "purchaseOrderNo": "string",
-  "sequenceNo": "integer (int32)",
-  "referenceNo": "string",
-  "poConfirmationDate": "string (date-time)",
-  "isUnresolved": "boolean",
-  "dateCreated": "string (date-time)",
-  "lastUpdated": "string (date-time)",
-  "lastUpdatedBy": "00000000-0000-0000-0000-000000000000",
-  "lastUpdatedByName": "string",
-  "orderDate": "string (date-time)",
-  "vendorComment": "string",
-  "notes": "string"
+    "@odata.context": "link",
+    "poConfirmationId": "00000000-0000-0000-0000-000000000000",
+    "organizationId": "00000000-0000-0000-0000-000000000000",
+    "organizationName": "string",
+    "purchaseOrderId": "00000000-0000-0000-0000-000000000000",
+    "purchaseOrderNo": "string",
+    "sequenceNo": "integer (int32)",
+    "referenceNo": "string",
+    "poConfirmationDate": "string (date-time)",
+    "isUnresolved": "boolean",
+    "dateCreated": "string (date-time)",
+    "lastUpdated": "string (date-time)",
+    "lastUpdatedBy": "00000000-0000-0000-0000-000000000000",
+    "lastUpdatedByName": "string",
+    "orderDate": "string (date-time)",
+    "vendorComment": "string",
+    "notes": "string"
 }
 ```
 
 ## Get the list of PO Confirmation Items for the specified PO Confirmation
 
-### <span style="color: #F05D30">Path</span>
+### Path
 GET /odata/POConfirmations({poConfirmationId})/poConfirmationItems
 
-### <span style="color: #F05D30">Description</span>
-Returns the list of PO Confirmation Items within the PO Confirmation specified by ID. You can filter the results by the strict match using the ```$filter``` parameter–entity eq ‘string’. Or filter the results by the partial match using ```$filter```=contains parameter–contains(entity, ‘string’).
+### Description
+Returns the list of PO Confirmation Items within the PO Confirmation specified by ID. 
 
-### <span style="color: #F05D30">Request parameters</span>
+!!! note
+
+    You can filter the results as follows:
+
+    - For an exact match, use: ```$filter parameter–entity eq ‘string’```
+    - For a partial match, use: ```$filter=contains parameter–contains(entity, ‘string’)```
+
+### Request parameters
 |  <div style="width:200px">Parameter</div>  |  <div style="width:380px">Explanation</div>  |                      
 |-----:|:-------|
 |**poConfirmationId**: string *(uuid)* <br> <span style="color: #F05D30">**required**</span> <br> *in path* | Enter the ID of the PO Confirmation here. |
@@ -168,7 +186,7 @@ Returns the list of PO Confirmation Items within the PO Confirmation specified b
 |**$skip**: string <br> *in query*| Skips the first n results.|
 |**Authorization**: string default: <br> Bearer access_token <br> *in header* |Specify the type of the token (bearer) and then insert the ```access_token```, which was obtained during authentication.|
 
-### <span style="color: #F05D30">Responses</span>
+### Responses
 | <div style="width:200px">Response </div>|<div style="width:380px">Explanation</div>|                      
 |-----:|:-------|
 |**200 OK**|OK|      
@@ -179,7 +197,7 @@ Returns the list of PO Confirmation Items within the PO Confirmation specified b
 |**404 Not Found** | Specified ID is absent in the system. |
 |**500 Internal Server Error**|Server encountered an unexpected condition that prevented it from fulfilling the request.|
 
-### <span style="color: #F05D30">Properties</span>
+### Properties
 |<div style="width:200px">Property </div> |<div style="width:420px">Explanation</div>|                      
 |-----:|:-------|
 |**poConfirmationItemId**: string *(uuid)* | Unique Identifier of the Purchase Order Confirmation Items |
@@ -207,32 +225,33 @@ Returns the list of PO Confirmation Items within the PO Confirmation specified b
 
 ``` json title="Response Content-types: APPLICATION/JSON, APPLICATION/XML<br>Response example (200 OK)"
 {
-  "items": [
-    {
-      "poConfirmationItemId": "00000000-0000-0000-0000-000000000000",
-      "poConfirmationId": "00000000-0000-0000-0000-000000000000",
-      "purchaseOrderId": "00000000-0000-0000-0000-000000000000",
-      "purchaseOrderNo": "string",
-      "lineItemNo": "integer (int32)",
-      "quantity": "integer (int32)",
-      "uom": "string",
-      "price": "number (double)",
-      "inventoryNo": "string",
-      "vendorItemNo": "string",
-      "manufacturer": "string",
-      "manufacturerItemNo": "string",
-      "inventoryDescription": "string",
-      "updatedPOPrice": "boolean",
-      "updatedInventoryPrice": "boolean",
-      "dateCreated": "string (date-time)",
-      "lastUpdated": "string (date-time)",
-      "lastUpdatedBy": "00000000-0000-0000-0000-000000000000",
-      "lastUpdatedByName": "string",
-      "notes": "string",
-      "isUnresolved": "boolean"
-    }
-  ],
-  "nextPageLink": "string",
-  "count": "integer (int64)"
+    "@odata.context": "link",
+    "@odata.count": "number",
+    "value": [
+        {
+            "poConfirmationItemId": "00000000-0000-0000-0000-000000000000",
+            "poConfirmationId": "00000000-0000-0000-0000-000000000000",
+            "purchaseOrderId": "00000000-0000-0000-0000-000000000000",
+            "purchaseOrderNo": "string",
+            "lineItemNo": "integer (int32)",
+            "quantity": "integer (int32)",
+            "uom": "string",
+            "price": "number (double)",
+            "inventoryNo": "string",
+            "vendorItemNo": "string",
+            "manufacturer": "string",
+            "manufacturerItemNo": "string",
+            "inventoryDescription": "string",
+            "updatedPOPrice": "boolean",
+            "updatedInventoryPrice": "boolean",
+            "dateCreated": "string (date-time)",
+            "lastUpdated": "string (date-time)",
+            "lastUpdatedBy": "00000000-0000-0000-0000-000000000000",
+            "lastUpdatedByName": "string",
+            "notes": "string",
+            "isUnresolved": "boolean"
+        }
+    ],
+    "@odata.nextLink": "link"
 }
 ```

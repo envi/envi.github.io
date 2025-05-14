@@ -2,13 +2,20 @@
 
 ## Get the list of Purchase Order Items
 
-### <span style="color: #F05D30">Path</span>
+### Path
 GET /odata/PurchaseOrderItems
 
-### <span style="color: #F05D30">Description</span>
-Returns the paged list of the existing Purchase Order Items within a logged organization. You can filter the results by the strict match using the ```$filter``` parameter–entity eq ‘string’. Or filter the results by the partial match using ```$filter```=contains parameter–contains(entity, ‘string’).
+### Description
+Returns a paged list of existing Purchase Order Items within the logged-in organization. 
 
-### <span style="color: #F05D30">Request parameters</span>
+!!! note
+
+    You can filter the results as follows:
+
+    - For an exact match, use: ```$filter parameter–entity eq ‘string’```
+    - For a partial match, use: ```$filter=contains parameter–contains(entity, ‘string’)```
+
+### Request parameters
 <style>
 td, th {
    border: none!important;
@@ -25,7 +32,7 @@ td, th {
 |**$skip**: string <br> *in query*| Skips the first n results.|
 |**Authorization**: string default: <br> Bearer access_token <br> *in header* |Specify the type of the token (bearer) and then insert the ```access_token```, which was obtained during authentication.|
 
-### <span style="color: #F05D30">Responses</span>
+### Responses
 | <div style="width:200px">Response </div>|<div style="width:380px">Explanation</div>|                      
 |-----:|:-------|
 |**200 OK**|OK|      
@@ -35,7 +42,7 @@ td, th {
 |**403 Forbidden**|User doesn’t have appropriate privileges.|
 |**500 Internal Server Error**|Server encountered an unexpected condition that prevented it from fulfilling the request.|
 
-### <span style="color: #F05D30">Properties</span>
+### Properties
 |<div style="width:200px">Property </div> |<div style="width:380px">Explanation</div>|                      
 |-----:|:-------|
 |**purchaseOrderItemId**: string *(uuid)* | Unique Identifier of the Purchase Order Item |
@@ -102,76 +109,77 @@ td, th {
 
 ``` json title="Response Content-types: APPLICATION/JSON, APPLICATION/XML<br>Response example (200 OK)"
 {
-  "items": [
-    {
-      "purchaseOrderItemId": "00000000-0000-0000-0000-000000000000",
-      "purchaseOrderNo": "string",
-      "sequenceNo": "integer (int32)",
-      "purchaseOrderId": "00000000-0000-0000-0000-000000000000",
-      "facilityId": "00000000-0000-0000-0000-000000000000",
-      "facilityNo": "string",
-      "facilityName": "string",
-      "lineItemNo": "integer (int32)",
-      "locationNo": "string",
-      "locationName": "string",
-      "inventoryLocationId": "00000000-0000-0000-0000-000000000000",
-      "inventoryVendorId": "00000000-0000-0000-0000-000000000000",
-      "vendorNo": "string",
-      "vendorName": "string",
-      "vendorPriority": "integer (int32)",
-      "inventoryNo": "string",
-      "classificationId": "00000000-0000-0000-0000-000000000000",
-      "classificationName": "string",
-      "classification2Id": "00000000-0000-0000-0000-000000000000",
-      "classification2Name": "string",
-      "inventoryDescription": "string",
-      "vendorItemNo": "string",
-      "manufacturerId": "00000000-0000-0000-0000-000000000000",
-      "manufacturerNo": "string",
-      "manufacturerName": "string",
-      "manufacturerItemNo": "string",
-      "orderQuantity": "integer (int32)",
-      "orderUOM": "string",
-      "orderConversionFactor": "integer (int32)",
-      "stockUOM": "string",
-      "unitCost": "number (double)",
-      "departmentGLCode": "string",
-      "glCode": "string",
-      "lineItemTypeId": "integer (int32)",
-      "itemType": "string",
-      "lineItemNotes": "string",
-      "contractNo": "string",
-      "contractExpDate": "string (date-time)",
-      "lastUpdated": "string (date-time)",
-      "lastUpdatedBy": "00000000-0000-0000-0000-000000000000",
-      "lastUpdatedByUserName": "string",
-      "dateCreated": "string (date-time)",
-      "createdBy": "00000000-0000-0000-0000-000000000000",
-      "createdByUserName": "string",
-      "isTaxable": "boolean",
-      "returnPOItemId": "00000000-0000-0000-0000-000000000000",
-      "internalNotes": "string",
-      "lotNo": "string",
-      "serialNo": "string",
-      "expirationDate": "string (date-time)",
-      "activeStatus": "boolean",
-      "activeStatusLastUpdated": "string (date-time)",
-      "activeStatusLastUpdatedBy": "00000000-0000-0000-0000-000000000000",
-      "activeStatusLastUpdatedByUserName": "string",
-      "supplierPartAuxiliaryID": "string",
-      "submittedUnitCost": "number (double)",
-      "departmentId": "00000000-0000-0000-0000-000000000000",
-      "departmentNo": "string",
-      "departmentName": "string",
-      "poUdfLabels": "[{\"Name\":\"string1\",\"Value\":\"string2\"}]"
-    }
-  ],
-  "nextPageLink": "string",
-  "count": "integer (int64)"
+    "@odata.context": "link",
+    "@odata.count": "number",
+    "value": [
+        {
+            "purchaseOrderItemId": "00000000-0000-0000-0000-000000000000",
+            "purchaseOrderNo": "string",
+            "sequenceNo": "integer (int32)",
+            "purchaseOrderId": "00000000-0000-0000-0000-000000000000",
+            "facilityId": "00000000-0000-0000-0000-000000000000",
+            "facilityNo": "string",
+            "facilityName": "string",
+            "lineItemNo": "integer (int32)",
+            "locationNo": "string",
+            "locationName": "string",
+            "inventoryLocationId": "00000000-0000-0000-0000-000000000000",
+            "inventoryVendorId": "00000000-0000-0000-0000-000000000000",
+            "vendorNo": "string",
+            "vendorName": "string",
+            "vendorPriority": "integer (int32)",
+            "inventoryNo": "string",
+            "classificationId": "00000000-0000-0000-0000-000000000000",
+            "classificationName": "string",
+            "classification2Id": "00000000-0000-0000-0000-000000000000",
+            "classification2Name": "string",
+            "inventoryDescription": "string",
+            "vendorItemNo": "string",
+            "manufacturerId": "00000000-0000-0000-0000-000000000000",
+            "manufacturerNo": "string",
+            "manufacturerName": "string",
+            "manufacturerItemNo": "string",
+            "orderQuantity": "integer (int32)",
+            "orderUOM": "string",
+            "orderConversionFactor": "integer (int32)",
+            "stockUOM": "string",
+            "unitCost": "number (double)",
+            "departmentGLCode": "string",
+            "glCode": "string",
+            "lineItemTypeId": "integer (int32)",
+            "itemType": "string",
+            "lineItemNotes": "string",
+            "contractNo": "string",
+            "contractExpDate": "string (date-time)",
+            "lastUpdated": "string (date-time)",
+            "lastUpdatedBy": "00000000-0000-0000-0000-000000000000",
+            "lastUpdatedByUserName": "string",
+            "dateCreated": "string (date-time)",
+            "createdBy": "00000000-0000-0000-0000-000000000000",
+            "createdByUserName": "string",
+            "isTaxable": "boolean",
+            "returnPOItemId": "00000000-0000-0000-0000-000000000000",
+            "internalNotes": "string",
+            "lotNo": "string",
+            "serialNo": "string",
+            "expirationDate": "string (date-time)",
+            "activeStatus": "boolean",
+            "activeStatusLastUpdated": "string (date-time)",
+            "activeStatusLastUpdatedBy": "00000000-0000-0000-0000-000000000000",
+            "activeStatusLastUpdatedByUserName": "string",
+            "supplierPartAuxiliaryID": "string",
+            "submittedUnitCost": "number (double)",
+            "departmentId": "00000000-0000-0000-0000-000000000000",
+            "departmentNo": "string",
+            "departmentName": "string",
+            "poUdfLabels": "[{\"Name\":\"string1\",\"Value\":\"string2\"}]"
+        }
+    ],
+    "@odata.nextLink": "link"
 }
 ```
 
-#### <span style="color: #F05D30">poUdfLabels property overview</span>
+#### poUdfLabels property overview
 
 The ```poUdfLabels``` property defines User Defined Field (UDF) labels on Purchase Orders. This section explains the property details.
 
@@ -192,13 +200,13 @@ Filters (```$equals```, ```$contains```, ```$skip```, ```$top```) and logical op
 
 ## Get the specified Purchase Order Item
 
-### <span style="color: #F05D30">Path</span>
+### Path
 GET /odata/PurchaseOrderItems({purchaseOrderItemId})
 
-### <span style="color: #F05D30">Description</span>
+### Description
 Returns the details of the Purchase Order Item specified by ID.
 
-### <span style="color: #F05D30">Request parameters</span>
+### Request parameters
 |  <div style="width:200px">Parameter</div>  |  <div style="width:380px">Explanation</div>  |                      
 |-----:|:-------|
 |**purchaseOrderItemId**: string *(uuid)*  <br> <span style="color: #F05D30">**required**</span> <br> *in path* | Enter the ID of the Purchase Order Item here. |
@@ -206,7 +214,7 @@ Returns the details of the Purchase Order Item specified by ID.
 |**Authorization**: string default: <br> Bearer access_token <br> *in header* |Specify the type of the token (bearer) and then insert the ```access_token```, which was obtained during authentication. |
 
 
-### <span style="color: #F05D30">Responses</span>
+### Responses
 | <div style="width:200px">Response </div>|<div style="width:380px">Explanation</div>|                      
 |-----:|:-------|
 |**200 OK**|OK|      
@@ -216,7 +224,7 @@ Returns the details of the Purchase Order Item specified by ID.
 |**404 Not Found** | Specified ID is absent in the system. |
 |**500 Internal Server Error**|Server encountered an unexpected condition that prevented it from fulfilling the request.|
 
-### <span style="color: #F05D30">Properties</span>
+### Properties
 |<div style="width:200px">Property </div> |<div style="width:380px">Explanation</div>|                      
 |-----:|:-------|
 |**purchaseOrderItemId**: string *(uuid)* | Unique Identifier of the Purchase Order Item |
@@ -282,66 +290,67 @@ Returns the details of the Purchase Order Item specified by ID.
 
 ``` json title="Response Content-types: APPLICATION/JSON, APPLICATION/XML<br>Response example (200 OK)"
 {
-  "purchaseOrderItemId": "00000000-0000-0000-0000-000000000000",
-  "purchaseOrderNo": "string",
-  "sequenceNo": "integer (int32)",
-  "purchaseOrderId": "00000000-0000-0000-0000-000000000000",
-  "facilityId": "00000000-0000-0000-0000-000000000000",
-  "facilityNo": "string",
-  "facilityName": "string",
-  "lineItemNo": "integer (int32)",
-  "locationNo": "string",
-  "locationName": "string",
-  "inventoryLocationId": "00000000-0000-0000-0000-000000000000",
-  "inventoryVendorId": "00000000-0000-0000-0000-000000000000",
-  "vendorNo": "string",
-  "vendorName": "string",
-  "vendorPriority": "integer (int32)",
-  "inventoryNo": "string",
-  "classificationId": "00000000-0000-0000-0000-000000000000",
-  "classificationName": "string",
-  "classification2Id": "00000000-0000-0000-0000-000000000000",
-  "classification2Name": "string",
-  "inventoryDescription": "string",
-  "vendorItemNo": "string",
-  "manufacturerId": "00000000-0000-0000-0000-000000000000",
-  "manufacturerNo": "string",
-  "manufacturerName": "string",
-  "manufacturerItemNo": "string",
-  "orderQuantity": "integer (int32)",
-  "orderUOM": "string",
-  "orderConversionFactor": "integer (int32)",
-  "stockUOM": "string",
-  "unitCost": "number (double)",
-  "departmentGLCode": "string",
-  "glCode": "string",
-  "lineItemTypeId": "integer (int32)",
-  "itemType": "string",
-  "lineItemNotes": "string",
-  "contractNo": "string",
-  "contractExpDate": "string (date-time)",
-  "lastUpdated": "string (date-time)",
-  "lastUpdatedBy": "00000000-0000-0000-0000-000000000000",
-  "lastUpdatedByUserName": "string",
-  "dateCreated": "string (date-time)",
-  "createdBy": "00000000-0000-0000-0000-000000000000",
-  "createdByUserName": "string",
-  "isTaxable": "boolean",
-  "returnPOItemId": "00000000-0000-0000-0000-000000000000",
-  "internalNotes": "string",
-  "lotNo": "string",
-  "serialNo": "string",
-  "expirationDate": "string (date-time)",
-  "activeStatus": "boolean",
-  "activeStatusLastUpdated": "string (date-time)",
-  "activeStatusLastUpdatedBy": "00000000-0000-0000-0000-000000000000",
-  "activeStatusLastUpdatedByUserName": "string",
-  "supplierPartAuxiliaryID": "string",
-  "submittedUnitCost": "number (double)",
-  "departmentId": "00000000-0000-0000-0000-000000000000",
-  "departmentNo": "string",
-  "departmentName": "string",
-  "poUdfLabels": "[{\"Name\":\"string1\",\"Value\":\"string2\"}]"
+    "@odata.context": "link",
+    "purchaseOrderItemId": "00000000-0000-0000-0000-000000000000",
+    "purchaseOrderNo": "string",
+    "sequenceNo": "integer (int32)",
+    "purchaseOrderId": "00000000-0000-0000-0000-000000000000",
+    "facilityId": "00000000-0000-0000-0000-000000000000",
+    "facilityNo": "string",
+    "facilityName": "string",
+    "lineItemNo": "integer (int32)",
+    "locationNo": "string",
+    "locationName": "string",
+    "inventoryLocationId": "00000000-0000-0000-0000-000000000000",
+    "inventoryVendorId": "00000000-0000-0000-0000-000000000000",
+    "vendorNo": "string",
+    "vendorName": "string",
+    "vendorPriority": "integer (int32)",
+    "inventoryNo": "string",
+    "classificationId": "00000000-0000-0000-0000-000000000000",
+    "classificationName": "string",
+    "classification2Id": "00000000-0000-0000-0000-000000000000",
+    "classification2Name": "string",
+    "inventoryDescription": "string",
+    "vendorItemNo": "string",
+    "manufacturerId": "00000000-0000-0000-0000-000000000000",
+    "manufacturerNo": "string",
+    "manufacturerName": "string",
+    "manufacturerItemNo": "string",
+    "orderQuantity": "integer (int32)",
+    "orderUOM": "string",
+    "orderConversionFactor": "integer (int32)",
+    "stockUOM": "string",
+    "unitCost": "number (double)",
+    "departmentGLCode": "string",
+    "glCode": "string",
+    "lineItemTypeId": "integer (int32)",
+    "itemType": "string",
+    "lineItemNotes": "string",
+    "contractNo": "string",
+    "contractExpDate": "string (date-time)",
+    "lastUpdated": "string (date-time)",
+    "lastUpdatedBy": "00000000-0000-0000-0000-000000000000",
+    "lastUpdatedByUserName": "string",
+    "dateCreated": "string (date-time)",
+    "createdBy": "00000000-0000-0000-0000-000000000000",
+    "createdByUserName": "string",
+    "isTaxable": "boolean",
+    "returnPOItemId": "00000000-0000-0000-0000-000000000000",
+    "internalNotes": "string",
+    "lotNo": "string",
+    "serialNo": "string",
+    "expirationDate": "string (date-time)",
+    "activeStatus": "boolean",
+    "activeStatusLastUpdated": "string (date-time)",
+    "activeStatusLastUpdatedBy": "00000000-0000-0000-0000-000000000000",
+    "activeStatusLastUpdatedByUserName": "string",
+    "supplierPartAuxiliaryID": "string",
+    "submittedUnitCost": "number (double)",
+    "departmentId": "00000000-0000-0000-0000-000000000000",
+    "departmentNo": "string",
+    "departmentName": "string",
+    "poUdfLabels": "[{\"Name\":\"string1\",\"Value\":\"string2\"}]"
 }
 ```
 !!! note

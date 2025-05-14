@@ -1,14 +1,22 @@
 # InventoryLocationsExtended
 
-## Get the list of extended Inventory Location
+## Get the list of extended Inventory Locations
 
-### <span style="color: #F05D30">Path</span>
+### Path
 GET /odata/InventoryLocationsExtended
 
-### <span style="color: #F05D30">Description</span>
-Returns the list of Inventory Locations within a logged organization. You can filter the results by the strict match using the ```$filter``` parameter–entity eq ‘string’. Or filter the results by the partial match using ```$filter```=contains parameter–contains(entity, ‘string’).
+### Description
+Returns a paged list of Inventory Locations within the logged-in organization. 
 
-### <span style="color: #F05D30">Request parameters</span>
+!!! note
+
+    You can filter the results as follows:
+
+    - For an exact match, use: ```$filter parameter–entity eq ‘string’```
+    - For a partial match, use: ```$filter=contains parameter–contains(entity, ‘string’)```
+
+
+### Request parameters
 <style>
 td, th {
    border: none!important;
@@ -25,7 +33,7 @@ td, th {
 |**$skip**: string <br> *in query*| Skips the first n results.|
 |**Authorization**: string default: <br> Bearer access_token <br> *in header* | Specify the type of the token (bearer) and then insert the ```access_token```, which was obtained during authentication.|
 
-### <span style="color: #F05D30">Responses</span>
+### Responses
 | <div style="width:200px">Response </div>|<div style="width:380px">Explanation</div>|                      
 |-----:|:-------|
 |**200 OK**|OK|      
@@ -35,7 +43,7 @@ td, th {
 |**403 Forbidden**|User doesn’t have appropriate privileges.|
 |**500 Internal Server Error**|Server encountered an unexpected condition that prevented it from fulfilling the request.|
 
-### <span style="color: #F05D30">Properties</span>
+### Properties
 |<div style="width:200px">Property </div> |<div style="width:380px">Explanation</div>|                      
 |-----:|:-------|
 |**inventoryLocationId**: string *(uuid)* | Unique Identifier of the Inventory Location |
@@ -120,91 +128,92 @@ td, th {
 
 ``` json title="Response Content-types: APPLICATION/JSON, APPLICATION/XML<br>Response Example (200 OK)"
 {
-  "items": [
-    {
-      "inventoryLocationId": "00000000-0000-0000-0000-000000000000",
-      "inventoryId": "00000000-0000-0000-0000-000000000000",
-      "inventoryNo": "string",
-      "inventoryDescription": "string",
-      "locationId": "00000000-0000-0000-0000-000000000000",
-      "locationNo": "string",
-      "locationName": "string",
-      "facilityId": "00000000-0000-0000-0000-000000000000",
-      "facilityNo": "string",
-      "facilityName": "string",
-      "defaultIssueUOM": "string",
-      "defaultIssueConversionFactor": "integer (int32)",
-      "defaultCountUOM": "string",
-      "defaultCountConversionFactor": "integer (int32)",
-      "cost": "number (double)",
-      "isBillable": "boolean",
-      "isTaxable": "boolean",
-      "itemType": "integer (int32)",
-      "itemTypeText": "string",
-      "priceMarkup": "number (double)",
-      "priceMarkupType": "integer (int8)",
-      "priceMarkupTypeText": "string",
-      "disablePurchasing": "boolean",
-      "minQuantity": "integer (int32)",
-      "maxQuantity": "integer (int32)",
-      "safetyStock": "integer (int32)",
-      "binShelf": "string",
-      "assetLedgerNo": "string",
-      "expenseLedgerNo": "string",
-      "syncFlag": "boolean",
-      "locationUOM": "string",
-      "locationConversionFactor": "integer (int32)",
-      "activeStatus": "boolean",
-      "crossReferenceNo": "string",
-      "inventoryGroupId": "00000000-0000-0000-0000-000000000000",
-      "inventoryGroupNo": "string",
-      "inventoryGroupName": "string",
-      "stockUOM": "string",
-      "unspscCode": "string",
-      "defaultAssetLedgerNo": "string",
-      "defaultExpenseLedgerNo": "string",
-      "classificationId": "00000000-0000-0000-0000-000000000000",
-      "classificationName": "string",
-      "classification2Id": "00000000-0000-0000-0000-000000000000",
-      "classification2Name": "string",
-      "periopItemCategoryId": "00000000-0000-0000-0000-000000000000",
-      "periopItemCategory": "string",
-      "hcpcsCode": "string",
-      "arBillingCode": "string",
-      "isLatex": "boolean",
-      "vendorPriority": "integer (int32)",
-      "inventoryVendorId": "00000000-0000-0000-0000-000000000000",
-      "vendorId": "00000000-0000-0000-0000-000000000000",
-      "vendorNo": "string",
-      "vendorName": "string",
-      "vendorItemNo": "string",
-      "vendorUOM": "string",
-      "vendorConversionFactor": "integer (int32)",
-      "vendorCost": "number (double)",
-      "contractNo": "string",
-      "contractExpiration": "string (date-time)",
-      "manufacturerId": "00000000-0000-0000-0000-000000000000",
-      "manufacturerNo": "string",
-      "manufacturerName": "string",
-      "manufacturerItemNo": "string",
-      "gtin": "string",
-      "ndcNumber": "string",
-      "lockCost": "boolean",
-      "inventoryActiveStatus": "boolean",
-      "inventoryLastUpdated": "string (date-time)",
-      "inventoryLastUpdatedBy": "00000000-0000-0000-0000-000000000000",
-      "inventoryLastUpdatedByName": "string",
-      "dateAdded": "string (date-time)",
-      "addedBy": "00000000-0000-0000-0000-000000000000",
-      "addedByName": "string",
-      "lastUpdated": "string (date-time)",
-      "lastUpdatedBy": "00000000-0000-0000-0000-000000000000",
-      "lastUpdatedByName": "string"
-    }
-  ],
-  "nextPageLink": "string",
-  "count": "integer (int64)"
-} 
+    "@odata.context": "link",
+    "@odata.count": "number",
+    "value": [
+        {
+            "inventoryLocationId": "00000000-0000-0000-0000-000000000000",
+            "inventoryId": "00000000-0000-0000-0000-000000000000",
+            "inventoryNo": "string",
+            "inventoryDescription": "string",
+            "locationId": "00000000-0000-0000-0000-000000000000",
+            "locationNo": "string",
+            "locationName": "string",
+            "facilityId": "00000000-0000-0000-0000-000000000000",
+            "facilityNo": "string",
+            "facilityName": "string",
+            "defaultIssueUOM": "string",
+            "defaultIssueConversionFactor": "integer (int32)",
+            "defaultCountUOM": "string",
+            "defaultCountConversionFactor": "integer (int32)",
+            "cost": "number (double)",
+            "isBillable": "boolean",
+            "isTaxable": "boolean",
+            "itemType": "integer (int32)",
+            "itemTypeText": "string",
+            "priceMarkup": "number (double)",
+            "priceMarkupType": "integer (int8)",
+            "priceMarkupTypeText": "string",
+            "disablePurchasing": "boolean",
+            "minQuantity": "integer (int32)",
+            "maxQuantity": "integer (int32)",
+            "safetyStock": "integer (int32)",
+            "binShelf": "string",
+            "assetLedgerNo": "string",
+            "expenseLedgerNo": "string",
+            "syncFlag": "boolean",
+            "locationUOM": "string",
+            "locationConversionFactor": "integer (int32)",
+            "activeStatus": "boolean",
+            "crossReferenceNo": "string",
+            "inventoryGroupId": "00000000-0000-0000-0000-000000000000",
+            "inventoryGroupNo": "string",
+            "inventoryGroupName": "string",
+            "stockUOM": "string",
+            "unspscCode": "string",
+            "defaultAssetLedgerNo": "string",
+            "defaultExpenseLedgerNo": "string",
+            "classificationId": "00000000-0000-0000-0000-000000000000",
+            "classificationName": "string",
+            "classification2Id": "00000000-0000-0000-0000-000000000000",
+            "classification2Name": "string",
+            "periopItemCategoryId": "00000000-0000-0000-0000-000000000000",
+            "periopItemCategory": "string",
+            "hcpcsCode": "string",
+            "arBillingCode": "string",
+            "isLatex": "boolean",
+            "vendorPriority": "integer (int32)",
+            "inventoryVendorId": "00000000-0000-0000-0000-000000000000",
+            "vendorId": "00000000-0000-0000-0000-000000000000",
+            "vendorNo": "string",
+            "vendorName": "string",
+            "vendorItemNo": "string",
+            "vendorUOM": "string",
+            "vendorConversionFactor": "integer (int32)",
+            "vendorCost": "number (double)",
+            "contractNo": "string",
+            "contractExpiration": "string (date-time)",
+            "manufacturerId": "00000000-0000-0000-0000-000000000000",
+            "manufacturerNo": "string",
+            "manufacturerName": "string",
+            "manufacturerItemNo": "string",
+            "gtin": "string",
+            "ndcNumber": "string",
+            "lockCost": "boolean",
+            "inventoryActiveStatus": "boolean",
+            "inventoryLastUpdated": "string (date-time)",
+            "inventoryLastUpdatedBy": "00000000-0000-0000-0000-000000000000",
+            "inventoryLastUpdatedByName": "string",
+            "dateAdded": "string (date-time)",
+            "addedBy": "00000000-0000-0000-0000-000000000000",
+            "addedByName": "string",
+            "lastUpdated": "string (date-time)",
+            "lastUpdatedBy": "00000000-0000-0000-0000-000000000000",
+            "lastUpdatedByName": "string"
+        }
+    ],
+    "@odata.nextLink": "link"
+}
 ```
 
 

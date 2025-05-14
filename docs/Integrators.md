@@ -16,7 +16,7 @@ Before working with integrators, please see the following requirements and insta
  - [SQLServer2017-SSEI-Expr](https://www.microsoft.com/en-us/sql-server/sql-server-2019)
  - [Microsoft SQL Server Management Studio (SSMS-Setup-ENU)](https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017)
 
-## <span style="color: #F05D30">SSIS Powerpack</span> 
+## SSIS Powerpack 
 
 With the **SSIS Powerpack** tool, you can easily retrieve data from Envi OData API and insert into the MSSQL database. To do it:
 
@@ -24,7 +24,7 @@ With the **SSIS Powerpack** tool, you can easily retrieve data from Envi OData A
  - [Build database schema in MS SQL Server](#build-database-schema-in-ms-sql-server)
  - [Test SSIS Package](#test-ssis-package)
 
-### <span style="color: #F05D30">Create JSON Source</span> 
+### Create JSON Source 
 1. Download and install [SSIS ZappySys PowerPack](https://zappysys.com/products/ssis-powerpack/).
 2. After installation, open [Microsoft SQL Server Data Tool for Visual Studio (SSDT)](https://docs.microsoft.com/en-us/sql/ssdt/download-sql-server-data-tools-ssdt?view=sql-server-2017) and  create a new **Integration Services Project**. For this, on the **File** tab, select **New Project**.
 
@@ -130,7 +130,7 @@ The **JSON Source** setup is completed. Go to the **JSON Source (REST API or Fil
 
 The data is retrieved successfully. ![image](img/Integrators_17.png)
 
-### <span style="color: #F05D30">Build database schema in MS SQL Server</span> 
+### Build database schema in MS SQL Server 
 1. In **MS SQL Studio**, create a needed table.
 
     !!! note
@@ -385,18 +385,18 @@ The data is retrieved successfully. ![image](img/Integrators_17.png)
 9. Double-click **OLE DB Destination**. In **OLE DB Destination Editor**, go to the **Mapping** section to verify connections, and select **OK**. ![image](img/Integrators_29.png) 
 
 
-### <span style="color: #F05D30">Test SSIS Package</span> 
+### Test SSIS Package 
 1. To test the **SSIS Package**, select **Start**. ![image](img/Integrators_30.png) 
 2. After processing, you’ll see the successful solution result.<br>
 ![image](img/Integrators_31.png) 
 3. Go to the **MS SQL Server**. Here, the successful test record will be shown. ![image](img/Integrators_32.png) 
 
-## <span style="color: #F05D30">ODBC Powerpack</span> 
+## ODBC Powerpack 
 
  - [ODBC Powerpack configuration](#odbc-powerpack-configuration)
  - [CData ODBC Driver for OData](#cdata-odbc-driver-for-odata)
 
-### <span style="color: #F05D30">ODBC Powerpack configuration</span> 
+### ODBC Powerpack configuration 
 With the **ODBC Powerpack** tool, you can easily retrieve the data from Envi OData API and insert it into the MSSQL database. To do it:
 
 1. Download and install [ODBC PowerPack](https://zappysys.com/products/odbc-powerpack/).
@@ -588,7 +588,7 @@ With the **ODBC Powerpack** tool, you can easily retrieve the data from Envi ODa
 
 As a result, you’ll see the following page: ![image](img/Integrators_60.png) 
 
-### <span style="color: #F05D30">CData ODBC Driver for OData</span> 
+### CData ODBC Driver for OData 
 
 With the **CData ODBC Driver**, you can easily retrieve the data from Envi OData API and insert it into the MSSQL database. To do it:
 

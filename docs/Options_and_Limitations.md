@@ -10,7 +10,7 @@ This section will help you go through query options supported by Envi OData API 
 
 Also, Envi OData API defines a set of logical operators that evaluate True or False. Logical operators are typically used in the $filter query option to filter the set of resources. For more details, go to the [$filter](#filter) article. The concept of logical operators is simple. They allow the program to make a decision based on multiple conditions. Each operand is considered a condition that can be evaluated True or False. These operands can combine multiple Boolean expressions or values and provide a single Boolean output.
 
-## <span style="color: #F05D30">$search</span> 
+## $search 
 
 The ``` $search ```  system query option allows searching through all available entity fields in a collection of resources that are addressed by the request URL. The expression specified by ``` $search ```  consists of the search value only, which is treated as the ``` like ```  expression.
 
@@ -56,7 +56,7 @@ Since no ``` $top ```  option is specified, only the first 20 records are includ
     }
 
 ```
-## <span style="color: #F05D30">$top and $skip</span> 
+## $top and $skip 
 
 The ```$top``` system query option requests the number of items in the queried collection included in the result.
 
@@ -151,7 +151,7 @@ Since the ```$skip``` option is specified, but ```$top``` is not, the system ski
 
 ```
 
-## <span style="color: #F05D30">$filter</span> 
+## $filter 
 
 The ```$filter``` system query option allows clients to filter a collection of resources addressed by a request URL. The expression specified with the```$filter``` is evaluated for each resource in the collection, and only items, in which the expression is evaluated True are included in the response. Resources in which the expression is evaluated False or Null are skipped in the response. Property names should be specified in lowerCamelCase.
 
@@ -243,17 +243,17 @@ Since no ```$top``` option is specified, only the first 20 records will be inclu
 
 ```
 
-### <span style="color: #F05D30">Logical operators</span>
+### Logical operators
 
 Also, the ```$filter``` query option supports the following logical operators:
 
-#### <span style="color: #F05D30">and</span>
+#### and
 The logical **and** operator evaluates True if both the left and right operands evaluate True, otherwise it evaluates False.
 ``` json title="Example"
 https://api-demo.envi.net/odata/Inventory?$filter=classificationName eq 'MEDICATION' and inventoryNo eq 'DEXAMT'
     
 ```
-#### <span style="color: #F05D30">or</span>
+#### or
 The logical **or** operator evaluates True if one of the left or right operands evaluates True, otherwise it evaluates False.
 
 ``` json title="Example"
@@ -261,7 +261,7 @@ https://api-demo.envi.net/odata/Inventory?$filter=classificationName eq 'MEDICAT
     
 ```
 
-#### <span style="color: #F05D30">in</span>
+#### in
 The **in** operator returns True if the left operand is a member of the right operand. The right operand must be either a comma-separated list of values enclosed in parentheses or a single expression that resolves to a collection. Also, the **in** operator enables a shorthand way of writing multiple **eq** expressions joined by **or**.
 
 ``` json title="Example"
@@ -282,7 +282,7 @@ The **in** operator is supported in the following lists:
  - [Inventory Activity](InventoryActivity.md#get-the-list-of-inventory-activities)
  - [Inventory Locations](InventoryLocations.md#get-the-list-of-inventory-locations)
  - [Inventory Locations Cost and Quantity](InventoryLocationsCostAndQuantity.md#get-the-list-of-inventory-locations-cost-and-quantity)
- - [Inventory Location Extended](InventoryLocationsExtended.md#get-the-list-of-extended-inventory-location)
+ - [Inventory Location Extended](InventoryLocationsExtended.md#get-the-list-of-extended-inventory-locations)
  - [Inventory Snapshots](InventorySnapshots.md#get-the-list-of-inventory-snapshots)
  - [Inventory Snapshot Item Details](InventorySnapshotItems.md#get-the-details-of-the-specified-inventory-snapshot-item)
  - [Inventory Vendors](InventoryVendors.md#get-the-cost-history-for-the-specified-inventory-vendor)
@@ -309,7 +309,7 @@ The **in** operator is supported in the following lists:
  - [Vendors](Vendors.md#get-the-list-of-vendors)
 
 
-#### <span style="color: #F05D30">gt</span>
+#### gt
 The **gt** operator returns True if the left operand is greater than the right operand, otherwise it returns False. This operator supports decimal, integer, and dates values.
 
 ``` json title="Example"
@@ -324,7 +324,7 @@ The **gt** operator is supported in the following lists:
  - [Departments](Departments.md#get-the-list-of-departments)
  - [Facilities](Facilities.md#get-the-list-of-facilities)
  - [Inventory](Inventory.md#get-the-list-of-inventory-items)
- - [Inventory Location Extended](InventoryLocationsExtended.md#get-the-list-of-extended-inventory-location)
+ - [Inventory Location Extended](InventoryLocationsExtended.md#get-the-list-of-extended-inventory-locations)
  - [Inventory Locations](InventoryLocations.md#get-the-list-of-inventory-locations)
  - [Inventory Snapshots](InventorySnapshots.md#get-the-list-of-inventory-snapshots)
  - [Inventory Snapshot Item Details](InventorySnapshotItems.md#get-the-details-of-the-specified-inventory-snapshot-item)
@@ -351,7 +351,7 @@ The **gt** operator is supported in the following lists:
  - [Vendor Fax Configurations](VendorFaxConfigurations.md#get-the-list-of-vendor-fax-configurations)
  - [Vendors](Vendors.md#get-the-list-of-vendors)
 
-#### <span style="color: #F05D30">ge</span>
+#### ge
 The **ge** operator returns True if the left operand is greater than or equal to the right operand, otherwise it returns False. This operator supports decimal, integer, and dates values.
 
 ``` json title="Example"
@@ -365,7 +365,7 @@ The **ge** operator is supported in the following lists:
  - [Departments](Departments.md#get-the-list-of-departments)
  - [Facilities](Facilities.md#get-the-list-of-facilities)
  - [Inventory](Inventory.md#get-the-list-of-inventory-items)
- - [Inventory Location Extended](InventoryLocationsExtended.md#get-the-list-of-extended-inventory-location)
+ - [Inventory Location Extended](InventoryLocationsExtended.md#get-the-list-of-extended-inventory-locations)
  - [Inventory Locations](InventoryLocations.md#get-the-list-of-inventory-locations)
  - [Inventory Snapshots](InventorySnapshots.md#get-the-list-of-inventory-snapshots)
  - [Inventory Snapshot Item Details](InventorySnapshotItems.md#get-the-details-of-the-specified-inventory-snapshot-item)
@@ -392,7 +392,7 @@ The **ge** operator is supported in the following lists:
  - [Vendor Fax Configurations](VendorFaxConfigurations.md#get-the-list-of-vendor-fax-configurations)
  - [Vendors](Vendors.md#get-the-list-of-vendors)
 
-#### <span style="color: #F05D30">lt</span>
+#### lt
 The **lt** operator returns True if the left operand is less than the right operand, otherwise it returns False. This operator supports decimal, integer, and dates values.
 ``` json title="Example"
 https://api-demo.envi.net/odata/PurchaseOrders?$filter=unitCost lt 1.2345
@@ -405,7 +405,7 @@ The **lt** operator is supported in the following lists:
  - [Departments](Departments.md#get-the-list-of-departments)
  - [Facilities](Facilities.md#get-the-list-of-facilities)
  - [Inventory](Inventory.md#get-the-list-of-inventory-items)
- - [Inventory Location Extended](InventoryLocationsExtended.md#get-the-list-of-extended-inventory-location)
+ - [Inventory Location Extended](InventoryLocationsExtended.md#get-the-list-of-extended-inventory-locations)
  - [Inventory Locations](InventoryLocations.md#get-the-list-of-inventory-locations)
  - [Inventory Snapshots](InventorySnapshots.md#get-the-list-of-inventory-snapshots)
  - [Inventory Snapshot Item Details](InventorySnapshotItems.md#get-the-details-of-the-specified-inventory-snapshot-item)
@@ -432,7 +432,7 @@ The **lt** operator is supported in the following lists:
  - [Vendor Fax Configurations](VendorFaxConfigurations.md#get-the-list-of-vendor-fax-configurations)
  - [Vendors](Vendors.md#get-the-list-of-vendors)
 
-#### <span style="color: #F05D30">le</span>
+#### le
 The **le** operator returns True if the left operand is less than or equal to the right operand, otherwise it returns False. This operator supports decimal, integer, and dates values.
 
 ``` json title="Example"
@@ -446,7 +446,7 @@ The **le** operator is supported in the following lists:
  - [Departments](Departments.md#get-the-list-of-departments)
  - [Facilities](Facilities.md#get-the-list-of-facilities)
  - [Inventory](Inventory.md#get-the-list-of-inventory-items)
- - [Inventory Location Extended](InventoryLocationsExtended.md#get-the-list-of-extended-inventory-location)
+ - [Inventory Location Extended](InventoryLocationsExtended.md#get-the-list-of-extended-inventory-locations)
  - [Inventory Locations](InventoryLocations.md#get-the-list-of-inventory-locations)
  - [Inventory Snapshots](InventorySnapshots.md#get-the-list-of-inventory-snapshots)
  - [Inventory Snapshot Item Details](InventorySnapshotItems.md#get-the-details-of-the-specified-inventory-snapshot-item)
@@ -506,7 +506,7 @@ https://api-demo.envi.net/odata/Inventory?$filter=classificationName eq 'MEDICAT
    
 ```
 
-## <span style="color: #F05D30">$orderby</span>
+## $orderby
 
 The ```$orderby``` system query option allows clients to request resources in either ascending using asc or descending orders using desc. If asc or desc values are not specified, then resources are displayed in ascending order.
 
@@ -598,7 +598,7 @@ Since the ```$top``` option is not specified, only the first 20 records are incl
     }
 
 ```
-## <span style="color: #F05D30">$format</span>
+## $format
 
 The ```$format``` system query option allows requesting a response in a particular format. When you don’t have access, you can request headers for the standard content-type and odata.metada level specifications. The ```$format``` takes precedence over standard content-type negotiation.
 

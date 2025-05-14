@@ -2,13 +2,21 @@
 
 ## Get the list of PO Confirmation Items
 
-### <span style="color: #F05D30">Path</span>
+### Path
 GET /odata/POConfirmationItems
 
-### <span style="color: #F05D30">Description</span>
-Returns the list of PO Confirmation Items within a logged organization. You can filter the results by the strict match using the ```$filter``` parameter–entity eq ‘string’. Or filter the results by the partial match using ```$filter```=contains parameter–contains(entity, ‘string’).
+### Description
+Returns a paged list of PO Confirmation Items within the logged-in organization. 
 
-### <span style="color: #F05D30">Request parameters</span>
+!!! note
+
+    You can filter the results as follows:
+
+    - For an exact match, use: ```$filter parameter–entity eq ‘string’```
+    - For a partial match, use: ```$filter=contains parameter–contains(entity, ‘string’)```
+
+
+### Request parameters
 <style>
 td, th {
    border: none!important;
@@ -25,7 +33,7 @@ td, th {
 |**$skip**: string <br> *in query*| Skips the first n results.|
 |**Authorization**: string default: <br> Bearer access_token <br> *in header* |Specify the type of the token (bearer) and then insert the ```access_token```, which was obtained during authentication.|
 
-### <span style="color: #F05D30">Responses</span>
+### Responses
 | <div style="width:200px">Response </div>|<div style="width:380px">Explanation</div>|                      
 |-----:|:-------|
 |**200 OK**|OK|      
@@ -35,7 +43,7 @@ td, th {
 |**403 Forbidden**|User doesn’t have appropriate privileges.|
 |**500 Internal Server Error**|Server encountered an unexpected condition that prevented it from fulfilling the request.|
 
-### <span style="color: #F05D30">Properties</span>
+### Properties
 |<div style="width:200px">Property </div> |<div style="width:420px">Explanation</div>|                      
 |-----:|:-------|
 |**poConfirmationItemId**: string *(uuid)* | Unique Identifier of the Purchase Order Confirmation Item |
@@ -62,52 +70,53 @@ td, th {
 
 ``` json title="Response Content-types: APPLICATION/JSON, APPLICATION/XML<br>Response example (200 OK)"
 {
-  "items": [
-    {
-      "poConfirmationItemId": "00000000-0000-0000-0000-000000000000",
-      "poConfirmationId": "00000000-0000-0000-0000-000000000000",
-      "purchaseOrderId": "00000000-0000-0000-0000-000000000000",
-      "purchaseOrderNo": "string",
-      "lineItemNo": "integer (int32)",
-      "quantity": "integer (int32)",
-      "uom": "string",
-      "price": "number (double)",
-      "inventoryNo": "string",
-      "vendorItemNo": "string",
-      "manufacturer": "string",
-      "manufacturerItemNo": "string",
-      "inventoryDescription": "string",
-      "updatedPOPrice": "boolean",
-      "updatedInventoryPrice": "boolean",
-      "dateCreated": "string (date-time)",
-      "lastUpdated": "string (date-time)",
-      "lastUpdatedBy": "00000000-0000-0000-0000-000000000000",
-      "lastUpdatedByName": "string",
-      "notes": "string",
-      "isUnresolved": "boolean"
-    }
-  ],
-  "nextPageLink": "string",
-  "count": "integer (int64)"
+    "@odata.context": "link",
+    "@odata.count": "number",
+    "value": [
+        {
+            "poConfirmationItemId": "00000000-0000-0000-0000-000000000000",
+            "poConfirmationId": "00000000-0000-0000-0000-000000000000",
+            "purchaseOrderId": "00000000-0000-0000-0000-000000000000",
+            "purchaseOrderNo": "string",
+            "lineItemNo": "integer (int32)",
+            "quantity": "integer (int32)",
+            "uom": "string",
+            "price": "number (double)",
+            "inventoryNo": "string",
+            "vendorItemNo": "string",
+            "manufacturer": "string",
+            "manufacturerItemNo": "string",
+            "inventoryDescription": "string",
+            "updatedPOPrice": "boolean",
+            "updatedInventoryPrice": "boolean",
+            "dateCreated": "string (date-time)",
+            "lastUpdated": "string (date-time)",
+            "lastUpdatedBy": "00000000-0000-0000-0000-000000000000",
+            "lastUpdatedByName": "string",
+            "notes": "string",
+            "isUnresolved": "boolean"
+        }
+    ],
+    "@odata.nextLink": "link"
 }
 ```
 
 ## Get the specified PO Confirmation Item
 
-### <span style="color: #F05D30">Path</span>
+### Path
 GET /odata/POConfirmationItems({poConfirmationItemId})
 
-### <span style="color: #F05D30">Description</span>
+### Description
 Returns the details of the PO Confirmation Item specified by ID.
 
-### <span style="color: #F05D30">Request parameters</span>
+### Request parameters
 |  <div style="width:200px">Parameter</div>  |  <div style="width:380px">Explanation</div>  |                      
 |-----:|:-------|
 |**poConfirmationItemId**: string *(uuid)* <br> <span style="color: #F05D30">**required**</span> <br> *in path* | Enter the ID of the PO Confirmation Item here. |
 |**api-version**: string default: 1.0 <br> *in header*| The requested API version.|   
 |**Authorization**: string default: <br> Bearer access_token <br> *in header* |Specify the type of the token (bearer) and then insert the ```access_token```, which was obtained during authentication. |
 
-### <span style="color: #F05D30">Responses</span>
+### Responses
 | <div style="width:200px">Response </div>|<div style="width:380px">Explanation</div>|                      
 |-----:|:-------|
 |**200 OK**|OK|      
@@ -117,7 +126,7 @@ Returns the details of the PO Confirmation Item specified by ID.
 |**404 Not Found** | Specified ID is absent in the system. |
 |**500 Internal Server Error**|Server encountered an unexpected condition that prevented it from fulfilling the request.|
 
-### <span style="color: #F05D30">Properties</span>
+### Properties
 |<div style="width:200px">Property </div> |<div style="width:420px">Explanation</div>|                      
 |-----:|:-------|
 |**poConfirmationItemId**: string *(uuid)* | Unique Identifier of the Purchase Order Confirmation Items |
@@ -144,26 +153,27 @@ Returns the details of the PO Confirmation Item specified by ID.
 
 ``` json title="Response Content-types: APPLICATION/JSON, APPLICATION/XML<br>Response example (200 OK)"
 {
-  "poConfirmationItemId": "00000000-0000-0000-0000-000000000000",
-  "poConfirmationId": "00000000-0000-0000-0000-000000000000",
-  "purchaseOrderId": "00000000-0000-0000-0000-000000000000",
-  "purchaseOrderNo": "string",
-  "lineItemNo": "integer (int32)",
-  "quantity": "integer (int32)",
-  "uom": "string",
-  "price": "number (double)",
-  "inventoryNo": "string",
-  "vendorItemNo": "string",
-  "manufacturer": "string",
-  "manufacturerItemNo": "string",
-  "inventoryDescription": "string",
-  "updatedPOPrice": "boolean",
-  "updatedInventoryPrice": "boolean",
-  "dateCreated": "string (date-time)",
-  "lastUpdated": "string (date-time)",
-  "lastUpdatedBy": "00000000-0000-0000-0000-000000000000",
-  "lastUpdatedByName": "string",
-  "notes": "string",
-  "isUnresolved": "boolean"
+    "@odata.context": "link",
+    "poConfirmationItemId": "00000000-0000-0000-0000-000000000000",
+    "poConfirmationId": "00000000-0000-0000-0000-000000000000",
+    "purchaseOrderId": "00000000-0000-0000-0000-000000000000",
+    "purchaseOrderNo": "string",
+    "lineItemNo": "integer (int32)",
+    "quantity": "integer (int32)",
+    "uom": "string",
+    "price": "number (double)",
+    "inventoryNo": "string",
+    "vendorItemNo": "string",
+    "manufacturer": "string",
+    "manufacturerItemNo": "string",
+    "inventoryDescription": "string",
+    "updatedPOPrice": "boolean",
+    "updatedInventoryPrice": "boolean",
+    "dateCreated": "string (date-time)",
+    "lastUpdated": "string (date-time)",
+    "lastUpdatedBy": "00000000-0000-0000-0000-000000000000",
+    "lastUpdatedByName": "string",
+    "notes": "string",
+    "isUnresolved": "boolean"
 }
 ```

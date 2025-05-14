@@ -2,14 +2,21 @@
 
 ## Get the list of Vendor Addresses
 
-### <span style="color: #F05D30">Path</span>
+### Path
 GET /odata/VendorAddresses
 
-### <span style="color: #F05D30">Description</span>
-Returns the list of Vendor Addresses within a logged organization.  You can filter the results by the strict match using the ```$filter``` parameter–entity eq ‘string’. Or filter the results by the partial match using ```$filter```=contains parameter–contains(entity, ‘string’).
+### Description
+Returns a paged list of Vendor Addresses within the logged-in organization.  
+
+!!! note
+
+    You can filter the results as follows:
+
+    - For an exact match, use: ```$filter parameter–entity eq ‘string’```
+    - For a partial match, use: ```$filter=contains parameter–contains(entity, ‘string’)```
 
 
-### <span style="color: #F05D30">Request parameters</span>
+### Request parameters
 <style>
 td, th {
    border: none!important;
@@ -28,7 +35,7 @@ td, th {
 |**Authorization**: string default: <br> Bearer access_token <br> *in header* | Specify the type of the token (bearer) and then insert the ```access_token```, which was obtained during authentication.|
 
 
-### <span style="color: #F05D30">Responses</span>
+### Responses
 | <div style="width:200px">Response </div>|<div style="width:420px">Explanation</div>|                      
 |-----:|:-------|
 |**200 OK**|OK|
@@ -39,7 +46,7 @@ td, th {
 |**500 Internal Server Error**|Server encountered an unexpected condition that prevented it from fulfilling the request.|
 
 
-### <span style="color: #F05D30">Properties</span>
+### Properties
 |<div style="width:200px">Property </div> |<div style="width:420px">Explanation</div>|                      
 |-----:|:-------|
 |**vendorAddressId**: string *(uuid)* | Unique Identifier of the Vendor Address |
@@ -67,46 +74,47 @@ td, th {
 
 ``` json title="Response Content-types: APPLICATION/JSON, APPLICATION/XML<br>Response example (200 OK)"
 {
-  "items": [
-    {
-      "vendorAddressId": "00000000-0000-0000-0000-000000000000",
-      "vendorId": "00000000-0000-0000-0000-000000000000",
-      "vendorNo": "string",
-      "vendorName": "string",
-      "facilityId": "00000000-0000-0000-0000-000000000000",
-      "facilityNo": "string",
-      "facilityName": "string",
-      "description": "string",
-      "address": "string",
-      "address2": "string",
-      "city": "string",
-      "state": "string",
-      "zip": "string",
-      "country": "string",
-      "url": "string",
-      "dateAdded": "string (date-time)",
-      "addedBy": "00000000-0000-0000-0000-000000000000",
-      "addeddByName": "string",
-      "lastUpdated": "string (date-time)",
-      "lastUpdatedBy": "00000000-0000-0000-0000-000000000000",
-      "lastUpdatedByName": "string",
-      "activeStatus": "boolean"
-      }
-  ],
-  "nextPageLink": "string",
-  "count": "integer (int64)"
+    "@odata.context": "link",
+    "@odata.count": "number",
+    "value": [
+        {
+            "vendorAddressId": "00000000-0000-0000-0000-000000000000",
+            "vendorId": "00000000-0000-0000-0000-000000000000",
+            "vendorNo": "string",
+            "vendorName": "string",
+            "facilityId": "00000000-0000-0000-0000-000000000000",
+            "facilityNo": "string",
+            "facilityName": "string",
+            "description": "string",
+            "address": "string",
+            "address2": "string",
+            "city": "string",
+            "state": "string",
+            "zip": "string",
+            "country": "string",
+            "url": "string",
+            "dateAdded": "string (date-time)",
+            "addedBy": "00000000-0000-0000-0000-000000000000",
+            "addeddByName": "string",
+            "lastUpdated": "string (date-time)",
+            "lastUpdatedBy": "00000000-0000-0000-0000-000000000000",
+            "lastUpdatedByName": "string",
+            "activeStatus": "boolean"
+        }
+    ],
+    "@odata.nextLink": "link"
 }
 ```
 
 ## Create a new Vendor Address
 
-### <span style="color: #F05D30">Path</span>
+### Path
 POST /odata/Vendors({VendorId})/VendorAddresses
 
-### <span style="color: #F05D30">Description</span>
-Creates a new Vendor Address within a logged organization and a specified Vendor only for active Vendors and active Facilities.
+### Description
+Creates a new Vendor Address within the logged-in organization and the specified Vendor only for active Vendors and Facilities.
 
-### <span style="color: #F05D30">Request body</span>
+### Request body
 | <div style="width:200px">Parameter</div>|<div style="width:420px">Explanation</div>|                      
 |-----:|:-------|
 |**description**: string <br> <span style="color: #F05D30">**required**</span> | Description of the Vendor Address |
@@ -121,26 +129,26 @@ Creates a new Vendor Address within a logged organization and a specified Vendor
 
 ``` json title="Request Content-types: APPLICATION/JSON, APPLICATION/XML<br>Request Example"
 {
-  "description": "string",
-  "facilityId": "00000000-0000-0000-0000-000000000000",
-  "address": "string",
-  "address2": "string",
-  "city": "string",
-  "state": "string",
-  "zip": "string",
-  "country": "string",
-  "url": "string"
+    "description": "string",
+    "facilityId": "00000000-0000-0000-0000-000000000000",
+    "address": "string",
+    "address2": "string",
+    "city": "string",
+    "state": "string",
+    "zip": "string",
+    "country": "string",
+    "url": "string"
 }
 ```
 
-### <span style="color: #F05D30">Request parameters</span>
+### Request parameters
 |  <div style="width:200px">Parameter</div>  |  <div style="width:380px">Explanation</div>  |                      
 |-----:|:-------|
 |**vendorId**: string *(uuid)* <br> <span style="color: #F05D30">**required**</span> <br> *in path* | Enter the ID of the Vendor here. |
 |**api-version**: string default: 1.0 <br> *in header*| The requested API version.|   
 |**Authorization**: string default: <br> Bearer access_token <br> *in header* |Specify the type of the token (bearer) and then insert the ```access_token```, which was obtained during authentication.|
 
-### <span style="color: #F05D30">Responses</span>
+### Responses
 | <div style="width:200px">Response </div>|<div style="width:380px">Explanation</div>|                      
 |-----:|:-------|
 |**200 OK**|OK|   
@@ -156,13 +164,13 @@ Creates a new Vendor Address within a logged organization and a specified Vendor
 
 ## Get the specified Vendor Address
 
-### <span style="color: #F05D30">Path</span>
+### Path
 GET /odata/VendorAddresses({vendorAddressId})
 
-### <span style="color: #F05D30">Description</span>
-Returns the details of the Vendor Address specified by ID within a logged organization.
+### Description
+Returns the details of the Vendor Address specified by ID within the logged-in organization.
 
-### <span style="color: #F05D30">Request parameters</span>
+### Request parameters
 |  <div style="width:200px">Parameter</div>  |  <div style="width:380px">Explanation</div>  |                      
 |-----:|:-------|
 |**includeInactiveVendors** <br> boolean default: false <br> *in query* | Include inactive Vendors. |
@@ -172,7 +180,7 @@ Returns the details of the Vendor Address specified by ID within a logged organi
 |**Authorization**: string default: <br> Bearer access_token <br> *in header* |Specify the type of the token (bearer) and then insert the ```access_token```, which was obtained during authentication. |
 
 
-### <span style="color: #F05D30">Responses</span>
+### Responses
 | <div style="width:200px">Response </div>|<div style="width:420px">Explanation</div>|                      
 |-----:|:-------|
 |**200 OK**|OK|      
@@ -183,8 +191,8 @@ Returns the details of the Vendor Address specified by ID within a logged organi
 |**500 Internal Server Error**| Server encountered an unexpected condition that prevented it from fulfilling the request. |
 
 
-### <span style="color: #F05D30">Properties</span>
-|<div style="width:200px">Property </div> |<div style="width:480px">Explanation</div>|                      
+### Properties
+|<div style="width:200px">Property </div> |<div style="width:420px">Explanation</div>|                      
 |-----:|:-------|
 |**vendorAddressId**: string *(uuid)* | Unique Identifier of the Vendor Address |
 |**vendorId**: string *(uuid)* | Unique Identifier of the Vendor |
@@ -212,27 +220,28 @@ Returns the details of the Vendor Address specified by ID within a logged organi
 
 ``` json title="Response Content-types: APPLICATION/JSON, APPLICATION/XML<br>Response example (200 OK)"
 {
-  "vendorAddressId": "00000000-0000-0000-0000-000000000000",
-  "vendorId": "00000000-0000-0000-0000-000000000000",
-  "vendorNo": "string",
-  "vendorName": "string",
-  "facilityId": "00000000-0000-0000-0000-000000000000",
-  "facilityNo": "string",
-  "facilityName": "string",
-  "description": "string",
-  "address": "string",
-  "address2": "string",
-  "city": "string",
-  "state": "string",
-  "zip": "string",
-  "country": "string",
-  "url": "string",
-  "dateAdded": "string (date-time)",
-  "addedBy": "00000000-0000-0000-0000-000000000000",
-  "addeddByName": "string",
-  "lastUpdated": "string (date-time)",
-  "lastUpdatedBy": "00000000-0000-0000-0000-000000000000",
-  "lastUpdatedByName": "string",
-  "activeStatus": "boolean"
+    "@odata.context": "link",
+    "vendorAddressId": "00000000-0000-0000-0000-000000000000",
+    "vendorId": "00000000-0000-0000-0000-000000000000",
+    "vendorNo": "string",
+    "vendorName": "string",
+    "facilityId": "00000000-0000-0000-0000-000000000000",
+    "facilityNo": "string",
+    "facilityName": "string",
+    "description": "string",
+    "address": "string",
+    "address2": "string",
+    "city": "string",
+    "state": "string",
+    "zip": "string",
+    "country": "string",
+    "url": "string",
+    "dateAdded": "string (date-time)",
+    "addedBy": "00000000-0000-0000-0000-000000000000",
+    "addeddByName": "string",
+    "lastUpdated": "string (date-time)",
+    "lastUpdatedBy": "00000000-0000-0000-0000-000000000000",
+    "lastUpdatedByName": "string",
+    "activeStatus": "boolean"
 }
 ```

@@ -2,17 +2,25 @@
 
 ## Get the list of Adjustment Items
 
-### <span style="color: #F05D30">Path</span>
+### Path
 GET /odata/AdjustmentItems
 
-### <span style="color: #F05D30">Description</span>
-Returns the paged list of the existing items within all Adjustments. You can filter the results by the strict match using the ```$filter``` parameter–entity eq ‘string’. Or filter the results by the partial match using ```$filter```=contains parameter–contains(entity, ‘string’).
+### Description
+Returns a paged list of existing items within all Adjustments. 
+
+!!! note
+
+    You can filter the results as follows:
+
+    - For an exact match, use: ```$filter parameter–entity eq ‘string’```
+    - For a partial match, use: ```$filter=contains parameter–contains(entity, ‘string’)```
+
 
 !!! note
     
     This endpoint does not support logical operators (**and**, **or**, **in**, **gt**, **ge**, **lt**, **le**) for data filtering.
 
-### <span style="color: #F05D30">Request parameters</span>
+### Request parameters
 |  <div style="width:200px">Parameter</div>  |  <div style="width:420px">Explanation</div>  |                      
 |-----:|:-------|
 |**from**: string *(date-time)* <br> *in query* | Enter the start date here. |
@@ -27,7 +35,7 @@ Returns the paged list of the existing items within all Adjustments. You can fil
 
 
 
-### <span style="color: #F05D30">Responses</span>
+### Responses
 | <div style="width:200px">Response </div>|<div style="width:380px">Explanation</div>|                      
 |-----:|:-------|
 |**200 OK**|OK|      
@@ -37,14 +45,14 @@ Returns the paged list of the existing items within all Adjustments. You can fil
 |**403 Forbidden**|User doesn’t have appropriate privileges.|
 |**500 Internal Server Error**|Server encountered an unexpected condition that prevented it from fulfilling the request.|
 
-### <span style="color: #F05D30">Properties</span>
+### Properties
 |<div style="width:200px">Property </div> |<div style="width:420px">Explanation</div>|                      
 |-----:|:-------|
 |**adjustmentItemId**: string *(uuid)* | Unique Identifier of the Adjustment Item |
 |**adjustmentId**: string *(uuid* | Unique Identifier of the Adjustment |
 |**inventoryLocationId**: string *(uuid)* | Unique Identifier of the Inventory Location |
 |**notes**: string |Comments about the Adjustment Item |
-|**lotNo**: string | Identification Number assigned to a particular Quantity or Lot of material from a single Manufacturer |
+|**lotNo**: string | Identification Number assigned to a particular quantity or lot of material from a single Manufacturer |
 |**serialNo**: string | Unique Identifier assigned incrementally or sequentially to an Item to identify it |
 |**expDate**: string *(date-time)* | Previously determined date after which Item should no longer be used |
 |**dateCreated**: string *(date-time)* | Date when the Adjustment Item was created |
@@ -73,53 +81,55 @@ Returns the paged list of the existing items within all Adjustments. You can fil
 
 ``` json title="Response Content-types: APPLICATION/JSON, APPLICATION/XML <br> Response Example (200 OK)"
 {
-  "items": [
-    {
-      "adjustmentItemId": "00000000-0000-0000-0000-000000000000",
-      "adjustmentId": "00000000-0000-0000-0000-000000000000",
-      "inventoryLocationId": "00000000-0000-0000-0000-000000000000",
-      "notes": "string",
-      "lotNo": "string",
-      "serialNo": "string",
-      "expDate": "string (date-time)",
-      "dateCreated": "string (date-time)",
-      "createdBy": "00000000-0000-0000-0000-000000000000",
-      "createdByName": "string",
-      "lastUpdated": "string (date-time)",
-      "lastUpdatedBy": "00000000-0000-0000-0000-000000000000",
-      "lastUpdatedByName": "string",
-      "lineNo": "integer (int32)",
-      "facilityName": "string",
-      "locationName": "string",
-      "dateSubmitted": "string (date-time)",
-      "inventoryNo": "string",
-      "inventoryDescription": "string",
-      "classificationName": "string",
-      "vendorName": "string",
-      "vendorItemNo": "string",
-      "quantity": "integer (int32)",
-      "impactQuantity": "integer (int32)",
-      "uom": "string",
-      "conversionFactor": "integer (int32)",
-      "adjustmentTypeText": "string",
-      "unitCost": "number (double)",
-      "extendedCost": "number (double)"
-    }
-  ],
-  "nextPageLink": "string",
-  "count": "integer (int64)"
+    "@odata.context": "link",
+    "@odata.count": "number",
+    "value": [
+        {
+            "adjustmentItemId": "00000000-0000-0000-0000-000000000000",
+            "adjustmentId": "00000000-0000-0000-0000-000000000000",
+            "inventoryLocationId": "00000000-0000-0000-0000-000000000000",
+            "notes": "string",
+            "lotNo": "string",
+            "serialNo": "string",
+            "expDate": "string (date-time)",
+            "dateCreated": "string (date-time)",
+            "createdBy": "00000000-0000-0000-0000-000000000000",
+            "createdByName": "string",
+            "lastUpdated": "string (date-time)",
+            "lastUpdatedBy": "00000000-0000-0000-0000-000000000000",
+            "lastUpdatedByName": "string",
+            "lineNo": "integer (int32)",
+            "facilityName": "string",
+            "locationName": "string",
+            "dateSubmitted": "string (date-time)",
+            "inventoryNo": "string",
+            "inventoryDescription": "string",
+            "classificationName": "string",
+            "vendorName": "string",
+            "vendorItemNo": "string",
+            "quantity": "integer (int32)",
+            "impactQuantity": "integer (int32)",
+            "uom": "string",
+            "conversionFactor": "integer (int32)",
+            "adjustmentTypeText": "string",
+            "unitCost": "number (double)",
+            "extendedCost": "number (double)"
+        }
+    ],
+    "@odata.nextLink": "link"
 }
 ```
 
+
 ## Get the specified Adjustment Item
 
-### <span style="color: #F05D30">Path</span>
+### Path
 GET /odata/AdjustmentItems({adjustmentItemId})
 
-### <span style="color: #F05D30">Description</span>
+### Description
 Returns the details of the Adjustment Item specified by ID.
 
-### <span style="color: #F05D30">Request parameters</span>
+### Request parameters
 <style>
 td, th {
    border: none!important;
@@ -132,7 +142,7 @@ td, th {
 |**api-version**: string default: 1.0 <br> *in header* | The requested API version. |
 |**Authorization**: string <br> Bearer access_token <br> *in header* | Specify the type of the token (bearer) and then insert the ```access_token```, which was obtained during authentication.|
 
-### <span style="color: #F05D30">Responses</span>
+### Responses
 | <div style="width:200px">Response </div>|<div style="width:380px">Explanation</div>|                      
 |-----:|:-------|
 |**200 OK**|OK|      
@@ -143,7 +153,7 @@ td, th {
 |**500 Internal Server Error**|Server encountered an unexpected condition that prevented it from fulfilling the request.|
 
 
-### <span style="color: #F05D30">Properties</span>
+### Properties
 |<div style="width:200px">Property </div> |<div style="width:420px">Explanation</div>|                      
 |-----:|:-------|
 |**adjustmentItemId**: string *(uuid)* | Unique Identifier of the Adjustment Item |
@@ -179,35 +189,36 @@ td, th {
 
 ``` json title="Response Content-types: APPLICATION/JSON, APPLICATION/XML <br> Response Example (200 OK)"
 {
-  "adjustmentItemId": "00000000-0000-0000-0000-000000000000",
-  "adjustmentId": "00000000-0000-0000-0000-000000000000",
-  "inventoryLocationId": "00000000-0000-0000-0000-000000000000",
-  "notes": "string",
-  "lotNo": "string",
-  "serialNo": "string",
-  "expDate": "string (date-time)",
-  "dateCreated": "string (date-time)",
-  "createdBy": "00000000-0000-0000-0000-000000000000",
-  "createdByName": "string",
-  "lastUpdated": "string (date-time)",
-  "lastUpdatedBy": "00000000-0000-0000-0000-000000000000",
-  "lastUpdatedByName": "string",
-  "lineNo": "integer (int32)",
-  "facilityName": "string",
-  "locationName": "string",
-  "dateSubmitted": "string (date-time)",
-  "inventoryNo": "string",
-  "inventoryDescription": "string",
-  "classificationName": "string",
-  "vendorName": "string",
-  "vendorItemNo": "string",
-  "quantity": "integer (int32)",
-  "impactQuantity": "integer (int32)",
-  "uom": "string",
-  "conversionFactor": "integer (int32)",
-  "adjustmentTypeText": "string",
-  "unitCost": "number (double)",
-  "extendedCost": "number (double)"
+    "@odata.context": "link",
+    "adjustmentItemId": "00000000-0000-0000-0000-000000000000",
+    "adjustmentId": "00000000-0000-0000-0000-000000000000",
+    "inventoryLocationId": "00000000-0000-0000-0000-000000000000",
+    "notes": "string",
+    "lotNo": "string",
+    "serialNo": "string",
+    "expDate": "string (date-time)",
+    "dateCreated": "string (date-time)",
+    "createdBy": "00000000-0000-0000-0000-000000000000",
+    "createdByName": "string",
+    "lastUpdated": "string (date-time)",
+    "lastUpdatedBy": "00000000-0000-0000-0000-000000000000",
+    "lastUpdatedByName": "string",
+    "lineNo": "integer (int32)",
+    "facilityName": "string",
+    "locationName": "string",
+    "dateSubmitted": "string (date-time)",
+    "inventoryNo": "string",
+    "inventoryDescription": "string",
+    "classificationName": "string",
+    "vendorName": "string",
+    "vendorItemNo": "string",
+    "quantity": "integer (int32)",
+    "impactQuantity": "integer (int32)",
+    "uom": "string",
+    "conversionFactor": "integer (int32)",
+    "adjustmentTypeText": "string",
+    "unitCost": "number (double)",
+    "extendedCost": "number (double)"
 }      
 ```
 

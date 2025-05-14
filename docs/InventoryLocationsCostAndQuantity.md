@@ -2,13 +2,21 @@
 
 ## Get the list of Inventory Locations cost and quantity
 
-### <span style="color: #F05D30">Path</span>
+### Path
 GET /odata/InventoryLocationsCostAndQuantity
 
-### <span style="color: #F05D30">Description</span>
-Returns the paged list of the existing Inventory Locations cost and quantity within a logged organization. You can filter the results by the strict match using the ```$filter``` parameter–entity eq ‘string’. Or filter the results by the partial match using ```$filter```=contains parameter–contains(entity, ‘string’).
+### Description
+Returns a paged list of existing Inventory Locations cost and quantity within the logged-in organization.
 
-### <span style="color: #F05D30">Request parameters</span>
+!!! note
+
+    You can filter the results as follows:
+
+    - For an exact match, use: ```$filter parameter–entity eq ‘string’```
+    - For a partial match, use: ```$filter=contains parameter–contains(entity, ‘string’)```
+
+
+### Request parameters
 |  <div style="width:200px">Parameter</div>  |  <div style="width:380px">Explanation</div>  |                      
 |-----:|:-------|
 |**includeInactiveInventory**: <br> boolean default: false <br> *in query* | Include inactive Inventory Items. |
@@ -22,7 +30,7 @@ Returns the paged list of the existing Inventory Locations cost and quantity wit
 |**$skip**: string <br> *in query*| Skips the first n results.|
 |**Authorization**: string default: <br> Bearer access_token <br> *in header* |Specify the type of the token (bearer) and then insert the ```access_token```, which was obtained during authentication.|
 
-### <span style="color: #F05D30">Responses</span>
+### Responses
 | <div style="width:200px">Response </div>|<div style="width:380px">Explanation</div>|                      
 |-----:|:-------|
 |**200 OK**|OK|      
@@ -32,7 +40,7 @@ Returns the paged list of the existing Inventory Locations cost and quantity wit
 |**403 Forbidden**|User doesn’t have appropriate privileges.|
 |**500 Internal Server Error**|Server encountered an unexpected condition that prevented it from fulfilling the request.|
 
-### <span style="color: #F05D30">Properties</span>
+### Properties
 |<div style="width:200px">Property </div> |<div style="width:380px">Explanation</div>|                      
 |-----:|:-------|
 |**inventoryLocationId**: string *(uuid)* | Unique Identifier of the Inventory Location |
@@ -52,38 +60,38 @@ Returns the paged list of the existing Inventory Locations cost and quantity wit
 
 ``` json title="Response Content-types: APPLICATION/JSON, APPLICATION/XML<br>Response example (200 OK)"
 {
-  "items": [
-    {
-      "inventoryLocationId": "00000000-0000-0000-0000-000000000000",
-      "inventoryId": "00000000-0000-0000-0000-000000000000",
-      "inventoryNo": "string",
-      "locationNo": "string",
-      "cost": "number (double)",
-      "quantityOnHand": "integer (int32)",
-      "activeStatus": "boolean",
-      "dateAdded": "string (date-time)",
-      "addedBy": "00000000-0000-0000-0000-000000000000",
-      "lastUpdated": "string (date-time)",
-      "lastUpdatedBy": "00000000-0000-0000-0000-000000000000",
-      "costLastUpdated": "string (date-time)",
-      "costLastUpdatedBy": "00000000-0000-0000-0000-000000000000"
-    }
-  ],
-  "nextPageLink": "string",
-  "count": "integer (int64)"
+    "@odata.context": "link",
+    "@odata.count": "number",
+    "value": [
+        {
+            "inventoryLocationId": "00000000-0000-0000-0000-000000000000",
+            "inventoryId": "00000000-0000-0000-0000-000000000000",
+            "inventoryNo": "string",
+            "locationNo": "string",
+            "cost": "number (double)",
+            "quantityOnHand": "integer (int32)",
+            "activeStatus": "boolean",
+            "dateAdded": "string (date-time)",
+            "addedBy": "00000000-0000-0000-0000-000000000000",
+            "lastUpdated": "string (date-time)",
+            "lastUpdatedBy": "00000000-0000-0000-0000-000000000000",
+            "costLastUpdated": "string (date-time)",
+            "costLastUpdatedBy": "00000000-0000-0000-0000-000000000000"
+        }
+    ],
+    "@odata.nextLink": "link"
 }
 ```
 
-
 ## Get the specified Inventory Location cost and quantity
 
-### <span style="color: #F05D30">Path</span>
+### Path
 GET /odata/InventoryLocationsCostAndQuantity({inventoryLocationId})
 
-### <span style="color: #F05D30">Description</span>
+### Description
 Returns the details of the Inventory Location cost and quantity specified by ID.
 
-### <span style="color: #F05D30">Request parameters</span>
+### Request parameters
 <style>
 td, th {
    border: none!important;
@@ -96,7 +104,7 @@ td, th {
 |**api-version**: string default: 1.0 <br> *in header*| The requested API version.|   
 |**Authorization**: string default: <br> Bearer access_token <br> *in header* |Specify the type of the token (bearer) and then insert the ```access_token```, which was obtained during authentication.|
 
-### <span style="color: #F05D30">Responses</span>
+### Responses
 | <div style="width:200px">Response </div>|<div style="width:380px">Explanation</div>|                      
 |-----:|:-------|
 |**200 OK**|OK|      
@@ -106,7 +114,7 @@ td, th {
 |**404 Not Found** | Specified ID is absent in the system. |
 |**500 Internal Server Error**|Server encountered an unexpected condition that prevented it from fulfilling the request.|
 
-### <span style="color: #F05D30">Properties</span>
+### Properties
 |<div style="width:200px">Property </div> |<div style="width:380px">Explanation</div>|                      
 |-----:|:-------|
 |**inventoryLocationId**: string *(uuid)* | Unique Identifier of the Inventory Location |
@@ -126,19 +134,20 @@ td, th {
 
 ``` json title="Response Content-types: APPLICATION/JSON, APPLICATION/XML<br>Response example (200 OK)"
 {
-  "inventoryLocationId": "00000000-0000-0000-0000-000000000000",
-  "inventoryId": "00000000-0000-0000-0000-000000000000",
-  "inventoryNo": "string",
-  "locationNo": "string",
-  "cost": "number (double)",
-  "quantityOnHand": "integer (int32)",
-  "activeStatus": "boolean",
-  "dateAdded": "string (date-time)",
-  "addedBy": "00000000-0000-0000-0000-000000000000",
-  "lastUpdated": "string (date-time)",
-  "lastUpdatedBy": "00000000-0000-0000-0000-000000000000",
-  "costLastUpdated": "string (date-time)",
-  "costLastUpdatedBy": "00000000-0000-0000-0000-000000000000"
+    "@odata.context": "link",
+    "inventoryLocationId": "00000000-0000-0000-0000-000000000000",
+    "inventoryId": "00000000-0000-0000-0000-000000000000",
+    "inventoryNo": "string",
+    "locationNo": "string",
+    "cost": "number (double)",
+    "quantityOnHand": "integer (int32)",
+    "activeStatus": "boolean",
+    "dateAdded": "string (date-time)",
+    "addedBy": "00000000-0000-0000-0000-000000000000",
+    "lastUpdated": "string (date-time)",
+    "lastUpdatedBy": "00000000-0000-0000-0000-000000000000",
+    "costLastUpdated": "string (date-time)",
+    "costLastUpdatedBy": "00000000-0000-0000-0000-000000000000"
 }  
 ```
 

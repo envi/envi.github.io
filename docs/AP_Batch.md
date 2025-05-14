@@ -2,17 +2,25 @@
 
 ## Get the list of AP Batches
 
-### <span style="color: #F05D30">Path</span>
+### Path
 GET /odata/Batches
 
-### <span style="color: #F05D30">Description</span>
-Returns the list of AP Batches within a logged organization. You can filter the results by the strict match using the ```$filter``` parameter–entity eq ‘string’. Or filter the results by the partial match using ```$filter```=contains parameter–contains(entity, ‘string’).)
+### Description
+Returns a paged list of AP Batches within the logged-in organization.
+
+!!! note
+
+    You can filter the results as follows:
+
+    - For an exact match, use: ```$filter parameter–entity eq ‘string’```
+    - For a partial match, use: ```$filter=contains parameter–contains(entity, ‘string’)```
+
 
 !!! note 
 
     This endpoint does not support logical operators (**in**, **gt**, **ge**, **lt**, **le**) for data filtering.
 
-### <span style="color: #F05D30">Request parameters</span>
+### Request parameters
 <style>
 td, th {
    border: none!important;
@@ -29,7 +37,7 @@ td, th {
 |**$skip**: string <br> *in query*| Skips the first n results.|
 |**Authorization**: string default: <br> Bearer access_token <br> *in header* |Specify the type of the token (bearer) and then insert the ```access_token```, which was obtained during authentication.|
 
-### <span style="color: #F05D30">Responses</span>
+### Responses
 | <div style="width:200px">Response </div>|<div style="width:380px">Explanation</div>|                      
 |-----:|:-------|
 |**200 OK**|OK|      
@@ -39,7 +47,7 @@ td, th {
 |**403 Forbidden**|User doesn’t have appropriate privileges.|
 |**500 Internal Server Error**|Server encountered an unexpected condition that prevented it from fulfilling the request.|
 
-### <span style="color: #F05D30">Properties</span>
+### Properties
 |<div style="width:200px">Property </div> |<div style="width:420px">Explanation</div>|                      
 |-----:|:-------|
 |**apBatchId**: string *(uuid)* | Unique Identifier of the Account Payable Batch |
@@ -60,39 +68,40 @@ td, th {
 
 ``` json title="Response Content-types: APPLICATION/JSON, APPLICATION/XML<br>Response example (200 OK)"
 {
-  "items": [
-    {
-      "apBatchId": "00000000-0000-0000-0000-000000000000",
-      "batchNo": "string",
-      "reference": "string",
-      "batchStatusId": "integer (int32)",
-      "batchStatus": "string",
-      "batchTotal": "number (double)",
-      "invoiceCount": "integer (int32)",
-      "isScheduledExporting": "boolean",
-      "lastExportDate": "string (date-time)",
-      "dateCreated": "string (date-time)",
-      "createdBy": "00000000-0000-0000-0000-000000000000",
-      "createdByUserName": "string",
-      "lastUpdated": "string (date-time)",
-      "lastUpdatedBy": "00000000-0000-0000-0000-000000000000",
-      "lastUpdatedByUserName": "string"
-    }
-  ],
-  "nextPageLink": "string",
-  "count": "integer (int64)"
+    "@odata.context": "link",
+    "@odata.count": "number",
+    "value": [
+        {
+            "apBatchId": "00000000-0000-0000-0000-000000000000",
+            "batchNo": "string",
+            "reference": "string",
+            "batchStatusId": "integer (int32)",
+            "batchStatus": "string",
+            "batchTotal": "number (double)",
+            "invoiceCount": "integer (int32)",
+            "isScheduledExporting": "boolean",
+            "lastExportDate": "string (date-time)",
+            "dateCreated": "string (date-time)",
+            "createdBy": "00000000-0000-0000-0000-000000000000",
+            "createdByUserName": "string",
+            "lastUpdated": "string (date-time)",
+            "lastUpdatedBy": "00000000-0000-0000-0000-000000000000",
+            "lastUpdatedByUserName": "string"
+        }
+    ],
+    "@odata.nextLink": "link"
 }
 ```
 
 ## Create a new AP Batch
 
-### <span style="color: #F05D30">Path</span>
+### Path
 POST /odata/Batches
 
-### <span style="color: #F05D30">Description</span>
-Creates a new AP Batch within a logged organization.
+### Description
+Creates a new AP Batch within the logged-in organization.
 
-### <span style="color: #F05D30">Request body</span>
+### Request body
 |  <div style="width:200px">Parameter</div>  |  <div style="width:420px">Explanation</div>  |                      
 |-----:|:-------|
 |**batchNo**: string | Identification Number of the Batch |
@@ -101,19 +110,19 @@ Creates a new AP Batch within a logged organization.
 
 ``` json title="Request Content-types: APPLICATION/JSON, APPLICATION/XML <br> Request Example"
 {
-  "batchNo": "string",
-  "reference": "string"
+    "batchNo": "string",
+    "reference": "string"
 }
     
 ```
 
-### <span style="color: #F05D30">Request parameters</span>
+### Request parameters
 |  <div style="width:200px">Parameter</div>  |  <div style="width:380px">Explanation</div>  |                      
 |-----:|:-------|
 |**api-version**: string default: 1.0 <br> *in header*|The requested API version.|      
 |**Authorization**: string default: <br> Bearer access_token <br> *in header* |Specify the type of the token (bearer) and then insert the ```access_token```, which was obtained during authentication.|
 
-### <span style="color: #F05D30">Responses</span>
+### Responses
 | <div style="width:200px">Response </div>|<div style="width:380px">Explanation</div>|                      
 |-----:|:-------|
 |**204 No Content** | No Content |    
@@ -124,11 +133,11 @@ Creates a new AP Batch within a logged organization.
 
 ## Get the specified AP Batch
 
-### <span style="color: #F05D30">Path</span>
+### Path
 GET /odata/Batches({batchId})
 
-### <span style="color: #F05D30">Description</span>
-Returns details of the Batch specified by ID.
+### Description
+Returns the details of the Batch specified by ID.
 
 !!! note 
 
@@ -136,7 +145,7 @@ Returns details of the Batch specified by ID.
 
 
 
-### <span style="color: #F05D30">Request parameters</span>
+### Request parameters
 |  <div style="width:200px">Parameter</div>  |  <div style="width:380px">Explanation</div>  |                      
 |-----:|:-------|
 |**batchId**: string *(uuid)* <br> <span style="color: #F05D30">**required**</span> <br> *in path* | Enter the ID of the batch here. |
@@ -144,7 +153,7 @@ Returns details of the Batch specified by ID.
 |**Authorization**: string default: <br> Bearer access_token <br> *in header* |Specify the type of the token (bearer) and then insert the ```access_token```, which was obtained during authentication.|
 
 
-### <span style="color: #F05D30">Responses</span>
+### Responses
 | <div style="width:200px">Response </div>|<div style="width:380px">Explanation</div>|                      
 |-----:|:-------|
 |**200 OK** | OK |    
@@ -154,7 +163,7 @@ Returns details of the Batch specified by ID.
 |**404 Not Found** | Specified ID is absent in the system. |
 |**500 Internal Server Error**|Server encountered an unexpected condition that prevented it from fulfilling the request.|
 
-### <span style="color: #F05D30">Properties</span>
+### Properties
 |<div style="width:200px">Property </div> |<div style="width:420px">Explanation</div>|                      
 |-----:|:-------|
 |**apBatchId**: string *(uuid)* | Unique Identifier of the Account Payable Batch |
@@ -175,38 +184,39 @@ Returns details of the Batch specified by ID.
 
 ``` json title="Response Content-types: APPLICATION/JSON, APPLICATION/XML<br>Response example (200 OK)"
 {
-  "apBatchId": "00000000-0000-0000-0000-000000000000",
-  "batchNo": "string",
-  "reference": "string",
-  "batchStatusId": "integer (int32)",
-  "batchStatus": "string",
-  "batchTotal": "number (double)",
-  "invoiceCount": "integer (int32)",
-  "isScheduledExporting": "boolean",
-  "lastExportDate": "string (date-time)",
-  "dateCreated": "string (date-time)",
-  "createdBy": "00000000-0000-0000-0000-000000000000",
-  "createdByUserName": "string",
-  "lastUpdated": "string (date-time)",
-  "lastUpdatedBy": "00000000-0000-0000-0000-000000000000",
-  "lastUpdatedByUserName": "string"
+    "@odata.context": "link",
+    "apBatchId": "00000000-0000-0000-0000-000000000000",
+    "batchNo": "string",
+    "reference": "string",
+    "batchStatusId": "integer (int32)",
+    "batchStatus": "string",
+    "batchTotal": "number (double)",
+    "invoiceCount": "integer (int32)",
+    "isScheduledExporting": "boolean",
+    "lastExportDate": "string (date-time)",
+    "dateCreated": "string (date-time)",
+    "createdBy": "00000000-0000-0000-0000-000000000000",
+    "createdByUserName": "string",
+    "lastUpdated": "string (date-time)",
+    "lastUpdatedBy": "00000000-0000-0000-0000-000000000000",
+    "lastUpdatedByUserName": "string"
 }
     
 ```
 
-## Get the specified AP Batched invoice
+## Get invoices from the specified AP Batch
 
-### <span style="color: #F05D30">Path</span>
+### Path
 GET /odata/Batches({batchId})/invoices
 
-### <span style="color: #F05D30">Description</span>
-Returns the paged list of the existing invoices within the Batch specified by ID.
+### Description
+Returns a paged list of the existing invoices within the Batch specified by ID.
 
 !!! note 
 
     This endpoint does not support logical operators (**in**, **gt**, **ge**, **lt**, **le**) for data filtering.
 
-### <span style="color: #F05D30">Request parameters</span>
+### Request parameters
 |  <div style="width:200px">Parameter</div>  |  <div style="width:380px">Explanation</div>  |                      
 |-----:|:-------|
 |**batchId**: string *(uuid)* <br> <span style="color: #F05D30">**required**</span> <br> *in path* | Enter the ID of the Batched Invoice here. |
@@ -218,7 +228,7 @@ Returns the paged list of the existing invoices within the Batch specified by ID
 |**$skip**: string <br> *in query*| Skips the first n results.| 
 |**Authorization**: string default: <br> Bearer access_token <br> *in header* |Specify the type of the token (bearer) and then insert the ```access_token```, which was obtained during authentication.|
 
-### <span style="color: #F05D30">Responses</span>
+### Responses
 | <div style="width:200px">Response </div>|<div style="width:380px">Explanation</div>|                      
 |-----:|:-------|
 |**200 OK**|OK|      
@@ -229,7 +239,7 @@ Returns the paged list of the existing invoices within the Batch specified by ID
 |**500 Internal Server Error**|Server encountered an unexpected condition that prevented it from fulfilling the request.|
 
 
-### <span style="color: #F05D30">Properties</span>
+### Properties
 |<div style="width:200px">Property </div> |<div style="width:420px">Explanation</div>|                      
 |-----:|:-------|
 |**apMatchedInvoiceId**: string *(uuid)* | Unique Identifier of the Account Payable Matched Invoice |
@@ -361,15 +371,15 @@ Returns the paged list of the existing invoices within the Batch specified by ID
     
 ```
 
-## Add an invoice to AP Batch
+## Add an invoice to the AP Batch
 
-### <span style="color: #F05D30">Path</span>
+### Path
 POST /odata/Batches({batchId})/Invoices
 
-### <span style="color: #F05D30">Description</span>
-Adds an invoice with the ‘Vouchered’ status to an existed Batch within a logged organization. After adding to the Batch, an added invoice changes its invoice status to ‘Batched’.
+### Description
+Adds an invoice with the **Vouchered** status to an existing Batch within the logged-in organization. After being added, the invoice’s status changes to **Batched**.
 
-### <span style="color: #F05D30">Request parameters</span>
+### Request parameters
 |  <div style="width:200px">Parameter</div>  |  <div style="width:380px">Explanation</div>  |                      
 |-----:|:-------|
 |**batchId**: string *(uuid)* <br> <span style="color: #F05D30">**required**</span> <br> *in path* | Enter the ID of the Batched Invoice here. |
@@ -378,65 +388,65 @@ Adds an invoice with the ‘Vouchered’ status to an existed Batch within a log
 
 ``` json title="Request Content-types: APPLICATION/JSON, APPLICATION/XML <br> Request Example"
 {
-  "apMatchedInvoiceId": "00000000-0000-0000-0000-000000000000",
-  "purchaseOrderId": "00000000-0000-0000-0000-000000000000",
-  "purchaseOrderNo": "string",
-  "sequenceNo": "integer (int32)",
-  "poType": "string",
-  "facilityId": "00000000-0000-0000-0000-000000000000",
-  "facilityNo": "string",
-  "facilityName": "string",
-  "locationId": "00000000-0000-0000-0000-000000000000",
-  "locationNo": "string",
-  "locationName": "string",
-  "vendorId": "00000000-0000-0000-0000-000000000000",
-  "vendorNo": "string",
-  "vendorName": "string",
-  "invoiceNo": "string",
-  "matchedInvoiceStatusId": "integer (int32)",
-  "matchedInvoiceStatus": "string",
-  "vendorRemitToId": "00000000-0000-0000-0000-000000000000",
-  "remitToNo": "string",
-  "remitToDescription": "string",
-  "remitToVendorNo": "string",
-  "creditCardIDId": "00000000-0000-0000-0000-000000000000",
-  "creditCardID": "string",
-  "creditCardIDDescription": "string",
-  "reference": "string",
-  "notes": "string",
-  "invoiceDate": "string (date-time)",
-  "invoiceDueDate": "string (date-time)",
-  "trackingCode": "string",
-  "invoiceValidationTotal": "number (double)",
-  "cerNoId": "00000000-0000-0000-0000-000000000000",
-  "cerNo": "string",
-  "cerNoDescription": "string",
-  "discountAmount": "number (double)",
-  "taxAmount": "number (double)",
-  "shippingAmount": "number (double)",
-  "taxExpenseGLCode": "string",
-  "taxAccrualGLCode": "string",
-  "discountGLCode": "string",
-  "taxExpenseAmount": "number (double)",
-  "apBatchId": "00000000-0000-0000-0000-000000000000",
-  "apBatchNo": "string",
-  "taxCode": "string",
-  "receivedInvoiceId": "00000000-0000-0000-0000-000000000000",
-  "offset": "number (double)",
-  "offsetGLCode": "string",
-  "createdBy": "00000000-0000-0000-0000-000000000000",
-  "createdByUserName": "string",
-  "dateCreated": "string (date-time)",
-  "lastUpdated": "string (date-time)",
-  "lastUpdatedBy": "00000000-0000-0000-0000-000000000000",
-  "lastUpdatedByUserName": "string",
-  "dateSubmitted": "string (date-time)",
-  "submittedBy": "00000000-0000-0000-0000-000000000000",
-  "submittedByUserName": "string"
+    "apMatchedInvoiceId": "00000000-0000-0000-0000-000000000000",
+    "purchaseOrderId": "00000000-0000-0000-0000-000000000000",
+    "purchaseOrderNo": "string",
+    "sequenceNo": "integer (int32)",
+    "poType": "string",
+    "facilityId": "00000000-0000-0000-0000-000000000000",
+    "facilityNo": "string",
+    "facilityName": "string",
+    "locationId": "00000000-0000-0000-0000-000000000000",
+    "locationNo": "string",
+    "locationName": "string",
+    "vendorId": "00000000-0000-0000-0000-000000000000",
+    "vendorNo": "string",
+    "vendorName": "string",
+    "invoiceNo": "string",
+    "matchedInvoiceStatusId": "integer (int32)",
+    "matchedInvoiceStatus": "string",
+    "vendorRemitToId": "00000000-0000-0000-0000-000000000000",
+    "remitToNo": "string",
+    "remitToDescription": "string",
+    "remitToVendorNo": "string",
+    "creditCardIDId": "00000000-0000-0000-0000-000000000000",
+    "creditCardID": "string",
+    "creditCardIDDescription": "string",
+    "reference": "string",
+    "notes": "string",
+    "invoiceDate": "string (date-time)",
+    "invoiceDueDate": "string (date-time)",
+    "trackingCode": "string",
+    "invoiceValidationTotal": "number (double)",
+    "cerNoId": "00000000-0000-0000-0000-000000000000",
+    "cerNo": "string",
+    "cerNoDescription": "string",
+    "discountAmount": "number (double)",
+    "taxAmount": "number (double)",
+    "shippingAmount": "number (double)",
+    "taxExpenseGLCode": "string",
+    "taxAccrualGLCode": "string",
+    "discountGLCode": "string",
+    "taxExpenseAmount": "number (double)",
+    "apBatchId": "00000000-0000-0000-0000-000000000000",
+    "apBatchNo": "string",
+    "taxCode": "string",
+    "receivedInvoiceId": "00000000-0000-0000-0000-000000000000",
+    "offset": "number (double)",
+    "offsetGLCode": "string",
+    "createdBy": "00000000-0000-0000-0000-000000000000",
+    "createdByUserName": "string",
+    "dateCreated": "string (date-time)",
+    "lastUpdated": "string (date-time)",
+    "lastUpdatedBy": "00000000-0000-0000-0000-000000000000",
+    "lastUpdatedByUserName": "string",
+    "dateSubmitted": "string (date-time)",
+    "submittedBy": "00000000-0000-0000-0000-000000000000",
+    "submittedByUserName": "string"
 }
 
 ```
-### <span style="color: #F05D30">Responses</span>
+### Responses
 | <div style="width:200px">Response </div>|<div style="width:380px">Explanation</div>|                      
 |-----:|:-------|
 |**204 No Content**| No Content |      
@@ -446,7 +456,7 @@ Adds an invoice with the ‘Vouchered’ status to an existed Batch within a log
 |**500 Internal Server Error**|Server encountered an unexpected condition that prevented it from fulfilling the request.|
 
 
-### <span style="color: #F05D30">Custom errors</span>
+### Custom errors
 | <div style="width:200px">Response </div>|<div style="width:420px">Explanation</div>|                      
 |-----:|:-------|
 |**400 Bad Request** | Invoice is NOT in the Vouchered status |
@@ -457,22 +467,22 @@ Only Vouchered Invoices can be added to the Batch.
 
 ```
 
-## Change AP Batch status to ‘Exported’
+## Change the AP Batch status to Exported
 
-### <span style="color: #F05D30">Path</span>
+### Path
 POST /odata/Batches({batchId})/Export
 
-### <span style="color: #F05D30">Description</span>
-Changes Batch status to ‘Exported’ when the specified Batch has at least one invoice.
+### Description
+Changes the Batch status to **Exported** when the specified Batch has at least one invoice.
 
-### <span style="color: #F05D30">Request parameters</span>
+### Request parameters
 |  <div style="width:200px">Parameter</div>  |  <div style="width:380px">Explanation</div>  |                      
 |-----:|:-------|
 |**batchId**: string *(uuid)* <br> <span style="color: #F05D30">**required**</span> <br> *in path* | Enter the ID of the Batched Invoice here. |
 |**api-version**: string default: 1.0 <br> *in header*|The requested API version.|     
 |**Authorization**: string default: <br> Bearer access_token <br> *in header* |Specify the type of the token (bearer) and then insert the ```access_token```, which was obtained during authentication.|
 
-### <span style="color: #F05D30">Responses</span>
+### Responses
 | <div style="width:200px">Response </div>|<div style="width:380px">Explanation</div>|                      
 |-----:|:-------|
 |**204 No Content**| No Content |      
@@ -481,22 +491,22 @@ Changes Batch status to ‘Exported’ when the specified Batch has at least one
 |**403 Forbidden**|User doesn’t have appropriate privileges.|
 |**500 Internal Server Error**|Server encountered an unexpected condition that prevented it from fulfilling the request.|
 
-## Change AP batch status to ‘Queued’
+## Change the AP Batch status to Queued
 
-### <span style="color: #F05D30">Path</span>
-POST /odata/Batches({batchId})/SubmitToQueued
+### Path
+POST /odata/Batches({batchId})/SubmitToQueueds
 
-### <span style="color: #F05D30">Description</span>
-Submits AP Batch to the 'Queued' status.
+### Description
+Submits the AP Batch to the **Queued** status.
 
-### <span style="color: #F05D30">Request parameters</span>
+### Request parameters
 |  <div style="width:200px">Parameter</div>  |  <div style="width:380px">Explanation</div>  |                      
 |-----:|:-------|
 |**batchId**: string *(uuid)* <br> <span style="color: #F05D30">**required**</span> <br> *in path* | Enter the ID of the Batched Invoice here. |
 |**api-version**: string default: 1.0 <br> *in header*|The requested API version.|     
 |**Authorization**: string default: <br> Bearer access_token <br> *in header* |Specify the type of the token (bearer) and then insert the ```access_token```, which was obtained during authentication.|
 
-### <span style="color: #F05D30">Responses</span>
+### Responses
 | <div style="width:200px">Response </div>|<div style="width:380px">Explanation</div>|                      
 |-----:|:-------|
 |**204 No Content**| No Content |      
@@ -505,7 +515,7 @@ Submits AP Batch to the 'Queued' status.
 |**403 Forbidden**|User doesn’t have appropriate privileges.|
 |**500 Internal Server Error**|Server encountered an unexpected condition that prevented it from fulfilling the request.|
 
-### <span style="color: #F05D30">Custom errors</span>
+### Custom errors
 | <div style="width:200px">Response </div>|<div style="width:420px">Explanation</div>|                      
 |-----:|:-------|
 |**400 Bad Request** | Specified batch exists in the Queued status. |

@@ -2,14 +2,21 @@
 
 ## Get the list of Requisition Fill Items
 
-### <span style="color: #F05D30">Path</span>
+### Path
 GET /odata/RequisitionFillItems
 
-### <span style="color: #F05D30">Description</span>
-Returns the list of Requisition Fill Items from Fill Requisitions within a logged organization. You can filter the results by the strict match using the ```$filter``` parameter–entity eq ‘string’. Or filter the results by the partial match using ```$filter```=contains parameter–contains(entity, ‘string’).
+### Description
+Returns a paged list list of Requisition Fill Items from the Fill Requisitions within the logged-in organization. 
+
+!!! note
+
+    You can filter the results as follows:
+
+    - For an exact match, use: ```$filter parameter–entity eq ‘string’```
+    - For a partial match, use: ```$filter=contains parameter–contains(entity, ‘string’)```
 
 
-### <span style="color: #F05D30">Request parameters</span>
+### Request parameters
 <style>
 td, th {
    border: none!important;
@@ -28,7 +35,7 @@ td, th {
 |**Authorization**: string default: <br> Bearer access_token <br> *in header* |Specify the type of the token (bearer) and then insert the ```access_token```, which was obtained during authentication.|
 
 
-### <span style="color: #F05D30">Responses</span>
+### Responses
 | <div style="width:200px">Response </div>|<div style="width:420px">Explanation</div>|                      
 |-----:|:-------|
 |**200 OK**|OK|
@@ -39,7 +46,7 @@ td, th {
 |**500 Internal Server Error**|Server encountered an unexpected condition that prevented it from fulfilling the request.|
 
 
-### <span style="color: #F05D30">Properties</span>
+### Properties
 |<div style="width:200px">Property </div> |<div style="width:420px">Explanation</div>|                      
 |-----:|:-------|
 |**requisitionFillItemId**: string *(uuid)* | Unique Identifier of the Requisition Fill Item |
@@ -65,45 +72,46 @@ td, th {
 
 ``` json title="Response Content-types: APPLICATION/JSON, APPLICATION/XML<br>Response example (200 OK)"
 {
-  "items": [
-    {
-      "requisitionFillItemId": "00000000-0000-0000-0000-000000000000",
-      "inventoryNo": "string",
-      "requisitionFillId": "00000000-0000-0000-0000-000000000000",
-      "requisitionFillNo": "string",
-      "requisitionItemId": "00000000-0000-0000-0000-000000000000",
-      "receiptItemId": "00000000-0000-0000-0000-000000000000",
-      "lotNo": "string",
-      "serialNo": "string",
-      "expDate": "string (date-time)",
-      "notes": "string",
-      "fillQuantity": "integer (int32)",
-      "fillUOM": "string",
-      "fillConversionFactor": "integer (int32)",
-      "dateCreated": "string (date-time)",
-      "createdBy": "00000000-0000-0000-0000-000000000000",
-      "createdByName": "string",
-      "lastUpdated": "string (date-time)",
-      "lastUpdatedBy": "00000000-0000-0000-0000-000000000000",
-      "lastUpdatedByName": "string",
-      "unitCost": "number (double)",
-      }
-  ],
-  "nextPageLink": "string",
-  "count": "integer (int64)"
+    "@odata.context": "link",
+    "@odata.count": "number",
+    "value": [
+        {
+            "requisitionFillItemId": "00000000-0000-0000-0000-000000000000",
+            "inventoryNo": "string",
+            "requisitionFillId": "00000000-0000-0000-0000-000000000000",
+            "requisitionFillNo": "string",
+            "requisitionItemId": "00000000-0000-0000-0000-000000000000",
+            "receiptItemId": "00000000-0000-0000-0000-000000000000",
+            "lotNo": "string",
+            "serialNo": "string",
+            "expDate": "string (date-time)",
+            "notes": "string",
+            "fillQuantity": "integer (int32)",
+            "fillUOM": "string",
+            "fillConversionFactor": "integer (int32)",
+            "dateCreated": "string (date-time)",
+            "createdBy": "00000000-0000-0000-0000-000000000000",
+            "createdByName": "string",
+            "lastUpdated": "string (date-time)",
+            "lastUpdatedBy": "00000000-0000-0000-0000-000000000000",
+            "lastUpdatedByName": "string",
+            "unitCost": "number (double)"
+        }
+    ],
+    "@odata.nextLink": "link"
 }
 ```
 
 ## Get the specified Requisition Fill Item
 
-### <span style="color: #F05D30">Path</span>
+### Path
 GET /odata/RequisitionFillItems({requisitionFillItemId})
 
-### <span style="color: #F05D30">Description</span>
-Returns the details of the Requisition Fill Item specified by ID within a logged organization.
+### Description
+Returns the details of the Requisition Fill Item specified by ID within the logged-in organization.
 
 
-### <span style="color: #F05D30">Request parameters</span>
+### Request parameters
 |  <div style="width:200px">Parameter</div>  |  <div style="width:380px">Explanation</div>  |                      
 |-----:|:-------|
 |**requisitionFillItemId**: string *(uuid)* <span style="color: #F05D30">**required**</span> <br> *in path* | Enter the ID of the Requisition Fill Item here. |
@@ -111,7 +119,7 @@ Returns the details of the Requisition Fill Item specified by ID within a logged
 |**Authorization**: string default: <br> Bearer access_token <br> *in header* |Specify the type of the token (bearer) and then insert the ```access_token```, which was obtained during authentication. |
 
 
-### <span style="color: #F05D30">Responses</span>
+### Responses
 | <div style="width:200px">Response </div>|<div style="width:420px">Explanation</div>|                      
 |-----:|:-------|
 |**200 OK**|OK|      
@@ -122,7 +130,7 @@ Returns the details of the Requisition Fill Item specified by ID within a logged
 |**500 Internal Server Error**| Server encountered an unexpected condition that prevented it from fulfilling the request. |
 
 
-### <span style="color: #F05D30">Properties</span>
+### Properties
 |<div style="width:200px">Property </div> |<div style="width:420px">Explanation</div>|                      
 |-----:|:-------|
 |**requisitionFillItemId**: string *(uuid)* | Unique Identifier of the Requisition Fill Item |
@@ -150,25 +158,26 @@ Returns the details of the Requisition Fill Item specified by ID within a logged
 
 ``` json title="Response Content-types: APPLICATION/JSON, APPLICATION/XML<br>Response example (200 OK)"
 {
-  "requisitionFillItemId": "00000000-0000-0000-0000-000000000000",
-  "inventoryNo": "string",
-  "requisitionFillId": "00000000-0000-0000-0000-000000000000",
-  "requisitionFillNo": "string",
-  "requisitionItemId": "00000000-0000-0000-0000-000000000000",
-  "receiptItemId": "00000000-0000-0000-0000-000000000000",
-  "lotNo": "string",
-  "serialNo": "string",
-  "expDate": "string (date-time)",
-  "notes": "string",
-  "fillQuantity": "integer (int32)",
-  "fillUOM": "string",
-  "fillConversionFactor": "integer (int32)",
-  "dateCreated": "string (date-time)",
-  "createdBy": "00000000-0000-0000-0000-000000000000",
-  "createdByName": "string",
-  "lastUpdated": "string (date-time)",
-  "lastUpdatedBy": "00000000-0000-0000-0000-000000000000",
-  "lastUpdatedByName": "string",
-  "unitCost": "number (double)",
+    "@odata.context": "link",
+    "requisitionFillItemId": "00000000-0000-0000-0000-000000000000",
+    "inventoryNo": "string",
+    "requisitionFillId": "00000000-0000-0000-0000-000000000000",
+    "requisitionFillNo": "string",
+    "requisitionItemId": "00000000-0000-0000-0000-000000000000",
+    "receiptItemId": "00000000-0000-0000-0000-000000000000",
+    "lotNo": "string",
+    "serialNo": "string",
+    "expDate": "string (date-time)",
+    "notes": "string",
+    "fillQuantity": "integer (int32)",
+    "fillUOM": "string",
+    "fillConversionFactor": "integer (int32)",
+    "dateCreated": "string (date-time)",
+    "createdBy": "00000000-0000-0000-0000-000000000000",
+    "createdByName": "string",
+    "lastUpdated": "string (date-time)",
+    "lastUpdatedBy": "00000000-0000-0000-0000-000000000000",
+    "lastUpdatedByName": "string",
+    "unitCost": "number (double)",
 }
 ```
