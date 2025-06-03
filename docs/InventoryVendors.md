@@ -579,7 +579,7 @@ ContractExpDate must be greater than 2009-01-25.
 ## Get the list of Inventory Vendors changed from the specified date
 
 ### Path
-GET /odata/InventoryVendors/GetAllFromDate(from={from},facilityId={facilityId},syncFlag={syncFlag})
+```GET /odata/InventoryVendors/GetAllFromDate(from={from},facilityId={facilityId},syncFlag={syncFlag})```
 
 ### Description
 Returns a paged list of existing Inventory Vendors changed from the specified date within a Facility specified by ID.

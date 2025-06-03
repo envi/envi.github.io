@@ -16,6 +16,10 @@ Stay up-to-date with the latest API features, improvements, and articles.
 
 [Subscribe to our newsletter](https://news.envi.net/Signup/dev-news){ .md-button .md-button--primary }
 
+**v. 6.4.1**
+
+A new [File Attachments](FileAttachments.md#get-the-list-of-files-by-entity-id) endpoint is now available to retrieve files for the specified entity ID in the logged-in organization.
+
 **v. 6.3.8**
 
 You can now retrieve the list of Departments and view the details of a specific Department via the new [Departments](Departments.md) endpoints.
@@ -43,7 +47,7 @@ The [Facilities](Facilities.md) endpoints now include the two additional propert
 
 **v. 6.1.0**
 
-You can now use a new [Classification](Classifications.md#create-a-new-classification) endpoint to create a new Classification within a logged organization.
+You can now use a new [Classification](Classifications.md#create-a-new-classification) endpoint to create a new Classification within the logged-in organization.
 
 **v. 6.0.9**
 
@@ -77,11 +81,11 @@ We have added a new feature that enhances our Webhooks: custom headers defined i
 
 **v. 5.8.2**
 
-You can now use a new [Vendor Contact](VendorContacts.md#create-a-new-vendor-contact) endpoint to create a new Vendor Contact within a logged organization.
+You can now use a new [Vendor Contact](VendorContacts.md#create-a-new-vendor-contact) endpoint to create a new Vendor Contact within the logged-in organization.
 
 **v. 5.8.1**
 
-You can now use a new [Vendor Address](VendorAddresses.md#create-a-new-vendor-address) endpoint to create a new Vendor Address within a logged organization.
+You can now use a new [Vendor Address](VendorAddresses.md#create-a-new-vendor-address) endpoint to create a new Vendor Address within the logged-in organization.
 
 **v. 5.8.0**
 
@@ -97,11 +101,11 @@ We have added two new [Vendor Fax Configurations](VendorFaxConfigurations.md#get
 
 **v. 5.7.7**
 
-Create a new Manufacturer within a logged organization by using a new [endpoint](Manufacturers.md#create-a-new-manufacturer).
+Create a new Manufacturer within the logged-in organization by using a new [endpoint](Manufacturers.md#create-a-new-manufacturer).
 
 **v. 5.7.6**
 
-New [Vendor Facilities](VendorFacilities.md) endpoints have been implemented. You can now get the list of Vendor Facilities and the details of the Vendor Facility specified by ID within a logged organization.
+New [Vendor Facilities](VendorFacilities.md) endpoints have been implemented. You can now get the list of Vendor Facilities and the details of the Vendor Facility specified by ID within the logged-in organization.
 
 **v. 5.7.5**
 
@@ -134,7 +138,7 @@ A new [Requisition Item](RequisitionItems.md#add-the-specified-requisition-line-
 
 **v. 5.5.4**
 
-From now on, you can use the [Requisition Items](RequisitionItems.md#) endpoints to get a list of Requisition Items from all Requisitions within a logged organization or get specified Requisition Item by ID.
+From now on, you can use the [Requisition Items](RequisitionItems.md#) endpoints to get a list of Requisition Items from all Requisitions within the logged-in organization or get specified Requisition Item by ID.
 
 **v. 5.4.7**
 
@@ -142,7 +146,7 @@ From now on, you can use the [Requisition Items](RequisitionItems.md#) endpoints
 
 **v. 5.4.5**
 
-We have added a new [Inventory Vendor](Inventory.md#save-the-specified-inventory-vendor) endpoint that enables you to create a new Inventory Vendor within a logged organization and specified Inventory.
+We have added a new [Inventory Vendor](Inventory.md#save-the-specified-inventory-vendor) endpoint that enables you to create a new Inventory Vendor within the logged-in organization and specified Inventory.
 
 **v. 5.4.4**
 
