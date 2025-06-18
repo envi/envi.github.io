@@ -192,6 +192,7 @@ Returns the details of the file specified by ID within the logged-in organizatio
 
 ``` json title="Response Content-types: APPLICATION/JSON, APPLICATION/XML<br>Response Example (200 OK)"
 {
+    "@odata.context": "link",
     "fileId": "00000000-0000-0000-0000-000000000000",
     "entityId": "00000000-0000-0000-0000-000000000000",
     "entityNo": "string",
