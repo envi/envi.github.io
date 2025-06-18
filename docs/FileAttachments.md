@@ -147,3 +147,64 @@ td, th {
 }
 ```
 
+## Get the specified file metadata
+
+### Path
+GET /odata/FileAttachments/{fileId}/metadata
+
+### Description
+Returns the details of the file specified by ID within the logged-in organization.
+
+### Request parameters
+|  <div style="width:200px">Parameter</div>  |  <div style="width:380px">Explanation</div>|                      
+|-----:|:-------|
+|**fileId**: string *(uuid)* <br> <span style="color: #F05D30">**required**</span> <br> *in path* | Enter the ID of the file  here.|
+|**api-version**: string default: 1.0 <br> *in header*|The requested API version.|   
+|**Authorization**: string default: <br> Bearer access_token <br> *in header* |Specify the type of the token (bearer) and then insert the ```access_token```, which was obtained during authentication.|
+
+### Responses
+| <div style="width:200px">Response </div>|<div style="width:380px">Explanation</div>|                      
+|-----:|:-------|
+|**200 OK**| OK |      
+|**400 Bad Request**|Incorrect input data or organization ID does not match with the organization ID user is logged in.|
+|**401 Unauthorized**|Incorrect specified ```access_token``` or ```access_token``` got expired.|
+|**403 Forbidden**|User doesn’t have appropriate privileges.|
+|**404 Not Found** | Specified ID is absent in the system. |
+|**500 Internal Server Error**|Server encountered an unexpected condition that prevented it from fulfilling the request.|
+
+### Properties
+|<div style="width:200px">Property </div> |<div style="width:420px">Explanation</div>|                      
+|-----:|:-------|
+|**fileId**: string *(uuid)* | Unique Identifier of the file |
+|**entityId**: string *(uuid)* | Unique Identifier of the entity |
+|**entityNo**: string | Identification Number of the entity |
+|**entityTypeValue**: string | Type of the entity |
+|**fileName**: string | Name of the file |
+|**fileStatus**: string | Status of the file |
+|**fileSize**: integer <br> (*int64*) | Size of the file |
+|**fileType**: string | Type of the file |
+|**dateCreated**: string <br>*(date-time)* | Date when the file was created |
+|**createdBy**: string *(uuid)* | Unique Identifier of the user who created the file |
+|**createdByName**: string | First and Last Name of the user who created the file |
+|**lastUpdated**: string *(date-time)* | Last Date when the file was updated |
+|**lastUpdatedBy**: string *(uuid)* | Unique Identifier of the last user who updated the file |
+|**lastUpdatedByName**: string | First and Last Name of the last user who updated the file |
+
+``` json title="Response Content-types: APPLICATION/JSON, APPLICATION/XML<br>Response Example (200 OK)"
+{
+    "fileId": "00000000-0000-0000-0000-000000000000",
+    "entityId": "00000000-0000-0000-0000-000000000000",
+    "entityNo": "string",
+    "entityTypeValue": "string",
+    "fileName": "string",
+    "fileStatus": "string",
+    "fileSize": "integer (int64)",
+    "fileType": "string",
+    "dateCreated": "string (date-time)",
+    "createdBy": "00000000-0000-0000-0000-000000000000",
+    "createdByName": "string",
+    "lastUpdated": "string (date-time)",
+    "lastUpdatedBy": "00000000-0000-0000-0000-000000000000",
+    "lastUpdatedByName": "string"
+}
+```

@@ -1,20 +1,22 @@
 # Envi Developer Resources
-This page contains description of Envi Developer Resources. It includes all public end-points as well as description of parameters and models used. You can use this page for testing and prototyping purposes.
 
+The **Envi Developer Resources** provides information about all public endpoints and descriptions of the parameters and models used. It can also be used for testing and prototyping.
 
 !!! note ""
 
-    **API Endpoint** <br>
-    ``` 
-    https://api-demo.envi.net 
-    ``` 
+    **API Endpoint**: https://api-demo.envi.net <br>
     **Schemes**: HTTP, HTTPS <br>
-    **Version**: V1
+    **Version**: v1
+
 
 # What's new
 Stay up-to-date with the latest API features, improvements, and articles.
 
 [Subscribe to our newsletter](https://news.envi.net/Signup/dev-news){ .md-button .md-button--primary }
+
+**v. 6.4.3**
+
+With the new [File Attachments](FileAttachments.md#get-the-specified-file-metadata) endpoint, you can now retrieve file details by ID for your organization.
 
 **v. 6.4.1**
 
@@ -62,7 +64,7 @@ The [Vendor Facilities](VendorFacilities.md) endpoints now include the ```taxabl
 [Purchase Orders](PurchaseOrders.md) support now the ```includeInactiveVendors``` optional parameter.
 
 Starting now, every time you submit a Requisition Fill, the system will notify you via Webhook.
-
+of the Purchase Order.
 **v. 5.9.5**
 
 The two new properties have been added to the [Vendor Facilities](VendorFacilities.md) endpoints: ```ocrMatchOptionId``` and ```ocrMatchOptionValue```.
@@ -71,7 +73,7 @@ The two new properties have been added to the [Vendor Facilities](VendorFaciliti
 
 The two new properties have been added to the [Facilities](Facilities.md) endpoints: ```customField1``` and ```customField1```.
 
-A new  [Facility](Facilities.md#partially-update-the-specified-facility) endpoint has been included, which allows you to partially update the details of the Facility based on Facility ID.
+A new  [Facility](Facilities.md#partially-update-the-specified-facility) endpoint has been included, which allows you to update the details of the Facility based on the Facility ID.
 
 **v. 5.8.3**
 
@@ -93,7 +95,7 @@ The Batch Size is available within Envi, so now you have the possibility to cust
 
 **v. 5.7.9**
 
-We have added two new [Vendor Fax Configurations](VendorFaxConfigurations.md#get-the-list-of-vendor-fax-configurations) endpoints. You can retrieve appropriate data to get the Vendor Fax Delivery info of the Purchase Order.
+We have added two new [Vendor Fax Configurations](VendorFaxConfigurations.md#get-the-list-of-vendor-fax-configurations) endpoints. You can retrieve appropriate data to get the Vendor Fax Delivery info for a Purchase Order.
 
 **v. 5.7.8**
 
@@ -101,7 +103,7 @@ We have added two new [Vendor Fax Configurations](VendorFaxConfigurations.md#get
 
 **v. 5.7.7**
 
-Create a new Manufacturer within the logged-in organization by using a new [endpoint](Manufacturers.md#create-a-new-manufacturer).
+You can now create a new Manufacturer within the logged-in organization using a new [endpoint](Manufacturers.md#create-a-new-manufacturer).
 
 **v. 5.7.6**
 
@@ -124,7 +126,7 @@ The following endpoints have been added to Envi Developer Resources:
 
 **v. 5.7.3**
 
-A new [Requisition Item](RequisitionItems.md#partially-update-the-specified-requisition-item) endpoint has been implemented. Thus, you can partially update the details of the Requisition Line Item specified by Requisition Item ID.
+A new [Requisition Item](RequisitionItems.md#partially-update-the-specified-requisition-item) endpoint has been implemented. Thus, you can partially update the details of the Requisition Line Item specified by the Requisition Item ID.
 
 WebHook is enabled within Envi. The WebHook subscription configuration allows you to get notifications regarding affected entities of selected types.
 
@@ -192,6 +194,6 @@ You can now get the [Inventory Snapshots](InventorySnapshots.md) data.
 
 **v. 5.2.6**
 
-The [Receipts](Receipts.md) endpoints support now additional ``` receiptSourceId ```  and ``` receiptSource``` fields.
+The [Receipts](Receipts.md) endpoints now support additional ``` receiptSourceId ```  and ``` receiptSource``` fields.
 
 
