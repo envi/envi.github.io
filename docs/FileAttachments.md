@@ -209,3 +209,41 @@ Returns the details of the file specified by ID within the logged-in organizatio
     "lastUpdatedByName": "string"
 }
 ```
+
+## Get the specified file content
+
+### Path
+GET /odata/FileAttachments/{fileId}/content
+
+### Description
+Returns the file content (in raw bytes) for the file specified by ID within the logged-in organization. 
+
+!!! note
+
+     Depending on the API tool you use, a file preview may be available, and the file may load automatically or require manual loading.
+
+
+!!! warning
+     
+     If the file status is **Deleted**, **Uploading**, **Failed**, or **Corrupted**, no content is returned.
+
+
+### Request parameters
+|  <div style="width:200px">Parameter</div>  |  <div style="width:380px">Explanation</div>|                      
+|-----:|:-------|
+|**fileId**: string *(uuid)* <br> <span style="color: #F05D30">**required**</span> <br> *in path* | Enter the ID of the file  here.|
+|**api-version**: string default: 1.0 <br> *in header*|The requested API version.|   
+|**Authorization**: string default: <br> Bearer access_token <br> *in header* |Specify the type of the token (bearer) and then insert the ```access_token```, which was obtained during authentication.|
+
+### Responses
+| <div style="width:200px">Response </div>|<div style="width:380px">Explanation</div>|                      
+|-----:|:-------|
+|**200 OK**| OK |      
+|**400 Bad Request**|Incorrect input data or organization ID does not match with the organization ID user is logged in.|
+|**401 Unauthorized**|Incorrect specified ```access_token``` or ```access_token``` got expired.|
+|**403 Forbidden**|User doesn’t have appropriate privileges.|
+|**404 Not Found** | Specified ID is absent in the system. |
+|**500 Internal Server Error**|Server encountered an unexpected condition that prevented it from fulfilling the request.|
+
+The response body includes the raw bytes of the file attachment.
+

@@ -14,13 +14,17 @@ Stay up-to-date with the latest API features, improvements, and articles.
 
 [Subscribe to our newsletter](https://news.envi.net/Signup/dev-news){ .md-button .md-button--primary }
 
+**v. 6.4.4**
+
+You can now retrieve file content by file ID using a new endpoint in [File Attachments](FileAttachments.md#get-the-specified-file-content).
+
 **v. 6.4.3**
 
-With the new [File Attachments](FileAttachments.md#get-the-specified-file-metadata) endpoint, you can now retrieve file details by ID for your organization.
+With the new [File Attachments](FileAttachments.md#get-the-specified-file-metadata) endpoint, you can now retrieve file details by file ID for your organization.
 
 **v. 6.4.1**
 
-A new [File Attachments](FileAttachments.md#get-the-list-of-files-by-entity-id) endpoint is now available to retrieve files for the specified entity ID in the logged-in organization.
+A new [File Attachments](FileAttachments.md#get-the-list-of-files-by-entity-id) endpoint is now available to retrieve the list of files for the specified entity ID in the logged-in organization.
 
 **v. 6.3.8**
 
