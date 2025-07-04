@@ -24,8 +24,11 @@ td, th {
 
 ``` json title="Request Content-types: APPLICATION/JSON, APPLICATION/XML <br> Request Example"
 {
-  "usageId": "string(uuid)",
-  "procedureNo": "string",
+  "usageProcedures":[
+    {
+      "usageId": "00000000-0000-0000-0000-000000000000",
+      "procedureNo": "string"
+    }]
 }
 ```
 
