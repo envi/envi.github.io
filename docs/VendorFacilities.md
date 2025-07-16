@@ -116,7 +116,7 @@ td, th {
 |**splitShippingValue**: boolean | Value of the Split Shipping |
 |**takeDepartmentsIntoAccount**: boolean | Take Departments into account |
 |**taxableItemsOnly**: boolean | Take Taxable Items only into account |
-
+|**poglCodeDisplayTemplate**: string | Template for displaying the Purchase Order General Ledger Сode |
 
 
 ``` json title="Response Content-types: APPLICATION/JSON, APPLICATION/XML<br>Response example (200 OK)"
@@ -194,7 +194,8 @@ td, th {
             "splitDiscountValue": "boolean",
             "splitShippingValue": "boolean",
             "takeDepartmentsIntoAccount": "boolean",
-            "taxableItemsOnly": "boolean"
+            "taxableItemsOnly": "boolean",
+            "poglCodeDisplayTemplate": "string"
         }
     ],
     "@odata.nextLink": "link"
@@ -254,7 +255,8 @@ Creates a new Vendor Facility for the specified active Location (All Locations) 
 |**defaultBlankPOExpected<br>Date**: boolean | Expected Date of Delivery Purchase Order Blank by default. <br> **If not provided**: ```true```.  |
 |**autoAttachProcessOCR**: boolean | Indicates Automatical Processing of OCR Invoices |
 |**vendorFacilityPOAlert**: string | Vendor Facility Purchase Order Alert|
-|**defaultPONotes**: string | Default Notes fo Purchase Orders  |
+|**defaultPONotes**: string | Default Notes fo Purchase Orders|
+|**poglCodeDisplayTemplate**: string | Template for displaying the Purchase Order General Ledger Сode <br> **If not provided**: null. |
 
 ``` json title="Request Content-types: APPLICATION/JSON, APPLICATION/XML <br> Request Example"
 {
@@ -299,7 +301,8 @@ Creates a new Vendor Facility for the specified active Location (All Locations) 
     "defaultBlankPOExpectedDate": "boolean",
     "autoAttachProcessOCR": "boolean",
     "vendorFacilityPOAlert": "string",
-    "defaultPONotes": "string"
+    "defaultPONotes": "string",
+    "poglCodeDisplayTemplate": "string"
 }
     
 ```
@@ -423,8 +426,7 @@ Returns the details of the Vendor Facility specified by ID within the logged-in 
 |**splitShippingValue**: boolean | Value of the Split Shipping |
 |**takeDepartmentsIntoAccount**: boolean | Take Departments into account |
 |**taxableItemsOnly**: boolean | Take Taxable Items only into account |
-
-
+|**poglCodeDisplayTemplate**: string | Template for displaying the Purchase Order General Ledger Сode|
 
 
 ``` json title="Response Content-types: APPLICATION/JSON, APPLICATION/XML<br>Response example (200 OK)"
@@ -499,7 +501,8 @@ Returns the details of the Vendor Facility specified by ID within the logged-in 
     "splitDiscountValue": "boolean",
     "splitShippingValue": "boolean",
     "takeDepartmentsIntoAccount": "boolean",
-    "taxableItemsOnly": "boolean"
+    "taxableItemsOnly": "boolean",
+    "poglCodeDisplayTemplate": "string"
 }
 ```
 

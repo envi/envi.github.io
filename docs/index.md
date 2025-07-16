@@ -14,6 +14,10 @@ Stay up-to-date with the latest API features, improvements, and articles.
 
 [Subscribe to our newsletter](https://news.envi.net/Signup/dev-news){ .md-button .md-button--primary }
 
+**v. 6.4.5**
+
+The new ```poglCodeDisplayTemplate``` property has been added to the [Vendor Facilities](VendorFacilities.md) endpoints.
+
 **v. 6.4.4**
 
 You can now retrieve file content by file ID using a new endpoint in [File Attachments](FileAttachments.md#get-the-specified-file-content).
