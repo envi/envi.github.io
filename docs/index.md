@@ -14,6 +14,10 @@ Stay up-to-date with the latest API features, improvements, and articles.
 
 [Subscribe to our newsletter](https://news.envi.net/Signup/dev-news){ .md-button .md-button--primary }
 
+**v. 6.4.7**
+
+You can now partially update a Classification by ID using the [new](Classifications.md#partially-update-the-specified-classification) endpoint.
+
 **v. 6.4.5**
 
 The new ```poglCodeDisplayTemplate``` property has been added to the [Vendor Facilities](VendorFacilities.md) endpoints.

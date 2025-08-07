@@ -49,7 +49,7 @@ td, th {
 |-----:|:-------|
 |**classificationId**: string *(uuid)* | Unique Identifier of the Сlassification |
 |**classificationName**: string | Name of the Сlassification |
-|**classificationTypeId**: integer *(int32)* | Unique Identifier of the Classification Type |
+|**classificationTypeId**: tiny int| Unique Identifier of the Classification Type |
 |**classificationTypeValue**: string | Type Value of the Classification |
 |**organizationId**: string *(uuid)* | Unique Identifier of the Organization |
 |**organizationNo**: string | Identification Number of the Organization |
@@ -70,7 +70,7 @@ td, th {
         {
             "classificationId": "00000000-0000-0000-0000-000000000000",
             "classificationName": "string",
-            "classificationTypeId": "integer (int32)",
+            "classificationTypeId": "tiny int",
             "classificationTypeValue": "string",
             "organizationId": "00000000-0000-0000-0000-000000000000",
             "organizationNo": "string",
@@ -100,13 +100,13 @@ Creates a new Classification within the logged-in organization.
 | <div style="width:200px">Parameter</div>|<div style="width:420px">Explanation</div>|                      
 |-----:|:-------|
 |**classificationName**: string <br> <span style="color: #F05D30">**required**</span> | Name of the Сlassification |
-|**classificationTypeId**: integer *(int32)* <br> <span style="color: #F05D30">**required**</span> | Unique Identifier of the Classification Type |
+|**classificationTypeId**: tiny int <br> <span style="color: #F05D30">**required**</span> | Unique Identifier of the Classification Type |
 
 
 ``` json title="Request Content-types: APPLICATION/JSON, APPLICATION/XML<br>Request Example"
 {
     "classificationName": "string",
-    "classificationTypeId": "integer (int32)",
+    "classificationTypeId": "tiny int"
 }
 ```
 
@@ -160,7 +160,7 @@ Returns the details of the Classification specified by ID within the logged-in o
 |-----:|:-------|
 |**classificationId**: string *(uuid)* | Unique Identifier of the Сlassification |
 |**classificationName**: string | Name of the Сlassification |
-|**classificationTypeId**: integer *(int32)* | Unique Identifier of the Classification Type |
+|**classificationTypeId**: tiny int | Unique Identifier of the Classification Type |
 |**classificationTypeValue**: string | Type Value of the Classification |
 |**organizationId**: string *(uuid)* | Unique Identifier of the Organization |
 |**organizationNo**: string | Identification Number of the Organization |
@@ -179,7 +179,7 @@ Returns the details of the Classification specified by ID within the logged-in o
     "@odata.context": "link",
     "classificationId": "00000000-0000-0000-0000-000000000000",
     "classificationName": "string",
-    "classificationTypeId": "integer (int32)",
+    "classificationTypeId": "tiny int",
     "classificationTypeValue": "string",
     "organizationId": "00000000-0000-0000-0000-000000000000",
     "organizationNo": "string",
@@ -193,3 +193,43 @@ Returns the details of the Classification specified by ID within the logged-in o
     "lastUpdatedByName": "string"
 }
 ```
+
+## Partially update the specified Classification
+
+### Path
+PATCH /odata/Classifications({сlassificationId})
+
+### Description
+Partially updates the details of the Classification specified by ID.
+
+### Request body
+| <div style="width:200px">Parameter</div>|<div style="width:420px">Explanation</div>|                      
+|-----:|:-------|
+|**classificationName**: string | Name of the Сlassification |
+|**classificationTypeId**: tiny int | Unique Identifier of the Classification Type |
+|**activeStatus**: boolean | Is the Status of the Classification active or not? |
+
+``` json title="Request Content-types: APPLICATION/JSON, APPLICATION/XML<br>Request Example"
+{
+    "classificationName": "string",
+    "classificationTypeId": "tiny int",
+    "activeStatus": "boolean"
+}
+```
+### Request parameters
+| <div style="width:200px">Parameter</div>|<div style="width:380px">Explanation</div>|                       
+|-----:|:-------|
+|**classificationId**: string *(uuid)* <br> <span style="color: #F05D30">**required**</span> <br> *in path* | Enter the ID of the Classification here. |
+|**api-version**: string default: 1.0 <br> *in header*| The requested API version.|      
+|**Authorization**: string default: <br> Bearer access_token <br> *in header* | Specify the type of the token (bearer) and then insert the ```access_token```, which was obtained during authentication.|
+
+
+### Responses
+| <div style="width:200px">Response </div>|<div style="width:380px">Explanation</div>|                      
+|-----:|:-------|
+|**200 OK**|OK|      
+|**400 Bad Request**|Incorrect input data or organization ID does not match with the organization ID user is logged in.|
+|**401 Unauthorized**|Incorrect specified ```access_token``` or ```access_token``` got expired.|
+|**403 Forbidden**|User doesn’t have appropriate privileges.|
+|**404 Not Found** | Specified ID is absent in the system. |
+|**500 Internal Server Error**|Server encountered an unexpected condition that prevented it from fulfilling the request.|
