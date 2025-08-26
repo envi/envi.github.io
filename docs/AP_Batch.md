@@ -212,10 +212,6 @@ GET /odata/Batches({batchId})/invoices
 ### Description
 Returns a paged list of the existing invoices within the Batch specified by ID.
 
-!!! note 
-
-    This endpoint does not support logical operators (**in**, **gt**, **ge**, **lt**, **le**) for data filtering.
-
 ### Request parameters
 |  <div style="width:200px">Parameter</div>  |  <div style="width:380px">Explanation</div>  |                      
 |-----:|:-------|
