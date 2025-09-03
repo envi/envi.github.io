@@ -490,7 +490,7 @@ Changes the Batch status to **Exported** when the specified Batch has at least o
 ## Change the AP Batch status to Queued
 
 ### Path
-POST /odata/Batches({batchId})/SubmitToQueueds
+POST /odata/Batches({batchId})/SubmitToQueued
 
 ### Description
 Submits the AP Batch to the **Queued** status.
