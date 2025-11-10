@@ -15,7 +15,6 @@ Returns a paged list of existing Classifications within the logged-in organizati
     - For an exact match, use: ```$filter parameter–entity eq ‘string’```
     - For a partial match, use: ```$filter=contains parameter–contains(entity, ‘string’)```
 
-
 ### Request parameters
 <style>
 td, th {
@@ -26,23 +25,21 @@ td, th {
 |  <div style="width:200px">Parameter</div>  |  <div style="width:380px">Explanation</div>  |                      
 |-----:|:-------|
 |**api-version**: string default: 1.0 <br> *in header*| The requested API version.| 
-|**$filter**: string <br> *in query* | Restricts the set of items returned. The maximum number of expressions is 100. | 
-|**$orderby**: string <br> *in query* | Specifies the order in which items are returned. The maximum number of expressions is 5. | 
-|**$search**: string <br> *in query*  | Picks the value in all possible fields.|
+|**$filter**: string <br> *in query* | Restricts the set of items returned. Supports up to 100 expressions. | 
+|**$orderby**: string <br> *in query* | Specifies the order in which items are returned. Supports up to 5 expressions. | 
+|**$search**: string <br> *in query*  | Searches across all supported fields. |
 |**$top**: string  <br> *in query* | Returns only the first n results.|
 |**$skip**: string <br> *in query*| Skips the first n results.|
-|**Authorization**: string default: <br> Bearer access_token <br> *in header* | Specify the type of the token (bearer) and then insert the ```access_token```, which was obtained during authentication.|
-
+|**Authorization**: string default: <br> Bearer access_token <br> *in header* | Specify the type of the token (bearer) and insert the ```access_token``` obtained during authentication. |
 
 ### Responses
 | <div style="width:200px">Response </div>|<div style="width:420px">Explanation</div>|                      
 |-----:|:-------|
-|**200 OK**|OK|
-|**400 Bad Request**|Incorrect input data or organization ID does not match with the organization ID user is logged in.|      
-|**401 Unauthorized**|Incorrect specified ```access_token``` or ```access_token``` got expired.|
-|**403 Forbidden**|User doesn’t have appropriate privileges.|
-|**500 Internal Server Error**|Server encountered an unexpected condition that prevented it from fulfilling the request.|
-
+|**200 OK**| OK |
+|**400 Bad Request**| The request contains incorrect input data. |
+|**401 Unauthorized**| The specified ```access_token``` is incorrect, or the ```access_token``` has expired. |
+|**403 Forbidden**| The user doesn’t have the appropriate privileges. |
+|**500 Internal Server Error**| The server encountered an unexpected condition that prevented it from fulfilling the request. |
 
 ### Properties
 |<div style="width:200px">Property </div> |<div style="width:420px">Explanation</div>|                      
@@ -114,21 +111,20 @@ Creates a new Classification within the logged-in organization.
 |  <div style="width:200px">Parameter</div>  |  <div style="width:380px">Explanation</div>  |                      
 |-----:|:-------|
 |**api-version**: string default: 1.0 <br> *in header*| The requested API version.|   
-|**Authorization**: string default: <br> Bearer access_token <br> *in header* |Specify the type of the token (bearer) and then insert the ```access_token```, which was obtained during authentication.|
+|**Authorization**: string default: <br> Bearer access_token <br> *in header* | Specify the type of the token (bearer) and insert the ```access_token``` obtained during authentication. |
 
 ### Responses
 | <div style="width:200px">Response </div>|<div style="width:380px">Explanation</div>|                      
 |-----:|:-------|
-|**200 OK**|OK|   
-|**400 Bad Request**| Incorrect input data or organization ID does not match with the organization ID user is logged in.|
-|**401 Unauthorized**| Incorrect specified ```access_token``` or ```access_token``` got expired.|
-|**403 Forbidden**| User doesn’t have appropriate privileges.|
-|**500 Internal Server Error**| Server encountered an unexpected condition that prevented it from fulfilling the request.|
+|**200 OK**| OK |   
+|**400 Bad Request**| The request contains incorrect input data. |
+|**401 Unauthorized**| The specified ```access_token``` is incorrect, or the ```access_token``` has expired. |
+|**403 Forbidden**| The user doesn’t have the appropriate privileges. |
+|**500 Internal Server Error**| The server encountered an unexpected condition that prevented it from fulfilling the request. |
 
 ``` json title="Response Content-types: APPLICATION/JSON, APPLICATION/XML<br>Response Example (200 OK)"
 "00000000-0000-0000-0000-000000000000"
 ```
-
 
 ## Get the specified Classification
 
@@ -141,19 +137,19 @@ Returns the details of the Classification specified by ID within the logged-in o
 ### Request parameters
 |  <div style="width:200px">Parameter</div>  |  <div style="width:380px">Explanation</div>  |                      
 |-----:|:-------|
-|**classificationId**: string *(uuid)* <br> <span style="color: #F05D30">**required**</span> <br> *in path* | Enter the ID of the Classification here. |
+|**classificationId**: string *(uuid)* <br> <span style="color: #F05D30">**required**</span> <br> *in path* | Enter the ID of the Classification. |
 |**api-version**: string default: 1.0 <br> *in header*| The requested API version. |   
-|**Authorization**: string default: <br> Bearer access_token <br> *in header* |Specify the type of the token (bearer) and then insert the ```access_token```, which was obtained during authentication. |
+|**Authorization**: string default: <br> Bearer access_token <br> *in header* | Specify the type of the token (bearer) and insert the ```access_token``` obtained during authentication. |
 
 ### Responses
 | <div style="width:200px">Response </div>|<div style="width:420px">Explanation</div>|                      
 |-----:|:-------|
 |**200 OK**|OK|      
-|**400 Bad Request**| Incorrect input data or organization ID does not match with the organization ID user is logged in.|
-|**401 Unauthorized**| Incorrect specified ```access_token``` or ```access_token``` got expired.|
-|**403 Forbidden**| User doesn’t have appropriate privileges.|
-|**404 Not Found** | Specified ID is absent in the system. |
-|**500 Internal Server Error**| Server encountered an unexpected condition that prevented it from fulfilling the request. |
+|**400 Bad Request**| The request contains incorrect input data.  |
+|**401 Unauthorized**| The specified ```access_token``` is incorrect, or the ```access_token``` has expired. |
+|**403 Forbidden**| The user doesn’t have the appropriate privileges. |
+|**404 Not Found** | The specified ID is absent in the system. |
+|**500 Internal Server Error**| The server encountered an unexpected condition that prevented it from fulfilling the request. |
 
 ### Properties
 |<div style="width:200px">Property </div> |<div style="width:420px">Explanation</div>|                      
@@ -219,17 +215,17 @@ Partially updates the details of the Classification specified by ID.
 ### Request parameters
 | <div style="width:200px">Parameter</div>|<div style="width:380px">Explanation</div>|                       
 |-----:|:-------|
-|**classificationId**: string *(uuid)* <br> <span style="color: #F05D30">**required**</span> <br> *in path* | Enter the ID of the Classification here. |
+|**classificationId**: string *(uuid)* <br> <span style="color: #F05D30">**required**</span> <br> *in path* | Enter the ID of the Classification. |
 |**api-version**: string default: 1.0 <br> *in header*| The requested API version.|      
-|**Authorization**: string default: <br> Bearer access_token <br> *in header* | Specify the type of the token (bearer) and then insert the ```access_token```, which was obtained during authentication.|
-
+|**Authorization**: string default: <br> Bearer access_token <br> *in header* | Specify the type of the token (bearer) and insert the ```access_token``` obtained during authentication. |
 
 ### Responses
 | <div style="width:200px">Response </div>|<div style="width:380px">Explanation</div>|                      
 |-----:|:-------|
-|**200 OK**|OK|      
-|**400 Bad Request**|Incorrect input data or organization ID does not match with the organization ID user is logged in.|
-|**401 Unauthorized**|Incorrect specified ```access_token``` or ```access_token``` got expired.|
-|**403 Forbidden**|User doesn’t have appropriate privileges.|
-|**404 Not Found** | Specified ID is absent in the system. |
-|**500 Internal Server Error**|Server encountered an unexpected condition that prevented it from fulfilling the request.|
+|**200 OK**| OK |      
+|**400 Bad Request**| The request contains incorrect input data. |
+|**401 Unauthorized**| The specified ```access_token``` is incorrect, or the ```access_token``` has expired. |
+|**403 Forbidden**| The user doesn’t have the appropriate privileges. |
+|**404 Not Found** | The specified ID is absent in the system. |
+|**500 Internal Server Error**| The server encountered an unexpected condition that prevented it from fulfilling the request. |
+

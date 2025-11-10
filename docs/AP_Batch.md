@@ -29,23 +29,23 @@ td, th {
 
 |  <div style="width:200px">Parameter</div>  |  <div style="width:380px">Explanation</div>  |                      
 |-----:|:-------|
-|**api-version**: string default: 1.0 <br> *in header*|The requested API version.|    
-|**$filter**: string <br> *in query* | Restricts the set of items returned. The maximum number of expressions is 100.|  
-|**$orderby**: string <br> *in query* | Specifies the order in which items are returned. The maximum number of expressions is 5.|
-|**$search**: string <br> *in query*  | Picks the value in all possible fields.|  
+|**api-version**: string default: 1.0 <br> *in header*| The requested API version. |
+|**$filter**: string <br> *in query* | Restricts the set of items returned. Supports up to 100 expressions. |  
+|**$orderby**: string <br> *in query* | Specifies the order in which items are returned. Supports up to 5 expressions. |
+|**$search**: string <br> *in query*  | Searches across all supported fields. |
 |**$top**: string  <br> *in query* | Returns only the first n results.|
 |**$skip**: string <br> *in query*| Skips the first n results.|
-|**Authorization**: string default: <br> Bearer access_token <br> *in header* |Specify the type of the token (bearer) and then insert the ```access_token```, which was obtained during authentication.|
+|**Authorization**: string default: <br> Bearer access_token <br> *in header* | Specify the type of the token (bearer) and insert the ```access_token``` obtained during authentication. |
 
 ### Responses
 | <div style="width:200px">Response </div>|<div style="width:380px">Explanation</div>|                      
 |-----:|:-------|
-|**200 OK**|OK|      
-|**400 Bad Request**|Incorrect input data or organization ID does not match with the organization ID user is logged in.|
+|**200 OK**|OK|
+|**400 Bad Request**| The request contains incorrect input data. |
 |**400 Bad Request** | The limit for the ```$top``` query has been exceeded. The value from the incoming request is 'N' (N is your value from the request). You can find the data on the current limit [here](Options_and_Limitations.md#top-and-skip). |
-|**401 Unauthorized**|Incorrect specified ```access_token``` or ```access_token``` got expired.|
-|**403 Forbidden**|User doesn’t have appropriate privileges.|
-|**500 Internal Server Error**|Server encountered an unexpected condition that prevented it from fulfilling the request.|
+|**401 Unauthorized**| The specified ```access_token``` is incorrect, or the ```access_token``` has expired.|
+|**403 Forbidden**|The user doesn’t have the appropriate privileges.|
+|**500 Internal Server Error**| The server encountered an unexpected condition that prevented it from fulfilling the request.|
 
 ### Properties
 |<div style="width:200px">Property </div> |<div style="width:420px">Explanation</div>|                      
@@ -119,17 +119,17 @@ Creates a new AP Batch within the logged-in organization.
 ### Request parameters
 |  <div style="width:200px">Parameter</div>  |  <div style="width:380px">Explanation</div>  |                      
 |-----:|:-------|
-|**api-version**: string default: 1.0 <br> *in header*|The requested API version.|      
-|**Authorization**: string default: <br> Bearer access_token <br> *in header* |Specify the type of the token (bearer) and then insert the ```access_token```, which was obtained during authentication.|
+|**api-version**: string default: 1.0 <br> *in header*| The requested API version.|      
+|**Authorization**: string default: <br> Bearer access_token <br> *in header* | Specify the type of the token (bearer) and insert the ```access_token``` obtained during authentication. |
 
 ### Responses
 | <div style="width:200px">Response </div>|<div style="width:380px">Explanation</div>|                      
 |-----:|:-------|
-|**204 No Content** | No Content |    
-|**400 Bad Request**|Incorrect input data or organization ID does not match with the organization ID user is logged in.|
-|**401 Unauthorized**|Incorrect specified ```access_token``` or ```access_token``` got expired.|
-|**403 Forbidden**|User doesn’t have appropriate privileges.|
-|**500 Internal Server Error**|Server encountered an unexpected condition that prevented it from fulfilling the request.|
+|**204 No Content** | No Content | 
+|**400 Bad Request**| The request contains incorrect input data. |
+|**401 Unauthorized**| The specified ```access_token``` is incorrect, or the ```access_token``` has expired.|
+|**403 Forbidden**| The user doesn’t have the appropriate privileges.|
+|**500 Internal Server Error**| The server encountered an unexpected condition that prevented it from fulfilling the request.|
 
 ## Get the specified AP Batch
 
@@ -143,25 +143,22 @@ Returns the details of the Batch specified by ID.
 
     This endpoint does not support logical operators (**in**, **gt**, **ge**, **lt**, **le**) for data filtering.
 
-
-
 ### Request parameters
 |  <div style="width:200px">Parameter</div>  |  <div style="width:380px">Explanation</div>  |                      
 |-----:|:-------|
-|**batchId**: string *(uuid)* <br> <span style="color: #F05D30">**required**</span> <br> *in path* | Enter the ID of the batch here. |
-|**api-version**: string default: 1.0 <br> *in header*|The requested API version.|      
-|**Authorization**: string default: <br> Bearer access_token <br> *in header* |Specify the type of the token (bearer) and then insert the ```access_token```, which was obtained during authentication.|
-
+|**batchId**: string *(uuid)* <br> <span style="color: #F05D30">**required**</span> <br> *in path* | Enter the ID of the Batch. |
+|**api-version**: string default: 1.0 <br> *in header*| The requested API version. |      
+|**Authorization**: string default: <br> Bearer access_token <br> *in header* | Specify the type of the token (bearer) and insert the ```access_token``` obtained during authentication. |
 
 ### Responses
 | <div style="width:200px">Response </div>|<div style="width:380px">Explanation</div>|                      
 |-----:|:-------|
-|**200 OK** | OK |    
-|**400 Bad Request**|Incorrect input data or organization ID does not match with the organization ID user is logged in.|
-|**401 Unauthorized**|Incorrect specified ```access_token``` or ```access_token``` got expired.|
-|**403 Forbidden**|User doesn’t have appropriate privileges.|
-|**404 Not Found** | Specified ID is absent in the system. |
-|**500 Internal Server Error**|Server encountered an unexpected condition that prevented it from fulfilling the request.|
+|**200 OK**|OK|      
+|**400 Bad Request**| The request contains incorrect input data. |
+|**401 Unauthorized**| The specified ```access_token``` is incorrect, or the ```access_token``` has expired.|
+|**403 Forbidden**| The user doesn’t have the appropriate privileges.|
+|**404 Not Found** | The specified ID is absent in the system. |
+|**500 Internal Server Error**| The server encountered an unexpected condition that prevented it from fulfilling the request.|
 
 ### Properties
 |<div style="width:200px">Property </div> |<div style="width:420px">Explanation</div>|                      
@@ -215,25 +212,24 @@ Returns a paged list of the existing invoices within the Batch specified by ID.
 ### Request parameters
 |  <div style="width:200px">Parameter</div>  |  <div style="width:380px">Explanation</div>  |                      
 |-----:|:-------|
-|**batchId**: string *(uuid)* <br> <span style="color: #F05D30">**required**</span> <br> *in path* | Enter the ID of the Batched Invoice here. |
-|**api-version**: string default: 1.0 <br> *in header*|The requested API version.|     
-|**$filter**: string <br> *in query* | Restricts the set of items returned. The maximum number of expressions is 100.|  
-|**$orderby**: string <br> *in query* | Specifies the order in which items are returned. The maximum number of expressions is 5.|
-|**$search**: string <br> *in query*  | Picks the value in all possible fields.|  
+|**batchId**: string *(uuid)* <br> <span style="color: #F05D30">**required**</span> <br> *in path* | Enter the ID of the Batched Invoice. |
+|**api-version**: string default: 1.0 <br> *in header*| The requested API version.|     
+|**$filter**: string <br> *in query* | Restricts the set of items returned. Supports up to 100 expressions. |  
+|**$orderby**: string <br> *in query* | Specifies the order in which items are returned. Supports up to 5 expressions. |
+|**$search**: string <br> *in query*  | Searches across all supported fields. |
 |**$top**: string  <br> *in query* | Returns only the first n results.|
 |**$skip**: string <br> *in query*| Skips the first n results.| 
-|**Authorization**: string default: <br> Bearer access_token <br> *in header* |Specify the type of the token (bearer) and then insert the ```access_token```, which was obtained during authentication.|
+|**Authorization**: string default: <br> Bearer access_token <br> *in header* | Specify the type of the token (bearer) and insert the ```access_token``` obtained during authentication. |
 
 ### Responses
 | <div style="width:200px">Response </div>|<div style="width:380px">Explanation</div>|                      
 |-----:|:-------|
 |**200 OK**|OK|      
-|**400 Bad Request**|Incorrect input data or organization ID does not match with the organization ID user is logged in.|
+|**400 Bad Request**| The request contains incorrect input data. |
 |**400 Bad Request** | The limit for the ```$top``` query has been exceeded. The value from the incoming request is 'N' (N is your value from the request). You can find the data on the current limit [here](Options_and_Limitations.md#top-and-skip). |
-|**401 Unauthorized**|Incorrect specified ```access_token``` or ```access_token``` got expired.|
-|**403 Forbidden**|User doesn’t have appropriate privileges.|
-|**500 Internal Server Error**|Server encountered an unexpected condition that prevented it from fulfilling the request.|
-
+|**401 Unauthorized**| The specified ```access_token``` is incorrect, or the ```access_token``` has expired.|
+|**403 Forbidden**| The user doesn’t have the appropriate privileges.|
+|**500 Internal Server Error**| The server encountered an unexpected condition that prevented it from fulfilling the request.|
 
 ### Properties
 |<div style="width:200px">Property </div> |<div style="width:420px">Explanation</div>|                      
@@ -378,9 +374,9 @@ Adds an invoice with the **Vouchered** status to an existing Batch within the lo
 ### Request parameters
 |  <div style="width:200px">Parameter</div>  |  <div style="width:380px">Explanation</div>  |                      
 |-----:|:-------|
-|**batchId**: string *(uuid)* <br> <span style="color: #F05D30">**required**</span> <br> *in path* | Enter the ID of the Batched Invoice here. |
-|**api-version**: string default: 1.0 <br> *in header*|The requested API version.|     
-|**Authorization**: string default: <br> Bearer access_token <br> *in header* |Specify the type of the token (bearer) and then insert the ```access_token```, which was obtained during authentication.|
+|**batchId**: string *(uuid)* <br> <span style="color: #F05D30">**required**</span> <br> *in path* | Enter the ID of the Batched Invoice. |
+|**api-version**: string default: 1.0 <br> *in header*| The requested API version.|     
+|**Authorization**: string default: <br> Bearer access_token <br> *in header* | Specify the type of the token (bearer) and insert the ```access_token``` obtained during authentication. |
 
 ``` json title="Request Content-types: APPLICATION/JSON, APPLICATION/XML <br> Request Example"
 {
@@ -446,16 +442,16 @@ Adds an invoice with the **Vouchered** status to an existing Batch within the lo
 | <div style="width:200px">Response </div>|<div style="width:380px">Explanation</div>|                      
 |-----:|:-------|
 |**204 No Content**| No Content |      
-|**400 Bad Request**|Incorrect input data or organization ID does not match with the organization ID user is logged in.|
-|**401 Unauthorized**|Incorrect specified ```access_token``` or ```access_token``` got expired.|
-|**403 Forbidden**|User doesn’t have appropriate privileges.|
-|**500 Internal Server Error**|Server encountered an unexpected condition that prevented it from fulfilling the request.|
+|**400 Bad Request**| The request contains incorrect input data. |
+|**401 Unauthorized**| The specified ```access_token``` is incorrect, or the ```access_token``` has expired.|
+|**403 Forbidden**|The user doesn’t have the appropriate privileges.|
+|**500 Internal Server Error**| The server encountered an unexpected condition that prevented it from fulfilling the request.|
 
 
 ### Custom errors
 | <div style="width:200px">Response </div>|<div style="width:420px">Explanation</div>|                      
 |-----:|:-------|
-|**400 Bad Request** | Invoice is NOT in the Vouchered status |
+|**400 Bad Request** | The invoice is NOT in the **Vouchered** status |
 
 ``` json title="Response Example"
 
@@ -474,18 +470,18 @@ Changes the Batch status to **Exported** when the specified Batch has at least o
 ### Request parameters
 |  <div style="width:200px">Parameter</div>  |  <div style="width:380px">Explanation</div>  |                      
 |-----:|:-------|
-|**batchId**: string *(uuid)* <br> <span style="color: #F05D30">**required**</span> <br> *in path* | Enter the ID of the Batched Invoice here. |
-|**api-version**: string default: 1.0 <br> *in header*|The requested API version.|     
-|**Authorization**: string default: <br> Bearer access_token <br> *in header* |Specify the type of the token (bearer) and then insert the ```access_token```, which was obtained during authentication.|
+|**batchId**: string *(uuid)* <br> <span style="color: #F05D30">**required**</span> <br> *in path* | Enter the ID of the Batched Invoice. |
+|**api-version**: string default: 1.0 <br> *in header*| The requested API version. |     
+|**Authorization**: string default: <br> Bearer access_token <br> *in header* | Specify the type of the token (bearer) and insert the ```access_token``` obtained during authentication. |
 
 ### Responses
 | <div style="width:200px">Response </div>|<div style="width:380px">Explanation</div>|                      
 |-----:|:-------|
 |**204 No Content**| No Content |      
-|**400 Bad Request**|This Batch cannot be exported because it does not contain any invoice.|
-|**401 Unauthorized**|Incorrect specified ```access_token``` or ```access_token``` got expired.|
-|**403 Forbidden**|User doesn’t have appropriate privileges.|
-|**500 Internal Server Error**|Server encountered an unexpected condition that prevented it from fulfilling the request.|
+|**400 Bad Request**| This Batch cannot be exported because it doesn't contain any invoices.|
+|**401 Unauthorized**| The specified ```access_token``` is incorrect, or the ```access_token``` has expired.|
+|**403 Forbidden**| The user doesn’t have the appropriate privileges.|
+|**500 Internal Server Error**| The server encountered an unexpected condition that prevented it from fulfilling the request.|
 
 ## Change the AP Batch status to Queued
 
@@ -498,23 +494,23 @@ Submits the AP Batch to the **Queued** status.
 ### Request parameters
 |  <div style="width:200px">Parameter</div>  |  <div style="width:380px">Explanation</div>  |                      
 |-----:|:-------|
-|**batchId**: string *(uuid)* <br> <span style="color: #F05D30">**required**</span> <br> *in path* | Enter the ID of the Batched Invoice here. |
+|**batchId**: string *(uuid)* <br> <span style="color: #F05D30">**required**</span> <br> *in path* | Enter the ID of the Batched Invoice. |
 |**api-version**: string default: 1.0 <br> *in header*|The requested API version.|     
-|**Authorization**: string default: <br> Bearer access_token <br> *in header* |Specify the type of the token (bearer) and then insert the ```access_token```, which was obtained during authentication.|
+|**Authorization**: string default: <br> Bearer access_token <br> *in header* | Specify the type of the token (bearer) and insert the ```access_token``` obtained during authentication. |
 
 ### Responses
 | <div style="width:200px">Response </div>|<div style="width:380px">Explanation</div>|                      
 |-----:|:-------|
-|**204 No Content**| No Content |      
-|**400 Bad Request**|Incorrect input data or organization ID does not match with the organization ID user is logged in.|
-|**401 Unauthorized**|Incorrect specified ```access_token``` or ```access_token``` got expired.|
-|**403 Forbidden**|User doesn’t have appropriate privileges.|
-|**500 Internal Server Error**|Server encountered an unexpected condition that prevented it from fulfilling the request.|
+|**204 No Content**| No Content |          
+|**400 Bad Request**| The request contains incorrect input data. |
+|**401 Unauthorized**| The specified ```access_token``` is incorrect, or the ```access_token``` has expired.|
+|**403 Forbidden**|The user doesn’t have the appropriate privileges.|
+|**500 Internal Server Error**| The server encountered an unexpected condition that prevented it from fulfilling the request.|
 
 ### Custom errors
 | <div style="width:200px">Response </div>|<div style="width:420px">Explanation</div>|                      
 |-----:|:-------|
-|**400 Bad Request** | Specified batch exists in the Queued status. |
+|**400 Bad Request** | The specified Batch exists in the **Queued** status. |
 
 ``` json title="Response Example"
 
