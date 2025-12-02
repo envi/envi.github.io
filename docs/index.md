@@ -9,8 +9,8 @@ The **Envi Developer Resources** provides information about all public endpoints
     **Version**: v1
 
 
-# What's new
-Stay up-to-date with the latest API features, improvements, and articles.
+# What's New
+Stay up to date with the latest API features, improvements, and articles.
 
 [Subscribe to our newsletter](https://news.envi.net/Signup/dev-news){ .md-button .md-button--primary }
 

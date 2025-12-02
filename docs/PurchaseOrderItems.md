@@ -105,6 +105,8 @@ td, th {
 |**departmentNo**: string | Number of the Department |
 |**departmentName**: string | Name of the Department |
 |**poUdfLabels**: string | Purchase Order User Defined Field labels |
+|**consignmentOrder**: boolean | Is the Purchase Order a Consignment Order or not? |
+|**consignmentSerialNo**: string | Consignment Serial Number of the Line Item |
 
 
 ``` json title="Response Content-types: APPLICATION/JSON, APPLICATION/XML<br>Response example (200 OK)"
@@ -172,7 +174,9 @@ td, th {
             "departmentId": "00000000-0000-0000-0000-000000000000",
             "departmentNo": "string",
             "departmentName": "string",
-            "poUdfLabels": "[{\"Name\":\"string1\",\"Value\":\"string2\"}]"
+            "poUdfLabels": "[{\"Name\":\"string1\",\"Value\":\"string2\"}]",
+            "consignmentOrder": "boolean",
+            "consignmentSerialNo": "string"
         }
     ],
     "@odata.nextLink": "link"
@@ -287,6 +291,8 @@ Returns the details of the Purchase Order Item specified by ID.
 |**departmentNo**: string | Number of the Department |
 |**departmentName**: string | Name of the Department |
 |**poUdfLabels**: string | Purchase Order User Defined Field labels |
+|**consignmentOrder**: boolean | Is the Purchase Order a Consignment Order or not? |
+|**consignmentSerialNo**: string | Consignment Serial Number of the Line Item |
 
 ``` json title="Response Content-types: APPLICATION/JSON, APPLICATION/XML<br>Response example (200 OK)"
 {
@@ -350,7 +356,9 @@ Returns the details of the Purchase Order Item specified by ID.
     "departmentId": "00000000-0000-0000-0000-000000000000",
     "departmentNo": "string",
     "departmentName": "string",
-    "poUdfLabels": "[{\"Name\":\"string1\",\"Value\":\"string2\"}]"
+    "poUdfLabels": "[{\"Name\":\"string1\",\"Value\":\"string2\"}]",
+    "consignmentOrder": "boolean",
+    "consignmentSerialNo": "string"
 }
 ```
 !!! note

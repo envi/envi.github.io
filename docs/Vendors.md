@@ -69,6 +69,7 @@ td, th {
 |**url**: string | Uniform Resource Locator |
 |**systemVendorName**: string | Name of the System Vendor |
 |**ediVendorNo**: string | Code of the Supplier EDI who sells products |
+|**allowConsignmentOrders**: boolean | Is Consignment Order sending enabled for the Vendor or not? |
 
 
 ``` json title="Response Content-types: APPLICATION/JSON, APPLICATION/XML<br>Response example (200 OK)"
@@ -93,7 +94,8 @@ td, th {
             "activeStatus": "boolean",
             "url": "string",
             "systemVendorName": "string",
-            "ediVendorNo": "string"
+            "ediVendorNo": "string",
+            "allowConsignmentOrders": "boolean"
         }
     ],
     "@odata.nextLink": "link"
@@ -145,6 +147,7 @@ Returns the details of the Vendor specified by ID.
 |**url**: string | Uniform Resource Locator |
 |**systemVendorName**: string | Name of the System Vendor |
 |**ediVendorNo**: string | Code of the Supplier EDI who sells products |
+|**allowConsignmentOrders**: boolean | Is Consignment Order sending enabled for the Vendor or not? |
 
 
 ``` json title="Response Content-types: APPLICATION/JSON, APPLICATION/XML<br>Response example (200 OK)"
@@ -166,7 +169,8 @@ Returns the details of the Vendor specified by ID.
     "activeStatus": "boolean",
     "url": "string",
     "systemVendorName": "string",
-    "ediVendorNo": "string"
+    "ediVendorNo": "string",
+    "allowConsignmentOrders": "boolean"
 }
 ```
 

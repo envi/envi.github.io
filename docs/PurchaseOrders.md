@@ -135,6 +135,7 @@ td, th {
 |**projectNoId**: string *(uuid)* | Unique Identifier of the Project Number |
 |**projectNo**: string | Project Number for the Purchase Order|
 |**projectNoDescription**: string | Description of the Project Number |
+|**consignmentOrder**: boolean | Is the Purchase Order a Consignment Order or not? |
 
 ``` json title="Response Content-types: APPLICATION/JSON, APPLICATION/XML<br>Response example (200 OK)"
 {
@@ -228,7 +229,8 @@ td, th {
             "poUdfLabels": "[{\"Name\":\"string1\",\"Value\":\"string2\"}]",
             "projectNoId": "00000000-0000-0000-0000-000000000000",
             "projectNo": "string",
-            "projectNoDescription": "string"
+            "projectNoDescription": "string",
+            "consignmentOrder": "boolean"
         }
     ],
     "@odata.nextLink": "link"
@@ -372,6 +374,7 @@ Returns the details of the Purchase Order specified by ID.
 |**projectNoId**: string *(uuid)* | Unique Identifier of the Project Number |
 |**projectNo**: string | Project Number for the Purchase Order|
 |**projectNoDescription**: string | Description of the Project Number |
+|**consignmentOrder**: boolean | Is the Purchase Order a Consignment Order or not? |
 
 ``` json title="Response Content-types: APPLICATION/JSON, APPLICATION/XML<br>Response example (200 OK)"
 {
@@ -462,7 +465,8 @@ Returns the details of the Purchase Order specified by ID.
     "poUdfLabels": "[{\"Name\":\"string1\",\"Value\":\"string2\"}]",
     "projectNoId": "00000000-0000-0000-0000-000000000000",
     "projectNo": "string",
-    "projectNoDescription": "string"
+    "projectNoDescription": "string",
+    "consignmentOrder": "boolean"
 }
 ```
 
@@ -570,6 +574,8 @@ Returns a paged list of existing Purchase Order Items within the Purchase Order 
 |**departmentNo**: string | Number of the Department |
 |**departmentName**: string | Name of the Department |
 |**poUdfLabels**: string | Purchase Order User Defined Field labels |
+|**consignmentOrder**: boolean | Is the Purchase Order a Consignment Order or not? |
+|**consignmentSerialNo**: string | Consignment Serial Number of the Line Item |
 
 ``` json title="Response Content-types: APPLICATION/JSON, APPLICATION/XML<br>Response example (200 OK)"
 {
@@ -636,7 +642,9 @@ Returns a paged list of existing Purchase Order Items within the Purchase Order 
             "departmentId": "00000000-0000-0000-0000-000000000000",
             "departmentNo": "string",
             "departmentName": "string",
-            "poUdfLabels": "[{\"Name\":\"string1\",\"Value\":\"string2\"}]"
+            "poUdfLabels": "[{\"Name\":\"string1\",\"Value\":\"string2\"}]",
+            "consignmentOrder": "boolean",
+            "consignmentSerialNo": "string" 
         }
     ],
     "@odata.nextLink": "link"
