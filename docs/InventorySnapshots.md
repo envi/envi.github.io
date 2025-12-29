@@ -38,7 +38,7 @@ td, th {
 |**200 OK**| OK |
 |**400 Bad Request**| The request contains incorrect input data. |
 |**400 Bad Request** | The limit for the ```$top``` query has been exceeded. The value from the incoming request is 'N' (N is your value from the request). You can find the data on the current limit [here](Options_and_Limitations.md#top-and-skip). |
-|**401 Unauthorized**| The specified ```access_token``` is incorrect, or the ```access_token``` has expired. |
+|**401 Unauthorized**| The specified ```access_token``` is invalid or has expired. |
 |**403 Forbidden**| The user doesn’t have the appropriate privileges. |
 |**404 Not Found** | The specified ID is absent in the system. |
 |**500 Internal Server Error**| The server encountered an unexpected condition that prevented it from fulfilling the request.|
@@ -54,7 +54,7 @@ td, th {
 |**dateCreated**: string *(date-time)* | Date when the Snapshot was created |
 |**createdBy**: string *(uuid)* | Unique Identifier of the user who created the Snapshot |
 |**createdByName**: string | Name of the user who created the Snapshot |
-|**isFiltered**: boolean *(uuid)* | Is the data for Inventory Snapshot filtered or not? |
+|**isFiltered**: boolean | Is the data for Inventory Snapshot filtered or not? |
 |**isAutoExecuted**: boolean | Is the Inventory Snapshot autoexecuted or not? |
 
 ``` json title="Response Content-types: APPLICATION/JSON, APPLICATION/XML<br>Response example (200 OK)"
@@ -99,7 +99,7 @@ Returns the details of the Inventory Snapshot specified by ID.
 |-----:|:-------|
 |**200 OK**| OK |
 |**400 Bad Request**| The request contains incorrect input data. |
-|**401 Unauthorized**| The specified ```access_token``` is incorrect, or the ```access_token``` has expired. |
+|**401 Unauthorized**| The specified ```access_token``` is invalid or has expired. |
 |**403 Forbidden**| The user doesn’t have the appropriate privileges. |
 |**404 Not Found** | The specified ID is absent in the system. |
 |**500 Internal Server Error**| The server encountered an unexpected condition that prevented it from fulfilling the request. |
@@ -115,7 +115,7 @@ Returns the details of the Inventory Snapshot specified by ID.
 |**dateCreated**: string *(date-time)* | Date when the Snapshot was created |
 |**createdBy**: string *(uuid)* | Unique Identifier of the user who created the Snapshot |
 |**createdByName**: string | Name of the user who created the Snapshot |
-|**isFiltered**: boolean *(uuid)* | Is the data for Inventory Snapshot filtered or not? |
+|**isFiltered**: boolean | Is the data for Inventory Snapshot filtered or not? |
 |**isAutoExecuted**: boolean | Is the Inventory Snapshot autoexecuted or not? |
 
 ``` json title="Response Content-types: APPLICATION/JSON, APPLICATION/XML<br>Response example (200 OK)"
@@ -167,7 +167,7 @@ Returns a paged list of items of the Inventory Snapshot specified by ID within t
 |**200 OK**| OK |
 |**400 Bad Request**| The request contains incorrect input data. |
 |**400 Bad Request** | The limit for the ```$top``` query has been exceeded. The value from the incoming request is 'N' (N is your value from the request). You can find the data on the current limit [here](Options_and_Limitations.md#top-and-skip). |
-|**401 Unauthorized**| The specified ```access_token``` is incorrect, or the ```access_token``` has expired. |
+|**401 Unauthorized**| The specified ```access_token``` is invalid or has expired. |
 |**403 Forbidden**| The user doesn’t have the appropriate privileges. |
 |**500 Internal Server Error**| The server encountered an unexpected condition that prevented it from fulfilling the request. |
 

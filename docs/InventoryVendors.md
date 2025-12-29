@@ -36,7 +36,7 @@ td, th {
 |**200 OK**| OK |
 |**400 Bad Request** | The limit for the ```$top``` query has been exceeded. The value from the incoming request is 'N' (N is your value from the request). You can find the data on the current limit [here](Options_and_Limitations.md#top-and-skip). |
 |**400 Bad Request**| The request contains incorrect input data. |
-|**401 Unauthorized**| The specified ```access_token``` is incorrect, or the ```access_token``` has expired. |
+|**401 Unauthorized**| The specified ```access_token``` is invalid or has expired. |
 |**403 Forbidden**| The user doesn’t have the appropriate privileges. |
 |**500 Internal Server Error**| The server encountered an unexpected condition that prevented it from fulfilling the request. |
 
@@ -108,7 +108,7 @@ Returns a paged list of existing purchasing units within the Inventory Vendor sp
 |**200 OK**| OK |
 |**400 Bad Request**| The request contains incorrect input data. |
 |**400 Bad Request** | The limit for the ```$top``` query has been exceeded. The value from the incoming request is 'N' (N is your value from the request). You can find the data on the current limit [here](Options_and_Limitations.md#top-and-skip). |
-|**401 Unauthorized**| The specified ```access_token``` is incorrect, or the ```access_token``` has expired. |
+|**401 Unauthorized**| The specified ```access_token``` is invalid or has expired. |
 |**403 Forbidden**| The user doesn’t have the appropriate privileges. |
 |**500 Internal Server Error**| The server encountered an unexpected condition that prevented it from fulfilling the request. |
 
@@ -182,23 +182,23 @@ Returns a paged list of the all existing Inventory Vendors.
 ### Request parameters
 |  <div style="width:200px">Parameter</div>  |  <div style="width:380px">Explanation</div>  |                      
 |-----:|:-------|
-|**api-version**: string default: 1.0 <br> *in header*| The requested API version.|   
-|**$search**: string <br> *in query*  | Picks the value in all possible fields.|
-|**$filter**: string <br> *in query* | Filters the results, based on a Boolean condition. |  
-|**$orderby**: string <br> *in query* | Sorts the results.|
+|**api-version**: string default: 1.0 <br> *in header*| The requested API version. |   
+|**$search**: string <br> *in query*  | Searches across all supported fields. |   
+|**$filter**: string <br> *in query* | Filters results based on a Boolean condition.|  
+|**$orderby**: string <br> *in query* | Sorts results.|
 |**$top**: string  <br> *in query* | Returns only the first n results.|
-|**$skip**: string <br> *in query*| Skips the first n results.|
-|**Authorization**: string default: <br> Bearer access_token <br> *in header* |Specify the type of the token (bearer) and then insert the ```access_token```, which was obtained during authentication.|
+|**$skip**: string <br> *in query*| Skips the first n results. |
+|**Authorization**: string default: <br> Bearer access_token <br> *in header* | Specify the type of the token (bearer) and insert the ```access_token``` obtained during authentication. |
 
 ### Responses
 | <div style="width:200px">Response </div>|<div style="width:380px">Explanation</div>|                      
 |-----:|:-------|
-|**200 OK**|OK|      
-|**400 Bad Request**|Incorrect input data or organization ID does not match with the organization ID user is logged in.|
-|**400 Bad Request** | The limit for the ```$top``` query has been exceeded. The value from the incoming request is 'N' (N is your value from the request). You can find the data on the current limit [here](Options_and_Limitations.md#top-and-skip).
-|**401 Unauthorized**|Incorrect specified ```access_token``` or ```access_token``` got expired.|
-|**403 Forbidden**|User doesn’t have appropriate privileges.|
-|**500 Internal Server Error**|Server encountered an unexpected condition that prevented it from fulfilling the request.|
+|**200 OK**| OK | 
+|**400 Bad Request**| The request contains incorrect input data. |         
+|**400 Bad Request** | The limit for the ```$top``` query has been exceeded. The value from the incoming request is 'N' (N is your value from the request). You can find the data on the current limit [here](Options_and_Limitations.md#top-and-skip). |
+|**401 Unauthorized**| The specified ```access_token``` is invalid or has expired. |
+|**403 Forbidden**| The user doesn’t have the appropriate privileges. |
+|**500 Internal Server Error**| The server encountered an unexpected condition that prevented it from fulfilling the request.|
 
 ### Properties
 |<div style="width:200px">Property </div> |<div style="width:420px">Explanation</div>|                      
@@ -297,18 +297,18 @@ Returns the details of the Inventory Vendor specified by ID.
 ### Request parameters
 |  <div style="width:200px">Parameter</div>  |  <div style="width:380px">Explanation</div>  |                      
 |-----:|:-------|
-|**inventoryVendorId**: string *(uuid)* <br> <span style="color: #F05D30">**required**</span> <br> *in path* | Enter the ID of the Inventory Vendor here.|
-|**api-version**: string default: 1.0 <br> *in header*| The requested API version.|   
-|**Authorization**: string default: <br> Bearer access_token <br> *in header* |Specify the type of the token (bearer) and then insert the ```access_token```, which was obtained during authentication.|
+|**inventoryVendorId**: string *(uuid)* <br> <span style="color: #F05D30">**required**</span> <br> *in path* | Enter the ID of the Inventory Vendor.|
+|**api-version**: string default: 1.0 <br> *in header*| The requested API version.| 
+|**Authorization**: string default: <br> Bearer access_token <br> *in header* | Specify the type of the token (bearer) and insert the ```access_token``` obtained during authentication. |
 
 ### Responses
 | <div style="width:200px">Response </div>|<div style="width:380px">Explanation</div>|                      
 |-----:|:-------|
-|**200 OK**|OK|      
-|**400 Bad Request**|Incorrect input data or organization ID does not match with the organization ID user is logged in.|
-|**401 Unauthorized**|Incorrect specified ```access_token``` or ```access_token``` got expired.|
-|**403 Forbidden**|User doesn’t have appropriate privileges.|
-|**500 Internal Server Error**|Server encountered an unexpected condition that prevented it from fulfilling the request.|
+|**200 OK**| OK |
+|**400 Bad Request**| The request contains incorrect input data. |            
+|**401 Unauthorized**| The specified ```access_token``` is invalid or has expired. |
+|**403 Forbidden**| The user doesn’t have the appropriate privileges. |
+|**500 Internal Server Error**| The server encountered an unexpected condition that prevented it from fulfilling the request.|
 
 ### Properties
 |<div style="width:200px">Property </div> |<div style="width:420px">Explanation</div>|                      
@@ -480,18 +480,18 @@ Partially updates the details of the Inventory Vendor specified by ID.
 ### Request parameters
 |  <div style="width:200px">Parameter</div>  |  <div style="width:380px">Explanation</div>  |                      
 |-----:|:-------|
-|**inventoryVendorId**: string *(uuid)* <br> <span style="color: #F05D30">**required**</span> <br> *in path* | Enter the ID of the Inventory Vendor here. |
-|**api-version**: string default: 1.0 <br> *in header*| The requested API version.|   
-|**Authorization**: string default: <br> Bearer access_token <br> *in header* |Specify the type of the token (bearer) and then insert the ```access_token```, which was obtained during authentication.|
+|**inventoryVendorId**: string *(uuid)* <br> <span style="color: #F05D30">**required**</span> <br> *in path* | Enter the ID of the Inventory Vendor. |
+|**api-version**: string default: 1.0 <br> *in header*| The requested API version.|
+|**Authorization**: string default: <br> Bearer access_token <br> *in header* | Specify the type of the token (bearer) and insert the ```access_token``` obtained during authentication. |
 
 ### Responses
 | <div style="width:200px">Response </div>|<div style="width:380px">Explanation</div>|                      
 |-----:|:-------|
-|**200 OK**|OK|    
-|**400 Bad Request**| Incorrect input data or organization ID does not match with the organization ID user is logged in.|
-|**401 Unauthorized**| Incorrect specified ```access_token``` or ```access_token``` got expired.|
-|**403 Forbidden**| User doesn’t have appropriate privileges.|
-|**500 Internal Server Error**| Server encountered an unexpected condition that prevented it from fulfilling the request.|
+|**200 OK**| OK |
+|**400 Bad Request**| The request contains incorrect input data. |            
+|**401 Unauthorized**| The specified ```access_token``` is invalid or has expired. |
+|**403 Forbidden**| The user doesn’t have the appropriate privileges. |
+|**500 Internal Server Error**| The server encountered an unexpected condition that prevented it from fulfilling the request.|
 
 ### Custom errors
 | <div style="width:200px">Response </div>|<div style="width:420px">Explanation</div>|                      
@@ -589,21 +589,20 @@ Returns a paged list of existing Inventory Vendors changed from the specified da
 ### Request parameters
 |  <div style="width:200px">Parameter</div>  |  <div style="width:380px">Explanation</div>  |                      
 |-----:|:-------|
-|**from**: string *(date-time)* <br> <span style="color: #F05D30">**required**</span> <br> *in path* | Enter the Start Date here. |
-|**facilityId**: string *(uuid)* <br> <span style="color: #F05D30">**required**</span> <br> *in path* | Enter the ID of the Facility here. |
-|**syncFlag**: boolean <br> <span style="color: #F05D30">**required**</span> <br> *in path* | Identifies if Location is synced with an external system. |
+|**from**: string *(date-time)* <br> <span style="color: #F05D30">**required**</span> <br> *in path* | Enter the start date. |
+|**facilityId**: string *(uuid)* <br> <span style="color: #F05D30">**required**</span> <br> *in path* | Enter the ID of the Facility.|
+|**syncFlag**: boolean <br> <span style="color: #F05D30">**required**</span> <br> *in path* | Identifies if the Location is synced with an external system. |
 |**api-version**: string default: 1.0 <br> *in header*| The requested API version.|   
-|**Authorization**: string default: <br> Bearer access_token <br> *in header* |Specify the type of the token (bearer) and then insert the ```access_token```, which was obtained during authentication.|
+|**Authorization**: string default: <br> Bearer access_token <br> *in header* | Specify the type of the token (bearer) and insert the ```access_token``` obtained during authentication. |
 
 ### Responses
 | <div style="width:200px">Response </div>|<div style="width:380px">Explanation</div>|                      
 |-----:|:-------|
-|**200 OK**|OK|   
-|**400 Bad Request**| Incorrect input data or organization ID does not match with the organization ID user is logged in.|
-|**401 Unauthorized**| Incorrect specified ```access_token``` or ```access_token``` got expired.|
-|**403 Forbidden**| User doesn’t have appropriate privileges.|
-|**500 Internal Server Error**| Server encountered an unexpected condition that prevented it from fulfilling the request.|
-
+|**200 OK**| OK |
+|**400 Bad Request**| The request contains incorrect input data. |            
+|**401 Unauthorized**| The specified ```access_token``` is invalid or has expired. |
+|**403 Forbidden**| The user doesn’t have the appropriate privileges. |
+|**500 Internal Server Error**| The server encountered an unexpected condition that prevented it from fulfilling the request.|
 
 ### Properties
 |<div style="width:200px">Property </div> |<div style="width:420px">Explanation</div>|                      

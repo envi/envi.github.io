@@ -80,6 +80,7 @@ td, th {
 |**buyerContact**: string | Contact of the Buyer |
 |**buyerContactEmail**: string | Contact Email of the Buyer |
 |**buyerPhone**: string | Phone of the Buyer |
+|**buyerPhoneExt**: string | Phone Extension of the Buyer |
 |**buyerFax**: string | Fax of the Buyer |
 |**shippingName**: string | Name of the Shipping |
 |**shippingAddress1**: string | The First Address for sending the Requisition |
@@ -96,8 +97,9 @@ td, th {
 |**discount**: number *(double)* | Discount for the Requisition |
 |**discountTypeId**: integer *(int32)* | Unique Identifier of the Discount Type for the Requisition |
 |**discountType**: string | Type of the discount for the Requisition |
-|**salesTax**: string | Tax for the Sales |
-|**salesTaxTypeId**: string | Unique Identifier of the Tax for the Sales |
+|**salesTax**: number *(double)* | Tax for the Sales |
+|**salesTaxTypeId**: integer *(int32)* | Unique Identifier of the Tax for the Sales |
+|**salesTaxType**: string | Type of the Tax for the Sales |
 |**shipping**: number *(double)*  | Number of the Shipping |
 |**shippingTypeId**: integer *(int32)* | Unique Identifier of the Shipping Type |
 |**shippingType**: string | Type of the Shipping |
@@ -106,7 +108,7 @@ td, th {
 |**createdBy**: string *(uuid)* | Unique Identifier of the user who created the Requsition |
 |**createdByName**: string | Name of the user who created the Requisition |
 |**lastUpdated**: string *(date-time)* | Last Date when the Requisition was updated |
-|**lastUpdatedBy**: string *(date-time)* | Unique Identifier of the last user who updated the Requisition |
+|**lastUpdatedBy**: string *(uuid)* | Unique Identifier of the last user who updated the Requisition |
 |**lastUpdatedByName**: string | Name of the last user who updated the Requisition |
 |**requisitionSourceId**: integer *(int32)* | Unique Identifier of the Requisition |
 |**requisitionSource**: string | Source of the Requisition |
@@ -324,6 +326,7 @@ Returns the details of the Requisition specified by ID.
 |**buyerContact**: string | Contact of the Buyer |
 |**buyerContactEmail**: string | Contact Email of the Buyer |
 |**buyerPhone**: string | Phone of the Buyer |
+|**buyerPhoneExt**: string | Phone Extension of the Buyer |
 |**buyerFax**: string | Fax of the Buyer |
 |**shippingName**: string | Name of the Shipping |
 |**shippingAddress1**: string | The First Address for sending the Requisition |
@@ -340,8 +343,9 @@ Returns the details of the Requisition specified by ID.
 |**discount**: number *(double)* | Discount for the Requisition |
 |**discountTypeId**: integer *(int32)* | Unique Identifier of the Discount Type for the Requisition |
 |**discountType**: string | Type of the discount for the Requisition |
-|**salesTax**: string | Tax for the Sales |
-|**salesTaxTypeId**: string | Unique Identifier of the Tax for the Sales |
+|**salesTax**: number *(double)* | Tax for the Sales |
+|**salesTaxTypeId**: integer *(int32)* | Unique Identifier of the Tax for the Sales |
+|**salesTaxType**: string | Type of the Tax for the Sales |
 |**shipping**: number *(double)*  | Number of the Shipping |
 |**shippingTypeId**: integer *(int32)* | Unique Identifier of the Shipping Type |
 |**shippingType**: string | Type of the Shipping |
@@ -350,7 +354,7 @@ Returns the details of the Requisition specified by ID.
 |**createdBy**: string *(uuid)* | Unique Identifier of the user who created the Requsition |
 |**createdByName**: string | Name of the user who created the Requisition |
 |**lastUpdated**: string *(date-time)* | Last Date when the Requisition was updated |
-|**lastUpdatedBy**: string *(date-time)* | Unique Identifier of the last user who updated the Requisition |
+|**lastUpdatedBy**: string *(uuid)* | Unique Identifier of the last user who updated the Requisition |
 |**lastUpdatedByName**: string | Name of the last user who updated the Requisition |
 |**requisitionSourceId**: integer *(int32)* | Unique Identifier of the Requisition |
 |**requisitionSource**: string | Source of the Requisition |
@@ -550,7 +554,6 @@ Partially updates the Requisition specified by the ID (applicable only for the *
 |**requisitionId**: string *(uuid)* <br> <span style="color: #F05D30">**required**</span> <br> *in path* | Enter the ID of the Requisition here. |
 |**api-version**: string default: 1.0 <br> *in header*| The requested API version.|   
 |**Authorization**: string default: <br> Bearer access_token <br> *in header* |Specify the type of the token (bearer) and then insert the ```access_token```, which was obtained during authentication. |
-
 
 ### Responses
 | <div style="width:200px">Response </div>|<div style="width:420px">Explanation</div>|                      

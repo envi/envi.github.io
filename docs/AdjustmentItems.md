@@ -39,7 +39,7 @@ Returns a paged list of existing items within all Adjustments.
 |**200 OK**|OK|      
 |**400 Bad Request**| The request contains incorrect input data.|
 |**400 Bad Request** | The limit for the ```$top``` query has been exceeded. The value from the incoming request is 'N' (N is your value from the request). You can find the data on the current limit [here](Options_and_Limitations.md#top-and-skip). |
-|**401 Unauthorized**| The specified ```access_token``` is incorrect, or the ```access_token``` has expired.|
+|**401 Unauthorized**| The specified ```access_token``` is invalid or has expired. |
 |**403 Forbidden**| The user doesn’t have the appropriate privileges.|
 |**500 Internal Server Error**| The server encountered an unexpected condition that prevented it from fulfilling the request.|
 
@@ -47,7 +47,7 @@ Returns a paged list of existing items within all Adjustments.
 |<div style="width:200px">Property </div> |<div style="width:420px">Explanation</div>|                      
 |-----:|:-------|
 |**adjustmentItemId**: string *(uuid)* | Unique Identifier of the Adjustment Item |
-|**adjustmentId**: string *(uuid* | Unique Identifier of the Adjustment |
+|**adjustmentId**: string *(uuid)* | Unique Identifier of the Adjustment |
 |**inventoryLocationId**: string *(uuid)* | Unique Identifier of the Inventory Location |
 |**notes**: string |Comments about the Adjustment Item |
 |**lotNo**: string | Identification Number assigned to a particular quantity or lot of material from a single Manufacturer |
@@ -156,7 +156,7 @@ td, th {
 |-----:|:-------|
 |**200 OK**|OK|      
 |**400 Bad Request**| The request contains incorrect input data.|
-|**401 Unauthorized**| The specified ```access_token``` is incorrect, or the ```access_token``` has expired.|
+|**401 Unauthorized**| The specified ```access_token``` is invalid or has expired. |
 |**403 Forbidden**| The user doesn’t have the appropriate privileges.|
 |**404 Not Found** | The specified ID is absent in the system. |
 |**500 Internal Server Error**| The server encountered an unexpected condition that prevented it from fulfilling the request.|
@@ -165,7 +165,7 @@ td, th {
 |<div style="width:200px">Property </div> |<div style="width:420px">Explanation</div>|                      
 |-----:|:-------|
 |**adjustmentItemId**: string *(uuid)* | Unique Identifier of the Adjustment Item |
-|**adjustmentId**: string *(uuid* | Unique Identifier of the Adjustment |
+|**adjustmentId**: string *(uuid)* | Unique Identifier of the Adjustment |
 |**inventoryLocationId**: string *(uuid)* | Unique Identifier of the Inventory Location |
 |**notes**: string |Comments about the Adjustment Item |
 |**lotNo**: string | Identification Number assigned to a particular Quantity or Lot of material from a single Manufacturer |

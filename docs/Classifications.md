@@ -15,7 +15,7 @@ Returns a paged list of existing Classifications within the logged-in organizati
     - For an exact match, use: ```$filter parameter–entity eq ‘string’```
     - For a partial match, use: ```$filter=contains parameter–contains(entity, ‘string’)```
 
-### Request parameters
+### Request parameters 
 <style>
 td, th {
    border: none!important;
@@ -37,7 +37,7 @@ td, th {
 |-----:|:-------|
 |**200 OK**| OK |
 |**400 Bad Request**| The request contains incorrect input data. |
-|**401 Unauthorized**| The specified ```access_token``` is incorrect, or the ```access_token``` has expired. |
+|**401 Unauthorized**| The specified ```access_token``` is invalid or has expired. |
 |**403 Forbidden**| The user doesn’t have the appropriate privileges. |
 |**500 Internal Server Error**| The server encountered an unexpected condition that prevented it from fulfilling the request. |
 
@@ -118,7 +118,7 @@ Creates a new Classification within the logged-in organization.
 |-----:|:-------|
 |**200 OK**| OK |   
 |**400 Bad Request**| The request contains incorrect input data. |
-|**401 Unauthorized**| The specified ```access_token``` is incorrect, or the ```access_token``` has expired. |
+|**401 Unauthorized**| The specified ```access_token``` is invalid or has expired. |
 |**403 Forbidden**| The user doesn’t have the appropriate privileges. |
 |**500 Internal Server Error**| The server encountered an unexpected condition that prevented it from fulfilling the request. |
 
@@ -146,7 +146,7 @@ Returns the details of the Classification specified by ID within the logged-in o
 |-----:|:-------|
 |**200 OK**|OK|      
 |**400 Bad Request**| The request contains incorrect input data.  |
-|**401 Unauthorized**| The specified ```access_token``` is incorrect, or the ```access_token``` has expired. |
+|**401 Unauthorized**| The specified ```access_token``` is invalid or has expired. |
 |**403 Forbidden**| The user doesn’t have the appropriate privileges. |
 |**404 Not Found** | The specified ID is absent in the system. |
 |**500 Internal Server Error**| The server encountered an unexpected condition that prevented it from fulfilling the request. |
@@ -212,6 +212,7 @@ Partially updates the details of the Classification specified by ID.
     "activeStatus": "boolean"
 }
 ```
+
 ### Request parameters
 | <div style="width:200px">Parameter</div>|<div style="width:380px">Explanation</div>|                       
 |-----:|:-------|
@@ -222,10 +223,10 @@ Partially updates the details of the Classification specified by ID.
 ### Responses
 | <div style="width:200px">Response </div>|<div style="width:380px">Explanation</div>|                      
 |-----:|:-------|
-|**200 OK**| OK |      
-|**400 Bad Request**| The request contains incorrect input data. |
-|**401 Unauthorized**| The specified ```access_token``` is incorrect, or the ```access_token``` has expired. |
+|**200 OK**| OK | 
+|**400 Bad Request**| The request contains incorrect input data. |         
+|**401 Unauthorized**| The specified ```access_token``` is invalid or has expired. |
 |**403 Forbidden**| The user doesn’t have the appropriate privileges. |
 |**404 Not Found** | The specified ID is absent in the system. |
-|**500 Internal Server Error**| The server encountered an unexpected condition that prevented it from fulfilling the request. |
+|**500 Internal Server Error**| The server encountered an unexpected condition that prevented it from fulfilling the request.|
 

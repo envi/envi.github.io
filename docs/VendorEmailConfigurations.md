@@ -64,7 +64,7 @@ td, th {
 |**emailCC**: string | Carbon Copy of the Vendor Email |
 |**emailBCC**: string | Blind Carbon Copy of the Vendor Email |
 |**emailBody**: string | Body of the Vendor Email |
-|**replyToTypeId**: string | Reply To Type Identifier |
+|**replyToTypeId**: integer *(int32)* | Reply to Type Identifier |
 |**replyToType**: string | Type of the Reply To |
 |**replyToAddress**: string | Address of the Reply To |
 |**requestReadReceipt**: boolean | Request a read Receipt |
@@ -97,7 +97,7 @@ td, th {
             "emailCC": "string",
             "emailBCC": "string",
             "emailBody": "string",
-            "replyToTypeId": "string",
+            "replyToTypeId": "integer (int32)",
             "replyToType": "string",
             "replyToAddress": "string",
             "requestReadReceipt": "boolean",
@@ -162,7 +162,7 @@ Returns the details of the Vendor Email Configuration specified by ID within the
 |**emailCC**: string | Carbon Copy of the Vendor Email |
 |**emailBCC**: string | Blind Carbon Copy of the Vendor Email |
 |**emailBody**: string | Body of the Vendor Email |
-|**replyToTypeId**: string | Reply To Type Identifier |
+|**replyToTypeId**: integer *(int32)* | Reply to Type Identifier |
 |**replyToType**: string | Type of the Reply To |
 |**replyToAddress**: string | Address of the Reply To |
 |**requestReadReceipt**: boolean | Request a read Receipt |
@@ -193,7 +193,7 @@ Returns the details of the Vendor Email Configuration specified by ID within the
     "emailCC": "string",
     "emailBCC": "string",
     "emailBody": "string",
-    "replyToTypeId": "string",
+    "replyToTypeId": "integer (int32)",
     "replyToType": "string",
     "replyToAddress": "string",
     "requestReadReceipt": "boolean",

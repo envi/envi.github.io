@@ -16,23 +16,23 @@ td, th {
 </style>
 | <div style="width:200px">Parameter</div>|<div style="width:380px">Explanation</div>|                       
 |-----:|:-------|
-|**api-version**: string default: 1.0 <br> *in header*| The requested API version.|      
-|**$search**: string <br> *in query*  | Picks the value in all possible fields.|  
-|**$filter**: string <br> *in query* | Filters the results, based on a Boolean condition.|
-|**$orderby**: string <br> *in query* | Sorts the results.|
+|**api-version**: string default: 1.0 <br> *in header*| The requested API version.| 
+|**$search**: string <br> *in query*  | Searches across all supported fields. |        
+|**$filter**: string <br> *in query* | Filters results based on a Boolean condition.|
+|**$orderby**: string <br> *in query* | Sorts results.|
 |**$top**: string  <br> *in query* | Returns only the first n results.|
-|**$skip**: string <br> *in query*| Skips the first n results.|
-|**Authorization**: string default: <br> Bearer access_token <br> *in header* | Specify the type of the token (bearer) and then insert the ```access_token```, which was obtained during authentication.|
+|**$skip**: string <br> *in query*| Skips the first n results. |
+|**Authorization**: string default: <br> Bearer access_token <br> *in header* | Specify the type of the token (bearer) and insert the ```access_token``` obtained during authentication. |
 
 ### Responses
 | <div style="width:200px">Response </div>|<div style="width:380px">Explanation</div>|                      
 |-----:|:-------|
-|**200 OK**|OK|      
-|**400 Bad Request**|Incorrect input data or organization ID does not match with the organization ID user is logged in.|
+|**200 OK**| OK | 
+|**400 Bad Request**| The request contains incorrect input data. |         
 |**400 Bad Request** | The limit for the ```$top``` query has been exceeded. The value from the incoming request is 'N' (N is your value from the request). You can find the data on the current limit [here](Options_and_Limitations.md#top-and-skip). |
-|**401 Unauthorized**|Incorrect specified ```access_token``` or ```access_token``` got expired.|
-|**403 Forbidden**|User doesn’t have appropriate privileges.|
-|**500 Internal Server Error**|Server encountered an unexpected condition that prevented it from fulfilling the request.|
+|**401 Unauthorized**| The specified ```access_token``` is invalid or has expired. |
+|**403 Forbidden**| The user doesn’t have the appropriate privileges. |
+|**500 Internal Server Error**| The server encountered an unexpected condition that prevented it from fulfilling the request.|
 
 ### Properties
 | <div style="width:200px">Property </div>|<div style="width:420px">Explanation</div>|                      
@@ -120,22 +120,20 @@ If **Auto ID** is not configured for a manufacturer, then ```manufacturerNo``` a
 |**manufacturerName**: string <br> <span style="color: #F05D30">**required**</span>  | Name of the Manufacturer |
 |**externalMfgNo**: string | External Manufacturer Number |
 
-
 ### Request parameters
 |  <div style="width:200px">Parameter</div>  |  <div style="width:380px">Explanation</div>  |                      
 |-----:|:-------|
 |**api-version**: string default: 1.0 <br> *in header*| The requested API version.|   
-|**Authorization**: string default: <br> Bearer access_token <br> *in header* |Specify the type of the token (bearer) and then insert the ```access_token```, which was obtained during authentication.|
+|**Authorization**: string default: <br> Bearer access_token <br> *in header* | Specify the type of the token (bearer) and insert the ```access_token``` obtained during authentication. |
 
 ### Responses
 | <div style="width:200px">Response </div>|<div style="width:380px">Explanation</div>|                      
 |-----:|:-------|
-|**200 OK**|OK|   
-|**400 Bad Request**| Incorrect input data or organization ID does not match with the organization ID user is logged in.|
-|**401 Unauthorized**| Incorrect specified ```access_token``` or ```access_token``` got expired.|
-|**403 Forbidden**| User doesn’t have appropriate privileges.|
-|**500 Internal Server Error**| Server encountered an unexpected condition that prevented it from fulfilling the request.|
-
+|**200 OK**| OK | 
+|**400 Bad Request**| The request contains incorrect input data. |         
+|**401 Unauthorized**| The specified ```access_token``` is invalid or has expired. |
+|**403 Forbidden**| The user doesn’t have the appropriate privileges. |
+|**500 Internal Server Error**| The server encountered an unexpected condition that prevented it from fulfilling the request.|
 
 ``` json title="Response Content-types: APPLICATION/JSON, APPLICATION/XML<br>Response Example (200 OK)"
 "00000000-0000-0000-0000-000000000000"
@@ -153,19 +151,19 @@ Returns the details of the Manufacturer specified by ID.
 ### Request parameters
 |  <div style="width:200px">Parameter</div>  |  <div style="width:380px">Explanation</div>  |                      
 |-----:|:-------|
-|**manufacturerId**: string *(uuid)* <br> <span style="color: #F05D30">**required**</span> <br> *in path* | Enter the ID of the Manufacturer here.|
+|**manufacturerId**: string *(uuid)* <br> <span style="color: #F05D30">**required**</span> <br> *in path* | Enter the ID of the Manufacturer.|
 |**api-version**: string default: 1.0 <br> *in header*| The requested API version.|   
-|**Authorization**: string default: <br> Bearer access_token <br> *in header* |Specify the type of the token (bearer) and then insert the ```access_token```, which was obtained during authentication.|
+|**Authorization**: string default: <br> Bearer access_token <br> *in header* | Specify the type of the token (bearer) and insert the ```access_token``` obtained during authentication. |
 
 ### Responses
 | <div style="width:200px">Response </div>|<div style="width:380px">Explanation</div>|                      
 |-----:|:-------|
-|**200 OK**|OK|      
-|**400 Bad Request**|Incorrect input data or organization ID does not match with the organization ID user is logged in.|
-|**401 Unauthorized**|Incorrect specified ```access_token``` or ```access_token``` got expired.|
-|**403 Forbidden**|User doesn’t have appropriate privileges.|
-|**404 Not Found** | Specified ID is absent in the system. |
-|**500 Internal Server Error**|Server encountered an unexpected condition that prevented it from fulfilling the request.|
+|**200 OK**| OK | 
+|**400 Bad Request**| The request contains incorrect input data. |         
+|**401 Unauthorized**| The specified ```access_token``` is invalid or has expired. |
+|**403 Forbidden**| The user doesn’t have the appropriate privileges. |
+|**404 Not Found** | The specified ID is absent in the system. |
+|**500 Internal Server Error**| The server encountered an unexpected condition that prevented it from fulfilling the request.|
 
 ### Properties
 | <div style="width:200px">Property </div>|<div style="width:420px">Explanation</div>|                      

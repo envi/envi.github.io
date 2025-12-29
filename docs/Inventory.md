@@ -38,7 +38,7 @@ td, th {
 |**200 OK**| OK | 
 |**400 Bad Request**| The request contains incorrect input data. |      
 |**400 Bad Request** | The limit for the ```$top``` query has been exceeded. The value from the incoming request is 'N' (N is your value from the request). You can find the data on the current limit [here](Options_and_Limitations.md#top-and-skip). |
-|**401 Unauthorized**| The specified ```access_token``` is incorrect, or the ```access_token``` has expired. |
+|**401 Unauthorized**| The specified ```access_token``` is invalid or has expired. |
 |**403 Forbidden**| The user doesn’t have the appropriate privileges. |
 |**500 Internal Server Error**| The server encountered an unexpected condition that prevented it from fulfilling the request.|
 
@@ -187,7 +187,7 @@ Creates a new Inventory within the logged-in organization.
 |-----:|:-------|
 |**200 OK**|OK|   
 |**400 Bad Request**| The request contains incorrect input data. |      
-|**401 Unauthorized**| The specified ```access_token``` is incorrect, or the ```access_token``` has expired. |
+|**401 Unauthorized**| The specified ```access_token``` is invalid or has expired. |
 |**403 Forbidden**| The user doesn’t have the appropriate privileges. |
 |**500 Internal Server Error**| The server encountered an unexpected condition that prevented it from fulfilling the request.|
 
@@ -216,7 +216,7 @@ Returns the details of the Inventory specified by ID.
 |-----:|:-------|
 |**200 OK**| OK |
 |**400 Bad Request**| The request contains incorrect input data. |      
-|**401 Unauthorized**| The specified ```access_token``` is incorrect, or the ```access_token``` has expired. |
+|**401 Unauthorized**| The specified ```access_token``` is invalid or has expired. |
 |**403 Forbidden**| The user doesn’t have the appropriate privileges. |
 |**404 Not Found** | The specified ID is absent in the system. |
 |**500 Internal Server Error**| The server encountered an unexpected condition that prevented it from fulfilling the request.|
@@ -387,7 +387,7 @@ Fully updates the details of the Inventory specified by ID.
 |-----:|:-------|
 |**200 OK**| OK |
 |**400 Bad Request**| The request contains incorrect input data. |      
-|**401 Unauthorized**| The specified ```access_token``` is incorrect, or the ```access_token``` has expired. |
+|**401 Unauthorized**| The specified ```access_token``` is invalid or has expired. |
 |**403 Forbidden**| The user doesn’t have the appropriate privileges. |
 |**500 Internal Server Error**| The server encountered an unexpected condition that prevented it from fulfilling the request.|
 
@@ -483,7 +483,7 @@ Partially updates the details of the Inventory specified by ID.
 |-----:|:-------|
 |**200 OK**| OK |
 |**400 Bad Request**| The request contains incorrect input data. |      
-|**401 Unauthorized**| The specified ```access_token``` is incorrect, or the ```access_token``` has expired. |
+|**401 Unauthorized**| The specified ```access_token``` is invalid or has expired. |
 |**403 Forbidden**| The user doesn’t have the appropriate privileges. |
 |**500 Internal Server Error**| The server encountered an unexpected condition that prevented it from fulfilling the request.|
 
@@ -526,7 +526,7 @@ Returns a paged list of existing Future Pricing Items within the Inventory speci
 |**200 OK**| OK |
 |**400 Bad Request**| The request contains incorrect input data. |   
 |**400 Bad Request** | The limit for the ```$top``` query has been exceeded. The value from the incoming request is 'N' (N is your value from the request). You can find the data on the current limit [here](Options_and_Limitations.md#top-and-skip). |
-|**401 Unauthorized**| The specified ```access_token``` is incorrect, or the ```access_token``` has expired. |
+|**401 Unauthorized**| The specified ```access_token``` is invalid or has expired.  |
 |**403 Forbidden**| The user doesn’t have the appropriate privileges. |
 |**500 Internal Server Error**| The server encountered an unexpected condition that prevented it from fulfilling the request.|
 
@@ -638,7 +638,7 @@ Returns a paged list of existing Inventory UOMs within the Inventory specified b
 |**200 OK**| OK |
 |**400 Bad Request**| The request contains incorrect input data. |
 |**400 Bad Request** | The limit for the ```$top``` query has been exceeded. The value from the incoming request is 'N' (N is your value from the request). You can find the data on the current limit [here](Options_and_Limitations.md#top-and-skip). |
-|**401 Unauthorized**| The specified ```access_token``` is incorrect, or the ```access_token``` has expired. |
+|**401 Unauthorized**| The specified ```access_token``` is invalid or has expired.  |
 |**403 Forbidden**| The user doesn’t have the appropriate privileges. |
 |**500 Internal Server Error**| The server encountered an unexpected condition that prevented it from fulfilling the request.|
 
@@ -709,7 +709,7 @@ Returns a paged list of existing Inventory Locations within the Inventory specif
 |**200 OK**| OK |
 |**400 Bad Request**| The request contains incorrect input data. |  
 |**400 Bad Request** | The limit for the ```$top``` query has been exceeded. The value from the incoming request is 'N' (N is your value from the request). You can find the data on the current limit [here](Options_and_Limitations.md#top-and-skip). |    
-|**401 Unauthorized**| The specified ```access_token``` is incorrect, or the ```access_token``` has expired. |
+|**401 Unauthorized**| The specified ```access_token``` is invalid or has expired.  |
 |**403 Forbidden**| The user doesn’t have the appropriate privileges. |
 |**500 Internal Server Error**| The server encountered an unexpected condition that prevented it from fulfilling the request.|
 
@@ -872,7 +872,7 @@ Returns a paged list of existing Inventory tracking settings within the Inventor
 |**200 OK**| OK |
 |**400 Bad Request**| The request contains incorrect input data. |
 |**400 Bad Request** | The limit for the ```$top``` query has been exceeded. The value from the incoming request is 'N' (N is your value from the request). You can find the data on the current limit [here](Options_and_Limitations.md#top-and-skip). | 
-|**401 Unauthorized**| The specified ```access_token``` is incorrect, or the ```access_token``` has expired. |
+|**401 Unauthorized**| The specified ```access_token``` is invalid or has expired.  |
 |**403 Forbidden**| The user doesn’t have the appropriate privileges. |
 |**500 Internal Server Error**| The server encountered an unexpected condition that prevented it from fulfilling the request.|
 
@@ -963,7 +963,7 @@ Returns a paged list of existing Purchase Order history within the Inventory spe
 |**200 OK**| OK |
 |**400 Bad Request**| The request contains incorrect input data. |
 |**400 Bad Request** | The limit for the ```$top``` query has been exceeded. The value from the incoming request is 'N' (N is your value from the request). You can find the data on the current limit [here](Options_and_Limitations.md#top-and-skip). |
-|**401 Unauthorized**| The specified ```access_token``` is incorrect, or the ```access_token``` has expired. |
+|**401 Unauthorized**| The specified ```access_token``` is invalid or has expired.  |
 |**403 Forbidden**| The user doesn’t have the appropriate privileges. |
 |**500 Internal Server Error**| The server encountered an unexpected condition that prevented it from fulfilling the request.|
 
@@ -1032,7 +1032,7 @@ Returns a paged list of existing Inventory Vendors within the Inventory specifie
 |**200 OK**| OK |
 |**400 Bad Request**| The request contains incorrect input data. | 
 |**400 Bad Request** | The limit for the ```$top``` query has been exceeded. The value from the incoming request is 'N' (N is your value from the request). You can find the data on the current limit [here](Options_and_Limitations.md#top-and-skip). |     
-|**401 Unauthorized**| The specified ```access_token``` is incorrect, or the ```access_token``` has expired. |
+|**401 Unauthorized**| The specified ```access_token``` is invalid or has expired.  |
 |**403 Forbidden**| The user doesn’t have the appropriate privileges. |
 |**500 Internal Server Error**| The server encountered an unexpected condition that prevented it from fulfilling the request.|
 
@@ -1155,7 +1155,7 @@ Returns the details of Inventory tracking values within the Inventory, Facility,
 |**200 OK**| OK |
 |**400 Bad Request**| The request contains incorrect input data. |    
 |**400 Bad Request** | The limit for the ```$top``` query has been exceeded. The value from the incoming request is 'N' (N is your value from the request). You can find the data on the current limit [here](Options_and_Limitations.md#top-and-skip). |  
-|**401 Unauthorized**| The specified ```access_token``` is incorrect, or the ```access_token``` has expired. |
+|**401 Unauthorized**| The specified ```access_token``` is invalid or has expired.  |
 |**403 Forbidden**| The user doesn’t have the appropriate privileges. |
 |**500 Internal Server Error**| The server encountered an unexpected condition that prevented it from fulfilling the request.|
 
@@ -1254,7 +1254,7 @@ Returns a paged list of existing Inventory Locations cost and quantity within th
 |**200 OK**| OK |
 |**400 Bad Request**| The request contains incorrect input data. |
 |**400 Bad Request** | The limit for the ```$top``` query has been exceeded. The value from the incoming request is 'N' (N is your value from the request). You can find the data on the current limit [here](Options_and_Limitations.md#top-and-skip). |    
-|**401 Unauthorized**| The specified ```access_token``` is incorrect, or the ```access_token``` has expired. |
+|**401 Unauthorized**| The specified ```access_token``` is invalid or has expired.  |
 |**403 Forbidden**| The user doesn’t have the appropriate privileges. |
 |**500 Internal Server Error**| The server encountered an unexpected condition that prevented it from fulfilling the request.|
 
@@ -1324,7 +1324,7 @@ Returns a paged list of Inventory Items changed from the specified date within t
 |-----:|:-------|
 |**200 OK**| OK |
 |**400 Bad Request**| The request contains incorrect input data. |      
-|**401 Unauthorized**| The specified ```access_token``` is incorrect, or the ```access_token``` has expired. |
+|**401 Unauthorized**| The specified ```access_token``` is invalid or has expired.  |
 |**403 Forbidden**| The user doesn’t have the appropriate privileges. |
 |**500 Internal Server Error**| The server encountered an unexpected condition that prevented it from fulfilling the request.|
 
@@ -1467,7 +1467,7 @@ Creates a new Inventory Vendor within the logged-in organization and the specifi
 |-----:|:-------|
 |**200 OK**| OK |
 |**400 Bad Request**| The request contains incorrect input data. |      
-|**401 Unauthorized**| The specified ```access_token``` is incorrect, or the ```access_token``` has expired. |
+|**401 Unauthorized**| The specified ```access_token``` is invalid or has expired.  |
 |**403 Forbidden**| The user doesn’t have the appropriate privileges. |
 |**500 Internal Server Error**| The server encountered an unexpected condition that prevented it from fulfilling the request.|
 
@@ -1509,7 +1509,7 @@ Manages the Purchasing option for the Inventory Location specified by ID.
 |-----:|:-------|
 |**200 OK**| OK |
 |**400 Bad Request**| The request contains incorrect input data. |      
-|**401 Unauthorized**| The specified ```access_token``` is incorrect, or the ```access_token``` has expired. |
+|**401 Unauthorized**| The specified ```access_token``` is invalid or has expired.  |
 |**403 Forbidden**| The user doesn’t have the appropriate privileges. |
 |**500 Internal Server Error**| The server encountered an unexpected condition that prevented it from fulfilling the request.|
 
@@ -1587,7 +1587,7 @@ Creates a new Inventory Location within the logged-in organization and specified
 |-----:|:-------|
 |**200 OK**| OK |
 |**400 Bad Request**| The request contains incorrect input data. |      
-|**401 Unauthorized**| The specified ```access_token``` is incorrect, or the ```access_token``` has expired. |
+|**401 Unauthorized**| The specified ```access_token``` is invalid or has expired.  |
 |**403 Forbidden**| The user doesn’t have the appropriate privileges. |
 |**500 Internal Server Error**| The server encountered an unexpected condition that prevented it from fulfilling the request.|
 

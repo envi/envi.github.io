@@ -38,7 +38,7 @@ td, th {
 |**200 OK**| OK |     
 |**400 Bad Request**| The request contains incorrect input data. |      
 |**400 Bad Request** | The limit for the ```$top``` query has been exceeded. The value from the incoming request is 'N' (N is your value from the request). You can find the data on the current limit [here](Options_and_Limitations.md#top-and-skip). |
-|**401 Unauthorized**| The specified ```access_token``` is incorrect, or the ```access_token``` has expired. |
+|**401 Unauthorized**| The specified ```access_token``` is invalid or has expired. |
 |**403 Forbidden**| The user doesn’t have the appropriate privileges. |
 |**500 Internal Server Error**| The server encountered an unexpected condition that prevented it from fulfilling the request.|
 
@@ -230,7 +230,7 @@ Partially updates the details of the Facility specified by ID.
 |**facilityNo**: string | Identification Number of the Facility |
 |**facilityName**: string | Number of the Facility |
 |**address1**: string | The first Address for shipping or billing purposes |
-|**address2**:| The second Address for shipping or billing purposes |
+|**address2**: string | The second Address for shipping or billing purposes |
 |**city**: string | City |
 |**state**: string | State |
 |**zip**: string | Zip |
@@ -358,7 +358,7 @@ Partially updates the details of the Facility specified by ID.
 |-----:|:-------|
 |**200 OK**| OK |
 |**400 Bad Request**| The request contains incorrect input data. | 
-|**401 Unauthorized**| The specified ```access_token``` is incorrect, or the ```access_token``` has expired. |
+|**401 Unauthorized**| The specified ```access_token``` is invalid or has expired. |
 |**403 Forbidden**| The user doesn’t have the appropriate privileges. |
 |**404 Not Found** | The specified ID is absent in the system. |
 |**500 Internal Server Error**| The server encountered an unexpected condition that prevented it from fulfilling the request.|
@@ -383,7 +383,7 @@ Returns the details of the Facility specified by ID.
 |-----:|:-------|
 |**200 OK**| OK | 
 |**400 Bad Request**| The request contains incorrect input data. |        
-|**401 Unauthorized**| The specified ```access_token``` is incorrect, or the ```access_token``` has expired. |
+|**401 Unauthorized**| The specified ```access_token``` is invalid or has expired. |
 |**403 Forbidden**| The user doesn’t have the appropriate privileges. |
 |**404 Not Found** | The specified ID is absent in the system. |
 |**500 Internal Server Error**| The server encountered an unexpected condition that prevented it from fulfilling the request.|

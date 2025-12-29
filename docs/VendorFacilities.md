@@ -99,7 +99,7 @@ td, th {
 |**defaultPONotes**: string | Default Notes fo Purchase Orders  |
 |**creditCardIDId**: string *(uuid)* | Unique Identifier of the Credit Card |
 |**creditCardID**: string | Identifier of the Credit Card |
-|**credirCardDescription**: string | Description of the Credit Card |
+|**creditCardDescription**: string | Description of the Credit Card |
 |**currencyTypeId**: integer *(int32)* | Unique Identifier of the Currency Type |
 |**currencyTypeValue**: string | Value of the Currency Type|
 |**vendorXref**: string | Cross Reference of the Vendor | 
@@ -409,7 +409,7 @@ Returns the details of the Vendor Facility specified by ID within the logged-in 
 |**defaultPONotes**: string | Default Notes fo Purchase Orders  |
 |**creditCardIDId**: string *(uuid)* | Unique Identifier of the Credit Card |
 |**creditCardID**: string | Identifier of the Credit Card |
-|**credirCardDescription**: string | Description of the Credit Card |
+|**creditCardDescription**: string | Description of the Credit Card |
 |**currencyTypeId**: integer *(int32)* | Unique Identifier of the Currency Type |
 |**currencyTypeValue**: string | Value of the Currency Type|
 |**vendorXref**: string | Cross Reference of the Vendor | 

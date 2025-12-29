@@ -84,10 +84,10 @@ td, th {
     |-----:|:-------|
     |**Purchase Order** | 1 |
     |**Received Invoice**| 4 |
-    |**Contacts** | 6 |
+    |**Contract** | 6 |
     |**Requisition**| 7 |
-    |**Adjustments** | 8 |
-    |**Proof of Delivery**| 9 |
+    |**Adjustment** | 8 |
+    |**Requisition Fill Proof of Delivery**| 9 |
     |**OCR Invoice** | 10 |
     |**Inventory** | 11 |
 
@@ -97,7 +97,7 @@ td, th {
 |**200 OK**| OK |
 |**400 Bad Request**| The request contains incorrect input data. |      
 |**400 Bad Request** | The limit for the ```$top``` query has been exceeded. The value from the incoming request is 'N' (N is your value from the request). You can find the data on the current limit [here](Options_and_Limitations.md#top-and-skip). |
-|**401 Unauthorized**| The specified ```access_token``` is incorrect, or the ```access_token``` has expired. |
+|**401 Unauthorized**| The specified ```access_token``` is invalid or has expired. |
 |**403 Forbidden**| The user doesn’t have the appropriate privileges. |
 |**500 Internal Server Error**| The server encountered an unexpected condition that prevented it from fulfilling the request.|
 
@@ -166,7 +166,7 @@ Returns the details of the file specified by ID within the logged-in organizatio
 |-----:|:-------|
 |**200 OK**| OK |
 |**400 Bad Request**| The request contains incorrect input data. |      
-|**401 Unauthorized**| The specified ```access_token``` is incorrect, or the ```access_token``` has expired. |
+|**401 Unauthorized**| The specified ```access_token``` is invalid or has expired. |
 |**403 Forbidden**| The user doesn’t have the appropriate privileges. |
 |**404 Not Found** | The specified ID is absent in the system. |
 |**500 Internal Server Error**| The server encountered an unexpected condition that prevented it from fulfilling the request.|
@@ -239,7 +239,7 @@ Returns the file content (in raw bytes) for the file specified by ID within the 
 |-----:|:-------|
 |**200 OK**| OK |
 |**400 Bad Request**| The request contains incorrect input data. |
-|**401 Unauthorized**| The specified ```access_token``` is incorrect, or the ```access_token``` has expired. |
+|**401 Unauthorized**| The specified ```access_token``` is invalid or has expired. |
 |**403 Forbidden**| The user doesn’t have the appropriate privileges. |
 |**404 Not Found** | The specified ID is absent in the system. |
 |**500 Internal Server Error**| The server encountered an unexpected condition that prevented it from fulfilling the request.|
