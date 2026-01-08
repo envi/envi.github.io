@@ -14,6 +14,13 @@ Stay up to date with the latest API features, improvements, and articles.
 
 [Subscribe to our newsletter](https://news.envi.net/Signup/dev-news){ .md-button .md-button--primary }
 
+**v. 6.5.7**
+
+Searching and filtering have been enhanced for ```fileSize``` and ```entityTypeValue``` for the [File Attachments](FileAttachments.md#get-the-list-of-files-by-entity-id) endpoint:
+
+ - Search and filter ```fileSize``` using bytes.
+ - Search and filter by ```entityTypeValue``` in addition to ```entityTypePK```.
+
 **v. 6.4.7**
 
 You can now partially update a Classification by ID using the [new](Classifications.md#partially-update-the-specified-classification) endpoint.

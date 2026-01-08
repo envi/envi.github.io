@@ -80,7 +80,7 @@ td, th {
 
     The following ```entityTypePK```values are supported:
 
-    |  <div style="width:200px">Entity</div>  |  <div style="width:380px">entityTypePK</div>  |  
+    |  <div style="width:200px">entityTypeValue</div>  |  <div style="width:380px">entityTypePK</div>  |  
     |-----:|:-------|
     |**Purchase Order** | 1 |
     |**Received Invoice**| 4 |
