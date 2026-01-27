@@ -96,9 +96,9 @@ td, th {
 |**dateSubmitted**: string *(date-time)* | Date when the Usage was submitted |
 |**systemTypeId**: integer *(int32)* | Unique Identifier of the System Type |
 |**systemType**: string | Type of the Usage item in the scope of the system (Standard or Implant)|
-|**implantSize**: string | Size of the Implant  |
 |**implantPositionId**: integer *(int32)* | Unique Identifier of the Implant Position |
 |**implantPosition**: string | Position of the Implant |
+|**implantSize**: string | Size of the Implant |
 |**implantRemoved**: boolean | Is the Implant removed or not? |
 |**implantCompleted**: boolean | Is the Implant completed or not? |
 
@@ -151,9 +151,9 @@ td, th {
             "dateSubmitted": "string (date-time)",
             "systemTypeId": "integer (int32)",
             "systemType": "string",
-            "implantSize": "string",
             "implantPositionId": "integer (int32)",
             "implantPosition": "string",
+            "implantSize": "string",
             "implantRemoved": "boolean",
             "implantCompleted": "boolean"
         }
@@ -187,14 +187,14 @@ Adds new items to existing Usages within the logged-in organization.
 | **quantity**: string <br> *in formData* | Quantity specified for the line item. <br> **If not provided**: 1. |
 | **uom**: string <br> *in formData* | Unit of Measure. <br> It can be matched with Inventory UOM. <br> **If not provided**: EA. |
 | **conversionFactor**: string <br> *in formData* | Number of Stock Keeping Units in another Unit of Measure. <br> It is populated from the appropriate Inventory UOM Conversion Factor if the item is added as an Inventory item and the specified UOM value is matched with Inventory UOM. <br> **If not provided**: 1. |
-|**itemNotes**: string <br> *in formData* | Comments about the item. <br> It is populated from Item Notes <br> **If not provided**: empty. |
-|**systemTypeId**: integer *(int32)* | Unique Identifier of the System Type <br> **If not provided**: 1 (Standard). |
+|**itemNotes**: string <br> *in formData* | Comments about the item. <br> It is populated from Item Notes. <br> **If not provided**: empty. |
+|**systemTypeId**: integer *(int32)* | Unique Identifier of the System Type. <br> **If not provided**: 1 (Standard). |
 |**systemType**: string | Type of the Usage item in the scope of the system (Standard or Implant)|
-|**implantSize**: string | Size of the Implant <br> **If not provided**: empty. |
 |**implantPositionId**: integer *(int32)* | Unique Identifier of the Implant Position. <br> **If not provided**: 0 (None).|
 |**implantPosition**: string | Position of the Implant |
-|**implantRemoved**: boolean | Is the Implant removed or not? <br> **If not provided**: false |
-|**implantCompleted**: boolean | Is the Implant completed or not? <br> **If not provided**: false |
+|**implantSize**: string | Size of the Implant. <br> **If not provided**: empty. |
+|**implantRemoved**: boolean | Is the Implant removed or not? <br> **If not provided**: false. |
+|**implantCompleted**: boolean | Is the Implant completed or not? <br> **If not provided**: false. |
 
 ``` json title="Request Content-types: APPLICATION/JSON, APPLICATION/XML <br> Request Example"
 {
@@ -214,9 +214,9 @@ Adds new items to existing Usages within the logged-in organization.
     "itemNotes": "string",
     "systemTypeId": "integer (int32)",
     "systemType": "string",
-    "implantSize": "string",
     "implantPositionId": "integer (int32)",
     "implantPosition": "string",
+    "implantSize": "string",
     "implantRemoved": "boolean",
     "implantCompleted": "boolean"
 }
