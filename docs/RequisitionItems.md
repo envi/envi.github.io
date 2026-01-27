@@ -287,7 +287,7 @@ For adding item(s) to requisition(s)
     "vendorNo": "string",
     "locationNo": "string",
     "facilityNo": "string",
-    "isTaxable": "boolean",
+    "isTaxable": "boolean"
 }
 ```
 
