@@ -51,7 +51,7 @@ You can now retrieve the list of Departments and view the details of a specific 
 
 **v. 6.3.8**
 
-The [Purchase Orders](PurchaseOrders.md), [Matched Invoices](MatchedInvoices.md), and [Batch](AP_Batch.md#get-invoices-from-the-specified-ap-batch) endpoints now include **Project Number** properties. 
+The [Purchase Orders](PurchaseOrders.md), [Matched Invoices](MatchedInvoices.md), and [Batch](AP_Batch.md#get-invoices-from-the-specified-ap-batch) endpoints now include Project Number properties. 
 
 **v. 6.3.6**
 
@@ -64,7 +64,7 @@ The [Matched Invoices](MatchedInvoices.md) and [Matched Invoice Items](MatchedIn
 
 **v. 6.1.7**
 
-The following prorepties have been added to the [Facilities](Facilities.md) endpoints: ```poContactName```, ```poContactEmail```, ```poContactPhone```, ```poContactPhoneExt```, and ```poContactFax```.
+The following properties have been added to the [Facilities](Facilities.md) endpoints: ```poContactName```, ```poContactEmail```, ```poContactPhone```, ```poContactPhoneExt```, and ```poContactFax```.
 
 **v. 6.1.3**
 
@@ -86,23 +86,23 @@ The [Vendor Facilities](VendorFacilities.md) endpoints now include the ```taxabl
 
 [Purchase Orders](PurchaseOrders.md) support now the ```includeInactiveVendors``` optional parameter.
 
-Starting now, every time you submit a Requisition Fill, the system will notify you via Webhook.
-of the Purchase Order.
+Starting now, when you submit a Requisition Fill, the system sends a webhook notification for the resulting Purchase Order.
+
 **v. 5.9.5**
 
 The two new properties have been added to the [Vendor Facilities](VendorFacilities.md) endpoints: ```ocrMatchOptionId``` and ```ocrMatchOptionValue```.
 
 **v. 5.8.4**
 
-The two new properties have been added to the [Facilities](Facilities.md) endpoints: ```customField1``` and ```customField1```.
+The two new properties have been added to the [Facilities](Facilities.md) endpoints: ```customField1``` and ```customField2```.
 
 A new  [Facility](Facilities.md#partially-update-the-specified-facility) endpoint has been included, which allows you to update the details of the Facility based on the Facility ID.
 
 **v. 5.8.3**
 
-You can now use a new [Vendor Facility](VendorFacilities.md#create-a-new-vendor-facility) endpoint to create a new Vendor Facility for a specified active Location within an active Vendor logged in an organization.
+A new [Vendor Facility](VendorFacilities.md#create-a-new-vendor-facility) endpoint is now available to create Vendor Facilities for active Locations under active Vendors within an organization.
 
-We have added a new feature that enhances our Webhooks: custom headers defined in the subscription will now be sent with each Webhook.
+We have added a new feature that enhances our WebHooks: custom headers defined in the subscription will now be sent with each WebHook.
 
 **v. 5.8.2**
 
@@ -114,7 +114,7 @@ You can now use a new [Vendor Address](VendorAddresses.md#create-a-new-vendor-ad
 
 **v. 5.8.0**
 
-The Batch Size is available within Envi, so now you have the possibility to customize the batch size for each Webhook Subscription.
+The Batch Size is available in Envi, so you can now customize the batch size for each WebHook Subscription.
 
 **v. 5.7.9**
 
@@ -141,7 +141,7 @@ The following endpoints have been added to Envi Developer Resources:
  - [Vendor Contacts](VendorContacts.md)
  - [Vendor Email Configurations](VendorEmailConfigurations.md)
  
-[Manufacturers](Manufacturers.md#get-the-list-of-manufacturers) endpoint supports now **and**, **or**, **in**, **gt**, **ge**, **lt**, **le** [logical operators](Options_and_Limitations.md#logical-operators).
+The [Manufacturers](Manufacturers.md#get-the-list-of-manufacturers) endpoint now supports **and**, **or**, **in**, **gt**, **ge**, **lt**, **le** [logical operators](Options_and_Limitations.md#logical-operators).
 
 **v. 5.7.4**
 
@@ -163,7 +163,7 @@ A new [Requisition Item](RequisitionItems.md#add-the-specified-requisition-line-
 
 **v. 5.5.4**
 
-From now on, you can use the [Requisition Items](RequisitionItems.md#) endpoints to get a list of Requisition Items from all Requisitions within the logged-in organization or get specified Requisition Item by ID.
+From now on, you can use the [Requisition Items](RequisitionItems.md#) endpoints to get a list of Requisition Items from all Requisitions within the logged-in organization or get a specified Requisition Item by ID.
 
 **v. 5.4.7**
 
@@ -171,7 +171,7 @@ From now on, you can use the [Requisition Items](RequisitionItems.md#) endpoints
 
 **v. 5.4.5**
 
-We have added a new [Inventory Vendor](Inventory.md#save-the-specified-inventory-vendor) endpoint that enables you to create a new Inventory Vendor within the logged-in organization and specified Inventory.
+We have added a new [Inventory Vendor](Inventory.md#save-the-specified-inventory-vendor) endpoint that enables you to create a new Inventory Vendor within the logged-in organization and a specified Inventory.
 
 **v. 5.4.4**
 
@@ -179,31 +179,31 @@ You can now create a new Inventory Location specified by ID using the [Inventory
 
 **v. 5.4.0**
 
-[Inventory Locations Cost and Quantity](InventoryLocationsCostAndQuantity.md) endpoints have been added to Envi Developer Resources.
+The [Inventory Locations Cost and Quantity](InventoryLocationsCostAndQuantity.md) endpoints have been added to Envi Developer Resources.
 
 **v. 5.3.9**
 
-[Vendors](Vendors.md#get-the-list-of-vendors) endpoint supports now **and**, **or**, **in**, **gt**, **ge**, **lt**, **le** [logical operators](Options_and_Limitations.md#logical-operators).
+The [Vendors](Vendors.md#get-the-list-of-vendors) endpoint supports now **and**, **or**, **in**, **gt**, **ge**, **lt**, **le** [logical operators](Options_and_Limitations.md#logical-operators).
 
 **v. 5.3.8**
 
-[Facilities](Facilities.md#get-the-list-of-facilities) endpoint supports now **and**, **or**, **in**, **gt**, **ge**, **lt**, **le** [logical operators](Options_and_Limitations.md#logical-operators).
+The [Facilities](Facilities.md#get-the-list-of-facilities) endpoint supports now **and**, **or**, **in**, **gt**, **ge**, **lt**, **le** [logical operators](Options_and_Limitations.md#logical-operators).
 
 **v. 5.3.7**
 
-[Addresses](Addresses.md#get-the-list-of-addresses) endpoint supports now **and**, **or**, **in**, **gt**, **ge**, **lt**, **le** [logical operators](Options_and_Limitations.md#logical-operators).
+The [Addresses](Addresses.md#get-the-list-of-addresses) endpoint now supports **and**, **or**, **in**, **gt**, **ge**, **lt**, **le** [logical operators](Options_and_Limitations.md#logical-operators).
 
 **v. 5.3.6**
 
-[Inventory Vendors](InventoryVendors.md#get-the-list-of-all-inventory-vendors) endpoints support **in**, **gt**, **ge**, **lt**, **le** [logical operators](Options_and_Limitations.md#logical-operators).
+The [Inventory Vendors](InventoryVendors.md#get-the-list-of-all-inventory-vendors) endpoints support **in**, **gt**, **ge**, **lt**, **le** [logical operators](Options_and_Limitations.md#logical-operators).
 
 **v. 5.3.5**
 
-[Inventory](Inventory.md#get-the-list-of-inventory-items) supports now **in**, **gt**, **ge**, **lt**, **le** [logical operators](Options_and_Limitations.md#logical-operators).
+The [Inventory](Inventory.md#get-the-list-of-inventory-items) endpoint now supports **in**, **gt**, **ge**, **lt**, **le** [logical operators](Options_and_Limitations.md#logical-operators).
 
 **v. 5.3.1**
 
-[Inventory Locations](InventoryLocations.md#get-the-list-of-inventory-locations) support now **in**, **gt**, **ge**, **lt**, **le** [logical operators](Options_and_Limitations.md#logical-operators).
+The [Inventory Locations](InventoryLocations.md#get-the-list-of-inventory-locations) endpoints now support **in**, **gt**, **ge**, **lt**, **le** [logical operators](Options_and_Limitations.md#logical-operators).
 
 Additional fields are now available in the [Facilities](Facilities.md#get-the-list-of-facilities) endpoint.
 
