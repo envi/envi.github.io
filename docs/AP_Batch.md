@@ -35,7 +35,7 @@ td, th {
 |**$search**: string <br> *in query*  | Searches across all supported fields. |
 |**$top**: string  <br> *in query* | Returns only the first n results.|
 |**$skip**: string <br> *in query*| Skips the first n results.|
-|**Authorization**: string default: <br> Bearer access_token <br> *in header* | Specify the type of the token (bearer) and insert the ```access_token``` obtained during authentication. |
+|**Authorization**: string default: <br> Bearer access_token <br> *in header* | Specify the type of the token (bearer) and insert the ```access_token``` obtained during authentication. |  
 
 ### Responses
 | <div style="width:200px">Response </div>|<div style="width:380px">Explanation</div>|                      

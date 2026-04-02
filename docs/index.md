@@ -14,6 +14,11 @@ Stay up to date with the latest API features, improvements, and articles.
 
 [Subscribe to our newsletter](https://news.envi.net/Signup/dev-news){ .md-button .md-button--primary }
 
+
+**v. 6.6.4**
+
+The ```poPrefix``` property has been added to [Facilities](Facilities.md) endpoints.
+
 **v. 6.5.9**
 
 The [Usage Items](UsageItems.md) endpoints have been updated to include implant-related properties.
