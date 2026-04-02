@@ -17,7 +17,7 @@ Stay up to date with the latest API features, improvements, and articles.
 
 **v. 6.6.4**
 
-The ```poPrefix``` property has been added to [Facilities](Facilities.md) endpoints.
+The ```poPrefix``` property has been added to the [Facilities](Facilities.md) endpoints.
 
 **v. 6.5.9**
 
