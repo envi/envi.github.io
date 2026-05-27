@@ -101,6 +101,7 @@ td, th {
 |**projectNoId**: string *(uuid)* | Unique Identifier of the Project Number |
 |**projectNo**: string | Project Number for the Purchase Order|
 |**projectNoDescription**: string | Description of the Project Number |
+|**shippingGLCode**: string | General Ledger Code for shipping and handling charges |
 
 ``` json title="Response Content-types: APPLICATION/JSON, APPLICATION/XML<br>Response example (200 OK)"
 {
@@ -165,7 +166,8 @@ td, th {
             "submittedByUserName": "string",
             "projectNoId": "00000000-0000-0000-0000-000000000000",
             "projectNo": "string",
-            "projectNoDescription": "string"
+            "projectNoDescription": "string",
+            "shippingGLCode": "string"
         }
     ],
     "@odata.nextLink": "link"
@@ -259,7 +261,7 @@ Returns the details of the Matched Invoice specified by ID.
 |**projectNoId**: string *(uuid)* | Unique Identifier of the Project Number |
 |**projectNo**: string | Project Number for the Purchase Order|
 |**projectNoDescription**: string | Description of the Project Number |
-
+|**shippingGLCode**: string | General Ledger Code for shipping and handling charges |
 
 ``` json title="Response Content-types: APPLICATION/JSON, APPLICATION/XML<br>Response example (200 OK)"
 {
@@ -321,7 +323,9 @@ Returns the details of the Matched Invoice specified by ID.
     "submittedByUserName": "string",
     "projectNoId": "00000000-0000-0000-0000-000000000000",
     "projectNo": "string",
-    "projectNoDescription": "string"
+    "projectNoDescription": "string",
+    "shippingGLCode": "string"
+
 }
 ```
 
