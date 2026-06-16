@@ -519,3 +519,58 @@ Submits the AP Batch to the **Queued** status.
 This batch cannot be submitted to queued because it already exists in the 'Queued' batch status.
 
 ```
+
+## Create a new Export History record 
+
+### Path
+POST /odata/Batches({batchId})/ExportHistory
+
+### Description
+Creates a new Export History record for the specified AP Batch.
+
+### Request body
+|  <div style="width:200px">Parameter</div>  |  <div style="width:420px">Explanation</div>  |                      
+|-----:|:-------|
+|**deliveryType**: integer *(int32)* | Type of the delivery (**Download**: 1, **FTP**: 2, **Scheduled FTP**: 3, **API**: 4)|
+|**interfaceDescription**: string | Description of the interface used for the export |
+|**runMode**: integer *(int32)* | Run mode of the export (**Auto**: 1, **Manual**: 2)|
+|**startDate**: string *(date-time)* | Date when the export process started | 
+|**endDate**: string *(date-time)* | Date when the export process ended |
+|**deliveryStatus**: integer *(int32)* | Status of the delivery (**Completed**: 1, **Terminated**: 2, **Warning**: 4) |
+|**details**: string | Additional export processing details |
+|**fileName**: string | Name of the exported file |
+
+
+``` json title="Request Content-types: APPLICATION/JSON, APPLICATION/XML <br> Request Example"
+{
+    "deliveryType": "integer (int32)",
+    "interfaceDescription": "string",
+    "runMode": "integer (int32)",
+    "startDate": "string (date-time)",
+    "endDate": "string (date-time)",
+    "deliveryStatus": "integer (int32)",
+    "details": "string",
+    "fileName": "string"
+}
+    
+```
+
+### Request parameters
+|  <div style="width:200px">Parameter</div>  |  <div style="width:380px">Explanation</div>  |                      
+|-----:|:-------|
+|**batchId**: string *(uuid)* <br> <span style="color: #F05D30">**required**</span> <br> *in path* | Enter the ID of the Batch. |
+|**api-version**: string default: 1.0 <br> *in header*| The requested API version.|      
+|**Authorization**: string default: <br> Bearer access_token <br> *in header* | Specify the type of the token (bearer) and insert the ```access_token``` obtained during authentication. |
+
+### Responses
+| <div style="width:200px">Response </div>|<div style="width:380px">Explanation</div>|                      
+|-----:|:-------|
+|**200 OK**| OK |
+|**400 Bad Request**| The request contains incorrect input data. |      
+|**401 Unauthorized**| The specified ```access_token``` is invalid or has expired.  |
+|**403 Forbidden**| The user doesn’t have the appropriate privileges. |
+|**500 Internal Server Error**| The server encountered an unexpected condition that prevented it from fulfilling the request.|
+
+``` json title="Response Content-types: APPLICATION/JSON, APPLICATION/XML<br>Response Example (200 OK)"
+"00000000-0000-0000-0000-000000000000"
+```

@@ -14,6 +14,10 @@ Stay up to date with the latest API features, improvements, and articles.
 
 [Subscribe to our newsletter](https://news.envi.net/Signup/dev-news){ .md-button .md-button--primary }
 
+**v. 6.6.9**
+
+A new [AP Batch](AP_Batch.md#create-a-new-export-history-record) endpoint has been added for creating Export History records.
+
 **v. 6.6.8**
 
 The [MatchedInvoices](MatchedInvoices.md) endpoints and the [AP Batch](AP_Batch.md#get-invoices-from-the-specified-ap-batch) endpoint now include the ```shippingGLCode``` property.
