@@ -522,6 +522,10 @@ This batch cannot be submitted to queued because it already exists in the 'Queue
 
 ## Create a new Export History record 
 
+!!! note
+
+    The endpoint is used in scenarios involving integration with other platforms.
+
 ### Path
 POST /odata/Batches({batchId})/ExportHistory
 
