@@ -33,7 +33,6 @@ td, th {
 |**$skip**: string <br> *in query*| Skips the first n results.|
 |**Authorization**: string default: <br> Bearer access_token <br> *in header* | Specify the type of the token (bearer) and insert the ```access_token``` obtained during authentication.|
 
-
 ### Responses
 | <div style="width:200px">Response </div>|<div style="width:380px">Explanation</div>|                      
 |-----:|:-------|
@@ -47,20 +46,20 @@ td, th {
 ### Properties
 |<div style="width:200px">Property </div> |<div style="width:420px">Explanation</div>|                      
 |-----:|:-------|
-|**addressId**: string *(uuid)*|Unique Identifier of the Address|
-|**organizationId**: string *(uuid)*|Unique Identifier of the Organization|
-|**organizationNo**: string | Identification Number of the Organization|
+|**addressId**: string *(uuid)*|Unique identifier of the Address|
+|**organizationId**: string *(uuid)*|Unique identifier of the Organization|
+|**organizationNo**: string |Identification number of the Organization|
 |**organizationName**: string| Name of the Organization|
-|**addressNo**: string| Identification Number of the Address|
+|**addressNo**: string| Identification number of the Address|
 |**addressName**: string| Name of the Address|
-|**addressTypeId**: integer *(int32)* |Unique Identifier of the Address Type|
-|**addressType**: string | Address where to send the invoices (Billing) or products (Shipping)
-|**facilityId**: string *(uuid)* | Unique Identifier of the Facility |
-|**facilityNo**: string | Identification Number of the Facility |
+|**addressTypeId**: integer *(int32)* | Unique identifier of the Address Type |
+|**addressType**: string | Type of the Address to send invoices (billing) or products (shipping) |
+|**facilityId**: string *(uuid)* | Unique identifier of the Facility |
+|**facilityNo**: string | Identification number of the Facility |
 |**facilityName**: string | Name of the Facility |
 |**addressDescription**: string | Description of the Address |
-|**address1**: string | The first Address for shipping or billing purposes |
-|**address2**: string | The second Address for shipping or billing purposes |
+|**address1**: string | First Address for shipping or billing purposes |
+|**address2**: string | Second Address for shipping or billing purposes |
 |**city**: string | City |
 |**state**: string |State |
 |**zip**: string |Zip |
@@ -68,16 +67,16 @@ td, th {
 |**contactName**: string | Name of the main contact point |
 |**contactEmail**: string | Email of the main contact point |
 |**phone**: string | Phone of main the contact point |
-|**phoneExt**: string | Phone Extension of the main contact point |
+|**phoneExt**: string | Phone extension of the main contact point |
 |**fax**: string | Fax of the main contact point |
 |**isDefaultAddress**: *boolean* |Is the Address default or not?|
-|**activeStatus**: boolean | Is the Status of the Address active or not? |
+|**activeStatus**: boolean | Is the status of the Address active or not? |
 |**dateCreated**: string *(date-time)* | Date when the Address was created |
-|**createdBy**: string *(uuid)* | Unique Identifier of the user who created the Address |
+|**createdBy**: string *(uuid)* | Unique identifier of the user who created the Address |
 |**createdByName**: string | Name of the user who created the Address |
-|**lastUpdated**: string *(date-time)* | Last Date when the Address was updated |
-|**lastUpdatedBy**: string *(uuid)* | Unique Identifier of the last user who updated the Address |
-|**lastUpdatedByName**: string | Name of the last user who updated the Address |
+|**lastUpdated**: string *(date-time)* | Date when the Address was last updated |
+|**lastUpdatedBy**: string *(uuid)* | Unique identifier of the user who last updated the Address |
+|**lastUpdatedByName**: string | Name of the user who last updated the Address |
 
 
 ``` json title="Response Content-types: APPLICATION/JSON, APPLICATION/XML <br> Response Example (200 OK)"
@@ -137,7 +136,7 @@ Returns the details of the Address specified by ID.
 |-----:|:-------|
 |**addressId**: string *(uuid)* <br> <span style="color: #F05D30">**required**</span> <br> *in path*| Enter the ID of the Address.|
 |**api-version**: string default: 1.0 <br> *in header*|The requested API version.|      
-|**Authorization**: string dafault: <br> Bearer access_token <br> *in header* |Specify the type of the token (bearer) and then insert the ```access_token```, which was obtained during authentication.|
+|**Authorization**: string default: <br> Bearer access_token <br> *in header* | Specify the type of the token (bearer) and insert the ```access_token``` obtained during authentication.|
 
 ### Responses
 | <div style="width:200px">Response </div>|<div style="width:380px">Explanation</div>|                      

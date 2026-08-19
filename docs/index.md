@@ -14,6 +14,10 @@ Stay up to date with the latest API features, improvements, and articles.
 
 [Subscribe to our newsletter](https://news.envi.net/Signup/dev-news){ .md-button .md-button--primary }
 
+**v. 6.7.2**
+
+The ```gpoMemberID```, ```gpoNameId```, ```gpoNameValue``` properties have been added to the [Facilities](Facilities.md) endpoints.
+
 **v. 6.6.9**
 
 A new [AP Batch](AP_Batch.md#create-a-new-export-history-record) endpoint has been added for creating Export History records.

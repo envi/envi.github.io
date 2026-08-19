@@ -106,7 +106,9 @@ td, th {
 |**lastUpdated**: string *(date-time)* | Last Date when the Facility was updated |
 |**lastUpdatedBy**: string *(uuid)* | Unique Identifier of the last user who updated the Facility |
 |**lastUpdatedByName**: string | Name of the last user who updated the Facility |
-|**memberID**: string | Unique Identifier of the Facility for external use |
+|**gpoMemberID**: string | Unique identifier of the Facility within the Group Purchasing Organization |
+|**gpoNameId**: string *(uuid)* | Unique identifier of the Group Purchasing Organization |
+|**gpoNameValue**: string | Name of the Group Purchasing Organization |
 |**capitalTaxExpenseCode<br>Template**: string | Capital Tax Expense Code Template |
 |**capitalTaxAccrualCode<br>Template**: string | Capital Tax Accrual Code Template |
 |**capitalDiscountCodeTemplate**: <br> string | Capital Discount Code Template |
@@ -193,7 +195,9 @@ td, th {
             "lastUpdated": "string (date-time)",
             "lastUpdatedBy": "00000000-0000-0000-0000-000000000000",
             "lastUpdatedByName": "string",
-            "memberID": "string",
+            "gpoMemberID": "string",
+            "gpoNameId": "00000000-0000-0000-0000-000000000000",
+            "gpoNameValue": "string",
             "capitalTaxExpenseCodeTemplate": "string",
             "capitalTaxAccrualCodeTemplate": "string",
             "capitalDiscountCodeTemplate": "string",
@@ -280,12 +284,23 @@ Partially updates the details of the Facility specified by ID.
 |**capitalPOInvoiceGlValidationMsg**: <br>string | Message for the Capital Purchase Order and Invoice General Ledger |
 |**timeZoneId**: string *(uuid)* | Unique Identifier of the Time Zone |
 |**preferenceCardMatching**: <br> integer *(int32)* |  Matching of the Preference Card |
-|**memberID**: string | Unique Identifier of the Facility for external use. <br> **Note**: The field requires special privileges to modify. |
+|**gpoMemberID**: string | Unique identifier of the Facility within the Group Purchasing Organization |
+|**gpoNameId**: string *(uuid)* | Unique identifier of the Group Purchasing Organization. <br> **Note**: The ```gpoMemberID``` and ```gpoNameId``` fields require special privileges to modify. <br> **Note** See the table below for supported ```gpoNameId``` values. |
 |**customField1**: string | Custom Field 1 |
 |**customField2**: string | Custom Field 2 |
 |**customField3**: string | Custom Field 3 |
 |**customField4**: string | Custom Field 4 |
 |**poPrefix**: string | Purchase Order prefix |
+
+!!! info "Supported gpoNameIds"
+
+    The following ```gpoNameId``` values are supported:
+
+    |  <div style="width:200px">GPO Name</div>  |  <div style="width:380px">gpoNameId</div>  |  
+    |-----:|:-------|
+    |**Other** | 00000000-0000-0000-0000-000000000002 |
+    |**Provista/Vizient**| 00000000-0000-0000-0000-000000000001 |
+    |**None** | null |
 
 ``` json title="Request Content-types: APPLICATION/JSON, APPLICATION/XML<br>Request Example"
 {
@@ -340,7 +355,8 @@ Partially updates the details of the Facility specified by ID.
     "capitalPOInvoiceGlValidationMsg": "string",
     "timeZoneId": "00000000-0000-0000-0000-000000000000",
     "preferenceCardMatching": "integer (int32)",
-    "memberID": "string",
+    "gpoMemberID": "string",
+    "gpoNameId": "00000000-0000-0000-0000-000000000000",
     "customField1": "string",
     "customField2": "string",
     "customField3": "string",
@@ -455,7 +471,9 @@ Returns the details of the Facility specified by ID.
 |**lastUpdated**: string *(date-time)* | Last Date when the Facility was updated |
 |**lastUpdatedBy**: string *(uuid)* | Unique Identifier of the last user who updated the Facility |
 |**lastUpdatedByName**: string | Name of the last user who updated the Facility |
-|**memberID**: string | Unique Identifier of the Facility for external use |
+|**gpoMemberID**: string | Unique identifier of the Facility within the Group Purchasing Organization |
+|**gpoNameId**: string *(uuid)* | Unique identifier of the Group Purchasing Organization |
+|**gpoNameValue**: string | Name of the Group Purchasing Organization |
 |**capitalTaxExpenseCode<br>Template**: string | Capital Tax Expense Code Template |
 |**capitalTaxAccrualCode<br>Template**: string | Capital Tax Accrual Code Template |
 |**capitalDiscountCodeTemplate**: <br> string | Capital Discount Code Template |
@@ -539,7 +557,9 @@ Returns the details of the Facility specified by ID.
     "lastUpdated": "string (date-time)",
     "lastUpdatedBy": "00000000-0000-0000-0000-000000000000",
     "lastUpdatedByName": "string",
-    "memberID": "string",
+    "gpoMemberID": "string",
+    "gpoNameId": "00000000-0000-0000-0000-000000000000",
+    "gpoNameValue": "string",
     "capitalTaxExpenseCodeTemplate": "string",
     "capitalTaxAccrualCodeTemplate": "string",
     "capitalDiscountCodeTemplate": "string",
