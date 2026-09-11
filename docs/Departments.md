@@ -12,8 +12,8 @@ Returns a paged list of existing Departments within the logged-in organization.
 
     You can filter the results as follows:
 
-    - For an exact match, use: ```$filter parameter–entity eq ‘string’```
-    - For a partial match, use: ```$filter=contains parameter–contains(entity, ‘string’)```
+    - For an exact match, use: ```$filter=entity eq 'string'```
+    - For a partial match, use: ```$filter=contains(entity, 'string')```
 
 ### Request parameters
 <style>
@@ -22,18 +22,18 @@ td, th {
 }
 </style>
 
-|  <div style="width:200px">Parameter</div>  |  <div style="width:380px">Explanation</div>  |                      
+| Parameter | Explanation |                      
 |-----:|:-------|
 |**api-version**: string default: 1.0 <br> *in header*| The requested API version. |   
 |**$search**: string <br> *in query*  | Searches across all supported fields. |   
-|**$filter**: string <br> *in query* | Filters results based on a Boolean condition.|  
-|**$orderby**: string <br> *in query* | Sorts results.|
-|**$top**: string  <br> *in query* | Returns only the first n results.|
+|**$filter**: string <br> *in query* | Filters results based on a Boolean condition. |  
+|**$orderby**: string <br> *in query* | Sorts results. |
+|**$top**: string  <br> *in query* | Returns only the first n results. |
 |**$skip**: string <br> *in query*| Skips the first n results. |
 |**Authorization**: string default: <br> Bearer access_token <br> *in header* | Specify the type of the token (bearer) and insert the ```access_token``` obtained during authentication. |
 
 ### Responses
-| <div style="width:200px">Response </div>|<div style="width:380px">Explanation</div>|                      
+| Response | Explanation |                      
 |-----:|:-------|
 |**200 OK**| OK | 
 |**400 Bad Request**| The request contains incorrect input data. |         
@@ -43,40 +43,39 @@ td, th {
 |**500 Internal Server Error**| The server encountered an unexpected condition that prevented it from fulfilling the request.|
 
 ### Properties
-|<div style="width:200px">Property </div> |<div style="width:380px">Explanation</div>|                      
+| Property | Explanation |                      
 |-----:|:-------|
-|**departmentId**: string *(uuid)* | Unique Identifier of the Department |
-|**departmentNo**: string | Identification Number of the Department |
+|**departmentId**: string *(uuid)* | Unique identifier of the Department |
+|**departmentNo**: string | Identification number of the Department |
 |**departmentName**: string | Name of the Department |
-|**organizationId**: string *(uuid)* | Unique Identifier of the Organization |
-|**organizationNo**: string | Identification Number of the Organization |
+|**organizationId**: string *(uuid)* | Unique identifier of the Organization |
+|**organizationNo**: string | Identification number of the Organization |
 |**organizationName**: string | Name of the Organization |
-|**facilityId**: string *(uuid)* | Unique Identifier of the Facility |
+|**facilityId**: string *(uuid)* | Unique identifier of the Facility |
 |**facilityName**: string | Name of the Facility |
-|**facilityNo**: string | Identification Number of the Facility |
-|**glCode**: string | General Ledger Code of the Department |
-|**address1**: string | The first Address of the Department for shipping or billing purposes |
-|**address2**: string | The second Address of the Department for shipping or billing purposes |
-|**city**: string | City |
-|**state**: string | State |
-|**zip**: string | Zip |
-|**contactName**: string | Name of the main contact point |
-|**contactPhone**: string | Phone of the main contact point |
-|**сontactPhoneExt**: string | Phone Extension of the main contact point|
-|**contactFax**: string | Fax of the main contact point |
-|**contactEmail**: string | Email of the main contact point |
-|**notes**: string | Comments about the Department |
+|**facilityNo**: string | Identification number of the Facility |
+|**glCode**: string | General Ledger code of the Department |
+|**address1**: string | Primary address of the Department for shipping or billing purposes |
+|**address2**: string | Secondary address of the Department for shipping or billing purposes |
+|**city**: string | City of the Department address |
+|**state**: string | State of the Department address |
+|**zip**: string | Zip code of the Department address |
+|**contactName**: string | Name of the main contact |
+|**contactPhone**: string | Phone number of the main contact |
+|**contactPhoneExt**: string | Phone extension of the main contact |
+|**contactFax**: string | Fax number of the main contact |
+|**contactEmail**: string | Email address of the main contact |
+|**notes**: string | Notes about the Department |
 |**activeStatus**: boolean | Is the Department active or not? |
-|**reportCompanyNo**: string | Identification Number of the company report |
-|**createdBy**: string *(uuid)* | Unique Identifier of the user who created the Department |
-|**createdByName**: string | First and Last Name of the user who created the Department |
+|**reportCompanyNo**: string | Identification number of the company report |
+|**createdBy**: string *(uuid)* | Unique identifier of the user who created the Department |
+|**createdByName**: string | Name of the user who created the Department |
 |**dateCreated**: string <br>*(date-time)* | Date when the Department was created |
-|**lastUpdatedBy**: string *(uuid)* | Unique Identifier of the last user who updated the Department |
-|**lastUpdatedByName**: string | First and Last Name of the last user who updated the Department |
-|**lastUpdated**: string *(date-time)* | Last Date when the Department was updated |
+|**lastUpdatedBy**: string *(uuid)* | Unique identifier of the user who last updated the Department |
+|**lastUpdatedByName**: string | Name of the user who last updated the Department |
+|**lastUpdated**: string *(date-time)* | Date when the Department was last updated |
 
-
-``` json title="Response Content-types: APPLICATION/JSON, APPLICATION/XML<br>Response Example (200 OK)"
+``` json title="Response example (200 OK)"
 {
     "@odata.context": "link",
     "@odata.count": "number",
@@ -109,7 +108,7 @@ td, th {
             "createdByName": "string",
             "dateCreated": "string (date-time)",
             "lastUpdatedBy": "00000000-0000-0000-0000-000000000000",
-            "lastUpdatedByName’": "string",
+            "lastUpdatedByName": "string",
             "lastUpdated": "string (date-time)"
         }
     ],
@@ -120,62 +119,62 @@ td, th {
 ## Get the specified Department
 
 ### Path
-GET /odata/Departments({DepartmentID})
+GET /odata/Departments({departmentId})
 
 ### Description
 Returns the details of the Department specified by ID within the logged-in organization.
 
 ### Request parameters
-|  <div style="width:200px">Parameter</div>  |  <div style="width:380px">Explanation</div>|                      
+| Parameter | Explanation |                      
 |-----:|:-------|
 |**departmentId**: string *(uuid)* <br> <span style="color: #F05D30">**required**</span> <br> *in path* | Enter the ID of the Department. |
 |**api-version**: string default: 1.0 <br> *in header*| The requested API version. |   
 |**Authorization**: string default: <br> Bearer access_token <br> *in header* | Specify the type of the token (bearer) and insert the ```access_token``` obtained during authentication. |
 
 ### Responses
-| <div style="width:200px">Response </div>|<div style="width:380px">Explanation</div>|                      
+| Response | Explanation |                      
 |-----:|:-------|
 |**200 OK**| OK |
 |**400 Bad Request**| The request contains incorrect input data. |            
 |**401 Unauthorized**| The specified ```access_token``` is invalid or has expired. |
 |**403 Forbidden**| The user doesn’t have the appropriate privileges. |
 |**404 Not Found** | The specified ID is absent in the system. |
-|**500 Internal Server Error**| The server encountered an unexpected condition that prevented it from fulfilling the request.|
+|**500 Internal Server Error**| The server encountered an unexpected condition that prevented it from fulfilling the request. |
 
 ### Properties
-|<div style="width:200px">Property </div> |<div style="width:380px">Explanation</div>|                      
+| Property | Explanation |                      
 |-----:|:-------|
-|**departmentId**: string *(uuid)* | Unique Identifier of the Department |
-|**departmentNo**: string | Identification Number of the Department |
+|**departmentId**: string *(uuid)* | Unique identifier of the Department |
+|**departmentNo**: string | Identification number of the Department |
 |**departmentName**: string | Name of the Department |
-|**organizationId**: string *(uuid)* | Unique Identifier of the Organization |
-|**organizationNo**: string | Identification Number of the Organization |
+|**organizationId**: string *(uuid)* | Unique identifier of the Organization |
+|**organizationNo**: string | Identification number of the Organization |
 |**organizationName**: string | Name of the Organization |
-|**facilityId**: string *(uuid)* | Unique Identifier of the Facility |
+|**facilityId**: string *(uuid)* | Unique identifier of the Facility |
 |**facilityName**: string | Name of the Facility |
-|**facilityNo**: string | Identification Number of the Facility |
-|**glCode**: string | General Ledger Code of the Department |
-|**address1**: string | The first Address of the Department for shipping or billing purposes |
-|**address2**: string | The second Address of the Department for shipping or billing purposes |
-|**city**: string | City |
-|**state**: string | State |
-|**zip**: string | Zip |
-|**contactName**: string | Name of the main contact point |
-|**contactPhone**: string | Phone of the main contact point |
-|**сontactPhoneExt**: string | Phone Extension of the main contact point|
-|**contactFax**: string | Fax of the main contact point |
-|**contactEmail**: string | Email of the main contact point |
-|**notes**: string | Comments about the Department |
+|**facilityNo**: string | Identification number of the Facility |
+|**glCode**: string | General Ledger code of the Department |
+|**address1**: string | Primary address of the Department for shipping or billing purposes |
+|**address2**: string | Secondary address of the Department for shipping or billing purposes |
+|**city**: string | City of the Department address |
+|**state**: string | State of the Department address |
+|**zip**: string | Zip code of the Department address |
+|**contactName**: string | Name of the main contact |
+|**contactPhone**: string | Phone number of the main contact |
+|**contactPhoneExt**: string | Phone extension of the main contact |
+|**contactFax**: string | Fax number of the main contact |
+|**contactEmail**: string | Email address of the main contact |
+|**notes**: string | Notes about the Department |
 |**activeStatus**: boolean | Is the Department active or not? |
-|**reportCompanyNo**: string | Identification Number of the company report |
-|**createdBy**: string *(uuid)* | Unique Identifier of the user who created the Department |
-|**createdByName**: string | First and Last Name of the user who created the Department |
+|**reportCompanyNo**: string | Identification number of the company report |
+|**createdBy**: string *(uuid)* | Unique identifier of the user who created the Department |
+|**createdByName**: string | Name of the user who created the Department |
 |**dateCreated**: string <br>*(date-time)* | Date when the Department was created |
-|**lastUpdatedBy**: string *(uuid)* | Unique Identifier of the last user who updated the Department |
-|**lastUpdatedByName**: string | First and Last Name of the last user who updated the Department |
-|**lastUpdated**: string *(date-time)* | Last Date when the Department was updated |
+|**lastUpdatedBy**: string *(uuid)* | Unique identifier of the user who last updated the Department |
+|**lastUpdatedByName**: string | Name of the user who last updated the Department |
+|**lastUpdated**: string *(date-time)* | Date when the Department was last updated |
 
-``` json title="Response Content-types: APPLICATION/JSON, APPLICATION/XML <br> Response Example (200 OK)"
+``` json title="Response example (200 OK)"
 {
     "@odata.context": "link",
     "departmentId": "00000000-0000-0000-0000-000000000000",
@@ -205,7 +204,7 @@ Returns the details of the Department specified by ID within the logged-in organ
     "createdByName": "string",
     "dateCreated": "string (date-time)",
     "lastUpdatedBy": "00000000-0000-0000-0000-000000000000",
-    "lastUpdatedByName’": "string",
+    "lastUpdatedByName": "string",
     "lastUpdated": "string (date-time)"
 }
 ``` 

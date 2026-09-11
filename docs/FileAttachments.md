@@ -120,7 +120,7 @@ td, th {
 |**lastUpdatedByName**: string | First and Last Name of the last user who updated the file |
 
 
-``` json title="Response Content-types: APPLICATION/JSON, APPLICATION/XML<br>Response Example (200 OK)"
+``` json title="Response example (200 OK)"
 {
     "@odata.context": "link",
     "@odata.count": "number",
@@ -189,7 +189,7 @@ Returns the details of the file specified by ID within the logged-in organizatio
 |**lastUpdatedBy**: string *(uuid)* | Unique Identifier of the last user who updated the file |
 |**lastUpdatedByName**: string | First and Last Name of the last user who updated the file |
 
-``` json title="Response Content-types: APPLICATION/JSON, APPLICATION/XML<br>Response Example (200 OK)"
+``` json title="Response example (200 OK)"
 {
     "@odata.context": "link",
     "fileId": "00000000-0000-0000-0000-000000000000",
@@ -225,7 +225,6 @@ Returns the file content (in raw bytes) for the file specified by ID within the 
 !!! warning
      
      If the file status is **Deleted**, **Uploading**, **Failed**, or **Corrupted**, no content is returned.
-
 
 ### Request parameters
 |  <div style="width:200px">Parameter</div>  |  <div style="width:380px">Explanation</div>|                      

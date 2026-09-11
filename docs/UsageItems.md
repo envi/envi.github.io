@@ -195,6 +195,8 @@ Adds new items to existing Usages within the logged-in organization.
 |**implantPosition**: string | Position of the Implant |
 |**implantRemoved**: boolean | Is the Implant removed or not? <br> **If not provided**: false. |
 |**implantCompleted**: boolean | Is the Implant completed or not? <br> **If not provided**: false. |
+|**unitPrice**: number *(double)*| Unit Price of the line item |
+|**useApiUnitPrice**: boolean | Is the provided ```unitPrice``` used? <br> If ```useApiUnitPrice``` is false or missing, the provided ```unitPrice``` is ignored. <br> If ```useApiUnitPrice``` is true, the ```unitPrice``` is required.|
 
 ``` json title="Request Content-types: APPLICATION/JSON, APPLICATION/XML <br> Request Example"
 {
@@ -218,10 +220,11 @@ Adds new items to existing Usages within the logged-in organization.
     "implantPositionId": "integer (int32)",
     "implantPosition": "string",
     "implantRemoved": "boolean",
-    "implantCompleted": "boolean"
+    "implantCompleted": "boolean",
+    "unitPrice": "number (double)",
+    "useApiUnitPrice": "boolean"
 }
 ```
-
 
 ``` json title="Request Example"
 {

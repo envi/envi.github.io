@@ -12,8 +12,8 @@ Returns a paged list of existing Facilities within the logged-in organization.
 
     You can filter the results as follows:
 
-    - For an exact match, use: ```$filter parameter–entity eq ‘string’```
-    - For a partial match, use: ```$filter=contains parameter–contains(entity, ‘string’)```
+    - For an exact match, use: ```$filter=entity eq 'string'```
+    - For a partial match, use: ```$filter=contains(entity, 'string')```
 
 ### Request parameters
 <style>
@@ -45,90 +45,89 @@ td, th {
 ### Properties
 |<div style="width:200px">Property </div> |<div style="width:380px">Explanation</div>|                      
 |-----:|:-------|
-|**facilityId**: string *(uuid)* | Unique Identifier of the Facility |
-|**organizationId**: string *(uuid)* | Unique Identifier of the Organization |
-|**organizationNo**: string | Identification Number of the Organization |
+|**facilityId**: string *(uuid)* | Unique identifier of the Facility |
+|**organizationId**: string *(uuid)* | Unique identifier of the Organization |
+|**organizationNo**: string | Identification number of the Organization |
 |**organizationName**: string | Name of the Organization |
-|**facilityName**: string | Number of the Facility |
-|**facilityNo**: string | Identification Number of the Facility |
-|**address1**: string | The first Address for shipping or billing purposes |
-|**address2**: string | The second Address for shipping or billing purposes |
-|**city**: string | City |
-|**state**: string | State |
-|**zip**: string | Zip |
-|**country**: string | Country |
-|**taxExpenseCodeTemplate**:<br> string | Template for displaying the General Ledger sequence for a Facility's tax expense account |
-|**taxAccrualCodeTemplate**: string | Template for displaying the General Ledger sequence for a Facility's tax accrual account |
-|**discountCodeTemp**: string | Template for displaying the Discount Code |
-|**shippingCodeTemplate**: string | Template for displaying the Shipping Code |
-|**offsetCodeTemplate**: string | Template for displaying the Offset Code |
-|**patientDisplayTemplate**: string | Template for displaying the Patient |
-|**poglCodeDisplayTemplate**: <br> string | Template for displaying the Purchase Order General Ledger Code |
-|**poDeptDisplayTemplate**: string | Template for displaying the Purchase Order Department |
+|**facilityName**: string | Name of the Facility |
+|**facilityNo**: string | Identification number of the Facility |
+|**address1**: string | Primary address of the Facility for shipping or billing purposes |
+|**address2**: string | Secondary address of the Facility for shipping or billing purposes |
+|**city**: string | City of the Facility address |
+|**state**: string | State of the Facility address |
+|**zip**: string | Zip code of the Facility address |
+|**country**: string | Country of the Facility address |
+|**taxExpenseCodeTemplate**:<br> string | Template for a tax expense code |
+|**taxAccrualCodeTemplate**: string | Template for a tax accrual code |
+|**discountCodeTemp**: string | Template for a discount code |
+|**shippingCodeTemplate**: string | Template for a shipping code |
+|**offsetCodeTemplate**: string | Template for an offset code |
+|**patientDisplayTemplate**: string | Template for displaying patient information |
+|**poglCodeDisplayTemplate**:<br> string | Template for displaying a Purchase Order General Ledger code |
+|**poDeptDisplayTemplate**: string | Template for displaying a Purchase Order Department |
 |**activeStatus**: boolean | Is the Facility active or not? |
-|**inventoryGroupId**: string *(uuid)* | Unique Identifier of the Group that contains related Inventory items |
-|**inventoryGroupNo**: string | Number of the Group that contains related Inventory items |
-|**inventoryGroupName**: string | Name of the Group that contains related Inventory items |
-|**apToleranceLevel**: number <br> *(double)* | Discrepancy between the original PO and the Invoice sent by the Vendor |
-|**apToleranceLevelType**: integer <br> *(int32)* | Type of the Discrepancy between the original PO and the Invoice sent <br> by the Vendor |
-|**apToleranceLevelTypeValue**: <br> string | Type Value of the Discrepancy between the original PO and the Invoice <br> sent by the Vendor |
-|**apToleranceLevel2**: <br> number *(double)* | Discrepancy2 between the original PO and the Invoice sent by the Vendor |
-|**apToleranceLevel2Type**: integer <br> *(int32)* | Type of the Dicrepancy2 between the original PO and the Invoice <br> sent by the Vendor |
-|**apToleranceLevel2TypeValue**: <br> string | Type Value of the Dicrepancy2 between the original PO and the Invoice sent by the Vendor |
-|**apFreeFormedToleranceLevel**: <br> number *(double)* | Tolerance Level for Free-Form of the Account Payable |
-|**apFreeFormedToleranceLevel<br>Type**: integer *(int32)* | Type of the Account Payable Free-Formed Tolerance Level |
-|**apFreeFormedToleranceLevel<br>TypeValue**: string | Value of the Account Payable Free-Formed Tolerance Level Type |
-|**apFreeFormedToleranceLevel2**: <br> number *(double)* | Second Tolerance Level for Free-Form of the Account Payable |
-|**apFreeFormedToleranceLevel2<br>Type**: integer *(int32)* | Second Type of the Account Payable Free-Formed Tolerance Level |
-|**apFreeFormedToleranceLevel2<br>TypeValue**: string | Second Value of the Account Payable Free-Formed Tolerance Level Type |
-|**apOffsetTolerance**: <br> number *(double)* | Account Payable Offset Tolerance |
-|**apOffsetToleranceType**: <br> integer *(int32)* | Type of the Account Payable Offset Tolerance |
-|**apOffsetToleranceType<br>Value**: string | Value of the Account Payable Offset Tolerance Type |
-|**taxType**: integer *(int32)* | Type of the Tax |
-|**taxTypeValue**: string | Value of the Tax Type |
-|**taxAmount**: number *(double)* | Amount of the Tax |
-|**taxExpenseType**: integer *(int32)* | Type of the Tax Expense |
-|**taxExpenseTypeValue**: string | Value of the Tax Expense Type |
-|**taxExpenseAmount**: number <br> *(double)* | Amount of the Tax Expense |
-|**facilityNoXref**: string | Cross Reference Number of the Facility |
-|**taxShipping**: boolean | Is the Shipping taxable or not? |
-|**poInvoiceGlValidation**: string | Validation for the Purchase Order and Invoice General Ledger |
-|**poInvoiceGlValidationMsg**: string | Message for the Purchase Order and Invoice General Ledger |
-|**capitalPOInvoiceGlValidation**: string | Validation for the Capital Purchase Order and Invoice General Ledger |
-|**capitalPOInvoiceGlValidationMsg**: <br>string | Message for the Capital Purchase Order and Invoice General Ledger |
-|**timeZoneId**: string *(uuid)* | Unique Identifier of the Time Zone |
-|**timeZone**: string | Time Zone |
-|**preferenceCardMatching**: <br> integer *(int32)* |  Matching of the Preference Card |
-|**preferenceCardMatching<br>Value**: string | Value of the Preference Card Matching |
+|**inventoryGroupId**: string *(uuid)* | Unique identifier of the Inventory Group that contains related Inventory items |
+|**inventoryGroupNo**: string | Number of the Inventory Group that contains related Inventory items |
+|**inventoryGroupName**: string | Name of the Inventory Group that contains related Inventory items |
+|**apToleranceLevel**: number <br> *(double)* | Accounts Payable tolerance level of the Facility |
+|**apToleranceLevelType**: integer <br> *(int32)* | Type of the Accounts Payable tolerance level |
+|**apToleranceLevelTypeValue**:<br> string | Value of the Accounts Payable tolerance level type |
+|**apToleranceLevel2**:<br> number *(double)* | Second Accounts Payable tolerance level of the Facility |
+|**apToleranceLevel2Type**: integer <br> *(int32)* | Type of the second Accounts Payable tolerance level |
+|**apToleranceLevel2TypeValue**:<br> string | Value of the second Accounts Payable tolerance level type |
+|**apFreeFormedToleranceLevel**: <br> number *(double)* | Accounts Payable Free-Form tolerance level of the Facility |
+|**apFreeFormedToleranceLevel<br>Type**: integer *(int32)* | Type of the Accounts Payable Free-Form tolerance level |
+|**apFreeFormedToleranceLevel<br>TypeValue**: string | Value of the Accounts Payable Free-Form tolerance level type |
+|**apFreeFormedToleranceLevel2**: <br> number *(double)* | Second Accounts Payable Free-Form tolerance level of the Facility |
+|**apFreeFormedToleranceLevel2<br>Type**: integer *(int32)* | Type of the second Accounts Payable Free-Form tolerance level |
+|**apFreeFormedToleranceLevel2<br>TypeValue**: string | Value of the second Accounts Payable Free-Form tolerance level type |
+|**apOffsetTolerance**: <br> number *(double)* | Accounts Payable offset tolerance of the Facility |
+|**apOffsetToleranceType**: <br> integer *(int32)* | Type of the Accounts Payable offset tolerance |
+|**apOffsetToleranceType<br>Value**: string | Value of the Accounts Payable offset tolerance type |
+|**taxType**: integer *(int32)* | Type of the tax |
+|**taxTypeValue**: string | Value of the tax type |
+|**taxAmount**: number *(double)* | Amount of the tax |
+|**taxExpenseType**: integer *(int32)* | Type of the tax expense |
+|**taxExpenseTypeValue**: string | Value of the tax expense type |
+|**taxExpenseAmount**: number <br> *(double)* | Amount of the tax expense |
+|**facilityNoXref**: string | Cross-reference number of the Facility |
+|**taxShipping**: boolean | Is shipping taxable or not? |
+|**poInvoiceGlValidation**: string | General Ledger validation for the Purchase Order and Invoice |
+|**poInvoiceGlValidationMsg**: string | General Ledger validation message for the Purchase Order and Invoice |
+|**capitalPOInvoiceGlValidation**: string | General Ledger validation for the Capital Purchase Order and Invoice |
+|**capitalPOInvoiceGlValidationMsg**: <br> string | General Ledger validation message for the Capital Purchase Order and Invoice |
+|**timeZoneId**: string *(uuid)* | Unique identifier of the time zone |
+|**timeZone**: string | Time zone |
+|**preferenceCardMatching**: <br> integer *(int32)* | Preference Card matching |
+|**preferenceCardMatching<br>Value**: string | Value of the Preference Card matching |
 |**dateCreated**: string <br>*(date-time)* | Date when the Facility was created |
-|**createdBy**: string *(uuid)* | Unique Identifier of the user who created the Facility |
+|**createdBy**: string *(uuid)* | Unique identifier of the user who created the Facility |
 |**createdByName**: string | Name of the user who created the Facility |
-|**lastUpdated**: string *(date-time)* | Last Date when the Facility was updated |
-|**lastUpdatedBy**: string *(uuid)* | Unique Identifier of the last user who updated the Facility |
-|**lastUpdatedByName**: string | Name of the last user who updated the Facility |
+|**lastUpdated**: string *(date-time)* | Date when the Facility was last updated |
+|**lastUpdatedBy**: string *(uuid)* | Unique identifier of the user who last updated the Facility |
+|**lastUpdatedByName**: string | Name of the user who last updated the Facility |
 |**gpoMemberID**: string | Unique identifier of the Facility within the Group Purchasing Organization |
 |**gpoNameId**: string *(uuid)* | Unique identifier of the Group Purchasing Organization |
 |**gpoNameValue**: string | Name of the Group Purchasing Organization |
-|**capitalTaxExpenseCode<br>Template**: string | Capital Tax Expense Code Template |
-|**capitalTaxAccrualCode<br>Template**: string | Capital Tax Accrual Code Template |
-|**capitalDiscountCodeTemplate**: <br> string | Capital Discount Code Template |
-|**capitalShippingCodeTemplate**: <br> string | Capital Shipping Code Template |
-|**capitalOffsetCodeTemplate**: <br> string | Capital Offset Code Template |
-|**customField1**: string | Custom Field 1 |
-|**customField2**: string | Custom Field 2 |
-|**customField3**: string | Custom Field 3 |
-|**customField4**: string | Custom Field 4 |
-|**poContactInfoType**: integer <br> *(int32)* | Type of the PO Contact Info |
-|**poContactInfo**: string | PO Contact Info |
-|**poContactName**: string | Name of the main contact point for the PO |
-|**poContactEmail**: string | Email of the main contact point for the PO |
-|**poContactPhone**: string | Phone of the main contact point for the PO |
-|**poContactPhoneExt**: string | Phone Extension of the main contact point for the PO |
-|**poContactFax**: string | Fax of the main contact point for the PO |
+|**capitalTaxExpenseCode<br>Template**: string | Template for a Capital tax expense code |
+|**capitalTaxAccrualCode<br>Template**: string | Template for a Capital tax accrual code |
+|**capitalDiscountCodeTemplate**: <br> string | Template for a Capital discount code |
+|**capitalShippingCodeTemplate**: <br> string | Template for a Capital shipping code |
+|**capitalOffsetCodeTemplate**: <br> string | Template for a Capital offset code |
+|**customField1**: string | Custom field 1 |
+|**customField2**: string | Custom field 2 |
+|**customField3**: string | Custom field 3 |
+|**customField4**: string | Custom field 4 |
+|**poContactInfoType**: integer <br> *(int32)* | Type of the PO contact info |
+|**poContactInfo**: string | PO contact info |
+|**poContactName**: string | Name of the main PO contact |
+|**poContactEmail**: string | Email address of the main PO contact |
+|**poContactPhone**: string | Phone number of the main PO contact |
+|**poContactPhoneExt**: string | Phone extension of the main PO contact |
+|**poContactFax**: string | Fax number of the main PO contact |
 |**poPrefix**: string | Purchase Order prefix |
 
-
-``` json title="Response Content-types: APPLICATION/JSON, APPLICATION/XML <br> Response Example (200 OK)"
+``` json title="Response example (200 OK)"
 {
     "@odata.context": "link",
     "@odata.count": "number",
@@ -228,73 +227,73 @@ td, th {
 PATCH /odata/Facilities({facilityId})
 
 ### Description
-Partially updates the details of the Facility specified by ID.
+Partially updates the Facility specified by ID.
 
 ### Request body
 | <div style="width:200px">Parameter</div>|<div style="width:380px">Explanation</div>|                      
 |-----:|:-------|
-|**facilityNo**: string | Identification Number of the Facility |
-|**facilityName**: string | Number of the Facility |
-|**address1**: string | The first Address for shipping or billing purposes |
-|**address2**: string | The second Address for shipping or billing purposes |
-|**city**: string | City |
-|**state**: string | State |
-|**zip**: string | Zip |
-|**country**: string | Country |
-|**taxExpenseCodeTemplate**:<br> string | Template for displaying the General Ledger sequence for a Facility's tax expense account |
-|**capitalTaxExpenseCode<br>Template**: string | Capital Tax Expense Code Template |
-|**taxAccrualCodeTemplate**: string | Template for displaying the General Ledger sequence for a Facility's tax accrual account |
-|**capitalTaxAccrualCode<br>Template**: string | Capital Tax Accrual Code Template |
-|**discountCodeTemp**: string | Template for displaying the Discount Code |
-|**capitalDiscountCodeTemplate**: <br> string | Capital Discount Code Template |
-|**shippingCodeTemplate**: string | Template for displaying the Shipping Code |
-|**capitalShippingCodeTemplate**: <br> string | Capital Shipping Code Template |
-|**offsetCodeTemplate**: string | Template for displaying the Offset Code |
-|**capitalOffsetCodeTemplate**: <br> string | Capital Offset Code Template |
-|**patientDisplayTemplate**: string | Template for displaying the Patient |
-|**poglCodeDisplayTemplate**: <br> string | Template for displaying the Purchase Order General Ledger Code |
-|**poDeptDisplayTemplate**: string | Template for displaying the Purchase Order Department |
-|**poContactInfoType**: integer <br> *(int32)* | Type of the PO Contact Info |
-|**poContactName**: string | Name of the main contact point for the PO |
-|**poContactEmail**: string | Email of the main contact point for the PO |
-|**poContactPhone**: string | Phone of the main contact point for the PO |
-|**poContactPhoneExt**: string | Phone Extension of the main contact point for the PO |
-|**poContactFax**: string | Fax of the main contact point for the PO |
+|**facilityNo**: string | Identification number of the Facility |
+|**facilityName**: string | Name of the Facility |
+|**address1**: string | Primary address of the Facility for shipping or billing purposes |
+|**address2**: string | Secondary address of the Facility for shipping or billing purposes |
+|**city**: string | City of the Facility address |
+|**state**: string | State of the Facility address |
+|**zip**: string | Zip code of the Facility address |
+|**country**: string | Country of the Facility address |
+|**taxExpenseCodeTemplate**:<br> string | Template for a tax expense code |
+|**capitalTaxExpenseCode<br>Template**: string | Template for a Capital tax expense code |
+|**taxAccrualCodeTemplate**: string | Template for a tax accrual code |
+|**capitalTaxAccrualCode<br>Template**: string | Template for a Capital tax accrual code |
+|**discountCodeTemp**: string | Template for a discount code |
+|**capitalDiscountCodeTemplate**: <br> string | Template for a Capital discount code |
+|**shippingCodeTemplate**: string | Template for a shipping code |
+|**capitalShippingCodeTemplate**: <br> string | Template for a Capital shipping code |
+|**offsetCodeTemplate**: string | Template for an offset code |
+|**capitalOffsetCodeTemplate**: <br> string | Template for a Capital offset code |
+|**patientDisplayTemplate**: string | Template for displaying patient information |
+|**poglCodeDisplayTemplate**: <br> string | Template for displaying a Purchase Order General Ledger code |
+|**poDeptDisplayTemplate**: string | Template for displaying a Purchase Order Department |
+|**poContactInfoType**: integer <br> *(int32)* | Type of the PO contact info |
+|**poContactName**: string | Name of the main PO contact |
+|**poContactEmail**: string | Email address of the main PO contact |
+|**poContactPhone**: string | Phone number of the main PO contact |
+|**poContactPhoneExt**: string | Phone extension of the main PO contact |
+|**poContactFax**: string | Fax number of the main PO contact | 
 |**activeStatus**: boolean | Is the Facility active or not? |
-|**inventoryGroupId**: string *(uuid)* | Unique Identifier of the Group that contains related Inventory items |
-|**apToleranceLevel**: number <br> *(double)* | Discrepancy between the original PO and the Invoice sent by the Vendor |
-|**apToleranceLevelType**: integer <br> *(int32)* | Type of the Discrepancy between the original PO and the Invoice sent <br> by the Vendor |
-|**apToleranceLevel2**: <br> number *(double)* | Discrepancy2 between the original PO and the Invoice sent by the Vendor |
-|**apToleranceLevel2Type**: integer <br> *(int32)* | Type of the Dicrepancy2 between the original PO and the Invoice <br> sent by the Vendor |
-|**apFreeFormedToleranceLevel**: <br> number *(double)* | Tolerance Level for Free-Form of the Account Payable |
-|**apFreeFormedToleranceLevel<br>Type**: integer *(int32)* | Type of the Account Payable Free-Formed Tolerance Level |
-|**apFreeFormedToleranceLevel2**: <br> number *(double)* | Second Tolerance Level for Free-Form of the Account Payable |
-|**apFreeFormedToleranceLevel2<br>Type**: integer *(int32)* | Second Type of the Account Payable Free-Formed Tolerance Level |
-|**apOffsetTolerance**: <br> number *(double)* | Account Payable Offset Tolerance |
-|**apOffsetToleranceType**: <br> integer *(int32)* | Type of the Account Payable Offset Tolerance |
-|**taxAmount**: number *(double)* | Amount of the Tax |
-|**taxType**: integer *(int32)* | Type of the Tax |
-|**taxExpenseAmount**: number <br> *(double)* | Amount of the Tax Expense |
-|**taxExpenseType**: integer *(int32)* | Type of the Tax Expense |
-|**facilityNoXref**: string | Cross Reference Number of the Facility |
-|**taxShipping**: boolean | Is the Shipping taxable or not? |
-|**poInvoiceGlValidation**: string | Validation for the Purchase Order and Invoice General Ledger |
-|**poInvoiceGlValidationMsg**: string | Message for the Purchase Order and Invoice General Ledger |
-|**capitalPOInvoiceGlValidation**: string | Validation for the Capital Purchase Order and Invoice General Ledger |
-|**capitalPOInvoiceGlValidationMsg**: <br>string | Message for the Capital Purchase Order and Invoice General Ledger |
-|**timeZoneId**: string *(uuid)* | Unique Identifier of the Time Zone |
-|**preferenceCardMatching**: <br> integer *(int32)* |  Matching of the Preference Card |
+|**inventoryGroupId**: string *(uuid)* | Unique identifier of the Inventory Group that contains related Inventory items |
+|**apToleranceLevel**: number <br> *(double)* | Accounts Payable tolerance level of the Facility |
+|**apToleranceLevelType**: integer <br> *(int32)* | Type of the Accounts Payable tolerance level |
+|**apToleranceLevel2**:<br> number *(double)* | Second Accounts Payable tolerance level of the Facility |
+|**apToleranceLevel2Type**: integer <br> *(int32)* | Type of the second Accounts Payable tolerance level |
+|**apFreeFormedToleranceLevel**: <br> number *(double)* | Accounts Payable Free-Form tolerance level of the Facility |
+|**apFreeFormedToleranceLevel<br>Type**: integer *(int32)* | Type of the Accounts Payable Free-Form tolerance level |
+|**apFreeFormedToleranceLevel2**: <br> number *(double)* | Second Accounts Payable Free-Form tolerance level of the Facility |
+|**apFreeFormedToleranceLevel2<br>Type**: integer *(int32)* | Type of the second Accounts Payable Free-Form tolerance level |
+|**apOffsetTolerance**: <br> number *(double)* | Accounts Payable offset tolerance of the Facility |
+|**apOffsetToleranceType**: <br> integer *(int32)* | Type of the Accounts Payable offset tolerance |
+|**taxAmount**: number *(double)* | Amount of the tax |
+|**taxType**: integer *(int32)* | Type of the tax |
+|**taxExpenseAmount**: number <br> *(double)* | Amount of the tax expense |
+|**taxExpenseType**: integer *(int32)* | Type of the tax expense |
+|**facilityNoXref**: string | Cross-reference number of the Facility |
+|**taxShipping**: boolean | Is shipping taxable or not? |
+|**poInvoiceGlValidation**: string | General Ledger validation for the Purchase Order and Invoice |
+|**poInvoiceGlValidationMsg**: string | General Ledger validation message for the Purchase Order and Invoice |
+|**capitalPOInvoiceGlValidation**: string | General Ledger validation for the Capital Purchase Order and Invoice |
+|**capitalPOInvoiceGlValidationMsg**: <br> string | General Ledger validation message for the Capital Purchase Order and Invoice |
+|**timeZoneId**: string *(uuid)* | Unique identifier of the time zone |
+|**preferenceCardMatching**: <br> integer *(int32)* | Preference Card matching |
 |**gpoMemberID**: string | Unique identifier of the Facility within the Group Purchasing Organization |
-|**gpoNameId**: string *(uuid)* | Unique identifier of the Group Purchasing Organization. <br> **Note**: The ```gpoMemberID``` and ```gpoNameId``` fields require special privileges to modify. <br> **Note** See the table below for supported ```gpoNameId``` values. |
-|**customField1**: string | Custom Field 1 |
-|**customField2**: string | Custom Field 2 |
-|**customField3**: string | Custom Field 3 |
-|**customField4**: string | Custom Field 4 |
+|**gpoNameId**: string *(uuid)* | Unique identifier of the Group Purchasing Organization. <br> **Note**: The ```gpoMemberID``` and ```gpoNameId``` fields require special privileges to modify. <br> **Note**: See the table below for ```gpoNameId``` values. |
+|**customField1**: string | Custom field 1 |
+|**customField2**: string | Custom field 2 |
+|**customField3**: string | Custom field 3 |
+|**customField4**: string | Custom field 4 |
 |**poPrefix**: string | Purchase Order prefix |
 
-!!! info "Supported gpoNameIds"
+!!! info "gpoNameIds"
 
-    The following ```gpoNameId``` values are supported:
+    Use the following ```gpoNameId``` values:
 
     |  <div style="width:200px">GPO Name</div>  |  <div style="width:380px">gpoNameId</div>  |  
     |-----:|:-------|
@@ -302,7 +301,7 @@ Partially updates the details of the Facility specified by ID.
     |**Provista/Vizient**| 00000000-0000-0000-0000-000000000001 |
     |**None** | null |
 
-``` json title="Request Content-types: APPLICATION/JSON, APPLICATION/XML<br>Request Example"
+``` json title="Request example"
 {
     "facilityNo": "string",
     "facilityName": "string",
@@ -368,7 +367,7 @@ Partially updates the details of the Facility specified by ID.
 ### Request parameters
 | <div style="width:200px">Parameter</div>|<div style="width:380px">Explanation</div>|                       
 |-----:|:-------|
-|**facilityId**: string *(uuid)* <br> <span style="color: #F05D30">**required**</span> <br> *in path* | Unique Identifier of the Facility. |
+|**facilityId**: string *(uuid)* <br> <span style="color: #F05D30">**required**</span> <br> *in path* | Unique identifier of the Facility. |
 |**api-version**: string default: 1.0 <br> *in header*| The requested API version.|      
 |**Authorization**: string default: <br> Bearer access_token <br> *in header* | Specify the type of the token (bearer) and insert the ```access_token``` obtained during authentication. |
 
@@ -393,7 +392,7 @@ Returns the details of the Facility specified by ID.
 ### Request parameters
 |  <div style="width:200px">Parameter</div>  |  <div style="width:380px">Explanation</div>|                      
 |-----:|:-------|
-|**departmentId**: string *(uuid)* <br> <span style="color: #F05D30">**required**</span> <br> *in path* | Enter the ID of the Facility. |
+|**facilityId**: string *(uuid)* <br> <span style="color: #F05D30">**required**</span> <br> *in path* | Enter the ID of the Facility. |
 |**api-version**: string default: 1.0 <br> *in header*| The requested API version. |   
 |**Authorization**: string default: <br> Bearer access_token <br> *in header* | Specify the type of the token (bearer) and insert the ```access_token``` obtained during authentication. |
 
@@ -410,90 +409,89 @@ Returns the details of the Facility specified by ID.
 ### Properties
 |<div style="width:200px">Property </div> |<div style="width:380px">Explanation</div>|                      
 |-----:|:-------|
-|**facilityId**: string *(uuid)* | Unique Identifier of the Facility |
-|**organizationId**: string *(uuid)* | Unique Identifier of the Organization |
-|**organizationNo**: string | Identification Number of the Organization |
+|**facilityId**: string *(uuid)* | Unique identifier of the Facility |
+|**organizationId**: string *(uuid)* | Unique identifier of the Organization |
+|**organizationNo**: string | Identification number of the Organization |
 |**organizationName**: string | Name of the Organization |
-|**facilityName**: string | Number of the Facility |
-|**facilityNo**: string | Identification Number of the Facility |
-|**address1**: string | The first Address for shipping or billing purposes |
-|**address2**: string | The second Address for shipping or billing purposes |
-|**city**: string | City |
-|**state**: string | State |
-|**zip**: string | Zip |
-|**country**: string | Country |
-|**taxExpenseCodeTemplate**:<br> string | Template for displaying the General Ledger sequence for a Facility's tax expense account |
-|**taxAccrualCodeTemplate**: string | Template for displaying the General Ledger sequence for a Facility's tax accrual account |
-|**discountCodeTemp**: string | Template for displaying the Discount Code |
-|**shippingCodeTemplate**: string | Template for displaying the Shipping Code |
-|**offsetCodeTemplate**: string | Template for displaying the Offset Code |
-|**patientDisplayTemplate**: string | Template for displaying the Patient |
-|**poglCodeDisplayTemplate**: <br> string | Template for displaying the Purchase Order General Ledger Code |
-|**poDeptDisplayTemplate**: string | Template for displaying the Purchase Order Department |
+|**facilityName**: string | Name of the Facility |
+|**facilityNo**: string | Identification number of the Facility |
+|**address1**: string | Primary address of the Facility for shipping or billing purposes |
+|**address2**: string | Secondary address of the Facility for shipping or billing purposes |
+|**city**: string | City of the Facility address |
+|**state**: string | State of the Facility address |
+|**zip**: string | Zip code of the Facility address |
+|**country**: string | Country of the Facility address |
+|**taxExpenseCodeTemplate**:<br> string | Template for a tax expense code |
+|**taxAccrualCodeTemplate**: string | Template for a tax accrual code |
+|**discountCodeTemp**: string | Template for a discount code |
+|**shippingCodeTemplate**: string | Template for a shipping code |
+|**offsetCodeTemplate**: string | Template for an offset code |
+|**patientDisplayTemplate**: string | Template for displaying patient information |
+|**poglCodeDisplayTemplate**:<br> string | Template for displaying a Purchase Order General Ledger code |
+|**poDeptDisplayTemplate**: string | Template for displaying a Purchase Order Department |
 |**activeStatus**: boolean | Is the Facility active or not? |
-|**inventoryGroupId**: string *(uuid)* | Unique Identifier of the Group that contains related Inventory items |
-|**inventoryGroupNo**: string | Number of the Group that contains related Inventory items |
-|**inventoryGroupName**: string | Name of the Group that contains related Inventory items |
-|**apToleranceLevel**: number <br> *(double)* | Discrepancy between the original PO and the Invoice sent by the Vendor |
-|**apToleranceLevelType**: integer <br> *(int32)* | Type of the Discrepancy between the original PO and the Invoice sent <br> by the Vendor |
-|**apToleranceLevelTypeValue**: <br> string | Type Value of the Discrepancy between the original PO and the Invoice <br> sent by the Vendor |
-|**apToleranceLevel2**: <br> number *(double)* | Discrepancy2 between the original PO and the Invoice sent by the Vendor |
-|**apToleranceLevel2Type**: integer <br> *(int32)* | Type of the Dicrepancy2 between the original PO and the Invoice <br> sent by the Vendor |
-|**apToleranceLevel2TypeValue**: <br> string | Type Value of the Dicrepancy2 between the original PO and the Invoice sent by the Vendor |
-|**apFreeFormedToleranceLevel**: <br> number *(double)* | Tolerance Level for Free-Form of the Account Payable |
-|**apFreeFormedToleranceLevel<br>Type**: integer *(int32)* | Type of the Account Payable Free-Formed Tolerance Level |
-|**apFreeFormedToleranceLevel<br>TypeValue**: string | Value of the Account Payable Free-Formed Tolerance Level Type |
-|**apFreeFormedToleranceLevel2**: <br> number *(double)* | Second Tolerance Level for Free-Form of the Account Payable |
-|**apFreeFormedToleranceLevel2<br>Type**: integer *(int32)* | Second Type of the Account Payable Free-Formed Tolerance Level |
-|**apFreeFormedToleranceLevel2<br>TypeValue**: string | Second Value of the Account Payable Free-Formed Tolerance Level Type |
-|**apOffsetTolerance**: <br> number *(double)* | Account Payable Offset Tolerance |
-|**apOffsetToleranceType**: <br> integer *(int32)* | Type of the Account Payable Offset Tolerance |
-|**apOffsetToleranceType<br>Value**: string | Value of the Account Payable Offset Tolerance Type |
-|**taxType**: integer *(int32)* | Type of the Tax |
-|**taxTypeValue**: string | Value of the Tax Type |
-|**taxAmount**: number *(double)* | Amount of the Tax |
-|**taxExpenseType**: integer *(int32)* | Type of the Tax Expense |
-|**taxExpenseTypeValue**: string | Value of the Tax Expense Type |
-|**taxExpenseAmount**: number <br> *(double)* | Amount of the Tax Expense |
-|**facilityNoXref**: string | Cross Reference Number of the Facility |
-|**taxShipping**: boolean | Is the Shipping taxable or not? |
-|**poInvoiceGlValidation**: string | Validation for the Purchase Order and Invoice General Ledger |
-|**poInvoiceGlValidationMsg**: string | Message for the Purchase Order and Invoice General Ledger |
-|**capitalPOInvoiceGlValidation**: string | Validation for the Capital Purchase Order and Invoice General Ledger |
-|**capitalPOInvoiceGlValidationMsg**: <br>string | Message for the Capital Purchase Order and Invoice General Ledger |
-|**timeZoneId**: string *(uuid)* | Unique Identifier of the Time Zone |
-|**timeZone**: string | Time Zone |
-|**preferenceCardMatching**: <br> integer *(int32)* |  Matching of the Preference Card |
-|**preferenceCardMatching<br>Value**: string | Value of the Preference Card Matching |
+|**inventoryGroupId**: string *(uuid)* | Unique identifier of the Inventory Group that contains related Inventory items |
+|**inventoryGroupNo**: string | Number of the Inventory Group that contains related Inventory items |
+|**inventoryGroupName**: string | Name of the Inventory Group that contains related Inventory items |
+|**apToleranceLevel**: number <br> *(double)* | Accounts Payable tolerance level of the Facility |
+|**apToleranceLevelType**: integer <br> *(int32)* | Type of the Accounts Payable tolerance level |
+|**apToleranceLevelTypeValue**:<br> string | Value of the Accounts Payable tolerance level type |
+|**apToleranceLevel2**:<br> number *(double)* | Second Accounts Payable tolerance level of the Facility |
+|**apToleranceLevel2Type**: integer <br> *(int32)* | Type of the second Accounts Payable tolerance level |
+|**apToleranceLevel2TypeValue**:<br> string | Value of the second Accounts Payable tolerance level type |
+|**apFreeFormedToleranceLevel**: <br> number *(double)* | Accounts Payable Free-Form tolerance level of the Facility |
+|**apFreeFormedToleranceLevel<br>Type**: integer *(int32)* | Type of the Accounts Payable Free-Form tolerance level |
+|**apFreeFormedToleranceLevel<br>TypeValue**: string | Value of the Accounts Payable Free-Form tolerance level type |
+|**apFreeFormedToleranceLevel2**: <br> number *(double)* | Second Accounts Payable Free-Form tolerance level of the Facility |
+|**apFreeFormedToleranceLevel2<br>Type**: integer *(int32)* | Type of the second Accounts Payable Free-Form tolerance level |
+|**apFreeFormedToleranceLevel2<br>TypeValue**: string | Value of the second Accounts Payable Free-Form tolerance level type |
+|**apOffsetTolerance**: <br> number *(double)* | Accounts Payable offset tolerance of the Facility |
+|**apOffsetToleranceType**: <br> integer *(int32)* | Type of the Accounts Payable offset tolerance |
+|**apOffsetToleranceType<br>Value**: string | Value of the Accounts Payable offset tolerance type |
+|**taxType**: integer *(int32)* | Type of the tax |
+|**taxTypeValue**: string | Value of the tax type |
+|**taxAmount**: number *(double)* | Amount of the tax |
+|**taxExpenseType**: integer *(int32)* | Type of the tax expense |
+|**taxExpenseTypeValue**: string | Value of the tax expense type |
+|**taxExpenseAmount**: number <br> *(double)* | Amount of the tax expense |
+|**facilityNoXref**: string | Cross-reference number of the Facility |
+|**taxShipping**: boolean | Is shipping taxable or not? |
+|**poInvoiceGlValidation**: string | General Ledger validation for the Purchase Order and Invoice |
+|**poInvoiceGlValidationMsg**: string | General Ledger validation message for the Purchase Order and Invoice |
+|**capitalPOInvoiceGlValidation**: string | General Ledger validation for the Capital Purchase Order and Invoice |
+|**capitalPOInvoiceGlValidationMsg**: <br> string | General Ledger validation message for the Capital Purchase Order and Invoice |
+|**timeZoneId**: string *(uuid)* | Unique identifier of the time zone |
+|**timeZone**: string | Time zone |
+|**preferenceCardMatching**: <br> integer *(int32)* | Preference Card matching |
+|**preferenceCardMatching<br>Value**: string | Value of the Preference Card matching |
 |**dateCreated**: string <br>*(date-time)* | Date when the Facility was created |
-|**createdBy**: string *(uuid)* | Unique Identifier of the user who created the Facility |
+|**createdBy**: string *(uuid)* | Unique identifier of the user who created the Facility |
 |**createdByName**: string | Name of the user who created the Facility |
-|**lastUpdated**: string *(date-time)* | Last Date when the Facility was updated |
-|**lastUpdatedBy**: string *(uuid)* | Unique Identifier of the last user who updated the Facility |
-|**lastUpdatedByName**: string | Name of the last user who updated the Facility |
+|**lastUpdated**: string *(date-time)* | Date when the Facility was last updated |
+|**lastUpdatedBy**: string *(uuid)* | Unique identifier of the user who last updated the Facility |
+|**lastUpdatedByName**: string | Name of the user who last updated the Facility |
 |**gpoMemberID**: string | Unique identifier of the Facility within the Group Purchasing Organization |
 |**gpoNameId**: string *(uuid)* | Unique identifier of the Group Purchasing Organization |
 |**gpoNameValue**: string | Name of the Group Purchasing Organization |
-|**capitalTaxExpenseCode<br>Template**: string | Capital Tax Expense Code Template |
-|**capitalTaxAccrualCode<br>Template**: string | Capital Tax Accrual Code Template |
-|**capitalDiscountCodeTemplate**: <br> string | Capital Discount Code Template |
-|**capitalShippingCodeTemplate**: <br> string | Capital Shipping Code Template |
-|**capitalOffsetCodeTemplate**: <br> string | Capital Offset Code Template |
-|**customField1**: string | Custom Field 1 |
-|**customField2**: string | Custom Field 2 |
-|**customField3**: string | Custom Field 3 |
-|**customField4**: string | Custom Field 4 |
-|**poContactInfoType**: integer <br> *(int32)* | Type of the PO Contact Info |
-|**poContactInfo**: string| PO Contact Info |
-|**poContactName**: string | Name of the main contact point for the PO |
-|**poContactEmail**: string | Email of the main contact point for the PO |
-|**poContactPhone**: string | Phone of the main contact point for the PO |
-|**poContactPhoneExt**: string | Phone Extension of the main contact point for the PO |
-|**poContactFax**: string | Fax of the main contact point for the PO |
+|**capitalTaxExpenseCode<br>Template**: string | Template for a Capital tax expense code |
+|**capitalTaxAccrualCode<br>Template**: string | Template for a Capital tax accrual code |
+|**capitalDiscountCodeTemplate**: <br> string | Template for a Capital discount code |
+|**capitalShippingCodeTemplate**: <br> string | Template for a Capital shipping code |
+|**capitalOffsetCodeTemplate**: <br> string | Template for a Capital offset code |
+|**customField1**: string | Custom field 1 |
+|**customField2**: string | Custom field 2 |
+|**customField3**: string | Custom field 3 |
+|**customField4**: string | Custom field 4 |
+|**poContactInfoType**: integer <br> *(int32)* | Type of the PO contact info |
+|**poContactInfo**: string | PO contact info |
+|**poContactName**: string | Name of the main PO contact |
+|**poContactEmail**: string | Email address of the main PO contact |
+|**poContactPhone**: string | Phone number of the main PO contact |
+|**poContactPhoneExt**: string | Phone extension of the main PO contact |
+|**poContactFax**: string | Fax number of the main PO contact |
 |**poPrefix**: string | Purchase Order prefix |
 
-
-``` json title="Response Content-types: APPLICATION/JSON, APPLICATION/XML <br> Response Example (200 OK)"
+``` json title="Response example (200 OK)" 
 {
     "@odata.context": "link",
     "facilityId": "00000000-0000-0000-0000-000000000000",
@@ -579,5 +577,3 @@ Returns the details of the Facility specified by ID.
     "poPrefix": "string"
 }
 ```
-
-

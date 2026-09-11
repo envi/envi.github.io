@@ -12,8 +12,8 @@ Returns a paged list of existing Classifications within the logged-in organizati
 
     You can filter the results as follows:
 
-    - For an exact match, use: ```$filter parameter–entity eq ‘string’```
-    - For a partial match, use: ```$filter=contains parameter–contains(entity, ‘string’)```
+    - For an exact match, use: ```$filter=entity eq 'string'```
+    - For a partial match, use: ```$filter=contains(entity, 'string')```
 
 ### Request parameters 
 <style>
@@ -28,8 +28,8 @@ td, th {
 |**$filter**: string <br> *in query* | Restricts the set of items returned. Supports up to 100 expressions. | 
 |**$orderby**: string <br> *in query* | Specifies the order in which items are returned. Supports up to 5 expressions. | 
 |**$search**: string <br> *in query*  | Searches across all supported fields. |
-|**$top**: string  <br> *in query* | Returns only the first n results.|
-|**$skip**: string <br> *in query*| Skips the first n results.|
+|**$top**: string  <br> *in query* | Returns only the first n results. |
+|**$skip**: string <br> *in query*| Skips the first n results. |
 |**Authorization**: string default: <br> Bearer access_token <br> *in header* | Specify the type of the token (bearer) and insert the ```access_token``` obtained during authentication. |
 
 ### Responses
@@ -44,22 +44,22 @@ td, th {
 ### Properties
 |<div style="width:200px">Property </div> |<div style="width:420px">Explanation</div>|                      
 |-----:|:-------|
-|**classificationId**: string *(uuid)* | Unique Identifier of the Сlassification |
-|**classificationName**: string | Name of the Сlassification |
-|**classificationTypeId**: tiny int| Unique Identifier of the Classification Type |
-|**classificationTypeValue**: string | Type Value of the Classification |
-|**organizationId**: string *(uuid)* | Unique Identifier of the Organization |
-|**organizationNo**: string | Identification Number of the Organization |
+|**classificationId**: string *(uuid)* | Unique identifier of the Classification |
+|**classificationName**: string | Name of the Classification |
+|**classificationTypeId**: tiny int | Unique identifier of the Classification type |
+|**classificationTypeValue**: string | Value of the Classification type |
+|**organizationId**: string *(uuid)* | Unique identifier of the Organization |
+|**organizationNo**: string | Identification number of the Organization |
 |**organizationName**: string | Name of the Organization |
 |**activeStatus**: boolean | Is the Classification active or not? |
 |**dateCreated**: string <br>*(date-time)* | Date when the Classification was created |
-|**createdBy**: string *(uuid)* | Unique Identifier of the user who created the Classification |
+|**createdBy**: string *(uuid)* | Unique identifier of the user who created the Classification |
 |**createdByName**: string | Name of the user who created the Classification |
-|**lastUpdated**: string *(date-time)* | Last Date when the Classification was updated |
-|**lastUpdatedBy**: string *(uuid)* | Unique Identifier of the last user who updated the Classification |
+|**lastUpdated**: string *(date-time)* | Last date when the Classification was updated |
+|**lastUpdatedBy**: string *(uuid)* | Unique identifier of the last user who updated the Classification |
 |**lastUpdatedByName**: string | Name of the last user who updated the Classification |
 
-``` json title="Response Content-types: APPLICATION/JSON, APPLICATION/XML<br>Response example (200 OK)"
+``` json title="Response example (200 OK)"
 {
     "@odata.context": "link",
     "@odata.count": "number",
@@ -96,11 +96,11 @@ Creates a new Classification within the logged-in organization.
 ### Request body
 | <div style="width:200px">Parameter</div>|<div style="width:420px">Explanation</div>|                      
 |-----:|:-------|
-|**classificationName**: string <br> <span style="color: #F05D30">**required**</span> | Name of the Сlassification |
-|**classificationTypeId**: tiny int <br> <span style="color: #F05D30">**required**</span> | Unique Identifier of the Classification Type |
+|**classificationName**: string <br> <span style="color: #F05D30">**required**</span> | Name of the Classification |
+|**classificationTypeId**: tiny int <br> <span style="color: #F05D30">**required**</span> | Unique identifier of the Classification type |
 
 
-``` json title="Request Content-types: APPLICATION/JSON, APPLICATION/XML<br>Request Example"
+``` json title="Request example"
 {
     "classificationName": "string",
     "classificationTypeId": "tiny int"
@@ -110,7 +110,7 @@ Creates a new Classification within the logged-in organization.
 ### Request parameters
 |  <div style="width:200px">Parameter</div>  |  <div style="width:380px">Explanation</div>  |                      
 |-----:|:-------|
-|**api-version**: string default: 1.0 <br> *in header*| The requested API version.|   
+|**api-version**: string default: 1.0 <br> *in header*| The requested API version. |   
 |**Authorization**: string default: <br> Bearer access_token <br> *in header* | Specify the type of the token (bearer) and insert the ```access_token``` obtained during authentication. |
 
 ### Responses
@@ -122,14 +122,14 @@ Creates a new Classification within the logged-in organization.
 |**403 Forbidden**| The user doesn’t have the appropriate privileges. |
 |**500 Internal Server Error**| The server encountered an unexpected condition that prevented it from fulfilling the request. |
 
-``` json title="Response Content-types: APPLICATION/JSON, APPLICATION/XML<br>Response Example (200 OK)"
+``` json title="Response example (200 OK)"
 "00000000-0000-0000-0000-000000000000"
 ```
 
 ## Get the specified Classification
 
 ### Path
-GET /odata/Classifications({ClassificationId})
+GET /odata/Classifications({classificationId})
 
 ### Description
 Returns the details of the Classification specified by ID within the logged-in organization.
@@ -154,23 +154,23 @@ Returns the details of the Classification specified by ID within the logged-in o
 ### Properties
 |<div style="width:200px">Property </div> |<div style="width:420px">Explanation</div>|                      
 |-----:|:-------|
-|**classificationId**: string *(uuid)* | Unique Identifier of the Сlassification |
-|**classificationName**: string | Name of the Сlassification |
-|**classificationTypeId**: tiny int | Unique Identifier of the Classification Type |
-|**classificationTypeValue**: string | Type Value of the Classification |
-|**organizationId**: string *(uuid)* | Unique Identifier of the Organization |
-|**organizationNo**: string | Identification Number of the Organization |
+|**classificationId**: string *(uuid)* | Unique identifier of the Classification |
+|**classificationName**: string | Name of the Classification |
+|**classificationTypeId**: tiny int | Unique identifier of the Classification type |
+|**classificationTypeValue**: string | Value of the Classification type |
+|**organizationId**: string *(uuid)* | Unique identifier of the Organization |
+|**organizationNo**: string | Identification number of the Organization |
 |**organizationName**: string | Name of the Organization |
 |**activeStatus**: boolean | Is the Classification active or not? |
 |**dateCreated**: string <br>*(date-time)* | Date when the Classification was created |
-|**createdBy**: string *(uuid)* | Unique Identifier of the user who created the Classification |
+|**createdBy**: string *(uuid)* | Unique identifier of the user who created the Classification |
 |**createdByName**: string | Name of the user who created the Classification |
-|**lastUpdated**: string *(date-time)* | Last Date when the Classification was updated |
-|**lastUpdatedBy**: string *(uuid)* | Unique Identifier of the last user who updated the Classification |
+|**lastUpdated**: string *(date-time)* | Last date when the Classification was updated |
+|**lastUpdatedBy**: string *(uuid)* | Unique identifier of the last user who updated the Classification |
 |**lastUpdatedByName**: string | Name of the last user who updated the Classification |
 
 
-``` json title="Response Content-types: APPLICATION/JSON, APPLICATION/XML<br>Response example (200 OK)"
+``` json title="Response example (200 OK)"
 {
     "@odata.context": "link",
     "classificationId": "00000000-0000-0000-0000-000000000000",
@@ -193,19 +193,19 @@ Returns the details of the Classification specified by ID within the logged-in o
 ## Partially update the specified Classification
 
 ### Path
-PATCH /odata/Classifications({сlassificationId})
+PATCH /odata/Classifications({classificationId})
 
 ### Description
-Partially updates the details of the Classification specified by ID.
+Partially updates the Classification specified by ID.
 
 ### Request body
 | <div style="width:200px">Parameter</div>|<div style="width:420px">Explanation</div>|                      
 |-----:|:-------|
-|**classificationName**: string | Name of the Сlassification |
-|**classificationTypeId**: tiny int | Unique Identifier of the Classification Type |
-|**activeStatus**: boolean | Is the Status of the Classification active or not? |
+|**classificationName**: string | Name of the Classification |
+|**classificationTypeId**: tiny int | Unique identifier of the Classification type |
+|**activeStatus**: boolean | Is the Classification active or not? |
 
-``` json title="Request Content-types: APPLICATION/JSON, APPLICATION/XML<br>Request Example"
+``` json title="Request example"
 {
     "classificationName": "string",
     "classificationTypeId": "tiny int",
@@ -217,7 +217,7 @@ Partially updates the details of the Classification specified by ID.
 | <div style="width:200px">Parameter</div>|<div style="width:380px">Explanation</div>|                       
 |-----:|:-------|
 |**classificationId**: string *(uuid)* <br> <span style="color: #F05D30">**required**</span> <br> *in path* | Enter the ID of the Classification. |
-|**api-version**: string default: 1.0 <br> *in header*| The requested API version.|      
+|**api-version**: string default: 1.0 <br> *in header*| The requested API version. |      
 |**Authorization**: string default: <br> Bearer access_token <br> *in header* | Specify the type of the token (bearer) and insert the ```access_token``` obtained during authentication. |
 
 ### Responses

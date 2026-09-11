@@ -24,7 +24,7 @@ A new [AP Batch](AP_Batch.md#create-a-new-export-history-record) endpoint has be
 
 **v. 6.6.8**
 
-The [MatchedInvoices](MatchedInvoices.md) endpoints and the [AP Batch](AP_Batch.md#get-invoices-from-the-specified-ap-batch) endpoint now include the ```shippingGLCode``` property.
+The [Matched Invoices](MatchedInvoices.md) endpoints and the [AP Batch](AP_Batch.md#get-invoices-from-the-specified-ap-batch) endpoint now include the ```shippingGLCode``` property.
 
 **v. 6.6.4**
 
