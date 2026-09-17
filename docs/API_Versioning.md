@@ -1,14 +1,14 @@
+# API versioning
+
 Versioning is an important aspect of any mature web service. It ensures that clients can rely on services to be stable over time, while still enabling service changes and new features. Envi implementation of API Versioning means that almost every request should provide a specific version using the api-version request header.
 
 !!! note 
 
     Some of the standard OData endpoints, such as ```$metadata``` related or authentication endpoint (oauth2/token), do not require version specification.
     
-
 Envi API supports advertising of versions – information about which service versions are currently supported and which are deprecated. This information is included as multi-value HTTP headers **api-supported-versions** and **api-deprecated-versions**. Their values indicate the supported and deprecated API versions, respectively. A deprecated version is still implemented but is expected to be removed in six months or more. When a version is no longer supported, it stops being advertised.
 
 Client implementations can use the OPTIONS type of a request against the ```$metadata``` endpoint to find out a list of supported and deprecated versions. Now, Envi OData API supports only one version (1.0), but it will change soon. To check available versions, send the following request:
-
 
 ``` title="Request Example"
 https://<HOSTNAME>/odata/$metadata

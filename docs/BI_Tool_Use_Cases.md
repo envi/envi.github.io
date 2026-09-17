@@ -1,4 +1,5 @@
-# BI Tool Use Cases
+# BI tool use cases
+
 Business intelligence tools help you to improve decision-making and social collaboration. They provide the means for efficient reporting, thorough analysis of data, statistics, and analytics.
 
 [Power BI](#power-bi), [Excel](#ms-excel), [Tableau](#tableau), and [Klipfolio](#klipfolio) are data visualization and business intelligence tools that convert data from different data sources to interactive dashboards and BI reports.

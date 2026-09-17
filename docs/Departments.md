@@ -1,4 +1,4 @@
-# Departments
+# Departments 
 
 ## Get the list of Departments
 

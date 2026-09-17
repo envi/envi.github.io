@@ -1,3 +1,5 @@
+# Options and limitations
+
 Refine the results of your query by using query options.
 
 - [$search](#search)

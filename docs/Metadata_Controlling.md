@@ -1,3 +1,5 @@
+# Metadata controlling
+
 In general, there are three levels of metadata specification: ```none```, ```minimal```, and ```full```. The ```default``` metadata level is minimal, so the service removes metadata information from the payload wherever possible.
 
 Taking into account your need for the application, you can request the needed amount of metadata information included in the payload.

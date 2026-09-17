@@ -1,4 +1,5 @@
-# Envi Use Cases
+# Envi use cases
+
 Besides general API endpoints, Envi OData API also contains several operations intended to fulfil specific business needs.
 
  - [Batch support](#batch-support)

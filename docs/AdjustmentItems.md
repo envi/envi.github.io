@@ -1,19 +1,19 @@
 # AdjustmentItems
 
-## Get the list of Adjustment Items
+## Get the list of Adjustment items
 
 ### Path
 GET /odata/AdjustmentItems
 
 ### Description
-Returns a paged list of existing items within all Adjustments. 
+Returns a paged list of existing Adjustment items.
 
 !!! note
 
     You can filter the results as follows:
 
-    - For an exact match, use: ```$filter parameter–entity eq ‘string’```
-    - For a partial match, use: ```$filter=contains parameter–contains(entity, ‘string’)```
+    - For an exact match, use: ```$filter=entity eq 'string'```
+    - For a partial match, use: ```$filter=contains(entity, 'string')```
 
 
 !!! note
@@ -21,7 +21,7 @@ Returns a paged list of existing items within all Adjustments.
     This endpoint does not support logical operators (**and**, **or**, **in**, **gt**, **ge**, **lt**, **le**) for data filtering.
 
 ### Request parameters
-|  <div style="width:200px">Parameter</div>  |  <div style="width:420px">Explanation</div>  |                      
+| Parameter | Explanation |                      
 |-----:|:-------|
 |**from**: string *(date-time)* <br> *in query* | Enter the start date. |
 |**to**: string *(date-time)* <br> *in query* | Enter the end date. |
@@ -34,7 +34,7 @@ Returns a paged list of existing items within all Adjustments.
 |**Authorization**: string default: <br> Bearer access_token <br> *in header* | Specify the type of the token (bearer) and insert the ```access_token``` obtained during authentication.|
 
 ### Responses
-| <div style="width:200px">Response </div>|<div style="width:380px">Explanation</div>|                      
+| Response | Explanation |                      
 |-----:|:-------|
 |**200 OK**|OK|      
 |**400 Bad Request**| The request contains incorrect input data.|
@@ -44,40 +44,39 @@ Returns a paged list of existing items within all Adjustments.
 |**500 Internal Server Error**| The server encountered an unexpected condition that prevented it from fulfilling the request.|
 
 ### Properties
-|<div style="width:200px">Property </div> |<div style="width:420px">Explanation</div>|                      
+| Property | Explanation |                      
 |-----:|:-------|
-|**adjustmentItemId**: string *(uuid)* | Unique Identifier of the Adjustment Item |
-|**adjustmentId**: string *(uuid)* | Unique Identifier of the Adjustment |
-|**inventoryLocationId**: string *(uuid)* | Unique Identifier of the Inventory Location |
-|**notes**: string |Comments about the Adjustment Item |
-|**lotNo**: string | Identification Number assigned to a particular quantity or lot of material from a single Manufacturer |
-|**serialNo**: string | Unique Identifier assigned incrementally or sequentially to an Item to identify it |
-|**expDate**: string *(date-time)* | Previously determined date after which Item should no longer be used |
-|**dateCreated**: string *(date-time)* | Date when the Adjustment Item was created |
-|**createdBy**: string *(uuid)* | Unique Identifier of the user who created the Adjustment Item |
-|**createdByName**: string | Name of the user who created the Adjustment Item |
-|**lastUpdated**: string *(date-time)* | Last Date when the Adjustment Item was updated |
-|**lastUpdatedBy**: string *(uuid)* | Unique Identifier of the last user who updated the Adjustment Item |
-|**lastUpdatedByName**: string | Name of the last user who updated the Adjustment Item |
-|**lineNo**: integer *(int32)* | Sequence number of the Adjustment Item in the Line Items list |
+|**adjustmentItemId**: string *(uuid)* | Unique identifier of the Adjustment item |
+|**adjustmentId**: string *(uuid)* | Unique identifier of the Adjustment |
+|**inventoryLocationId**: string *(uuid)* | Unique identifier of the Inventory Location |
+|**notes**: string | Notes about the Adjustment item |
+|**lotNo**: string | Lot number assigned to the item |
+|**serialNo**: string | Serial number assigned to uniquely identify the item |
+|**expDate**: string <br> *(date-time)* | Expiration date of the item |
+|**dateCreated**: string *(date-time)* | Date when the Adjustment item was created |
+|**createdBy**: string *(uuid)* | Unique identifier of the user who created the Adjustment item |
+|**createdByName**: string | Name of the user who created the Adjustment item |
+|**lastUpdated**: string *(date-time)* | Date when the Adjustment item was last updated |
+|**lastUpdatedBy**: string *(uuid)* | Unique identifier of the user who last updated the Adjustment item |
+|**lastUpdatedByName**: string | Name of the user who last updated the Adjustment item |
+|**lineNo**: integer *(int32)* | Sequence number of the Adjustment item in the line items list |
 |**facilityName**: string | Name of the Facility |
 |**locationName**: string | Name of the Location |
-|**dateSubmitted**: string *(date-time)* | Date when the Adjustment Item was submitted |
-|**inventoryNo**: string | Identification code of the Inventory Item |
-|**inventoryDescription**: string | Description of the Inventory Item |
-|**classificationName**: string | Name of the Category of the Item defined on the Organization level |
+|**dateSubmitted**: string *(date-time)* | Date when the Adjustment item was submitted |
+|**inventoryNo**: string | Identification number of the Inventory item |
+|**inventoryDescription**: string | Description of the Inventory item |
+|**classificationName**: string | Name of the Inventory Category defined at the Organization level |
 |**vendorName**: string | Name of the Vendor |
-|**vendorItemNo**: string | Code that is used by the Vendor for the Item identification |
-|**quantity**: integer *(int32)* | Quantity specified in the Line Items |
-|**impactQuantity**: integer *(int32)* | Unit that is used for differentiation of the quantity change |
-|**uom**: string | Unit of Measure |
-|**conversionFactor**: integer *(int32)* | Number of Stock Keeping Units in another Unit of Measure |
-|**adjustmentTypeText**: string | Type of transaction: Increment, Decrement, or Overwrite |
-|**unitCost**: number *(double)* | Cost of the one unit of the Adjustment Item |
-|**extendedCost**: number *(double)* | Total Cost of the Line |
+|**vendorItemNo**: string | Item number defined by the Vendor |
+|**quantity**: integer *(int32)* | Quantity specified for the line item |
+|**impactQuantity**: integer *(int32)* | Unit used to differentiate the quantity change |
+|**uom**: string | Unit of Measure of the Adjustment item |
+|**conversionFactor**: integer *(int32)* | Conversion factor of the Adjustment item |
+|**adjustmentTypeText**: string | Type of the Adjustment: Increment, Decrement, or Overwrite. |
+|**unitCost**: number *(double)* | Unit cost of the Adjustment item |
+|**extendedCost**: number *(double)* | Total cost of the Adjustment item |
 
-
-``` json title="Response Content-types: APPLICATION/JSON, APPLICATION/XML <br> Response Example (200 OK)"
+``` json title="Response example (200 OK)"
 {
     "@odata.context": "link",
     "@odata.count": "number",
@@ -118,14 +117,13 @@ Returns a paged list of existing items within all Adjustments.
 }
 ```
 
-
-## Get the specified Adjustment Item
+## Get the specified Adjustment item
 
 ### Path
 GET /odata/AdjustmentItems({adjustmentItemId})
 
 ### Description
-Returns the details of the Adjustment Item specified by ID.
+Returns the details of the Adjustment item specified by ID.
 
 ### Request parameters
 <style>
@@ -134,14 +132,13 @@ td, th {
 }
 </style>
 
-| <div style="width:200px"> Parameter </div> |<div style="width:380px">Explanation</div> |                      
+| Parameter | Explanation |                      
 |-----:|:-------|
 |**adjustmentItemId**: string *(uuid)* <br> <span style="color: #F05D30">**required**</span> <br> *in path*| Enter the ID of the Adjustment Item.|
 |**api-version**: string default: 1.0 <br> *in header* | The requested API version. |
 |**Authorization**: string <br> Bearer access_token <br> *in header* |Specify the type of the token (bearer) and insert the ```access_token``` obtained during authentication. |
 
-
-|  <div style="width:200px">Parameter</div>  |  <div style="width:380px">Explanation</div>  |                      
+| Parameter |  Explanation |                      
 |-----:|:-------|
 |**api-version**: string default: 1.0 <br> *in header*| The requested API version.|
 |**$search**: string <br> *in query*  | Searches across all supported fields. |  
@@ -152,7 +149,7 @@ td, th {
 |**Authorization**: string default: <br> Bearer access_token <br> *in header* | Specify the type of the token (bearer) and insert the ```access_token``` obtained during authentication.|
 
 ### Responses
-| <div style="width:200px">Response </div>|<div style="width:380px">Explanation</div>|                      
+| Response | Explanation |                      
 |-----:|:-------|
 |**200 OK**|OK|      
 |**400 Bad Request**| The request contains incorrect input data.|
@@ -162,40 +159,39 @@ td, th {
 |**500 Internal Server Error**| The server encountered an unexpected condition that prevented it from fulfilling the request.|
 
 ### Properties
-|<div style="width:200px">Property </div> |<div style="width:420px">Explanation</div>|                      
+| Property  | Explanation |                      
 |-----:|:-------|
-|**adjustmentItemId**: string *(uuid)* | Unique Identifier of the Adjustment Item |
-|**adjustmentId**: string *(uuid)* | Unique Identifier of the Adjustment |
-|**inventoryLocationId**: string *(uuid)* | Unique Identifier of the Inventory Location |
-|**notes**: string |Comments about the Adjustment Item |
-|**lotNo**: string | Identification Number assigned to a particular Quantity or Lot of material from a single Manufacturer |
-|**serialNo**: string | Unique Identifier assigned incrementally or sequentially to an Item to identify it |
-|**expDate**: string *(date-time)* | Previously determined date after which Item should no longer be used |
-|**dateCreated**: string *(date-time)* | Date when the Adjustment Item was created |
-|**createdBy**: string *(uuid)* | Unique Identifier of the user who created the Adjustment Item |
-|**createdByName**: string | Name of the user who created the Adjustment Item |
-|**lastUpdated**: string *(date-time)* | Last Date when the Adjustment Item was updated |
-|**lastUpdatedBy**: string *(uuid)* | Unique Identifier of the last user who updated the Adjustment Item |
-|**lastUpdatedByName**: string | Name of the last user who updated the Adjustment Item |
-|**lineNo**: integer *(int32)* | Sequence number of the Adjustment Item in the Line Items list |
+|**adjustmentItemId**: string *(uuid)* | Unique identifier of the Adjustment item |
+|**adjustmentId**: string *(uuid)* | Unique identifier of the Adjustment |
+|**inventoryLocationId**: string *(uuid)* | Unique identifier of the Inventory Location |
+|**notes**: string | Notes about the Adjustment item |
+|**lotNo**: string | Lot number assigned to the item |
+|**serialNo**: string | Serial number assigned to uniquely identify the item |
+|**expDate**: string <br> *(date-time)* | Expiration date of the item |
+|**dateCreated**: string *(date-time)* | Date when the Adjustment item was created |
+|**createdBy**: string *(uuid)* | Unique identifier of the user who created the Adjustment item |
+|**createdByName**: string | Name of the user who created the Adjustment item |
+|**lastUpdated**: string *(date-time)* | Date when the Adjustment item was last updated |
+|**lastUpdatedBy**: string *(uuid)* | Unique identifier of the user who last updated the Adjustment item |
+|**lastUpdatedByName**: string | Name of the user who last updated the Adjustment item |
+|**lineNo**: integer *(int32)* | Sequence number of the Adjustment item in the line items list |
 |**facilityName**: string | Name of the Facility |
 |**locationName**: string | Name of the Location |
-|**dateSubmitted**: string *(date-time)* | Date when the Adjustment Item was submitted |
-|**inventoryNo**: string | Identification code of the Inventory Item |
-|**inventoryDescription**: string | Description of the Inventory Item |
-|**classificationName**: string | Name of the Category of the Item defined on the Organization level |
+|**dateSubmitted**: string *(date-time)* | Date when the Adjustment item was submitted |
+|**inventoryNo**: string | Identification number of the Inventory item |
+|**inventoryDescription**: string | Description of the Inventory item |
+|**classificationName**: string | Name of the Inventory Category defined at the Organization level |
 |**vendorName**: string | Name of the Vendor |
-|**vendorItemNo**: string | Code that is used by the Vendor for the Item identification |
-|**quantity**: integer *(int32)* | Quantity specified in the Line Items |
-|**impactQuantity**: integer *(int32)* | Unit that is used for differentiation of the quantity change |
-|**uom**: string | Unit of Measure |
-|**conversionFactor**: integer *(int32)* | Number of Stock Keeping Units in another Unit of Measure |
-|**adjustmentTypeText**: string | Type of transaction: Increment, Decrement, or Overwrite |
-|**unitCost**: number *(double)* | Cost of the one unit of the Adjustment Item |
-|**extendedCost**: number *(double)* | Total Cost of the Line |
+|**vendorItemNo**: string | Item number defined by the Vendor |
+|**quantity**: integer *(int32)* | Quantity specified for the line item |
+|**impactQuantity**: integer *(int32)* | Unit used to differentiate the quantity change |
+|**uom**: string | Unit of Measure of the Adjustment item |
+|**conversionFactor**: integer *(int32)* | Conversion factor of the Adjustment item |
+|**adjustmentTypeText**: string | Type of the Adjustment: Increment, Decrement, or Overwrite. |
+|**unitCost**: number *(double)* | Unit cost of the Adjustment item |
+|**extendedCost**: number *(double)* | Total cost of the Adjustment item |
 
-
-``` json title="Response Content-types: APPLICATION/JSON, APPLICATION/XML <br> Response Example (200 OK)"
+``` json title="Response example (200 OK)"
 {
     "@odata.context": "link",
     "adjustmentItemId": "00000000-0000-0000-0000-000000000000",
@@ -229,8 +225,3 @@ td, th {
     "extendedCost": "number (double)"
 }      
 ```
-
-
-
-
-

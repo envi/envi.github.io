@@ -22,7 +22,7 @@ td, th {
 }
 </style>
 
-|  <div style="width:200px">Parameter</div>  |  <div style="width:380px">Explanation</div>  |                      
+| Parameter | Explanation |                      
 |-----:|:-------|
 |**api-version**: string default: 1.0 <br> *in header*| The requested API version. |   
 |**$search**: string <br> *in query*  | Searches across all supported fields. |   
@@ -33,7 +33,7 @@ td, th {
 |**Authorization**: string default: <br> Bearer access_token <br> *in header* | Specify the type of the token (bearer) and insert the ```access_token``` obtained during authentication. |
 
 ### Responses
-| <div style="width:200px">Response </div>|<div style="width:380px">Explanation</div>|                      
+| Response | Explanation |                      
 |-----:|:-------|
 |**200 OK**| OK |     
 |**400 Bad Request**| The request contains incorrect input data. |      
@@ -43,7 +43,7 @@ td, th {
 |**500 Internal Server Error**| The server encountered an unexpected condition that prevented it from fulfilling the request.|
 
 ### Properties
-|<div style="width:200px">Property </div> |<div style="width:380px">Explanation</div>|                      
+| Property | Explanation |                      
 |-----:|:-------|
 |**facilityId**: string *(uuid)* | Unique identifier of the Facility |
 |**organizationId**: string *(uuid)* | Unique identifier of the Organization |
@@ -230,7 +230,7 @@ PATCH /odata/Facilities({facilityId})
 Partially updates the Facility specified by ID.
 
 ### Request body
-| <div style="width:200px">Parameter</div>|<div style="width:380px">Explanation</div>|                      
+| Parameter | Explanation |                      
 |-----:|:-------|
 |**facilityNo**: string | Identification number of the Facility |
 |**facilityName**: string | Name of the Facility |
@@ -295,7 +295,7 @@ Partially updates the Facility specified by ID.
 
     Use the following ```gpoNameId``` values:
 
-    |  <div style="width:200px">GPO Name</div>  |  <div style="width:380px">gpoNameId</div>  |  
+    | GPO Name | gpoNameId |  
     |-----:|:-------|
     |**Other** | 00000000-0000-0000-0000-000000000002 |
     |**Provista/Vizient**| 00000000-0000-0000-0000-000000000001 |
@@ -365,14 +365,14 @@ Partially updates the Facility specified by ID.
 ```
 
 ### Request parameters
-| <div style="width:200px">Parameter</div>|<div style="width:380px">Explanation</div>|                       
+| Parameter | Explanation |                       
 |-----:|:-------|
 |**facilityId**: string *(uuid)* <br> <span style="color: #F05D30">**required**</span> <br> *in path* | Unique identifier of the Facility. |
 |**api-version**: string default: 1.0 <br> *in header*| The requested API version.|      
 |**Authorization**: string default: <br> Bearer access_token <br> *in header* | Specify the type of the token (bearer) and insert the ```access_token``` obtained during authentication. |
 
 ### Responses
-| <div style="width:200px">Response </div>|<div style="width:380px">Explanation</div>|                      
+| Response | Explanation |                      
 |-----:|:-------|
 |**200 OK**| OK |
 |**400 Bad Request**| The request contains incorrect input data. | 
@@ -390,14 +390,14 @@ GET /odata/Facilities({facilityId})
 Returns the details of the Facility specified by ID.
 
 ### Request parameters
-|  <div style="width:200px">Parameter</div>  |  <div style="width:380px">Explanation</div>|                      
+| Parameter | Explanation |                      
 |-----:|:-------|
 |**facilityId**: string *(uuid)* <br> <span style="color: #F05D30">**required**</span> <br> *in path* | Enter the ID of the Facility. |
 |**api-version**: string default: 1.0 <br> *in header*| The requested API version. |   
 |**Authorization**: string default: <br> Bearer access_token <br> *in header* | Specify the type of the token (bearer) and insert the ```access_token``` obtained during authentication. |
 
 ### Responses
-| <div style="width:200px">Response </div>|<div style="width:380px">Explanation</div>|                      
+| Response | Explanation |                      
 |-----:|:-------|
 |**200 OK**| OK | 
 |**400 Bad Request**| The request contains incorrect input data. |        
@@ -407,7 +407,7 @@ Returns the details of the Facility specified by ID.
 |**500 Internal Server Error**| The server encountered an unexpected condition that prevented it from fulfilling the request.|
 
 ### Properties
-|<div style="width:200px">Property </div> |<div style="width:380px">Explanation</div>|                      
+| Property | Explanation |                      
 |-----:|:-------|
 |**facilityId**: string *(uuid)* | Unique identifier of the Facility |
 |**organizationId**: string *(uuid)* | Unique identifier of the Organization |

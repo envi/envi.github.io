@@ -1,7 +1,7 @@
 # Classifications 
 
 ## Get the list of Classifications 
-
+ 
 ### Path
 GET /odata/Classifications
 
@@ -22,7 +22,7 @@ td, th {
 }
 </style>
 
-|  <div style="width:200px">Parameter</div>  |  <div style="width:380px">Explanation</div>  |                      
+| Parameter | Explanation |                      
 |-----:|:-------|
 |**api-version**: string default: 1.0 <br> *in header*| The requested API version.| 
 |**$filter**: string <br> *in query* | Restricts the set of items returned. Supports up to 100 expressions. | 
@@ -33,7 +33,7 @@ td, th {
 |**Authorization**: string default: <br> Bearer access_token <br> *in header* | Specify the type of the token (bearer) and insert the ```access_token``` obtained during authentication. |
 
 ### Responses
-| <div style="width:200px">Response </div>|<div style="width:420px">Explanation</div>|                      
+| Response | Explanation |                      
 |-----:|:-------|
 |**200 OK**| OK |
 |**400 Bad Request**| The request contains incorrect input data. |
@@ -42,7 +42,7 @@ td, th {
 |**500 Internal Server Error**| The server encountered an unexpected condition that prevented it from fulfilling the request. |
 
 ### Properties
-|<div style="width:200px">Property </div> |<div style="width:420px">Explanation</div>|                      
+| Property | Explanation |                      
 |-----:|:-------|
 |**classificationId**: string *(uuid)* | Unique identifier of the Classification |
 |**classificationName**: string | Name of the Classification |
@@ -55,9 +55,9 @@ td, th {
 |**dateCreated**: string <br>*(date-time)* | Date when the Classification was created |
 |**createdBy**: string *(uuid)* | Unique identifier of the user who created the Classification |
 |**createdByName**: string | Name of the user who created the Classification |
-|**lastUpdated**: string *(date-time)* | Last date when the Classification was updated |
-|**lastUpdatedBy**: string *(uuid)* | Unique identifier of the last user who updated the Classification |
-|**lastUpdatedByName**: string | Name of the last user who updated the Classification |
+|**lastUpdated**: string *(date-time)* | Date when the Classification was last updated |
+|**lastUpdatedBy**: string *(uuid)* | Unique identifier of the user who last updated the Classification |
+|**lastUpdatedByName**: string | Name of the user who last updated the Classification |
 
 ``` json title="Response example (200 OK)"
 {
@@ -94,7 +94,7 @@ POST /odata/Classifications
 Creates a new Classification within the logged-in organization.
 
 ### Request body
-| <div style="width:200px">Parameter</div>|<div style="width:420px">Explanation</div>|                      
+| Parameter | Explanation |                      
 |-----:|:-------|
 |**classificationName**: string <br> <span style="color: #F05D30">**required**</span> | Name of the Classification |
 |**classificationTypeId**: tiny int <br> <span style="color: #F05D30">**required**</span> | Unique identifier of the Classification type |
@@ -108,13 +108,13 @@ Creates a new Classification within the logged-in organization.
 ```
 
 ### Request parameters
-|  <div style="width:200px">Parameter</div>  |  <div style="width:380px">Explanation</div>  |                      
+| Parameter  | Explanation |                      
 |-----:|:-------|
 |**api-version**: string default: 1.0 <br> *in header*| The requested API version. |   
 |**Authorization**: string default: <br> Bearer access_token <br> *in header* | Specify the type of the token (bearer) and insert the ```access_token``` obtained during authentication. |
 
 ### Responses
-| <div style="width:200px">Response </div>|<div style="width:380px">Explanation</div>|                      
+| Response | Explanation |                      
 |-----:|:-------|
 |**200 OK**| OK |   
 |**400 Bad Request**| The request contains incorrect input data. |
@@ -135,14 +135,14 @@ GET /odata/Classifications({classificationId})
 Returns the details of the Classification specified by ID within the logged-in organization.
 
 ### Request parameters
-|  <div style="width:200px">Parameter</div>  |  <div style="width:380px">Explanation</div>  |                      
+| Parameter  | Explanation |                      
 |-----:|:-------|
 |**classificationId**: string *(uuid)* <br> <span style="color: #F05D30">**required**</span> <br> *in path* | Enter the ID of the Classification. |
 |**api-version**: string default: 1.0 <br> *in header*| The requested API version. |   
 |**Authorization**: string default: <br> Bearer access_token <br> *in header* | Specify the type of the token (bearer) and insert the ```access_token``` obtained during authentication. |
 
 ### Responses
-| <div style="width:200px">Response </div>|<div style="width:420px">Explanation</div>|                      
+| Response | Explanation |                      
 |-----:|:-------|
 |**200 OK**|OK|      
 |**400 Bad Request**| The request contains incorrect input data.  |
@@ -152,7 +152,7 @@ Returns the details of the Classification specified by ID within the logged-in o
 |**500 Internal Server Error**| The server encountered an unexpected condition that prevented it from fulfilling the request. |
 
 ### Properties
-|<div style="width:200px">Property </div> |<div style="width:420px">Explanation</div>|                      
+| Property | Explanation |                      
 |-----:|:-------|
 |**classificationId**: string *(uuid)* | Unique identifier of the Classification |
 |**classificationName**: string | Name of the Classification |
@@ -165,10 +165,9 @@ Returns the details of the Classification specified by ID within the logged-in o
 |**dateCreated**: string <br>*(date-time)* | Date when the Classification was created |
 |**createdBy**: string *(uuid)* | Unique identifier of the user who created the Classification |
 |**createdByName**: string | Name of the user who created the Classification |
-|**lastUpdated**: string *(date-time)* | Last date when the Classification was updated |
-|**lastUpdatedBy**: string *(uuid)* | Unique identifier of the last user who updated the Classification |
-|**lastUpdatedByName**: string | Name of the last user who updated the Classification |
-
+|**lastUpdated**: string *(date-time)* | Date when the Classification was last updated |
+|**lastUpdatedBy**: string *(uuid)* | Unique identifier of the user who last updated the Classification |
+|**lastUpdatedByName**: string | Name of the user who last updated the Classification |
 
 ``` json title="Response example (200 OK)"
 {
@@ -199,7 +198,7 @@ PATCH /odata/Classifications({classificationId})
 Partially updates the Classification specified by ID.
 
 ### Request body
-| <div style="width:200px">Parameter</div>|<div style="width:420px">Explanation</div>|                      
+| Parameter | Explanation|                      
 |-----:|:-------|
 |**classificationName**: string | Name of the Classification |
 |**classificationTypeId**: tiny int | Unique identifier of the Classification type |
@@ -214,14 +213,14 @@ Partially updates the Classification specified by ID.
 ```
 
 ### Request parameters
-| <div style="width:200px">Parameter</div>|<div style="width:380px">Explanation</div>|                       
+| Parameter | Explanation |                       
 |-----:|:-------|
 |**classificationId**: string *(uuid)* <br> <span style="color: #F05D30">**required**</span> <br> *in path* | Enter the ID of the Classification. |
 |**api-version**: string default: 1.0 <br> *in header*| The requested API version. |      
 |**Authorization**: string default: <br> Bearer access_token <br> *in header* | Specify the type of the token (bearer) and insert the ```access_token``` obtained during authentication. |
 
 ### Responses
-| <div style="width:200px">Response </div>|<div style="width:380px">Explanation</div>|                      
+| Response | Explanation |                      
 |-----:|:-------|
 |**200 OK**| OK | 
 |**400 Bad Request**| The request contains incorrect input data. |         
