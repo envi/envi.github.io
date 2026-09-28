@@ -535,7 +535,7 @@ Returns a paged list of existing Purchase Order items for the Purchase Order spe
 |**manufacturerItemNo**: string | Item number defined by the Manufacturer |
 |**orderQuantity**: integer *(int32)* | Quantity specified in the Purchase Order |
 |**orderUOM**: string | Unit of Measure specified in the Purchase Order |
-|**orderConversionFactor**: integer <br> *(int32)* | Number of stock keeping units in another Unit of Measure specified in the Purchase Order |
+|**orderConversionFactor**: integer <br> *(int32)* | Conversion factor of the Purchase Order |
 |**stockUOM**: string | Unit of Measure used to track Inventory balance |
 |**unitCost**: number *(double)* | Unit cost of the Purchase Order item |
 |**departmentGLCode**: string | General Ledger code of the Department |
@@ -643,4 +643,207 @@ Returns a paged list of existing Purchase Order items for the Purchase Order spe
     "@odata.nextLink": "link"
 }
 ```
+## Create a new Purchase Order
 
+### Path
+POST /odata/PurchaseOrders
+
+### Description
+Creates a new Purchase Order within the logged-in organization. 
+
+### Request body
+| <div style="width:200px">Parameter</div>|<div style="width:400px">Explanation</div>|                      
+|-----:|:-------|
+|**facilityNo**: string <br> <span style="color: #F05D30">**required**</span> | Identification number of the Facility |
+|**locationNo**: string <br> <span style="color: #F05D30">**required**</span>  | Identification number of the Location |
+|**vendorNo**: string <br> <span style="color: #F05D30">**required**</span>  | Number of the Vendor |
+|**poTypeId**: byte <br> <span style="color: #F05D30">**required**</span>  | Unique identifier of the Purchase Order type. <br> **Note**: See the [potypeids](PurchaseOrders.md#potypeids) section for more details.|
+|**reference**: string | Reference information for the Purchase Order |
+|**poUdfLabels**: string | User-Defined Field labels for the Purchase Order. <br> **Note**: See the [poUdfLabels](PurchaseOrders.md#poudflabels) section for more details. |
+
+#### poTypeIds
+
+!!! info "poTypeIds"
+
+    Use the following ```poTypeId``` values:
+
+    |  <div style="width:200px">PO Type</div>  |  <div style="width:380px">poTypeId</div>  |  
+    |-----:|:-------|
+    |**Standard PO** | 1 |
+    |**Return PO**| 2 |
+    |**Capital PO** | 3 |
+    |**Bill Only PO** | 4 |
+
+``` json title="Request example"
+{
+    "facilityNo": "string",
+    "locationNo": "string",
+    "vendorNo": "string",
+    "poTypeId": "byte",
+    "reference": "string",
+    "poUdfLabels": "[{\"Name\":\"string1\",\"Value\":\"string2\"}]"
+}
+```
+
+### Request parameters
+|  <div style="width:200px">Parameter</div>  |  <div style="width:380px">Explanation</div>  |                      
+|-----:|:-------|
+|**api-version**: string default: 1.0 <br> *in header*| The requested API version.|   
+|**Authorization**: string default: <br> Bearer access_token <br> *in header* | Specify the type of the token (bearer) and insert the ```access_token``` obtained during authentication. |
+
+### Responses
+| <div style="width:200px">Response </div>|<div style="width:380px">Explanation</div>|                      
+|-----:|:-------|
+|**200 OK**|OK|   
+|**400 Bad Request**| The request contains incorrect input data. |      
+|**401 Unauthorized**| The specified ```access_token``` is invalid or has expired. |
+|**403 Forbidden**| The user doesn’t have the appropriate privileges. |
+|**500 Internal Server Error**| The server encountered an unexpected condition that prevented it from fulfilling the request.|
+
+``` json title="Response example (200 OK)"
+"00000000-0000-0000-0000-000000000000"
+
+```
+
+## Partially update the specified Purchase Order
+
+### Path
+PATCH /odata/PurchaseOrders({purchaseOrderId})
+
+### Description
+Partially updates the Purchase Order specified by ID.
+
+### Request body
+| <div style="width:200px">Parameter</div>|<div style="width:400px">Explanation</div>|                      
+|-----:|:-------|
+|**purchaseOrderNo**: string | Number of the Purchase Order |
+|**poTypeId**: byte | Unique identifier of the Purchase Order type. <br> **Note**: See the [potypeids](PurchaseOrders.md#potypeids) section for more details. |
+|**projectNoId**: string *(uuid)* | Unique identifier of the project number |
+|**reference**: string | Reference information for the Purchase Order |
+|**poUdfLabels**: string | User-Defined Field labels for the Purchase Order. <br> **Note**: See the [poUdfLabels](PurchaseOrders.md#poudflabels) section for more details. |
+|**notes**: string | Notes about the Purchase Order |
+|**orderDate**: string *(date-time)* | Date when the Purchase Order was placed |
+|**returnDate**: string *(date-time)* | Return date for a Return PO |
+|**returnTypeId**: byte | Unique identifier of the Return PO type |
+|**RMANo**: string | Return Merchandise Authorization number |
+|**cerId**: string *(uuid)* | Unique identifier of the Capital Expenditure Request |
+|**expectedDeliveryDate**: string <br> *(date-time)* | Expected delivery date of the Purchase Order |
+|**consignmentOrder**: boolean | Is the Purchase Order a Consignment order or not? |
+|**paymentTermsId**: string *(uuid)* | Unique identifier of the payment terms |
+|**paymentMethodId**: string *(uuid)* | Unique identifier of the payment method |
+|**shipToAccountNo**: string | Account number used for shipping |
+|**billToAccountNo**: string | Account number used for billing |
+|**fobId**: string *(uuid)*| Unique identifier of the Free On Board (destination or ship point) |
+|**shipVia**: string | Shipping carrier or service used for the Purchase Order |
+|**shipMethod**: string | Shipping method used for the Purchase Order |
+|**billingName**: string | Billing name |
+|**billingAddress1**: string | Primary billing address |
+|**billingAddress2**: string | Secondary billing address |
+|**billingCity**: string | City of the billing address |
+|**billingState**: string | State of the billing address |
+|**billingZip**: string | Zip code of the billing address  |
+|**billingCountry**: string | Country of the billing address |
+|**billingContactName**: string | Name of the billing contact |
+|**billingContactPhone**: string | Phone number of the billing contact |
+|**billingContactExt**: string | Phone extension of the billing contact |
+|**billingContactFax**: string | Fax number of the billing contact |
+|**billingContactEmail**: string | Email address of the billing contact |
+|**shippingName**: string | Shipping name |
+|**shippingAddress1**: string | Primary shipping address |
+|**shippingAddress2**: string | Secondary shipping address |
+|**shippingCity**: string | City of the shipping address |
+|**shippingState**: string | State of the shipping address |
+|**shippingZip**: string | Zip code of the shipping address |
+|**shippingCountry**: string | Country of the shipping address |
+|**shippingContactName**: string | Name of the shipping contact |
+|**shippingContactPhone**: string | Phone number of the shipping contact |
+|**shippingContactExt**: string | Phone extension of the shipping contact |
+|**shippingContactFax**: string | Fax number of the shipping contact |
+|**shippingContactEmail**: string | Email address of the shipping contact |
+
+``` json title="Request example"
+{
+  "purchaseOrderNo": "string",
+  "poTypeId": "byte",
+  "projectNoId": "00000000-0000-0000-0000-000000000000",
+  "reference": "string",
+  "poUdfLabels": "[{\"Name\":\"string1\",\"Value\":\"string2\"}]",
+  "notes": "string",
+  "orderDate": "string (date-time)",
+  "cerId": "00000000-0000-0000-0000-000000000000",
+  "expectedDeliveryDate": "string (date-time)",
+  "consignmentOrder": "boolean",
+  "paymentTermsId": "00000000-0000-0000-0000-000000000000",
+  "paymentMethodId": "00000000-0000-0000-0000-000000000000",
+  "shipToAccountNo": "string",
+  "billToAccountNo": "string",
+  "fobId": "00000000-0000-0000-0000-000000000000",
+  "shipVia": "string",
+  "shipMethod": "string",
+  "billingName": "string",
+  "billingAddress1": "string",
+  "billingAddress2": "string",
+  "billingCity": "string",
+  "billingState": "string",
+  "billingZip": "string",
+  "billingCountry": "string",
+  "billingContactName": "string",
+  "billingContactPhone": "string",
+  "billingContactExt": "string",
+  "billingContactFax": "string",
+  "billingContactEmail": "string",
+  "shippingName": "string",
+  "shippingAddress1": "string",
+  "shippingAddress2": "string",
+  "shippingCity": "string",
+  "shippingState": "string",
+  "shippingZip": "string",
+  "shippingCountry": "string",
+  "shippingContactName": "string",
+  "shippingContactPhone": "string",
+  "shippingContactExt": "string",
+  "shippingContactEmail": "string",
+  "shippingContactFax": "string"
+}  
+```
+### Request parameters
+| <div style="width:200px">Parameter</div>|<div style="width:380px">Explanation</div>|                       
+|-----:|:-------|
+|**purchaseOrderId**: string *(uuid)* <br> <span style="color: #F05D30">**required**</span> <br> *in path* | Enter the ID of the Purchase Order. |
+|**api-version**: string default: 1.0 <br> *in header*| The requested API version.|      
+|**Authorization**: string default: <br> Bearer access_token <br> *in header* | Specify the type of the token (bearer) and insert the ```access_token``` obtained during authentication. |
+
+### Responses
+| <div style="width:200px">Response </div>|<div style="width:380px">Explanation</div>|                      
+|-----:|:-------|
+|**200 OK**| OK |
+|**400 Bad Request**| The request contains incorrect input data. | 
+|**401 Unauthorized**| The specified ```access_token``` is invalid or has expired. |
+|**403 Forbidden**| The user doesn’t have the appropriate privileges. |
+|**404 Not Found** | The specified ID is absent in the system. |
+|**500 Internal Server Error**| The server encountered an unexpected condition that prevented it from fulfilling the request.|
+
+
+## Cancel an existing Purchase Order
+
+### Path
+POST /odata/PurchaseOrders({purchaseOrderId})/Cancel
+
+### Description
+Cancels the Purchase Order specified by ID.
+ 
+### Request parameters
+|  <div style="width:200px">Parameter</div>  |  <div style="width:380px">Explanation</div>  |                      
+|-----:|:-------|
+|**purchaseOrderId**: string *(uuid)* <br> <span style="color: #F05D30">**required**</span> <br> *in path* | Enter the ID of the Purchase Order. |
+|**api-version**: string default: 1.0 <br> *in header*| The requested API version. |   
+|**Authorization**: string default: <br> Bearer access_token <br> *in header* | Specify the type of the token (bearer) and insert the ```access_token``` obtained during authentication. |
+
+### Responses
+| <div style="width:200px">Response </div>|<div style="width:420px">Explanation</div>|                      
+|-----:|:-------|
+|**200 OK**| OK |   
+|**400 Bad Request**| The request contains incorrect input data. |
+|**401 Unauthorized**| The specified ```access_token``` is invalid or has expired. |
+|**403 Forbidden**| The user doesn’t have the appropriate privileges. |
+|**500 Internal Server Error**| The server encountered an unexpected condition that prevented it from fulfilling the request. |
