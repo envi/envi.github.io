@@ -69,6 +69,8 @@ td, th {
 |**systemVendorName**: string | Name of the System Vendor |
 |**ediVendorNo**: string | Code of the Supplier EDI who sells products |
 |**allowConsignmentOrders**: boolean | Is Consignment Order sending enabled for the Vendor or not? |
+|**requireMfg**: boolean | Is the Manufacturer required for the Vendor or not? |
+|**requireMfgItemNo**: boolean | Is the Manufacturer Item Number required for the Vendor or not? |
 
 
 ``` json title="Response Content-types: APPLICATION/JSON, APPLICATION/XML<br>Response example (200 OK)"
@@ -94,7 +96,9 @@ td, th {
             "url": "string",
             "systemVendorName": "string",
             "ediVendorNo": "string",
-            "allowConsignmentOrders": "boolean"
+            "allowConsignmentOrders": "boolean",
+            "requireMfg": "boolean",
+            "requireMfgItemNo": "boolean"
         }
     ],
     "@odata.nextLink": "link"
@@ -147,7 +151,8 @@ Returns the details of the Vendor specified by ID.
 |**systemVendorName**: string | Name of the System Vendor |
 |**ediVendorNo**: string | Code of the Supplier EDI who sells products |
 |**allowConsignmentOrders**: boolean | Is Consignment Order sending enabled for the Vendor or not? |
-
+|**requireMfg**: boolean | Is the Manufacturer required for the Vendor or not? |
+|**requireMfgItemNo**: boolean | Is the Manufacturer Item Number required for the Vendor or not? |
 
 ``` json title="Response Content-types: APPLICATION/JSON, APPLICATION/XML<br>Response example (200 OK)"
 {
@@ -169,7 +174,9 @@ Returns the details of the Vendor specified by ID.
     "url": "string",
     "systemVendorName": "string",
     "ediVendorNo": "string",
-    "allowConsignmentOrders": "boolean"
+    "allowConsignmentOrders": "boolean",
+    "requireMfg": "boolean",
+    "requireMfgItemNo": "boolean"
 }
 ```
 
@@ -223,6 +230,7 @@ Enter the value of the vendor(s) from the existing template.
 |**activeStatus**: boolean | Is the Vendor active or not? |
 |**lastUpdated**: string *(date-time)* | Last Date when the Vendor was updated |
 |**leadTime**: integer *(int32)* | Allowed Time for the Completion |
+
 
 ``` json title="Response Content-types: APPLICATION/JSON, APPLICATION/XML<br>Response example (200 OK)"
 [

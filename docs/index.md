@@ -18,6 +18,8 @@ Stay up to date with the latest API features, improvements, and articles.
 
 A new [Purchase Order](PurchaseOrders.md#cancel-an-existing-purchase-order) endpoint has been added to cancel the Purchase Order specified by ID.
 
+The ```requireMfg``` and ```requireMfgItemNo``` properties have been added to the [Vendors](Vendors.md) endpoints.
+
 **v. 6.7.5**
 
 A new [Purchase Order](PurchaseOrders.md#partially-update-the-specified-purchase-order) endpoint has been added to partially update the Purchase Order specified by ID.
@@ -30,7 +32,7 @@ You can now set the Unit Price via API when adding new items to existing Usages 
 
 **v. 6.7.2**
 
-The ```gpoMemberID```, ```gpoNameId```, ```gpoNameValue``` properties have been added to the [Facilities](Facilities.md) endpoints.
+The ```gpoMemberID```, ```gpoNameId```, and ```gpoNameValue``` properties have been added to the [Facilities](Facilities.md) endpoints.
 
 **v. 6.6.9**
 
