@@ -2,27 +2,27 @@
 
 ## Get the list of Vendors
 
-### Path</span>
+### Path
 GET /odata/Vendors
 
-### Description</span>
+### Description
 Returns a paged list of existing Vendors within the logged-in organization.
 
 !!! note
 
     You can filter the results as follows:
 
-    - For an exact match, use: ```$filter parameter–entity eq ‘string’```
-    - For a partial match, use: ```$filter=contains parameter–contains(entity, ‘string’)```
+    - For an exact match, use: ```$filter=entity eq 'string'```
+    - For a partial match, use: ```$filter=contains(entity, 'string')```
 
-### Request parameters</span>
+### Request parameters
 <style>
 td, th {
    border: none!important;
 }
 </style>
 
-|  <div style="width:200px">Parameter</div>  |  <div style="width:380px">Explanation</div>  |                      
+| Parameter | Explanation |                      
 |-----:|:-------|
 |**api-version**: string default: 1.0 <br> *in header*| The requested API version.|
 |**$search**: string <br> *in query*  | Searches across all supported fields. |  
@@ -32,14 +32,14 @@ td, th {
 |**$skip**: string <br> *in query*| Skips the first n results.|
 |**Authorization**: string default: <br> Bearer access_token <br> *in header* | Specify the type of the token (bearer) and insert the ```access_token``` obtained during authentication.|
 
-### Responses</span>
+### Responses
 <style>
 td, th {
    border: none!important;
 }
 </style>
 
-| <div style="width:200px">Response </div>|<div style="width:380px">Explanation</div>|                      
+| Response | Explanation |                      
 |-----:|:-------|
 |**200 OK**|OK|      
 |**400 Bad Request**| The request contains incorrect input data. |
@@ -48,32 +48,32 @@ td, th {
 |**403 Forbidden**|The user doesn’t have the appropriate privileges.|
 |**500 Internal Server Error**| The server encountered an unexpected condition that prevented it from fulfilling the request.|
 
-### Properties</span>
-|<div style="width:200px">Property </div> |<div style="width:420px">Explanation</div>|                      
+### Properties
+| Property | Explanation |                      
 |-----:|:-------|
-|**vendorId**: string *(uuid)* | Unique Identifier of the Vendor |
-|**vendorNo**: string | Code of the Supplier who sells products |
+|**vendorId**: string *(uuid)* | Unique identifier of the Vendor |
+|**vendorNo**: string | Number of the Vendor |
 |**vendorName**: string | Name of the Vendor |
-|**organizationId**: string *(uuid)* | Unique Identifier of the Organization |
-|**organizationNo**: string | Indentification Number of the Organization |
+|**organizationId**: string *(uuid)* | Unique identifier of the Organization |
+|**organizationNo**: string | Identification number of the Organization |
 |**organizationName**: string | Name of the Organization |
-|**vendorNotes**: string | Comments concerning the Vendor |
+|**vendorNotes**: string | Notes about the Vendor |
 |**dateAdded**: string *(date-time)* | Date when the Vendor was added |
-|**addedBy**: string *(uuid)* | Unique Identifier of the user who added the Vendor |
+|**addedBy**: string *(uuid)* | Unique identifier of the user who added the Vendor |
 |**addedByName**: string | Name of the user who added the Vendor |
-|**lastUpdated**: string *(date-time)* | Last Date when the Vendor was updated |
-|**lastUpdatedBy**: string *(uuid)* | Unique Identifier of the last user who updated the Vendor |
-|**lastUpdatedByName**: string | Name of the last user who updated the Vendor |
+|**lastUpdated**: string *(date-time)* | Date when the Vendor was last updated |
+|**lastUpdatedBy**: string *(uuid)* | Unique identifier of the user who last updated the Vendor |
+|**lastUpdatedByName**: string | Name of the user who last updated the Vendor |
 |**activeStatus**: boolean | Is the Vendor active or not? |
-|**url**: string | Uniform Resource Locator |
+|**url**: string | Website address of the Vendor |
 |**systemVendorName**: string | Name of the System Vendor |
-|**ediVendorNo**: string | Code of the Supplier EDI who sells products |
+|**ediVendorNo**: string | EDI Vendor number |
 |**allowConsignmentOrders**: boolean | Is Consignment Order sending enabled for the Vendor or not? |
 |**requireMfg**: boolean | Is the Manufacturer required for the Vendor or not? |
 |**requireMfgItemNo**: boolean | Is the Manufacturer Item Number required for the Vendor or not? |
 
 
-``` json title="Response Content-types: APPLICATION/JSON, APPLICATION/XML<br>Response example (200 OK)"
+``` json title="Response example (200 OK)"
 {
     "@odata.context": "link",
     "@odata.count": "number",
@@ -107,21 +107,21 @@ td, th {
 
 ## Get the specified Vendor
 
-### Path</span>
+### Path
 GET /odata/Vendors({vendorId})
 
-### Description</span>
+### Description
 Returns the details of the Vendor specified by ID.
 
-### Request body</span>
-|  <div style="width:200px">Parameter</div>  |  <div style="width:420px">Explanation</div>  |                      
+### Request body
+|  Parameter | Explanation |                      
 |-----:|:-------|
 |**vendorId**: string *(uuid)* <br> <span style="color: #F05D30">**required**</span> <br> *in path* | Enter the ID of the Vendor. |
 |**api-version**: string default: 1.0 <br> *in header*| The requested API version.|   
 |**Authorization**: string default: <br> Bearer access_token <br> *in header* | Specify the type of the token (bearer) and insert the ```access_token``` obtained during authentication.|
 
-### Responses</span>
-| <div style="width:200px">Response </div>|<div style="width:420px">Explanation</div>|                      
+### Responses
+| Response | Explanation |                      
 |-----:|:-------|
 |**200 OK**|OK|      
 |**400 Bad Request**| The request contains incorrect input data. |
@@ -130,31 +130,31 @@ Returns the details of the Vendor specified by ID.
 |**404 Not Found** | The specified ID is absent in the system. |
 |**500 Internal Server Error**| The server encountered an unexpected condition that prevented it from fulfilling the request.|
 
-### Properties</span>
-|<div style="width:200px">Property </div> |<div style="width:420px">Explanation</div>|                      
+### Properties
+| Property | Explanation |                      
 |-----:|:-------|
-|**vendorId**: string *(uuid)* | Unique Identifier of the Vendor |
-|**vendorNo**: string | Code of the Supplier who sells products |
+|**vendorId**: string *(uuid)* | Unique identifier of the Vendor |
+|**vendorNo**: string | Number of the Vendor |
 |**vendorName**: string | Name of the Vendor |
-|**organizationId**: string *(uuid)* | Unique Identifier of the Organization |
-|**organizationNo**: string | Indentification Number of the Organization |
+|**organizationId**: string *(uuid)* | Unique identifier of the Organization |
+|**organizationNo**: string | Identification number of the Organization |
 |**organizationName**: string | Name of the Organization |
-|**vendorNotes**: string | Comments concerning the Vendor |
+|**vendorNotes**: string | Notes about the Vendor |
 |**dateAdded**: string *(date-time)* | Date when the Vendor was added |
-|**addedBy**: string *(uuid)* | Unique Identifier of the user who added the Vendor |
+|**addedBy**: string *(uuid)* | Unique identifier of the user who added the Vendor |
 |**addedByName**: string | Name of the user who added the Vendor |
-|**lastUpdated**: string *(date-time)* | Last Date when the Vendor was updated |
-|**lastUpdatedBy**: string *(uuid)* | Unique Identifier of the last user who updated the Vendor |
-|**lastUpdatedByName**: string | Name of the last user who updated the Vendor |
+|**lastUpdated**: string *(date-time)* | Date when the Vendor was last updated |
+|**lastUpdatedBy**: string *(uuid)* | Unique identifier of the user who last updated the Vendor |
+|**lastUpdatedByName**: string | Name of the user who last updated the Vendor |
 |**activeStatus**: boolean | Is the Vendor active or not? |
-|**url**: string | Uniform Resource Locator |
+|**url**: string | Website address of the Vendor |
 |**systemVendorName**: string | Name of the System Vendor |
-|**ediVendorNo**: string | Code of the Supplier EDI who sells products |
+|**ediVendorNo**: string | EDI Vendor number |
 |**allowConsignmentOrders**: boolean | Is Consignment Order sending enabled for the Vendor or not? |
 |**requireMfg**: boolean | Is the Manufacturer required for the Vendor or not? |
 |**requireMfgItemNo**: boolean | Is the Manufacturer Item Number required for the Vendor or not? |
 
-``` json title="Response Content-types: APPLICATION/JSON, APPLICATION/XML<br>Response example (200 OK)"
+``` json title="Response example (200 OK)"
 {
     "@odata.context": "link",
     "vendorId": "00000000-0000-0000-0000-000000000000",
@@ -182,30 +182,30 @@ Returns the details of the Vendor specified by ID.
 
 ## Get the list of Vendors
 
-### Path</span>
+### Path
 POST /odata/Vendors/GetVendorsInfo(facilityId={facilityId})
 
-### Description</span>
+### Description
 Returns the details of the predefined Vendor(s) within the Facility specified by ID.
 
-### Request body</span>
+### Request body
 Enter the value of the vendor(s) from the existing template.
 
-### Request parameters</span>
-|  <div style="width:200px">Parameter</div>  |  <div style="width:420px">Explanation</div>  |                      
+### Request parameters
+|  Parameter | Explanation |                      
 |-----:|:-------|
 |**facilityId**: string *(uuid)* <br> <span style="color: #F05D30">**required**</span> <br> *in path* | Enter the ID of the Facility. |
 |**api-version**: string default: 1.0 <br> *in header*| The requested API version.|   
 |**Authorization**: string default: <br> Bearer access_token <br> *in header* | Specify the type of the token (bearer) and insert the ```access_token``` obtained during authentication.|
 
-``` json title="Request Content-types: APPLICATION/JSON, APPLICATION/XML <br> Request Example"
+``` json title="Request example"
 {
 "value": ["00000000-0000-0000-0000-000000000000"]
 }
 ```
 
-### Responses</span>
-| <div style="width:200px">Response </div>|<div style="width:420px">Explanation</div>|                      
+### Responses
+| Response | Explanation |                      
 |-----:|:-------|
 |**200 OK**|OK|      
 |**400 Bad Request**| The request contains incorrect input data. |
@@ -213,26 +213,25 @@ Enter the value of the vendor(s) from the existing template.
 |**403 Forbidden**| The user doesn’t have the appropriate privileges.|
 |**500 Internal Server Error**| The server encountered an unexpected condition that prevented it from fulfilling the request.|
 
-### Properties</span>
-|<div style="width:200px">Property </div> |<div style="width:420px">Explanation</div>|                      
+### Properties
+| Property | Explanation |                      
 |-----:|:-------|
-|**vendorId**: string *(uuid)* | Unique Identifier of the Vendor |
+|**vendorId**: string *(uuid)* | Unique identifier of the Vendor |
 |**vendorName**: string | Name of the Vendor |
-|**vendorNo**: string | Code of the Supplier who sells products |
-|**address1**: string | The first Address for shipping or billing purposes |
-|**address2**: string | The second Address for shipping or billing purposes |
-|**city**: string | City |
-|**state**: string | State |
-|**zip**: string | Zip |
-|**country**: string | Country |
-|**url**: string | Uniform Resource Locator |
-|**accountNumber**: string | Number of the Vendor Account |
+|**vendorNo**: string | Number of the Vendor |
+|**address1**: string | Primary address of the Vendor for shipping or billing purposes |
+|**address2**: string | Secondary address of the Vendor for shipping or billing purpose |
+|**city**: string | City of the Vendor address |
+|**state**: string | State of the Vendor address |
+|**zip**: string | Zip code of the Vendor address |
+|**country**: string | Country of the Vendor address |
+|**url**: string | Website address of the Vendor |
+|**accountNumber**: string | Number of the Vendor account |
 |**activeStatus**: boolean | Is the Vendor active or not? |
-|**lastUpdated**: string *(date-time)* | Last Date when the Vendor was updated |
-|**leadTime**: integer *(int32)* | Allowed Time for the Completion |
+|**lastUpdated**: string *(date-time)* | Date when the Vendor was last updated |
+|**leadTime**: integer *(int32)* | Lead time for the Vendor |
 
-
-``` json title="Response Content-types: APPLICATION/JSON, APPLICATION/XML<br>Response example (200 OK)"
+``` json title="Response example (200 OK)"
 [
   {
     "vendorId": "00000000-0000-0000-0000-000000000000",
@@ -253,9 +252,51 @@ Enter the value of the vendor(s) from the existing template.
 ]
 ```
 
+## Create a new Vendor
+
+### Path
+POST /odata/Vendors
+
+### Description
+Creates a new Vendor within the logged-in organization.
+
+### Request body
+| Parameter | Explanation |                      
+|-----:|:-------|
+|**vendorNo**: string | Number of the Vendor. <br> **Note**: If Auto ID is configured for a Vendor, ```vendorNo``` is optional. |
+|**vendorName**: string <br> <span style="color: #F05D30">**required**</span> | Name of the Vendor |
+|**externalVendorNo**: string | External Vendor Number. <br> **Note**: A request with ```externalVendorNo``` can be sent only by System users. |
+|**url**: string | Website address of the Vendor |
+
+``` json title="Request example"
+{
+    "vendorNo": "string",
+    "vendorName": "string",
+    "externalVendorNo": "string",
+    "url": "string"
+}
+``` 
+
+### Request parameters
+| Parameter | Explanation |                      
+|-----:|:-------|
+|**api-version**: string default: 1.0 <br> *in header*| The requested API version.|   
+|**Authorization**: string default: <br> Bearer access_token <br> *in header* | Specify the type of the token (bearer) and insert the ```access_token``` obtained during authentication. |
 
 
+### Responses
+| Response | Explanation |                      
+|-----:|:-------|
+|**200 OK**|OK|   
+|**400 Bad Request**| The request contains incorrect input data. |      
+|**401 Unauthorized**| The specified ```access_token``` is invalid or has expired. |
+|**403 Forbidden**| The user doesn’t have the appropriate privileges. |
+|**500 Internal Server Error**| The server encountered an unexpected condition that prevented it from fulfilling the request.|
 
+``` json title="Response example (200 OK)"
+"00000000-0000-0000-0000-000000000000"
+
+```
 
 
 

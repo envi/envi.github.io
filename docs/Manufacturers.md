@@ -88,37 +88,20 @@ POST /odata/Manufacturers
 Creates a new Manufacturer within the logged-in organization.
 
 ### Request body
-If **Auto ID** is configured for a manufacturer, then ```manufacturerNo``` is optional.
 
 | <div style="width:200px">Parameter</div>|<div style="width:420px">Explanation</div>|                      
 |-----:|:-------|
-|**manufacturerNo**: string  | Number of the Manufacturer |
+|**manufacturerNo**: string  | Number of the Manufacturer. <br> **Note**: If **Auto ID** is configured for a Manufacturer, ```manufacturerNo``` is optional. |
 |**manufacturerName**: string <br> <span style="color: #F05D30">**required**</span> | Name of the Manufacturer |
-
-
-If **Auto ID** is not configured for a manufacturer, then ```manufacturerNo``` and ```manufacturerName``` are required.
-
-| <div style="width:200px">Parameter</div>|<div style="width:420px">Explanation</div>|                      
-|-----:|:-------|
-|**manufacturerNo**: string <br> <span style="color: #F05D30">**required**</span> | Number of the Manufacturer |
-|**manufacturerName**: string <br> <span style="color: #F05D30">**required**</span>  | Name of the Manufacturer |
+|**externalMfgNo**: string | External Manufacturer Number. <br> **Note**: A request with ```externalMfgNo``` can be sent only by System users. |
 
 ``` json title="Request Content-types: APPLICATION/JSON, APPLICATION/XML<br>Request Example"
 {
     "manufacturerNo": "string",
     "manufacturerName": "string",
+    "externalMfgNo": "string",
 }
 ```
-!!! note 
-
-    The request with ```externalMfgNo``` could be sent only by System users.
-
-
-| <div style="width:200px">Parameter</div>|<div style="width:420px">Explanation</div>|                      
-|-----:|:-------|
-|**manufacturerNo**: string <br> <span style="color: #F05D30">**required**</span> | Number of the Manufacturer |
-|**manufacturerName**: string <br> <span style="color: #F05D30">**required**</span>  | Name of the Manufacturer |
-|**externalMfgNo**: string | External Manufacturer Number |
 
 ### Request parameters
 |  <div style="width:200px">Parameter</div>  |  <div style="width:380px">Explanation</div>  |                      
