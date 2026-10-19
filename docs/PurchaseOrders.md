@@ -118,7 +118,7 @@ td, th {
 |**vendorName**: string | Name of the Vendor |
 |**lastUpdated**: string *(date-time)* | Date when the Purchase Order was last updated |
 |**lastUpdatedBy**: string *(uuid)* | Unique identifier of the user who last updated the Purchase Order |
-|**lastUpdatedByName**: string | Name of the user who last updated the Purchase Order |
+|**lastUpdatedByUserName**: string | Name of the user who last updated the Purchase Order |
 |**dateCreated**: string *(date-time)* | Date when the Purchase Order was created |
 |**discount**: number *(double)* | Discount for the Purchase Order |
 |**discountTypeId**: integer *(int32)* | Unique identifier of the discount type |
@@ -356,7 +356,7 @@ Returns the details of the Purchase Order specified by ID.
 |**vendorName**: string | Name of the Vendor |
 |**lastUpdated**: string *(date-time)* | Date when the Purchase Order was last updated |
 |**lastUpdatedBy**: string *(uuid)* | Unique identifier of the user who last updated the Purchase Order |
-|**lastUpdatedByName**: string | Name of the user who last updated the Purchase Order |
+|**lastUpdatedByUserName**: string | Name of the user who last updated the Purchase Order |
 |**dateCreated**: string *(date-time)* | Date when the Purchase Order was created |
 |**discount**: number *(double)* | Discount for the Purchase Order |
 |**discountTypeId**: integer *(int32)* | Unique identifier of the discount type |
@@ -545,9 +545,9 @@ Returns a paged list of existing Purchase Order items for the Purchase Order spe
 |**lineItemNotes**: string | Notes about the line item |
 |**contractNo**: string | Number of the Contract |
 |**contractExpDate**: string *(date-time)* | Expiration date of the Contract |
-|**lastUpdated**: string *(date-time)* | Date when the Purchase Order was last updated |
-|**lastUpdatedBy**: string *(uuid)* | Unique identifier of the user who last updated the Purchase Order |
-|**lastUpdatedByName**: string | Name of the user who last updated the Purchase Order |
+|**lastUpdated**: string *(date-time)* | Date when the Purchase Order item was last updated |
+|**lastUpdatedBy**: string *(uuid)* | Unique identifier of the user who last updated the Purchase Order item |
+|**lastUpdatedByUserName**: string | Name of the user who last updated the Purchase Order item |
 |**dateCreated**: string *(date-time)* | Date when the Purchase Order item was created |
 |**createdBy**: string *(uuid)* | Unique identifier of the user who created the Purchase Order item |
 |**createdByUserName**: string | Name of the user who created the Purchase Order item |

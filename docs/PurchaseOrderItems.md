@@ -6,14 +6,14 @@
 GET /odata/PurchaseOrderItems
 
 ### Description
-Returns a paged list of existing Purchase Order Items within the logged-in organization. 
+Returns a paged list of existing Purchase Order items within the logged-in organization. 
 
 !!! note
 
     You can filter the results as follows:
 
-    - For an exact match, use: ```$filter parameter–entity eq ‘string’```
-    - For a partial match, use: ```$filter=contains parameter–contains(entity, ‘string’)```
+    - For an exact match, use: ```$filter=entity eq 'string'```
+    - For a partial match, use: ```$filter=contains(entity, 'string')```
 
 ### Request parameters
 <style>
@@ -22,7 +22,7 @@ td, th {
 }
 </style>
 
-|  <div style="width:200px">Parameter</div>  |  <div style="width:380px">Explanation</div>  |                      
+| Parameter| Explanation |                      
 |-----:|:-------|
 |**api-version**: string default: 1.0 <br> *in header*| The requested API version.|
 |**$search**: string <br> *in query*  | Searches across all supported fields. |
@@ -33,83 +33,82 @@ td, th {
 |**Authorization**: string default: <br> Bearer access_token <br> *in header* | Specify the type of the token (bearer) and insert the ```access_token``` obtained during authentication. |
 
 ### Responses
-| <div style="width:200px">Response </div>|<div style="width:380px">Explanation</div>|                      
+| Response | Explanation |                      
 |-----:|:-------|
 |**200 OK**| OK | 
 |**400 Bad Request**| The request contains incorrect input data. |         
 |**400 Bad Request** | The limit for the ```$top``` query has been exceeded. The value from the incoming request is 'N' (N is your value from the request). You can find the data on the current limit [here](Options_and_Limitations.md#top-and-skip). |
 |**401 Unauthorized**| The specified ```access_token``` is invalid or has expired. |
-|**403 Forbidden**| The user doesn’t have the appropriate privileges. |
+|**403 Forbidden**| The user doesn't have the appropriate privileges. |
 |**500 Internal Server Error**| The server encountered an unexpected condition that prevented it from fulfilling the request.|
 
 ### Properties
-|<div style="width:200px">Property </div> |<div style="width:380px">Explanation</div>|                      
+| Property | Explanation |                      
 |-----:|:-------|
-|**purchaseOrderItemId**: string *(uuid)* | Unique Identifier of the Purchase Order Item |
-|**purchaseOrderNo**: string | Number of the Purchase Order Item |
-|**sequenceNo**: integer *(int32)* | Number of the Sequence |
-|**purchaseOrderId**: string *(uuid)* | Unique Identifier of the Purchase Order |
-|**facilityId**: string *(uuid)* | Unique Identifier of the Facility |
-|**facilityNo**: string | Identification Number of the Facility |
+|**purchaseOrderItemId**: string *(uuid)* | Unique identifier of the Purchase Order item |
+|**purchaseOrderNo**: string | Number of the Purchase Order |
+|**sequenceNo**: integer *(int32)* | Sequence number |
+|**purchaseOrderId**: string *(uuid)* | Unique identifier of the Purchase Order |
+|**facilityId**: string *(uuid)* | Unique identifier of the Facility |
+|**facilityNo**: string | Identification number of the Facility |
 |**facilityName**: string | Name of the Facility |
-|**lineItemNo**: integer *(int32)* | Number of the Line Item |
-|**locationNo**: string | Identification Number of the Location |
+|**lineItemNo**: integer *(int32)* | Number of the line item |
+|**locationNo**: string | Identification number of the Location |
 |**locationName**: string | Name of the Location |
-|**inventoryLocationId**: string *(uuid)* | Unique Identifier of the Inventory Location |
-|**inventoryVendorId**: string *(uuid)* | Unique Identifier of the Inventory Vendor |
-|**vendorNo**: string | Code of the Supplier who sells products |
+|**inventoryLocationId**: string *(uuid)* | Unique identifier of the Inventory Location |
+|**inventoryVendorId**: string *(uuid)* | Unique identifier of the Inventory Vendor |
+|**vendorNo**: string | Number of the Vendor |
 |**vendorName**: string | Name of the Vendor |
 |**vendorPriority**: integer *(int32)* | Priority of the Vendor |
-|**inventoryNo**: string | Identification code of the Inventory Item |
-|**classificationId**: string *(uuid)* | Unique Identifier of the Inventory Category defined on the Organization level |
-|**classificationName**: string | Name of the Category of the Inventory defined on the Organization level |
-|**classification2Id**: string *(uuid)* | Second Unique Identifier of the Inventory Category defined on the Organization level |
-|**classification2Name**: string | Name of the second Category of the Inventory defined on the Organization level |
-|**inventoryDescription**: string | Description of the Inventory Item |
-|**vendorItemNo**: string | Code that is used by the Vendor for the Item identification |
-|**manufacturerId**: string *(uuid)* | Unique Identifier of the Manufacturer |
+|**inventoryNo**: string | Identification number of the Inventory item |
+|**classificationId**: string *(uuid)* | Unique identifier of the Inventory Category defined at the Organization level |
+|**classificationName**: string | Name of the Inventory Category defined at the Organization level |
+|**classification2Id**: string *(uuid)* | Unique identifier of the second Inventory Category defined at the Organization level |
+|**classification2Name**: string | Name of the second Inventory Category defined at the Organization level |
+|**inventoryDescription**: string | Description of the Inventory item |
+|**vendorItemNo**: string | Item number defined by the Vendor |
+|**manufacturerId**: string *(uuid)* | Unique identifier of the Manufacturer |
 |**manufacturerNo**: string | Number of the Manufacturer |
 |**manufacturerName**: string | Name of the Manufacturer |
-|**manufacturerItemNo**: string | Item Number of the Manufacturer |
-|**orderQuantity**: integer *(int32)* | Quantity specified in the Order |
-|**orderUOM**: string | Unit of Measure specified in the Order |
-|**orderConversionFactor**: integer <br> *(int32)* | Number of Stock Keeping Units in another Unit of Measure specified in the Order |
-|**stockUOM**: string | Unit of Measure to track Inventory Balance |
-|**unitCost**: number *(double)* | Cost of the one unit of Purchase Order Item |
-|**departmentGLCode**: string | General Ledger Code of the Department |
-|**glCode**: string | General Ledger Code |
-|**lineItemTypeId**: integer *(int32)* | Unique Identifier of the Line Item Type |
-|**itemType**: string | Type of the Line Item |
-|**lineItemNotes**: string | Comments about the Line Item |
+|**manufacturerItemNo**: string | Item number defined by the Manufacturer |
+|**orderQuantity**: integer *(int32)* | Quantity specified in the Purchase Order |
+|**orderUOM**: string | Unit of Measure specified in the Purchase Order |
+|**orderConversionFactor**: integer <br> *(int32)* | Conversion factor of the Purchase Order |
+|**stockUOM**: string | Unit of Measure used to track Inventory balance |
+|**unitCost**: number *(double)* | Unit cost of the Purchase Order item |
+|**departmentGLCode**: string | General Ledger code of the Department |
+|**glCode**: string | General Ledger code |
+|**lineItemTypeId**: integer *(int32)* | Unique identifier of the line item type |
+|**itemType**: string | Type of the line item |
+|**lineItemNotes**: string | Notes about the line item |
 |**contractNo**: string | Number of the Contract |
-|**contractExpDate**: string *(date-time)* | Expiration Date of the Contract |
-|**lastUpdated**: string *(date-time)* | Last Date when the Purchase Order Item was updated |
-|**lastUpdatedBy**: string *(uuid)* | Unique Identifier of the last user who updated the Purchase Order Item |
-|**lastUpdatedByUserName**: string | Name of the last user who updated the Purchase Order Item |
-|**dateCreated**: string *(date-time)* | Date when the Purchase Order Item was created |
-|**createdBy**: string *(uuid)* | Unique Identifier of the user who created the Purchase Order Item |
-|**createdByUserName**: string | Name of the user who created the Purchase Order Item |
-|**isTaxable**: boolean | Is Purchase Order Item Taxable or not? |
-|**returnPOItemId**: string *(uuid)* | Unique Identifier of the return Purchase Order Item |
-|**internalNotes**: string | Internal Comments about the Purchase Order Item |
-|**lotNo**: string | Identification Number assigned to a particular Quantity or Lot of material from a single Manufacturer |
-|**serialNo**: string | Unique Identifier assigned incrementally or sequentially to an Item to uniquely identify it |
-|**expirationDate**: string  <br> *(date-time)* | Previously determined date after which Item should no longer be used |
-|**activeStatus**: boolean | Is Purchase Order Item active or not? |
-|**activeStatusLastUpdated**: <br> string *(date-time)* | Last Date when the active Status of the Purchase Order Item was updated |
-|**activeStatusLastUpdatedBy**: <br> string (uuid) | Unique Identifier of the last user who updated the active Status of the Purchase Order Item |
-|**activeStatusLastUpdatedBy<br>UserName**: string | Name of the last user who updated the active Status of the Purchase Order Item |
-|**supplierPartAuxiliaryID**: string | Unique Identifier of the Supplier Part Auxiliary |
-|**submittedUnitCost**: number *(double)* | Cost of the one unit of Item that was submitted for the Purchase Order Item |
-|**departmentId**: string *(uuid)* | Unique Identifier of the Department |
+|**contractExpDate**: string *(date-time)* | Expiration date of the Contract |
+|**lastUpdated**: string *(date-time)* | Date when the Purchase Order item was last updated |
+|**lastUpdatedBy**: string *(uuid)* | Unique identifier of the user who last updated the Purchase Order item |
+|**lastUpdatedByUserName**: string | Name of the user who last updated the Purchase Order item |
+|**dateCreated**: string *(date-time)* | Date when the Purchase Order item was created |
+|**createdBy**: string *(uuid)* | Unique identifier of the user who created the Purchase Order item |
+|**createdByUserName**: string | Name of the user who created the Purchase Order item |
+|**isTaxable**: boolean | Is the Purchase Order item taxable or not? |
+|**returnPOItemId**: string *(uuid)* | Unique identifier of the Return PO item |
+|**internalNotes**: string | Internal notes about the Purchase Order item |
+|**lotNo**: string | Lot number assigned to the item |
+|**serialNo**: string | Serial number assigned to uniquely identify the item |
+|**expirationDate**: string <br> *(date-time)* | Expiration date of the item |
+|**activeStatus**: boolean | Is the Purchase Order item Active or not? |
+|**activeStatusLastUpdated**: string <br> *(date-time)* | Last date when the Active status of the Purchase Order item was updated |
+|**activeStatusLastUpdatedBy**: <br> string *(uuid)* | Unique identifier of the last user who updated the Active status of the Purchase Order item |
+|**activeStatusLastUpdatedBy<br>UserName**: string | Name of the last user who updated the Active status of the Purchase Order item |
+|**supplierPartAuxiliaryID**: string | Unique identifier of the Supplier Part Auxiliary |
+|**submittedUnitCost**: number *(double)* | Unit cost submitted for the Purchase Order item |
+|**departmentId**: string *(uuid)* | Unique identifier of the Department |
 |**departmentNo**: string | Number of the Department |
 |**departmentName**: string | Name of the Department |
-|**poUdfLabels**: string | Purchase Order User Defined Field labels |
-|**consignmentOrder**: boolean | Is the Purchase Order a Consignment Order or not? |
-|**consignmentSerialNo**: string | Consignment Serial Number of the Line Item |
+|**poUdfLabels**: string | User-Defined Field labels for the Purchase Order.  <br> **Note**: See the [poUdfLabels](PurchaseOrders.md#poudflabels) section for more details. |
+|**consignmentOrder**: boolean | Is the Purchase Order a Consignment order or not? |
+|**consignmentSerialNo**: string | Consignment serial number of the line item |
 
-
-``` json title="Response Content-types: APPLICATION/JSON, APPLICATION/XML<br>Response example (200 OK)"
+``` json title="Response example (200 OK)"
 {
     "@odata.context": "link",
     "@odata.count": "number",
@@ -183,26 +182,7 @@ td, th {
 }
 ```
 
-#### poUdfLabels property overview
-
-The ```poUdfLabels``` property defines User Defined Field (UDF) labels on Purchase Orders. This section explains the property details.
-
-The response for the ```poUdfLabels``` property is as follows: <br>
-```"poUdfLabels": "[{\"Name\":\"string1\",\"Value\":\"string2\"}]"``` <br>
- Where: <br>
-
- - ```"string1"``` is the value from the **Label** field under **Organization** > **Org Configuration** > **UDF Setup**. <br>
- - ```"string2"``` is the value from the **UDF** field under **Purchasing** > **Purchase Orders** > **PO Details**. <br>
-    
-If the **UDF** field on the **PO Details** page is empty, the response is: <br>
-```"poUdfLabels": "[{\"Name\":\"string1\",\"Value\": null}]"``` <br>
-
-If the **Purchasing** module is **Inactive** or not added for an organization under **Organization** > **Org Configuration** > **UDF Setup**, the response is: <br>
-```"poUdfLabels": "[]"``` <br>
-
-Filters (```$equals```, ```$contains```, ```$skip```, ```$top```) and logical operators (```in```, ```or```, ```and```) apply only to **UDF** field values.
-
-## Get the specified Purchase Order Item
+## Get the specified Purchase Order Item 
 
 ### Path
 GET /odata/PurchaseOrderItems({purchaseOrderItemId})
@@ -211,14 +191,14 @@ GET /odata/PurchaseOrderItems({purchaseOrderItemId})
 Returns the details of the Purchase Order Item specified by ID.
 
 ### Request parameters
-|  <div style="width:200px">Parameter</div>  |  <div style="width:380px">Explanation</div>  |                      
+| Parameter  | Explanation |                      
 |-----:|:-------|
 |**purchaseOrderItemId**: string *(uuid)*  <br> <span style="color: #F05D30">**required**</span> <br> *in path* | Enter the ID of the Purchase Order Item. |
 |**api-version**: string default: 1.0 <br> *in header*| The requested API version.|   
 |**Authorization**: string default: <br> Bearer access_token <br> *in header* | Specify the type of the token (bearer) and insert the ```access_token``` obtained during authentication. |
 
 ### Responses
-| <div style="width:200px">Response </div>|<div style="width:380px">Explanation</div>|                      
+| Response | Explanation |                      
 |-----:|:-------|
 |**200 OK**| OK | 
 |**400 Bad Request**| The request contains incorrect input data. |         
@@ -228,72 +208,72 @@ Returns the details of the Purchase Order Item specified by ID.
 |**500 Internal Server Error**| The server encountered an unexpected condition that prevented it from fulfilling the request.|
 
 ### Properties
-|<div style="width:200px">Property </div> |<div style="width:380px">Explanation</div>|                      
+| Property | Explanation |                      
 |-----:|:-------|
-|**purchaseOrderItemId**: string *(uuid)* | Unique Identifier of the Purchase Order Item |
-|**purchaseOrderNo**: string | Number of the Purchase Order Item |
-|**sequenceNo**: integer *(int32)* | Number of the Sequence |
-|**purchaseOrderId**: string *(uuid)* | Unique Identifier of the Purchase Order |
-|**facilityId**: string *(uuid)* | Unique Identifier of the Facility |
-|**facilityNo**: string | Identification Number of the Facility |
+|**purchaseOrderItemId**: string *(uuid)* | Unique identifier of the Purchase Order item |
+|**purchaseOrderNo**: string | Number of the Purchase Order |
+|**sequenceNo**: integer *(int32)* | Sequence number |
+|**purchaseOrderId**: string *(uuid)* | Unique identifier of the Purchase Order |
+|**facilityId**: string *(uuid)* | Unique identifier of the Facility |
+|**facilityNo**: string | Identification number of the Facility |
 |**facilityName**: string | Name of the Facility |
-|**lineItemNo**: integer *(int32)* | Number of the Line Item |
-|**locationNo**: string | Identification Number of the Location |
+|**lineItemNo**: integer *(int32)* | Number of the line item |
+|**locationNo**: string | Identification number of the Location |
 |**locationName**: string | Name of the Location |
-|**inventoryLocationId**: string *(uuid)* | Unique Identifier of the Inventory Location |
-|**inventoryVendorId**: string *(uuid)* | Unique Identifier of the Inventory Vendor |
-|**vendorNo**: string | Code of the Supplier who sells products |
+|**inventoryLocationId**: string *(uuid)* | Unique identifier of the Inventory Location |
+|**inventoryVendorId**: string *(uuid)* | Unique identifier of the Inventory Vendor |
+|**vendorNo**: string | Number of the Vendor |
 |**vendorName**: string | Name of the Vendor |
 |**vendorPriority**: integer *(int32)* | Priority of the Vendor |
-|**inventoryNo**: string | Identification code of the Inventory Item |
-|**classificationId**: string *(uuid)* | Unique Identifier of the Inventory Category defined on the Organization level |
-|**classificationName**: string | Name of the Category of the Inventory defined on the Organization level |
-|**classification2Id**: string *(uuid)* | Second Unique Identifier of the Inventory Category defined on the Organization level |
-|**classification2Name**: string | Name of the second Category of the Inventory defined on the Organization level |
-|**inventoryDescription**: string | Description of the Inventory Item |
-|**vendorItemNo**: string | Code that is used by the Vendor for the Item identification |
-|**manufacturerId**: string *(uuid)* | Unique Identifier of the Manufacturer |
+|**inventoryNo**: string | Identification number of the Inventory item |
+|**classificationId**: string *(uuid)* | Unique identifier of the Inventory Category defined at the Organization level |
+|**classificationName**: string | Name of the Inventory Category defined at the Organization level |
+|**classification2Id**: string *(uuid)* | Unique identifier of the second Inventory Category defined at the Organization level |
+|**classification2Name**: string | Name of the second Inventory Category defined at the Organization level |
+|**inventoryDescription**: string | Description of the Inventory item |
+|**vendorItemNo**: string | Item number defined by the Vendor |
+|**manufacturerId**: string *(uuid)* | Unique identifier of the Manufacturer |
 |**manufacturerNo**: string | Number of the Manufacturer |
 |**manufacturerName**: string | Name of the Manufacturer |
-|**manufacturerItemNo**: string | Item Number of the Manufacturer |
-|**orderQuantity**: integer *(int32)* | Quantity specified in the Order |
-|**orderUOM**: string | Unit of Measure specified in the Order |
-|**orderConversionFactor**: integer <br> *(int32)* | Number of Stock Keeping Units in another Unit of Measure specified in the Order |
-|**stockUOM**: string | Unit of Measure to track Inventory Balance |
-|**unitCost**: number *(double)* | Cost of the one unit of Purchase Order Item |
-|**departmentGLCode**: string | General Ledger Code of the Department |
-|**glCode**: string | General Ledger Code |
-|**lineItemTypeId**: integer *(int32)* | Unique Identifier of the Line Item Type |
-|**itemType**: string | Type of the Line Item |
-|**lineItemNotes**: string | Comments about the Line Item |
+|**manufacturerItemNo**: string | Item number defined by the Manufacturer |
+|**orderQuantity**: integer *(int32)* | Quantity specified in the Purchase Order |
+|**orderUOM**: string | Unit of Measure specified in the Purchase Order |
+|**orderConversionFactor**: integer <br> *(int32)* | Conversion factor of the Purchase Order |
+|**stockUOM**: string | Unit of Measure used to track Inventory balance |
+|**unitCost**: number *(double)* | Unit cost of the Purchase Order item |
+|**departmentGLCode**: string | General Ledger code of the Department |
+|**glCode**: string | General Ledger code |
+|**lineItemTypeId**: integer *(int32)* | Unique identifier of the line item type |
+|**itemType**: string | Type of the line item |
+|**lineItemNotes**: string | Notes about the line item |
 |**contractNo**: string | Number of the Contract |
-|**contractExpDate**: string *(date-time)* | Expiration Date of the Contract |
-|**lastUpdated**: string *(date-time)* | Last Date when the Purchase Order Item was updated |
-|**lastUpdatedBy**: string *(uuid)* | Unique Identifier of the last user who updated the Purchase Order Item |
-|**lastUpdatedByUserName**: string | Name of the last user who updated the Purchase Order Item |
-|**dateCreated**: string *(date-time)* | Date when the Purchase Order Item was created |
-|**createdBy**: string *(uuid)* | Unique Identifier of the user who created the Purchase Order Item |
-|**createdByUserName**: string | Name of the user who created the Purchase Order Item |
-|**isTaxable**: boolean | Is Purchase Order Item Taxable or not? |
-|**returnPOItemId**: string *(uuid)* | Unique Identifier of the return Purchase Order Item |
-|**internalNotes**: string | Internal Comments about the Purchase Order Item |
-|**lotNo**: string | Identification Number assigned to a particular Quantity or Lot of material from a single Manufacturer |
-|**serialNo**: string | Unique Identifier assigned incrementally or sequentially to an Item to uniquely identify it |
-|**expirationDate**: string  <br> *(date-time)* | Previously determined date after which Item should no longer be used |
-|**activeStatus**: boolean | Is Purchase Order Item active or not? |
-|**activeStatusLastUpdated**: <br> string *(date-time)* | Last Date when the active Status of the Purchase Order Item was updated |
-|**activeStatusLastUpdatedBy**: <br> string (uuid) | Unique Identifier of the last user who updated the active Status of the Purchase Order Item |
-|**activeStatusLastUpdatedBy<br>UserName**: string | Name of the last user who updated the active Status of the Purchase Order Item |
-|**supplierPartAuxiliaryID**: string | Unique Identifier of the Supplier Part Auxiliary |
-|**submittedUnitCost**: number *(double)* | Cost of the one unit of Item that was submitted for the Purchase Order Item |
-|**departmentId**: string *(uuid)* | Unique Identifier of the Department |
+|**contractExpDate**: string *(date-time)* | Expiration date of the Contract |
+|**lastUpdated**: string *(date-time)* | Date when the Purchase Order item was last updated |
+|**lastUpdatedBy**: string *(uuid)* | Unique identifier of the user who last updated the Purchase Order item |
+|**lastUpdatedByUserName**: string | Name of the user who last updated the Purchase Order item |
+|**dateCreated**: string *(date-time)* | Date when the Purchase Order item was created |
+|**createdBy**: string *(uuid)* | Unique identifier of the user who created the Purchase Order item |
+|**createdByUserName**: string | Name of the user who created the Purchase Order item |
+|**isTaxable**: boolean | Is the Purchase Order item taxable or not? |
+|**returnPOItemId**: string *(uuid)* | Unique identifier of the Return PO item |
+|**internalNotes**: string | Internal notes about the Purchase Order item |
+|**lotNo**: string | Lot number assigned to the item |
+|**serialNo**: string | Serial number assigned to uniquely identify the item |
+|**expirationDate**: string <br> *(date-time)* | Expiration date of the item |
+|**activeStatus**: boolean | Is the Purchase Order item Active or not? |
+|**activeStatusLastUpdated**: string <br> *(date-time)* | Last date when the Active status of the Purchase Order item was updated |
+|**activeStatusLastUpdatedBy**: <br> string *(uuid)* | Unique identifier of the last user who updated the Active status of the Purchase Order item |
+|**activeStatusLastUpdatedBy<br>UserName**: string | Name of the last user who updated the Active status of the Purchase Order item |
+|**supplierPartAuxiliaryID**: string | Unique identifier of the Supplier Part Auxiliary |
+|**submittedUnitCost**: number *(double)* | Unit cost submitted for the Purchase Order item |
+|**departmentId**: string *(uuid)* | Unique identifier of the Department |
 |**departmentNo**: string | Number of the Department |
 |**departmentName**: string | Name of the Department |
-|**poUdfLabels**: string | Purchase Order User Defined Field labels |
-|**consignmentOrder**: boolean | Is the Purchase Order a Consignment Order or not? |
-|**consignmentSerialNo**: string | Consignment Serial Number of the Line Item |
+|**poUdfLabels**: string | User-Defined Field labels for the Purchase Order. <br> **Note**: See the [poUdfLabels](PurchaseOrders.md#poudflabels) section for more details. |
+|**consignmentOrder**: boolean | Is the Purchase Order a Consignment order or not? |
+|**consignmentSerialNo**: string | Consignment serial number of the line item |
 
-``` json title="Response Content-types: APPLICATION/JSON, APPLICATION/XML<br>Response example (200 OK)"
+``` json title="Response example (200 OK)"
 {
     "@odata.context": "link",
     "purchaseOrderItemId": "00000000-0000-0000-0000-000000000000",
@@ -360,11 +340,79 @@ Returns the details of the Purchase Order Item specified by ID.
     "consignmentSerialNo": "string"
 }
 ```
-!!! note
 
-    For more details on ```poUdfLabels``` property, refer to the [poUdfLabels property overview](#poudflabels-property-overview) section.
+## Add new items to an existing Purchase Order in bulk
+
+### Path
+POST /odata/PurchaseOrders({purchaseOrderId})/BulkAddPurchaseOrderItems
+
+### Description
+Adds new items to an existing Purchase Order in bulk within the logged-in organization.
+
+### Request body
+| Parameter | Explanation |                      
+|-----:|:-------|
+|**inventoryNo**: string | Identification number of the Inventory item |
+|**inventoryDescription**: string | Description of the Inventory item |
+|**vendorItemNo**: string | Item number defined by the Vendor |
+|**manufacturerNo**: string | Number of the Manufacturer |
+|**manufacturerItemNo**: string | Item number defined by the Manufacturer |
+|**orderQuantity**: integer *(int32)* | Quantity specified in the Purchase Order |
+|**orderUOM**: string | Unit of Measure specified in the Purchase Order |
+|**orderConversionFactor**: integer <br> *(int32)* | Conversion factor of the Purchase Order |
+|**unitCost**: number *(double)* | Unit cost of the Purchase Order item |
+|**lineItemNotes**: string | Notes about the line item |
+|**internalNotes**: string | Internal notes about the Purchase Order item |
+|**departmentGLCode**: string | General Ledger code of the Department |
+|**glCode**: string | General Ledger code |
+|**isTaxable**: boolean | Is the Purchase Order item taxable or not? |
+|**consignmentSerialNo**: string | Consignment serial number of the line item |
+
+``` json title="Request example"
+{
+  "purchaseOrderItems": [
+    {
+      "inventoryNo": "string",
+      "inventoryDescription": "string",
+      "vendorItemNo": "string",
+      "manufacturerNo": "string",
+      "manufacturerItemNo": "string",
+      "orderQuantity": "integer (int32)",
+      "orderUOM": "string",
+      "orderConversionFactor": "integer (int32)",
+      "unitCost": "number (double)",
+      "lineItemNotes": "string",
+      "internalNotes": "string",
+      "departmentGLCode": "string",
+      "glCode": "string",
+      "isTaxable": "boolean",
+      "consignmentSerialNo": "string"
+    }
+  ]
+}
+```  
+
+### Request parameters
+| Parameter | Explanation |                      
+|-----:|:-------|
+|**api-version**: string default: 1.0 <br> *in header*| The requested API version.|   
+|**Authorization**: string default: <br> Bearer access_token <br> *in header* | Specify the type of the token (bearer) and insert the ```access_token``` obtained during authentication. |
+
+### Responses
+| Response | Explanation |                      
+|-----:|:-------|
+|**200 OK**| OK | 
+|**400 Bad Request**| The request contains incorrect input data. |         
+|**401 Unauthorized**| The specified ```access_token``` is invalid or has expired. |
+|**403 Forbidden**| The user doesn't have the appropriate privileges. |
+|**500 Internal Server Error**| The server encountered an unexpected condition that prevented it from fulfilling the request.|
 
 
-
-
-
+``` json title="Response example"
+{
+  "value": [
+    "00000000-0000-0000-0000-000000000001",
+    "00000000-0000-0000-0000-000000000002"
+  ]
+}
+```

@@ -14,6 +14,10 @@ Stay up to date with the latest API features, improvements, and articles.
 
 [Subscribe to our newsletter](https://news.envi.net/Signup/dev-news){ .md-button .md-button--primary }
 
+**v. 6.7.8**
+
+A new [Purchase Order Item](PurchaseOrderItems.md#add-new-items-to-an-existing-purchase-order-in-bulk) endpoint is now available to add items to an existing Purchase Order in bulk within the logged-in organization.
+
 **v. 6.7.7**
 
 A new [Vendor](Vendors.md#create-a-new-vendor) endpoint has been added to create a new Vendor within the logged-in organization.
