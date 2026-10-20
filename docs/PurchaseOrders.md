@@ -55,7 +55,7 @@ td, th {
 |**locationId**: string *(uuid)* | Unique identifier of the Location |
 |**locationNo**: string | Identification number of the Location |
 |**locationName**: string | Name of the Location |
-|**poTypeId**: integer *(int32)* | Unique identifier of the Purchase Order type |
+|**poTypeId**: byte | Unique identifier of the Purchase Order type |
 |**poType**: string | Type of the Purchase Order |
 |**buyerId**: string *(uuid)* | Unique identifier of the Buyer |
 |**buyerUserName**: string | Name of the Buyer |
@@ -150,7 +150,7 @@ td, th {
             "locationId": "00000000-0000-0000-0000-000000000000",
             "locationNo": "string",
             "locationName": "string",
-            "poTypeId": "integer (int32)",
+            "poTypeId": "byte",
             "poType": "string",
             "buyerId": "00000000-0000-0000-0000-000000000000",
             "buyerUserName": "string",
@@ -293,7 +293,7 @@ Returns the details of the Purchase Order specified by ID.
 |**locationId**: string *(uuid)* | Unique identifier of the Location |
 |**locationNo**: string | Identification number of the Location |
 |**locationName**: string | Name of the Location |
-|**poTypeId**: integer *(int32)* | Unique identifier of the Purchase Order type |
+|**poTypeId**: byte | Unique identifier of the Purchase Order type |
 |**poType**: string | Type of the Purchase Order |
 |**buyerId**: string *(uuid)* | Unique identifier of the Buyer |
 |**buyerUserName**: string | Name of the Buyer |
@@ -385,7 +385,7 @@ Returns the details of the Purchase Order specified by ID.
     "locationId": "00000000-0000-0000-0000-000000000000",
     "locationNo": "string",
     "locationName": "string",
-    "poTypeId": "integer (int32)",
+    "poTypeId": "byte",
     "poType": "string",
     "buyerId": "00000000-0000-0000-0000-000000000000",
     "buyerUserName": "string",

@@ -357,16 +357,17 @@ Adds new items to an existing Purchase Order in bulk within the logged-in organi
 |**vendorItemNo**: string | Item number defined by the Vendor |
 |**manufacturerNo**: string | Number of the Manufacturer |
 |**manufacturerItemNo**: string | Item number defined by the Manufacturer |
-|**orderQuantity**: integer *(int32)* | Quantity specified in the Purchase Order |
-|**orderUOM**: string | Unit of Measure specified in the Purchase Order |
-|**orderConversionFactor**: integer <br> *(int32)* | Conversion factor of the Purchase Order |
-|**unitCost**: number *(double)* | Unit cost of the Purchase Order item |
+|**orderQuantity**: integer *(int32)* <br> <span style="color: #F05D30">**required**</span> | Quantity specified in the Purchase Order |
+|**orderUOM**: string <span style="color: #F05D30">**required**</span>  | Unit of Measure specified in the Purchase Order |
+|**orderConversionFactor**: integer <br> *(int32)* <span style="color: #F05D30">**required**</span> | Conversion factor of the Purchase Order |
+|**unitCost**: number *(double)* | Unit cost of the Purchase Order item. <br> **Note**: This field is required only for Free-Form items. |
 |**lineItemNotes**: string | Notes about the line item |
 |**internalNotes**: string | Internal notes about the Purchase Order item |
-|**departmentGLCode**: string | General Ledger code of the Department |
-|**glCode**: string | General Ledger code |
+|**departmentGLCode**: string | General Ledger code of the Department. <br> **Note**: This field is required if the PO Facility requires a Department GL Code on Purchase Orders. |
+|**glCode**: string | General Ledger code. <br> **Note**: This field is required if the PO Facility requires a GL Code on Purchase Orders. |
 |**isTaxable**: boolean | Is the Purchase Order item taxable or not? |
-|**consignmentSerialNo**: string | Consignment serial number of the line item |
+|**consignmentSerialNo**: string | Consignment serial number of the line item. <br> **Note**: This field is supported only when permitted by the PO and Vendor consignment configuration.|
+
 
 ``` json title="Request example"
 {

@@ -91,7 +91,7 @@ Creates a new Manufacturer within the logged-in organization.
 
 | <div style="width:200px">Parameter</div>|<div style="width:420px">Explanation</div>|                      
 |-----:|:-------|
-|**manufacturerNo**: string  | Number of the Manufacturer. <br> **Note**: If **Auto ID** is configured for a Manufacturer, ```manufacturerNo``` is optional. |
+|**manufacturerNo**: string <br> <span style="color: #F05D30">**required**</span> | Number of the Manufacturer. <br> **Note**: If **Auto ID** is configured for a Manufacturer, ```manufacturerNo``` is optional. |
 |**manufacturerName**: string <br> <span style="color: #F05D30">**required**</span> | Name of the Manufacturer |
 |**externalMfgNo**: string | External Manufacturer Number. <br> **Note**: A request with ```externalMfgNo``` can be sent only by System users. |
 
