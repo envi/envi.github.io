@@ -52,7 +52,7 @@ td, th {
 |**facilityId**: string *(uuid)* | Unique identifier of the Facility |
 |**facilityNo**: string | Identification number of the Facility |
 |**facilityName**: string | Name of the Facility |
-|**lineItemNo**: integer *(int32)* | Number of the line item |
+|**lineItemNo**: integer *(int32)* | Line number of the Purchase Order item |
 |**locationNo**: string | Identification number of the Location |
 |**locationName**: string | Name of the Location |
 |**inventoryLocationId**: string *(uuid)* | Unique identifier of the Inventory Location |
@@ -71,16 +71,16 @@ td, th {
 |**manufacturerNo**: string | Number of the Manufacturer |
 |**manufacturerName**: string | Name of the Manufacturer |
 |**manufacturerItemNo**: string | Item number defined by the Manufacturer |
-|**orderQuantity**: integer *(int32)* | Quantity specified in the Purchase Order |
-|**orderUOM**: string | Unit of Measure specified in the Purchase Order |
-|**orderConversionFactor**: integer <br> *(int32)* | Conversion factor of the Purchase Order |
+|**orderQuantity**: integer *(int32)* | Ordered quantity of the Purchase Order item |
+|**orderUOM**: string | Unit of Measure of the Purchase Order item |
+|**orderConversionFactor**: integer <br> *(int32)* | Conversion factor of the Purchase Order item |
 |**stockUOM**: string | Unit of Measure used to track Inventory balance |
 |**unitCost**: number *(double)* | Unit cost of the Purchase Order item |
 |**departmentGLCode**: string | General Ledger code of the Department |
 |**glCode**: string | General Ledger code |
-|**lineItemTypeId**: integer *(int32)* | Unique identifier of the line item type |
-|**itemType**: string | Type of the line item |
-|**lineItemNotes**: string | Notes about the line item |
+|**lineItemTypeId**: integer *(int32)* | Unique identifier of the Purchase Order item type |
+|**itemType**: string | Type of the Purchase Order item |
+|**lineItemNotes**: string | Notes about the Purchase Order item |
 |**contractNo**: string | Number of the Contract |
 |**contractExpDate**: string *(date-time)* | Expiration date of the Contract |
 |**lastUpdated**: string *(date-time)* | Date when the Purchase Order item was last updated |
@@ -97,8 +97,8 @@ td, th {
 |**expirationDate**: string <br> *(date-time)* | Expiration date of the item |
 |**activeStatus**: boolean | Is the Purchase Order item Active or not? |
 |**activeStatusLastUpdated**: string <br> *(date-time)* | Last date when the Active status of the Purchase Order item was updated |
-|**activeStatusLastUpdatedBy**: <br> string *(uuid)* | Unique identifier of the last user who updated the Active status of the Purchase Order item |
-|**activeStatusLastUpdatedBy<br>UserName**: string | Name of the last user who updated the Active status of the Purchase Order item |
+|**activeStatusLastUpdatedBy**: <br> string *(uuid)* | Unique identifier of the user who last updated the Active status of the Purchase Order item |
+|**activeStatusLastUpdatedBy<br>UserName**: string | Name of the user who last updated the Active status of the Purchase Order item |
 |**supplierPartAuxiliaryID**: string | Unique identifier of the Supplier Part Auxiliary |
 |**submittedUnitCost**: number *(double)* | Unit cost submitted for the Purchase Order item |
 |**departmentId**: string *(uuid)* | Unique identifier of the Department |
@@ -106,7 +106,7 @@ td, th {
 |**departmentName**: string | Name of the Department |
 |**poUdfLabels**: string | User-Defined Field labels for the Purchase Order.  <br> **Note**: See the [poUdfLabels](PurchaseOrders.md#poudflabels) section for more details. |
 |**consignmentOrder**: boolean | Is the Purchase Order a Consignment order or not? |
-|**consignmentSerialNo**: string | Consignment serial number of the line item |
+|**consignmentSerialNo**: string | Consignment serial number of the Purchase Order item |
 
 ``` json title="Response example (200 OK)"
 {
@@ -182,18 +182,18 @@ td, th {
 }
 ```
 
-## Get the specified Purchase Order Item 
+## Get the specified Purchase Order item
 
 ### Path
 GET /odata/PurchaseOrderItems({purchaseOrderItemId})
 
 ### Description
-Returns the details of the Purchase Order Item specified by ID.
+Returns the details of the Purchase Order item specified by ID.
 
 ### Request parameters
 | Parameter  | Explanation |                      
 |-----:|:-------|
-|**purchaseOrderItemId**: string *(uuid)*  <br> <span style="color: #F05D30">**required**</span> <br> *in path* | Enter the ID of the Purchase Order Item. |
+|**purchaseOrderItemId**: string *(uuid)*  <br> <span style="color: #F05D30">**required**</span> <br> *in path* | Enter the ID of the Purchase Order item. |
 |**api-version**: string default: 1.0 <br> *in header*| The requested API version.|   
 |**Authorization**: string default: <br> Bearer access_token <br> *in header* | Specify the type of the token (bearer) and insert the ```access_token``` obtained during authentication. |
 
@@ -217,7 +217,7 @@ Returns the details of the Purchase Order Item specified by ID.
 |**facilityId**: string *(uuid)* | Unique identifier of the Facility |
 |**facilityNo**: string | Identification number of the Facility |
 |**facilityName**: string | Name of the Facility |
-|**lineItemNo**: integer *(int32)* | Number of the line item |
+|**lineItemNo**: integer *(int32)* | Line number of the Purchase Order item |
 |**locationNo**: string | Identification number of the Location |
 |**locationName**: string | Name of the Location |
 |**inventoryLocationId**: string *(uuid)* | Unique identifier of the Inventory Location |
@@ -236,16 +236,16 @@ Returns the details of the Purchase Order Item specified by ID.
 |**manufacturerNo**: string | Number of the Manufacturer |
 |**manufacturerName**: string | Name of the Manufacturer |
 |**manufacturerItemNo**: string | Item number defined by the Manufacturer |
-|**orderQuantity**: integer *(int32)* | Quantity specified in the Purchase Order |
-|**orderUOM**: string | Unit of Measure specified in the Purchase Order |
-|**orderConversionFactor**: integer <br> *(int32)* | Conversion factor of the Purchase Order |
+|**orderQuantity**: integer *(int32)* | Ordered quantity of the Purchase Order item |
+|**orderUOM**: string | Unit of Measure of the Purchase Order item |
+|**orderConversionFactor**: integer <br> *(int32)* | Conversion factor of the Purchase Order item |
 |**stockUOM**: string | Unit of Measure used to track Inventory balance |
 |**unitCost**: number *(double)* | Unit cost of the Purchase Order item |
 |**departmentGLCode**: string | General Ledger code of the Department |
 |**glCode**: string | General Ledger code |
-|**lineItemTypeId**: integer *(int32)* | Unique identifier of the line item type |
-|**itemType**: string | Type of the line item |
-|**lineItemNotes**: string | Notes about the line item |
+|**lineItemTypeId**: integer *(int32)* | Unique identifier of the Purchase Order item type |
+|**itemType**: string | Type of the Purchase Order item |
+|**lineItemNotes**: string | Notes about the Purchase Order item |
 |**contractNo**: string | Number of the Contract |
 |**contractExpDate**: string *(date-time)* | Expiration date of the Contract |
 |**lastUpdated**: string *(date-time)* | Date when the Purchase Order item was last updated |
@@ -271,7 +271,7 @@ Returns the details of the Purchase Order Item specified by ID.
 |**departmentName**: string | Name of the Department |
 |**poUdfLabels**: string | User-Defined Field labels for the Purchase Order. <br> **Note**: See the [poUdfLabels](PurchaseOrders.md#poudflabels) section for more details. |
 |**consignmentOrder**: boolean | Is the Purchase Order a Consignment order or not? |
-|**consignmentSerialNo**: string | Consignment serial number of the line item |
+|**consignmentSerialNo**: string | Consignment serial number of the Purchase Order item |
 
 ``` json title="Response example (200 OK)"
 {
@@ -358,15 +358,15 @@ Adds new items to an existing Purchase Order in bulk within the logged-in organi
 |**manufacturerNo**: string | Number of the Manufacturer |
 |**manufacturerItemNo**: string | Item number defined by the Manufacturer |
 |**orderQuantity**: integer *(int32)* <br> <span style="color: #F05D30">**required**</span> | Quantity specified in the Purchase Order |
-|**orderUOM**: string <span style="color: #F05D30">**required**</span>  | Unit of Measure specified in the Purchase Order |
-|**orderConversionFactor**: integer <br> *(int32)* <span style="color: #F05D30">**required**</span> | Conversion factor of the Purchase Order |
+|**orderUOM**: string <span style="color: #F05D30">**required**</span>  | Unit of Measure of the Purchase Order item |
+|**orderConversionFactor**: integer <br> *(int32)* <span style="color: #F05D30">**required**</span> | Conversion factor of the Purchase Order item |
 |**unitCost**: number *(double)* | Unit cost of the Purchase Order item. <br> **Note**: This field is required only for Free-Form items. |
 |**lineItemNotes**: string | Notes about the line item |
 |**internalNotes**: string | Internal notes about the Purchase Order item |
 |**departmentGLCode**: string | General Ledger code of the Department. <br> **Note**: This field is required if the PO Facility requires a Department GL Code on Purchase Orders. |
 |**glCode**: string | General Ledger code. <br> **Note**: This field is required if the PO Facility requires a GL Code on Purchase Orders. |
 |**isTaxable**: boolean | Is the Purchase Order item taxable or not? |
-|**consignmentSerialNo**: string | Consignment serial number of the line item. <br> **Note**: This field is supported only when permitted by the PO and Vendor consignment configuration.|
+|**consignmentSerialNo**: string | Consignment serial number of the line item. <br> **Note**: This field is supported only when permitted by the PO and Vendor consignment configuration. |
 
 
 ``` json title="Request example"
@@ -417,3 +417,98 @@ Adds new items to an existing Purchase Order in bulk within the logged-in organi
   ]
 }
 ```
+
+## Partially update the specified Purchase Order item
+
+### Path
+PATCH /odata/PurchaseOrderItems({purchaseOrderItemId})
+
+### Description
+Partially updates a Purchase Order item specified by ID.
+
+### Request body
+
+For **Stock**, **Non-Stock**, **Consignment**, **Service**, and **Capital** items:
+
+| Parameter | Explanation |                      
+|-----:|:-------|
+|**activeStatus**: boolean | Is the Purchase Order item Active or not? |
+|**departmentGLCode**: string | General Ledger code of the Department. <br> **Note**: This field is required if the PO Facility requires a Department GL Code on Purchase Orders. |
+|**glCode**: string | General Ledger code. <br> **Note**: This field is required if the PO Facility requires a GL Code on Purchase Orders. |
+|**orderQuantity**: integer *(int32)* <br> <span style="color: #F05D30">**required**</span> | Ordered quantity of the Purchase Order item |
+|**unitCost**: number *(double)* <br> <span style="color: #F05D30">**required**</span> | Unit cost of the Purchase Order item |
+|**lineItemNotes**: string | Notes about the Purchase Order item |
+|**internalNotes**: string | Internal notes about the Purchase Order item |
+|**consignmentSerialNo**: string | Consignment serial number of the Purchase Order item. <br> **Note**: This field is supported only when permitted by the PO and Vendor consignment configuration. |
+
+``` json title="Request example"
+{
+    "activeStatus": "boolean",
+    "departmentGLCode": "string",
+    "glCode": "string",
+    "orderQuantity": "integer (int32)",
+    "unitCost": "number (double)",
+    "lineItemNotes": "string",
+    "internalNotes": "string",
+    "consignmentSerialNo": "string"
+}
+```
+
+For **Free-Form** items:
+
+| Parameter | Explanation |                      
+|-----:|:-------|
+|**inventoryNo**: string | Identification number of the Inventory item |
+|**vendorItemNo**: string | Item number defined by the Vendor |
+|**inventoryDescription**: string | Description of the Inventory item |
+|**manufacturerNo**: string | Number of the Manufacturer |
+|**manufacturerItemNo**: string | Item number defined by the Manufacturer |
+|**orderUOM**: string <br> <span style="color: #F05D30">**required**</span> | Unit of Measure of the Purchase Order item  |
+|**orderConversionFactor**: integer <br> *(int32)* <br> <span style="color: #F05D30">**required**</span> | Conversion factor of the Purchase Order item |
+|**isTaxable**: boolean | Is the Purchase Order item taxable or not? |
+|**activeStatus**: boolean | Is the Purchase Order item Active or not? |
+|**departmentGLCode**: string | General Ledger code of the Department. <br> **Note**: This field is required if the PO Facility requires a Department GL Code on Purchase Orders. |
+|**glCode**: string | General Ledger code. <br> **Note**: This field is required if the PO Facility requires a GL Code on Purchase Orders. |
+|**orderQuantity**: integer *(int32)* <br> <span style="color: #F05D30">**required**</span> | Ordered quantity of the Purchase Order item |
+|**unitCost**: number *(double)* <br> <span style="color: #F05D30">**required**</span> | Unit cost of the Purchase Order item |
+|**lineItemNotes**: string | Notes about the Purchase Order item |
+|**internalNotes**: string | Internal notes about the Purchase Order item |
+|**consignmentSerialNo**: string | Consignment serial number of the Purchase Order item. <br> **Note**: This field is supported only when permitted by the PO and Vendor consignment configuration. |
+
+``` json title="Request example"
+{
+    "inventoryNo": "string",
+    "vendorItemNo": "string",
+    "inventoryDescription": "string",
+    "manufacturerNo": "string",
+    "manufacturerItemNo": "string",
+    "orderUOM": "string",
+    "orderConversionFactor": "integer (int32)",
+    "isTaxable": "boolean",
+    "activeStatus": "boolean",
+    "departmentGLCode": "string",
+    "glCode": "string",
+    "orderQuantity": "integer (int32)",
+    "unitCost": "number (double)",
+    "lineItemNotes": "string",
+    "internalNotes": "string",
+    "consignmentSerialNo": "string"
+}
+```
+
+### Request parameters
+| Parameter | Explanation |                       
+|-----:|:-------|
+|**purchaseOrderItemId**: string *(uuid)* <br> <span style="color: #F05D30">**required**</span> <br> *in path* | Enter the ID of the Purchase Order item. |
+|**api-version**: string default: 1.0 <br> *in header*| The requested API version.|      
+|**Authorization**: string default: <br> Bearer access_token <br> *in header* | Specify the type of the token (bearer) and insert the ```access_token``` obtained during authentication. |
+
+### Responses
+| Response | Explanation |                      
+|-----:|:-------|
+|**200 OK**| OK |
+|**400 Bad Request**| The request contains incorrect input data. |      
+|**401 Unauthorized**| The specified ```access_token``` is invalid or has expired. |
+|**403 Forbidden**| The user doesn't have the appropriate privileges. |
+|**500 Internal Server Error**| The server encountered an unexpected condition that prevented it from fulfilling the request.|
+

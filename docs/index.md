@@ -14,6 +14,11 @@ Stay up to date with the latest API features, improvements, and articles.
 
 [Subscribe to our newsletter](https://news.envi.net/Signup/dev-news){ .md-button .md-button--primary }
 
+**v. 6.7.9**
+
+A new [Purchase Order Item](PurchaseOrderItems.md#partially-update-the-specified-purchase-order-item) endpoint is now available to partially update a Purchase Order item specified by ID.
+
+
 **v. 6.7.8**
 
 A new [Purchase Order Item](PurchaseOrderItems.md#add-new-items-to-an-existing-purchase-order-in-bulk) endpoint is now available to add items to an existing Purchase Order in bulk within the logged-in organization.
